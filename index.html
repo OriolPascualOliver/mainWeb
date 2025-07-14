@@ -1,0 +1,163 @@
+/* -- TODO: about us page -- */
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OPOTek</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ———— Reset & basics ———— */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Inter",sans-serif;line-height:1.6;color:#1b1f23;background:#fff}
+img{max-width:100%;display:block}
+
+/* ———— Layout helpers ———— */
+.container{width:min(90%,1200px);margin-inline:auto;padding-block:4rem}
+.section-title{font-size:2rem;font-weight:700;margin-bottom:1.5rem;color:#003365;text-align:center}
+
+/* ———— Header ———— */
+header{background:#003365;color:#fff;position:sticky;top:0;z-index:10}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
+nav ul{display:flex;gap:1.5rem;list-style:none}
+nav a{color:#fff;text-decoration:none;font-weight:600}
+nav a:hover{opacity:.8}
+.hero{display:grid;place-items:center;padding:4rem 0;text-align:center}
+.hero h1{font-size:2.5rem;font-weight:700;margin-bottom:1rem}
+.btn-primary{background:#f7b500;color:#1b1f23;border:none;padding:.75rem 2rem;font-weight:600;border-radius:.4rem;cursor:pointer}
+.btn-primary:hover{filter:brightness(1.1)}
+
+/* ———— Services ———— */
+.services{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.service-card{background:#f5f7fa;border-radius:.6rem;padding:2rem;text-align:center;transition:transform .2s}
+.service-card:hover{transform:translateY(-6px)}
+.service-card h3{margin-bottom:.5rem;color:#003365}
+
+/* ———— Portfolio ———— */
+.portfolio-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.portfolio-item{position:relative;cursor:pointer}
+.portfolio-item::after{content:"View →";position:absolute;inset:0;background:rgba(0,0,0,.45);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;opacity:0;transition:opacity .2s}
+.portfolio-item:hover::after{opacity:1}
+
+/* ———— Why Choose ———— */
+.stats{display:flex;flex-wrap:wrap;gap:2rem;justify-content:center}
+.stat-box{text-align:center;min-width:120px}
+.stat-num{font-size:2rem;font-weight:700;color:#004c97}
+
+/* ———— Contact ———— */
+.contact-wrapper{display:grid;gap:2.5rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+form{display:grid;gap:1rem}
+input,textarea{padding:.75rem;border:1px solid #ccc;border-radius:.4rem;font:inherit}
+textarea{resize:vertical;min-height:140px}
+form button{justify-self:start}
+
+/* ———— Footer ———— */
+footer{background:#f5f7fa;padding:2rem 0;text-align:center;font-size:.9rem;color:#666}
+</style>
+</head>
+
+<body>
+<!-- =========== HEADER =========== -->
+<header>
+  <div class="container">
+    <nav>
+      <strong>OPOTek</strong>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#abautus">About Us</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <div>
+        <h1>Electronic Engineering, embedded consultncy and instalations</h1>
+        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+          Get a Quote
+        </button>
+      </div>
+    </section>
+  </div>
+</header>
+
+<!-- =========== SERVICES =========== -->
+<section id="services" class="container">
+  <h2 class="section-title">Our Services</h2>
+  <div class="services">
+    <div class="service-card">
+      <h3>Engineering Consulting</h3>
+      <p>Feasibility studies, design reviews, and technical advisory.</p>
+    </div>
+    <div class="service-card">
+      <h3>General Installations</h3>
+      <p>End-to-end management for mechanical, electrical & plumbing installs.</p>
+    </div>
+    <div class="service-card">
+      <h3>Project Management</h3>
+      <p>Scheduling, budgeting, and on-site coordination to hit every milestone.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =========== PORTFOLIO =========== -->
+<section id="portfolio" class="container">
+  <h2 class="section-title">Recent Projects</h2>
+  <div class="portfolio-grid">
+    <!-- Replace placeholders with real imgs -->
+    <div class="portfolio-item"><img src="https://via.placeholder.com/400x260?text=Project+1" alt="Project 1"/></div>
+    <div class="portfolio-item"><img src="https://via.placeholder.com/400x260?text=Project+2" alt="Project 2"/></div>
+    <div class="portfolio-item"><img src="https://via.placeholder.com/400x260?text=Project+3" alt="Project 3"/></div>
+    <div class="portfolio-item"><img src="https://via.placeholder.com/400x260?text=Project+4" alt="Project 4"/></div>
+  </div>
+</section>
+
+<!-- =========== WHY CHOOSE US =========== -->
+<section class="container">
+  <h2 class="section-title">Why Choose OPOTek</h2>
+  <div class="stats">
+    <div class="stat-box"><div class="stat-num">15+</div><p>Years in business</p></div>
+    <div class="stat-box"><div class="stat-num">120</div><p>Projects delivered</p></div>
+    <div class="stat-box"><div class="stat-num">98%</div><p>On-time rate</p></div>
+  </div>
+</section>
+
+<!-- =========== CONTACT =========== -->
+<section id="contact" class="container">
+  <h2 class="section-title">Get in Touch</h2>
+  <div class="contact-wrapper">
+    <form action="https://formspree.io/f/your-id" method="POST">
+      <input type="text" name="name" placeholder="Name" required />
+      <input type="email" name="_replyto" placeholder="Email" required />
+      <textarea name="message" placeholder="Tell us about your project…" required></textarea>
+      <button type="submit" class="btn-primary">Send Message</button>
+    </form>
+
+    <div>
+      <h3>Contact Details</h3>
+      <p><strong>Email:</strong> contact@opotek.com</p>
+      <p><strong>Phone:</strong> +1 234 567 890</p>
+      <p><strong>Address:</strong> 123 Industrial Ave, Tech City</p>
+      <p>
+        <a href="#" aria-label="LinkedIn">LinkedIn</a> |
+        <a href="#" aria-label="X / Twitter">X</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- =========== FOOTER =========== -->
+<footer>
+  <p>&copy; <span id="year"></span> OPOTek. All rights reserved.</p>
+</footer>
+
+<script>
+// auto update year
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
