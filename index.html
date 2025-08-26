@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>OPOTek</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
 <style>
@@ -35,11 +34,11 @@ nav a:hover{opacity:.8}
 .service-card:hover{transform:translateY(-6px)}
 .service-card h3{margin-bottom:.5rem;color:#003365}
 
-/* ———— Portfolio ———— */
-.portfolio-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
-.portfolio-item{position:relative;cursor:pointer}
-.portfolio-item::after{content:"View →";position:absolute;inset:0;background:rgba(0,0,0,.45);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;opacity:0;transition:opacity .2s}
-.portfolio-item:hover::after{opacity:1}
+/* ———— Projects ———— */
+.projects{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.project-card{background:#f5f7fa;border-radius:.6rem;padding:2rem;text-align:center;transition:transform .2s;text-decoration:none;color:inherit}
+.project-card:hover{transform:translateY(-6px)}
+.project-card h3{margin-bottom:.5rem;color:#003365}
 
 /* ———— Why Choose ———— */
 .stats{display:flex;flex-wrap:wrap;gap:2rem;justify-content:center}
@@ -57,27 +56,26 @@ form button{justify-self:start}
 footer{background:#f5f7fa;padding:2rem 0;text-align:center;font-size:.9rem;color:#666}
 </style>
 </head>
-
 <body>
 <!-- =========== HEADER =========== -->
 <header>
   <div class="container">
     <nav>
       <strong>OPOTek</strong>
-      <img src="img/LOGO_SVG.svg" alt="OPOTek logo." style="height:80px; width:auto; vertical-align:left; margin-right:1rem;" />
+      <img src="img/LOGO_SVG.svg" alt="OPOTek logo" style="height:80px; width:auto; vertical-align:left; margin-right:1rem;" />
       <ul>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#abautus">About Us</a></li>
+        <li><a href="#services">Servicios</a></li>
+        <li><a href="#portfolio">Proyectos</a></li>
+        <li><a href="#contact">Contacto</a></li>
+        <li><a href="#aboutus">Sobre nosotros</a></li>
       </ul>
     </nav>
 
     <section class="hero">
       <div>
-        <h1>End-to-End Electronic Engineering and Embedded Solutions</h1>
+        <h1>Ingeniería electrónica y soluciones embebidas de principio a fin</h1>
         <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-          Get a Quote
+          Pide presupuesto
         </button>
       </div>
     </section>
@@ -86,71 +84,73 @@ footer{background:#f5f7fa;padding:2rem 0;text-align:center;font-size:.9rem;color
 
 <!-- =========== SERVICES =========== -->
 <section id="services" class="container">
-  <h2 class="section-title">Our Services</h2>
-
+  <h2 class="section-title">Servicios</h2>
   <div class="services">
-
     <div class="service-card">
-      <h3>Engineering Consulting</h3>
-      <p>Feasibility studies, design reviews, and on-demand technical advisory to de-risk your project before it starts.</p>
+      <h3>Desarrollo de hardware</h3>
+      <p>Especialización en IoT y electrónica de potencia para sectores industrial, doméstico y médico/investigación.</p>
     </div>
-
     <div class="service-card">
-      <h3>Industrial & Domestic Installations</h3>
-      <p>End-to-end management of electrical installs—from planning and permitting to final hand-over.</p>
+      <h3>Software y firmware embebido</h3>
+      <p>Desarrollo de aplicaciones y firmware a medida para sacar el máximo partido al hardware.</p>
     </div>
-
     <div class="service-card">
-      <h3>Electronic Engineering</h3>
-      <p>Turnkey solutions: we transform ideas into production-ready PCBs, complete with firmware and documentation.</p>
+      <h3>Instalaciones eléctricas</h3>
+      <p>Proyectos y ejecución de instalaciones eléctricas industriales y residenciales.</p>
     </div>
   </div>
 </section>
 
-
-<!-- =========== PORTFOLIO =========== -->
+<!-- =========== PROJECTS =========== -->
 <section id="portfolio" class="container">
-  <h2 class="section-title">Recent Projects</h2>
-  <div class="portfolio-grid">
-    <!-- Replace placeholders with real imgs -->
-    <div class="portfolio-item"><img src="https://via.placeholder.com/400x260?text=Project+1" alt="Project 1"/></div>
-    <div class="portfolio-item"><img src="https://via.placeholder.com/400x260?text=Project+2" alt="Project 2"/></div>
-    <div class="portfolio-item"><img src="https://via.placeholder.com/400x260?text=Project+3" alt="Project 3"/></div>
-    <div class="portfolio-item"><img src="https://via.placeholder.com/400x260?text=Project+4" alt="Project 4"/></div>
+  <h2 class="section-title">Proyectos</h2>
+  <div class="projects">
+    <a class="project-card" href="https://fixhub.opotek.es" target="_blank">
+      <h3>FixHub</h3>
+      <p>Sistema de gestión integrado para profesionales que reduce la burocracia y aumenta la productividad.</p>
+    </a>
+    <a class="project-card" href="https://fermarhs.opotek.es" target="_blank">
+      <h3>Fermaths</h3>
+      <p>Juego para enseñar mates bien.</p>
+    </a>
+    <a class="project-card" href="https://seasee.opotek.es" target="_blank">
+      <h3>SeaSee</h3>
+      <p>Proyecto de batimetrías autónomas.</p>
+    </a>
   </div>
 </section>
 
 <!-- =========== WHY CHOOSE US =========== -->
 <section class="container">
-  <h2 class="section-title">Why Choose OPOTek</h2>
+  <h2 class="section-title">Por qué elegir OPOTek</h2>
   <div class="stats">
-    <div class="stat-box"><div class="stat-num">15+</div><p>Years in business</p></div>
-    <div class="stat-box"><div class="stat-num">120</div><p>Projects delivered</p></div>
-    <div class="stat-box"><div class="stat-num">98%</div><p>On-time rate</p></div>
+    <div class="stat-box"><div class="stat-num">15+</div><p>Años en el sector</p></div>
+    <div class="stat-box"><div class="stat-num">120</div><p>Proyectos entregados</p></div>
+    <div class="stat-box"><div class="stat-num">98%</div><p>Tasa de puntualidad</p></div>
   </div>
 </section>
 
 <!-- =========== ABOUT US =========== -->
-<section id="abautus" class="container">
-  <h2 class="section-title">About Us</h2>
-  <p>OPOTek is a leading provider of electronic engineering and embedded solutions, specializing in both industrial and domestic installations. With over 5 years of experience, we pride ourselves on delivering high-quality, reliable services that meet the unique needs of our clients.</p>
-  <p>Our team of experts is dedicated to innovation and excellence, ensuring that every project is completed to the highest standards.</p>
-  </section>
+<section id="aboutus" class="container">
+  <h2 class="section-title">Sobre nosotros</h2>
+  <p>OPOTek es un proveedor líder de ingeniería electrónica y soluciones embebidas, especializado tanto en sectores industriales como domésticos. Nuestro equipo apuesta por la innovación y la excelencia para ofrecer proyectos fiables y a medida.</p>
+</section>
+
 <!-- =========== CONTACT =========== -->
 <section id="contact" class="container">
-  <h2 class="section-title">Get in Touch</h2>
+  <h2 class="section-title">Contacto</h2>
   <div class="contact-wrapper">
     <form action="https://formspree.io/f/your-id" method="POST">
-      <input type="text" name="name" placeholder="Name" required />
+      <input type="text" name="name" placeholder="Nombre" required />
       <input type="email" name="_replyto" placeholder="Email" required />
-      <textarea name="message" placeholder="Tell us about your project…" required></textarea>
-      <button type="submit" class="btn-primary">Send Message</button>
+      <textarea name="message" placeholder="Cuéntanos tu proyecto…" required></textarea>
+      <button type="submit" class="btn-primary">Enviar mensaje</button>
     </form>
 
     <div>
-      <h3>Contact Details</h3>
+      <h3>Datos de contacto</h3>
       <p><strong>Email:</strong> contact@opotek.es</p>
-      <p><strong>Phone:</strong> (+34) 646 61 79 93</p>
+      <p><strong>Teléfono:</strong> (+34) 646 61 79 93</p>
       <p>
         <a href="#" aria-label="LinkedIn">LinkedIn</a> |
         <a href="#" aria-label="X / Twitter">X</a>
@@ -161,16 +161,11 @@ footer{background:#f5f7fa;padding:2rem 0;text-align:center;font-size:.9rem;color
 
 <!-- =========== FOOTER =========== -->
 <footer>
-  <p>&copy; <span id="year"></span> OPOTek. All rights reserved.</p>
+  <p>&copy; <span id="year"></span> OPOTek. Todos los derechos reservados.</p>
 </footer>
 
 <script>
 // auto update year
-document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-</body>
-</html>
-
 document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>
