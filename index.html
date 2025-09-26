@@ -1,182 +1,123 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>OPOTek</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OPOTEK — Ingeniería Freelance</title>
+  <meta name="description" content="Servicios de ingeniería freelance: desarrollo de firmware y software, diseño electrónico y trabajos de electricista. Contacta por WhatsApp o teléfono." />
+  <style>
+    :root { --bg: #0f172a; --card:#111827; --txt:#e5e7eb; --muted:#9ca3af; --accent:#22c55e; --overlay: rgba(0,0,0,.65); }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; background: var(--bg); color: var(--txt); }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 48px 20px; }
+    header { text-align: center; padding: 56px 20px 24px; }
+    h1 { font-size: clamp(32px, 6vw, 56px); margin: 0 0 8px; letter-spacing: 0.5px; }
+    .tag { color: var(--muted); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 24px; margin-top: 24px; }
+    ul { margin: 0; padding-left: 18px; line-height: 1.9; }
+    li { margin: 4px 0; cursor: pointer; }
+    li:hover { text-decoration: underline; }
+    .cta { display: inline-block; margin-top: 24px; padding: 14px 22px; font-weight: 600; text-decoration: none; color: #0b111f; background: var(--accent); border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); }
+    .cta:hover { filter: brightness(1.05); }
+    .phone { display:block; margin-top: 8px; color: var(--txt); text-decoration: none; font-variant-numeric: tabular-nums; }
+    footer { text-align: center; color: var(--muted); font-size: 14px; padding: 40px 0 8px; }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 720px) { .grid { grid-template-columns: 1fr 1fr; } }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-
-<style>
-/* ———— Reset & basics ———— */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:"Inter",sans-serif;line-height:1.6;color:#1b1f23;background:#fff}
-img{max-width:100%;display:block}
-
-/* ———— Layout helpers ———— */
-.container{width:min(90%,1200px);margin-inline:auto;padding-block:4rem}
-.section-title{font-size:2rem;font-weight:700;margin-bottom:1.5rem;color:#003365;text-align:center}
-
-/* ———— Header ———— */
-header{background:#003365;color:#fff;z-index:10;position:sticky;top:0}
-nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
-nav ul{display:flex;gap:1.5rem;list-style:none}
-nav a{color:#fff;text-decoration:none;font-weight:600}
-nav a:hover{opacity:.8}
-.hero{display:grid;place-items:center;padding:4rem 0;text-align:center}
-.hero h1{font-size:2.5rem;font-weight:700;margin-bottom:1rem}
-.btn-primary{background:#f7b500;color:#1b1f23;border:none;padding:.75rem 2rem;font-weight:600;border-radius:.4rem;cursor:pointer}
-.btn-primary:hover{filter:brightness(1.1)}
-
-.back-to-top{position:fixed;bottom:2rem;right:2rem;display:none;background:#f7b500;color:#1b1f23;border:none;padding:.75rem;border-radius:50%;cursor:pointer}
-.back-to-top:hover{filter:brightness(1.1)}
-
-/* ———— Services ———— */
-.services{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
-.service-card{background:#f5f7fa;border-radius:.6rem;padding:2rem;text-align:center;transition:transform .2s}
-.service-card:hover{transform:translateY(-6px)}
-.service-card h3{margin-bottom:.5rem;color:#003365}
-
-/* ———— Projects ———— */
-.projects{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
-.project-card{background:#f5f7fa;border-radius:.6rem;padding:2rem;text-align:center;transition:transform .2s;text-decoration:none;color:inherit}
-.project-card:hover{transform:translateY(-6px)}
-.project-card h3{margin-bottom:.5rem;color:#003365}
-
-/* ———— Why Choose ———— */
-.stats{display:flex;flex-wrap:wrap;gap:2rem;justify-content:center}
-.stat-box{text-align:center;min-width:120px}
-.stat-num{font-size:2rem;font-weight:700;color:#004c97}
-
-/* ———— Contact ———— */
-.contact-wrapper{display:grid;gap:2.5rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-form{display:grid;gap:1rem}
-input,textarea{padding:.75rem;border:1px solid #ccc;border-radius:.4rem;font:inherit}
-textarea{resize:vertical;min-height:140px}
-form button{justify-self:start}
-
-/* ———— Footer ———— */
-footer{background:#f5f7fa;padding:2rem 0;text-align:center;font-size:.9rem;color:#666}
-</style>
+    /* Modal */
+    .modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: var(--overlay); padding: 24px; }
+    .modal[open] { display: flex; }
+    .modal-card { background: var(--card); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; max-width: 90vw; max-height: 85vh; overflow: hidden; }
+    .modal-img { display: block; max-width: 90vw; max-height: 85vh; object-fit: cover; }
+    .modal-top { display:flex; align-items:center; justify-content: space-between; padding: 10px 14px; gap: 12px; }
+    .modal-title { font-weight: 600; }
+    .close { appearance: none; border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 8px 12px; background: transparent; color: var(--txt); cursor: pointer; }
+    .close:hover { background: rgba(255,255,255,0.06); }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "OPOTEK",
+    "url": "https://opotek.es",
+    "description": "Electricista e Ingeniería: firmware y software, diseño electrónico y trabajos de electricista.",
+    "telephone": "+34 646 617 993",
+    "areaServed": "ES"
+  }
+  </script>
 </head>
 <body>
-<!-- =========== HEADER =========== -->
-<header>
-  <div class="container">
-    <nav>
-      <strong>OPOTek</strong>
-      <img src="img/LOGO_SVG.svg" alt="OPOTek logo" style="height:80px; width:auto; vertical-align:left; margin-right:1rem;" />
-      <ul>
-        <li><a href="#services">Servicios</a></li>
-        <li><a href="#portfolio">Proyectos</a></li>
-        <li><a href="#contact">Contacto</a></li>
-        <li><a href="#aboutus">Sobre nosotros</a></li>
-      </ul>
-    </nav>
+  <div class="wrap">
+    <header>
+      <div class="tag">OPOTEK</div>
+      <h1>Electricista e Ingeniería</h1>
+      <p class="tag">Firmware • Software • Hardware • Electricidad</p>
+    </header>
 
-    <section class="hero">
-      <div>
-        <h1>Ingeniería electrónica y soluciones embebidas de principio a fin</h1>
-        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-          Pide presupuesto
-        </button>
+    <main class="grid">
+      <section class="card">
+        <h2 style="margin-top:0">¿Qué hago?</h2>
+        <ul id="servicios">
+          <li data-title="Firmware" data-img="https://source.unsplash.com/1200x800/?microcontroller,embedded">Desarrollo de firmware para sistemas embebidos (ARM, ESP32, AVR, STM32).</li>
+          <li data-title="Software" data-img="https://source.unsplash.com/1200x800/?code,laptop">Desarrollo de software (Python, C/C++, backends web, tooling).</li>
+          <li data-title="Electrónica" data-img="https://source.unsplash.com/1200x800/?pcb,prototype">Diseño electrónico y prototipado.</li>
+          <li data-title="Electricista" data-img="https://source.unsplash.com/1200x800/?electrician,industrial">Trabajos de electricista industriales y domésticos.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2 style="margin-top:0">Contacto</h2>
+        <p>Escríbeme por WhatsApp, email o llama para comentar tu proyecto. Rápido, práctico y fiable.</p>
+        <!-- Botón principal: WhatsApp con mensaje predefinido -->
+        <a class="cta" href="https://wa.me/34646617993?text=Hola%20Oriol." aria-label="WhatsApp a OPOTEK" target="_blank" rel="noopener">WhatsApp</a>
+        <!-- Teléfono visible y clicable -->
+        <a class="phone" href="tel:+34646617993">+34 646 617 993</a>
+        <a class="email" > opotek@protonmail.com</a>
+
+
+      </section>
+    </main>
+
+    <footer>
+      © <span id="y"></span> OPOTEK — Viladecavalls, ES
+    </footer>
+  </div>
+
+  <!-- Modal simple para imágenes -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <div class="modal-top">
+        <div class="modal-title" id="modal-title"></div>
+        <button class="close" id="close">Cerrar</button>
       </div>
-    </section>
-  </div>
-</header>
-
-<!-- =========== SERVICES =========== -->
-<section id="services" class="container">
-  <h2 class="section-title">Servicios</h2>
-  <div class="services">
-    <div class="service-card">
-      <h3>Desarrollo de hardware</h3>
-      <p>Especialización en IoT y electrónica de potencia para sectores industrial, doméstico y médico/investigación.</p>
-    </div>
-    <div class="service-card">
-      <h3>Software y firmware embebido</h3>
-      <p>Desarrollo de aplicaciones y firmware a medida para sacar el máximo partido al hardware.</p>
-    </div>
-    <div class="service-card">
-      <h3>Instalaciones eléctricas</h3>
-      <p>Proyectos y ejecución de instalaciones eléctricas industriales y residenciales.</p>
+      <img class="modal-img" id="modal-img" alt="Imagen del servicio" />
     </div>
   </div>
-</section>
 
-<!-- =========== PROJECTS =========== -->
-<section id="portfolio" class="container">
-  <h2 class="section-title">Proyectos</h2>
-  <div class="projects">
-    <a class="project-card" href="https://fixhub.opotek.es" target="_blank">
-      <h3>FixHub</h3>
-      <p>Sistema de gestión integrado para profesionales que reduce la burocracia y aumenta la productividad.</p>
-    </a>
-    <a class="project-card" href="https://fermarhs.opotek.es" target="_blank">
-      <h3>Fermaths</h3>
-      <p>Juego para enseñar mates bien.</p>
-    </a>
-    <a class="project-card" href="https://seasee.opotek.es" target="_blank">
-      <h3>SeaSee</h3>
-      <p>Proyecto de batimetrías autónomas.</p>
-    </a>
-  </div>
-</section>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
 
-<!-- =========== WHY CHOOSE US =========== -->
-<section class="container">
-  <h2 class="section-title">Por qué elegir OPOTek</h2>
-  <div class="stats">
-    <div class="stat-box"><div class="stat-num">15+</div><p>Años en el sector</p></div>
-    <div class="stat-box"><div class="stat-num">120</div><p>Proyectos entregados</p></div>
-    <div class="stat-box"><div class="stat-num">98%</div><p>Tasa de puntualidad</p></div>
-  </div>
-</section>
+    // Lightbox sencillo para mostrar fotos al clicar en cada servicio
+    const list = document.getElementById('servicios');
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const closeBtn = document.getElementById('close');
 
-<!-- =========== ABOUT US =========== -->
-<section id="aboutus" class="container">
-  <h2 class="section-title">Sobre nosotros</h2>
-  <p>OPOTek es un proveedor líder de ingeniería electrónica y soluciones embebidas, especializado tanto en sectores industriales como domésticos. Nuestro equipo apuesta por la innovación y la excelencia para ofrecer proyectos fiables y a medida.</p>
-</section>
+    list.addEventListener('click', (e) => {
+      const li = e.target.closest('li');
+      if (!li) return;
+      const url = li.getAttribute('data-img');
+      const title = li.getAttribute('data-title') || 'Servicio';
+      modalImg.src = url;
+      modalTitle.textContent = title;
+      modal.setAttribute('open', '');
+    });
 
-<!-- =========== CONTACT =========== -->
-<section id="contact" class="container">
-  <h2 class="section-title">Contacto</h2>
-  <div class="contact-wrapper">
-    <form action="https://formspree.io/f/your-id" method="POST">
-      <input type="text" name="name" placeholder="Nombre" required />
-      <input type="email" name="_replyto" placeholder="Email" required />
-      <textarea name="message" placeholder="Cuéntanos tu proyecto…" required></textarea>
-      <button type="submit" class="btn-primary">Enviar mensaje</button>
-    </form>
-
-    <div>
-      <h3>Datos de contacto</h3>
-      <p><strong>Email:</strong> contact@opotek.es</p>
-      <p><strong>Teléfono:</strong> (+34) 646 61 79 93</p>
-      <p>
-        <a href="#" aria-label="LinkedIn">LinkedIn</a> |
-        <a href="#" aria-label="X / Twitter">X</a>
-      </p>
-    </div>
-  </div>
-</section>
-
-<button id="backToTop" class="back-to-top" aria-label="Volver arriba">&#8679;</button>
-
-<!-- =========== FOOTER =========== -->
-<footer>
-  <p>&copy; <span id="year"></span> OPOTek. Todos los derechos reservados.</p>
-</footer>
-
-<script>
-// auto update year
-document.getElementById('year').textContent = new Date().getFullYear();
-
-const backToTop = document.getElementById('backToTop');
-window.addEventListener('scroll',()=>{backToTop.style.display=window.scrollY>200?'block':'none'});
-backToTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
-</script>
+    const close = () => modal.removeAttribute('open');
+    closeBtn.addEventListener('click', close);
+    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+  </script>
 </body>
 </html>
