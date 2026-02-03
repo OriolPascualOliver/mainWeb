@@ -11,6 +11,11 @@
   <meta property="og:title" content="Projects | Opotek — Electronics + Mechanical Engineering Services" />
   <meta property="og:description" content="Smart hardware for real products. Electronics engineering and mechanical design, fully delivered." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://opotek.es/projects" />
+  <meta property="og:image" content="https://opotek.es/img/og-projects.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preload" as="image" href="https://opotek.es/img/og-projects.jpg" />
 
   <style>
     :root{
@@ -40,6 +45,21 @@
 
     a{ color: inherit; }
     .wrap{ max-width: 1120px; margin: 0 auto; padding: 0 18px 80px; }
+    .skip{
+      position: absolute;
+      left: -999px;
+      top: 12px;
+      background: #ffffff;
+      color: #0a0a0a;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      text-decoration: none;
+      z-index: 40;
+    }
+    .skip:focus{
+      left: 12px;
+    }
 
     .nav{
       position: sticky;
@@ -162,7 +182,10 @@
       content:"";
       position: absolute;
       inset: 0;
-      background-image: var(--hero-image);
+      background-image: image-set(
+        var(--hero-image) 1x,
+        var(--hero-image) 2x
+      );
       background-size: cover;
       background-position: center;
       z-index: 0;
@@ -233,6 +256,12 @@
       color: var(--txt);
       border: 1px solid var(--line);
       background: transparent;
+    }
+
+    :focus-visible{
+      outline: 2px solid rgba(255,255,255,.65);
+      outline-offset: 3px;
+      border-radius: 10px;
     }
 
     section{
@@ -371,7 +400,7 @@
     @media (max-width: 720px){
       .nav-links{ display:none; }
       .menu-toggle{ display:inline-flex; }
-      .hero{ min-height: 70vh; padding: 70px 0; }
+      .hero{ min-height: 60vh; padding: 70px 0; }
       .projects{ grid-template-columns: 1fr; }
       .cta-row .btn{ width: 100%; justify-content: center; }
     }
@@ -393,6 +422,7 @@
   </script>
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
   <header class="nav">
     <div class="nav-inner">
       <a class="brand" href="/" aria-label="Opotek home">
@@ -400,23 +430,23 @@
         Opotek
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#about">about</a>
+        <a href="#top">about</a>
         <a href="#services">services</a>
         <a href="#projects">projects</a>
         <a href="#blog">blog</a>
         <a href="#contact" class="contact-btn">contact</a>
       </nav>
-      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">menu</button>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">menu</button>
     </div>
   </header>
 
-  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="top">
       <span class="brand">Opotek</span>
       <button class="menu-toggle" type="button" aria-label="Close menu">close</button>
     </div>
     <div class="links">
-      <a href="#about">about</a>
+      <a href="#top">about</a>
       <a href="#services">services</a>
       <a href="#projects">projects</a>
       <a href="#blog">blog</a>
@@ -424,7 +454,7 @@
     </div>
   </div>
 
-  <section class="hero" id="about">
+  <section class="hero" id="top">
     <div class="hero-content">
       <p class="section-label">Projects</p>
       <h1>Smart hardware for real products</h1>
@@ -437,7 +467,7 @@
     </div>
   </section>
 
-  <main class="wrap">
+  <main class="wrap" id="main">
     <section class="intro" id="services">
       <p class="section-label">What we do</p>
       <p class="sub">
@@ -461,7 +491,7 @@
       </div>
 
       <div class="projects" id="project-grid">
-        <div class="empty-state">
+        <div class="empty-state" data-empty>
           <h3>Projects will be published soon</h3>
           <p class="muted">If you want relevant case studies, send your constraints and industry. We’ll share what’s comparable.</p>
           <div class="cta-row">
@@ -506,7 +536,7 @@
     <section id="blog">
       <p class="section-label">Updates</p>
       <h2>Subscribe to get updates from Opotek</h2>
-      <form class="newsletter">
+      <form class="newsletter" data-placeholder="true">
         <label>
           <span class="muted">Email</span>
           <input class="input" type="email" name="email" placeholder="you@example.com" required />
@@ -536,28 +566,52 @@
   <script>
     const chips = Array.from(document.querySelectorAll('.chip'));
     const cards = Array.from(document.querySelectorAll('.proj:not(.skeleton)'));
+    const emptyState = document.querySelector('[data-empty]');
 
     function setFilter(tag){
       chips.forEach(c => c.setAttribute('aria-pressed', String(c.dataset.filter === tag)));
+      let visibleCount = 0;
       cards.forEach(card => {
         const tags = (card.dataset.tags || '').split(',').map(s => s.trim()).filter(Boolean);
         const show = (tag === 'all') || tags.includes(tag);
         card.style.display = show ? '' : 'none';
+        if (show) visibleCount += 1;
       });
+      if (emptyState && cards.length) {
+        emptyState.style.display = visibleCount ? 'none' : '';
+      }
     }
     chips.forEach(chip => chip.addEventListener('click', () => setFilter(chip.dataset.filter)));
 
     const menuButtons = Array.from(document.querySelectorAll('.menu-toggle'));
+    const openBtn = menuButtons[0];
+    const closeBtn = menuButtons[1];
     const mobileMenu = document.getElementById('mobileMenu');
     const toggleMenu = (open) => {
       mobileMenu.classList.toggle('open', open);
       mobileMenu.setAttribute('aria-hidden', String(!open));
-      menuButtons.forEach(btn => btn.setAttribute('aria-expanded', String(open)));
+      openBtn.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+      if (open) {
+        closeBtn.focus();
+      } else {
+        openBtn.focus();
+      }
     };
-    menuButtons[0].addEventListener('click', () => toggleMenu(true));
-    menuButtons[1].addEventListener('click', () => toggleMenu(false));
+    openBtn.addEventListener('click', () => toggleMenu(true));
+    closeBtn.addEventListener('click', () => toggleMenu(false));
     mobileMenu.addEventListener('click', (event) => {
       if (event.target.tagName === 'A') toggleMenu(false);
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        toggleMenu(false);
+      }
+    });
+
+    document.querySelector('form.newsletter')?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      alert('Newsletter signup is not enabled yet.');
     });
   </script>
 </body>
