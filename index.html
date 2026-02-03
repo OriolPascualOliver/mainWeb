@@ -4,29 +4,28 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projects | Opotek — Electronics + Mechanical Engineering Services</title>
-  <meta name="description" content="Opotek projects portfolio for production-ready electronics and mechanical engineering. From prototype validation to manufacturing handoff, including firmware support." />
-  <meta name="theme-color" content="#0b0f17" />
+  <meta name="description" content="Opotek projects portfolio for production-ready electronics and mechanical engineering. From prototype to production-ready delivery." />
+  <meta name="theme-color" content="#0a0a0a" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Projects | Opotek — Electronics + Mechanical Engineering Services" />
-  <meta property="og:description" content="Electronics engineering and mechanical design for products that must work, scale, and pass real-world constraints." />
+  <meta property="og:description" content="Smart hardware for real products. Electronics engineering and mechanical design, fully delivered." />
   <meta property="og:type" content="website" />
 
   <style>
     :root{
-      --bg:#0b0f17;
-      --card:#0f1624;
-      --card2:#101a2c;
-      --txt:#e6e9ef;
-      --muted:#9aa2b3;
+      --bg:#0a0a0a;
+      --bg-alt:#111111;
+      --card:#151515;
+      --txt:#f7f7f7;
+      --muted:#b4b4b4;
       --line:rgba(255,255,255,.08);
-      --accent:#f8fafc;
-      --accent-ink:#0b0f17;
-      --cta:#3b82f6;
-      --cta-ink:#0b0f17;
-      --shadow: 0 18px 40px rgba(0,0,0,.35);
+      --accent:#9ca3af;
+      --accent-strong:#ffffff;
+      --shadow: 0 20px 40px rgba(0,0,0,.35);
       --radius: 18px;
       --radius2: 14px;
+      --hero-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='900'%3E%3Crect width='1440' height='900' fill='%230a0a0a'/%3E%3Cpath d='M0 560h1440' stroke='%23222222' stroke-width='2'/%3E%3Cpath d='M120 160h420v260H120z' fill='none' stroke='%23333333' stroke-width='2'/%3E%3Cpath d='M720 210h520v300H720z' fill='none' stroke='%232f2f2f' stroke-width='2'/%3E%3Ccircle cx='1080' cy='640' r='140' fill='none' stroke='%23262626' stroke-width='2'/%3E%3Cpath d='M210 720h260' stroke='%232a2a2a' stroke-width='2'/%3E%3Cpath d='M320 400l180 140' stroke='%232a2a2a' stroke-width='2'/%3E%3Cpath d='M820 520l200 120' stroke='%232a2a2a' stroke-width='2'/%3E%3C/svg%3E");
     }
 
     *{ box-sizing:border-box; }
@@ -34,28 +33,23 @@
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-      background:
-        radial-gradient(1200px 640px at 8% 0%, rgba(255,255,255,.06), transparent 60%),
-        radial-gradient(900px 540px at 90% 10%, rgba(59,130,246,.20), transparent 55%),
-        radial-gradient(700px 500px at 40% 100%, rgba(15,23,42,.7), transparent 55%),
-        var(--bg);
+      background: var(--bg);
       color: var(--txt);
       line-height: 1.6;
     }
 
     a{ color: inherit; }
-    .wrap{ max-width: 1100px; margin: 0 auto; padding: 28px 18px 80px; }
+    .wrap{ max-width: 1120px; margin: 0 auto; padding: 0 18px 80px; }
 
     .nav{
       position: sticky;
       top: 0;
       z-index: 20;
-      backdrop-filter: blur(12px);
-      background: linear-gradient(180deg, rgba(11,15,23,.92), rgba(11,15,23,.7));
+      background: rgba(10,10,10,.95);
       border-bottom: 1px solid var(--line);
     }
     .nav-inner{
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: 12px 18px;
       display:flex;
@@ -68,18 +62,16 @@
       align-items:center;
       gap: 10px;
       text-decoration:none;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 14px;
     }
     .brand img{
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       object-fit: contain;
       filter: grayscale(1) brightness(1.2);
-    }
-    .brand span{
-      font-weight: 650;
-      letter-spacing: 1px;
-      font-size: 14px;
-      text-transform: uppercase;
     }
     .nav-links{
       display:flex;
@@ -91,9 +83,11 @@
     .nav-links a{
       text-decoration:none;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: lowercase;
       padding: 8px 10px;
-      border-radius: 12px;
+      border-radius: 999px;
       border: 1px solid transparent;
     }
     .nav-links a:hover{
@@ -102,56 +96,118 @@
       background: rgba(255,255,255,.03);
     }
     .nav-links .contact-btn{
-      background: var(--cta);
-      color: var(--cta-ink);
-      font-weight: 650;
-      border: 1px solid rgba(255,255,255,.15);
+      background: var(--accent-strong);
+      color: #0a0a0a;
+      font-weight: 700;
     }
-    .nav-links .contact-btn:hover{
-      filter: brightness(1.05);
-      color: var(--cta-ink);
+
+    .menu-toggle{
+      display:none;
+      background: none;
+      border: 1px solid var(--line);
+      color: var(--txt);
+      border-radius: 12px;
+      padding: 8px 12px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .mobile-menu{
+      position: fixed;
+      inset: 0;
+      background: rgba(8,8,8,.98);
+      display: none;
+      flex-direction: column;
+      padding: 24px;
+      gap: 18px;
+      z-index: 30;
+    }
+    .mobile-menu.open{ display:flex; }
+    .mobile-menu .top{
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .mobile-menu .links{
+      display:flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .mobile-menu a{
+      text-decoration:none;
+      font-size: 20px;
+      letter-spacing: 1px;
+      text-transform: lowercase;
+    }
+    .mobile-menu .contact-btn{
+      background: var(--accent-strong);
+      color: #0a0a0a;
+      padding: 12px 16px;
+      border-radius: 999px;
+      text-align: center;
+      font-weight: 700;
+      max-width: 220px;
     }
 
     .hero{
-      padding: 40px 0 24px;
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 24px;
+      position: relative;
+      min-height: 70vh;
+      display:flex;
       align-items: center;
+      padding: 80px 0;
     }
-    @media (max-width: 960px){
-      .hero{ grid-template-columns: 1fr; }
+    .hero::before{
+      content:"";
+      position: absolute;
+      inset: 0;
+      background-image: var(--hero-image);
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    .hero::after{
+      content:"";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.58);
+      z-index: 1;
+    }
+    .hero-content{
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      padding: 0 18px;
     }
 
     .section-label{
-      color: var(--muted);
+      color: var(--accent);
       font-size: 12px;
-      letter-spacing: 2.6px;
+      letter-spacing: 2.4px;
       text-transform: uppercase;
-      margin: 0 0 10px;
+      margin: 0 0 12px;
     }
     h1{
       margin: 0 0 12px;
-      font-size: clamp(34px, 4.8vw, 60px);
+      font-size: clamp(32px, 5vw, 64px);
       line-height: 1.05;
-      letter-spacing: .2px;
+      letter-spacing: .4px;
     }
     h2{
       margin: 0 0 10px;
-      font-size: clamp(24px, 2.6vw, 32px);
-      letter-spacing: .3px;
+      font-size: clamp(22px, 2.6vw, 34px);
+      letter-spacing: .2px;
     }
     .sub{
-      margin: 0 0 14px;
-      color: rgba(230,233,239,.86);
+      margin: 0 0 10px;
+      color: rgba(247,247,247,.88);
       font-size: 16px;
-      max-width: 64ch;
     }
-    .support-line{
-      margin: 0 0 18px;
-      color: rgba(230,233,239,.7);
-      font-size: 14px;
-      max-width: 70ch;
+    .micro{
+      margin: 0 0 20px;
+      color: rgba(247,247,247,.65);
+      font-size: 13px;
     }
 
     .cta-row{
@@ -159,216 +215,122 @@
       flex-wrap: wrap;
       gap: 12px;
       align-items:center;
-      margin-top: 10px;
+      margin-top: 12px;
     }
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap: 10px;
-      padding: 12px 18px;
-      border-radius: 14px;
+      padding: 12px 20px;
+      border-radius: 999px;
       text-decoration:none;
-      font-weight: 650;
+      font-weight: 700;
       border: 1px solid rgba(255,255,255,.12);
-      box-shadow: var(--shadow);
     }
-    .btn.primary{ background: var(--cta); color: var(--cta-ink); }
-    .btn.primary:hover{ filter: brightness(1.05); }
+    .btn.primary{ background: var(--accent-strong); color: #0a0a0a; }
     .btn.secondary{
-      background: rgba(255,255,255,.04);
-      border: 1px solid var(--line);
       color: var(--txt);
-      box-shadow: none;
+      border: 1px solid var(--line);
+      background: transparent;
     }
-    .btn.secondary:hover{ background: rgba(255,255,255,.06); }
 
-    .hero-media{
-      background:
-        linear-gradient(160deg, rgba(15,23,42,.2), rgba(15,23,42,.8)),
-        radial-gradient(400px 220px at 20% 20%, rgba(59,130,246,.35), transparent 60%),
-        radial-gradient(380px 200px at 80% 80%, rgba(248,250,252,.16), transparent 55%);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 18px;
-      min-height: 320px;
-      display:flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: var(--shadow);
+    section{
+      padding: 70px 0;
+      border-bottom: 1px solid var(--line);
     }
-    .hero-media .media-title{
-      font-size: 13px;
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin: 0 0 8px;
-    }
-    .media-stack{
-      display:grid;
-      gap: 12px;
-    }
-    .media-frame{
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(255,255,255,.04);
-      padding: 14px;
-    }
-    .media-frame strong{ display:block; font-size: 14px; margin-bottom: 6px; }
-    .media-frame span{ color: rgba(230,233,239,.7); font-size: 13px; }
-
-    section.card{
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 24px;
-      margin-top: 22px;
+    .intro{
+      max-width: 780px;
     }
     .muted{ color: var(--muted); }
 
-    /* Portfolio */
     .filters{
       display:flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 12px 0 16px;
+      gap: 10px;
+      margin-top: 12px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scroll-snap-type: x mandatory;
     }
+    .filters::-webkit-scrollbar{ height: 6px; }
+    .filters::-webkit-scrollbar-thumb{ background: rgba(255,255,255,.08); border-radius: 999px; }
     .chip{
-      background: rgba(255,255,255,.03);
+      background: transparent;
       border: 1px solid var(--line);
       color: var(--muted);
       font-size: 12px;
-      padding: 8px 12px;
+      letter-spacing: 1px;
+      text-transform: lowercase;
+      padding: 8px 14px;
       border-radius: 999px;
       cursor: pointer;
       user-select: none;
+      scroll-snap-align: start;
+      white-space: nowrap;
     }
     .chip[aria-pressed="true"]{
-      border-color: rgba(59,130,246,.55);
-      color: rgba(230,233,239,.95);
-      background: rgba(59,130,246,.12);
+      border-color: var(--accent-strong);
+      color: var(--accent-strong);
     }
 
     .projects{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
-      margin-top: 10px;
+      margin-top: 20px;
     }
-    @media (max-width: 1020px){ .projects{ grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 700px){ .projects{ grid-template-columns: 1fr; } }
+    .proj{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius2);
+      min-height: 240px;
+      padding: 18px;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .proj .thumb{
+      height: 120px;
+      border-radius: 12px;
+      background: #0c0c0c;
+      border: 1px solid var(--line);
+    }
+    .proj.skeleton .thumb{ opacity: .6; }
+    .proj.skeleton .line{ height: 10px; background: #111111; border-radius: 999px; }
 
     .empty-state{
       grid-column: 1 / -1;
-      border: 1px dashed var(--line);
+      border: 1px solid var(--line);
+      border-radius: var(--radius2);
+      padding: 20px;
+      background: #0c0c0c;
+    }
+
+    .logo-strip{
+      border: 1px solid var(--line);
       border-radius: var(--radius2);
       padding: 18px;
-      background: rgba(255,255,255,.02);
+      background: #0c0c0c;
     }
-    .empty-state p{ margin: 0 0 6px; }
-    .empty-state a{ color: var(--accent); text-decoration: underline; }
 
-    .proj{
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
-      border: 1px solid var(--line);
+    .cta-block{
+      background: var(--bg-alt);
+      padding: 40px;
       border-radius: var(--radius);
-      overflow: hidden;
-      display:flex;
-      flex-direction: column;
-      min-height: 260px;
-    }
-    .thumb{
-      height: 110px;
-      background:
-        radial-gradient(800px 200px at 20% 50%, rgba(59,130,246,.25), transparent 60%),
-        radial-gradient(700px 180px at 80% 40%, rgba(248,250,252,.20), transparent 55%),
-        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0));
-      border-bottom: 1px solid var(--line);
-    }
-    .proj-body{
-      padding: 14px 14px 16px;
+      border: 1px solid var(--line);
       display:flex;
       flex-direction: column;
       gap: 10px;
-      flex:1;
-    }
-    .proj h3{ margin: 0; font-size: 15px; }
-    .proj p{ margin: 0; color: rgba(230,233,239,.80); font-size: 13px; }
-    .tags{ display:flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
-    .tag{
-      font-size: 11px;
-      color: var(--muted);
-      padding: 5px 8px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255,255,255,.02);
     }
 
-    /* Capabilities */
-    .cap-grid{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 14px;
-    }
-    @media (max-width: 1000px){ .cap-grid{ grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 560px){ .cap-grid{ grid-template-columns: 1fr; } }
-    .cap-tile{
-      background: rgba(255,255,255,.02);
-      border: 1px solid var(--line);
-      border-radius: var(--radius2);
-      padding: 14px;
-      display:grid;
-      gap: 8px;
-    }
-    .tile-icon{
-      width: 28px;
-      height: 28px;
-      border-radius: 10px;
-      border: 1px solid var(--line);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size: 12px;
-      color: var(--muted);
-      background: rgba(255,255,255,.04);
-    }
-    .cap-tile strong{ font-size: 14px; }
-    .cap-tile span{ color: rgba(230,233,239,.7); font-size: 13px; }
-
-    /* Clients */
-    .logo-strip{
-      border: 1px dashed var(--line);
-      border-radius: var(--radius2);
-      padding: 14px;
-      color: var(--muted);
-      background: rgba(255,255,255,.02);
-    }
-
-    /* CTA */
-    .cta-block{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 18px;
-      align-items: start;
-    }
-    @media (max-width: 900px){ .cta-block{ grid-template-columns: 1fr; } }
-    .checklist{
-      margin: 12px 0 0;
-      padding-left: 18px;
-      color: rgba(230,233,239,.8);
-      font-size: 13px;
-    }
-
-    /* Newsletter */
     form.newsletter{
       display:grid;
       gap: 10px;
-      max-width: 520px;
+      max-width: 460px;
     }
     .input{
       width: 100%;
-      background: rgba(255,255,255,.04);
+      background: #0c0c0c;
       border: 1px solid var(--line);
       color: var(--txt);
       border-radius: 12px;
@@ -384,11 +346,9 @@
     }
 
     footer{
-      margin-top: 40px;
+      padding: 30px 0 60px;
       color: var(--muted);
       font-size: 13px;
-      padding: 18px 0 0;
-      border-top: 1px solid var(--line);
       display:flex;
       justify-content: space-between;
       gap: 10px;
@@ -405,6 +365,16 @@
     }
     .small-links a:hover{ color: var(--txt); text-decoration: underline; }
 
+    @media (max-width: 960px){
+      .projects{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 720px){
+      .nav-links{ display:none; }
+      .menu-toggle{ display:inline-flex; }
+      .hero{ min-height: 70vh; padding: 70px 0; }
+      .projects{ grid-template-columns: 1fr; }
+      .cta-row .btn{ width: 100%; justify-content: center; }
+    }
     @media (prefers-reduced-motion: reduce){
       *{ scroll-behavior: auto !important; }
     }
@@ -423,195 +393,134 @@
   </script>
 </head>
 <body>
-
-  <div class="nav">
+  <header class="nav">
     <div class="nav-inner">
       <a class="brand" href="/" aria-label="Opotek home">
         <img src="img/LOGO_SVG.svg" alt="Opotek logo" />
-        <span>Opotek</span>
+        Opotek
       </a>
-      <div class="nav-links" aria-label="Primary navigation">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#projects">Projects</a>
-        <a href="#insights">Insights</a>
-        <a href="#contact" class="contact-btn">Contact</a>
-      </div>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#about">about</a>
+        <a href="#services">services</a>
+        <a href="#projects">projects</a>
+        <a href="#blog">blog</a>
+        <a href="#contact" class="contact-btn">contact</a>
+      </nav>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">menu</button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="top">
+      <span class="brand">Opotek</span>
+      <button class="menu-toggle" type="button" aria-label="Close menu">close</button>
+    </div>
+    <div class="links">
+      <a href="#about">about</a>
+      <a href="#services">services</a>
+      <a href="#projects">projects</a>
+      <a href="#blog">blog</a>
+      <a href="#contact" class="contact-btn">contact</a>
     </div>
   </div>
 
-  <div class="wrap" id="top">
-    <section class="hero" id="about">
-      <div>
-        <p class="section-label">Portfolio entry</p>
-        <h1>Engineering that ships</h1>
-        <p class="sub">
-          Electronics engineering and mechanical design for products that must work, scale, and pass real-world constraints.
-        </p>
-        <p class="support-line">
-          From proof-of-concept to manufacturing handoff: schematics, PCB, enclosures, firmware integration, testing, and DFM.
-        </p>
-        <div class="cta-row">
-          <a class="btn primary" href="#contact">Talk to an engineer</a>
-          <a class="btn secondary" href="#capabilities">See capabilities</a>
-        </div>
+  <section class="hero" id="about">
+    <div class="hero-content">
+      <p class="section-label">Projects</p>
+      <h1>Smart hardware for real products</h1>
+      <p class="sub">Electronics engineering and mechanical design, fully delivered—from prototype to production.</p>
+      <p class="micro">We don’t just design. We build, validate, and hand off what manufacturing needs.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#contact">get in touch</a>
+        <a class="btn secondary" href="#services">see services</a>
       </div>
+    </div>
+  </section>
 
-      <aside class="hero-media" aria-label="Workshop and CAD preview">
-        <div>
-          <p class="media-title">Built in-house</p>
-          <div class="media-stack">
-            <div class="media-frame">
-              <strong>Bench + prototype assembly</strong>
-              <span>Hands-on bring-up, instrumentation, and quick iteration.</span>
-            </div>
-            <div class="media-frame">
-              <strong>CAD overlays + enclosure fit</strong>
-              <span>Mechanical packaging aligned with PCB constraints.</span>
-            </div>
-          </div>
-        </div>
-        <div class="media-frame">
-          <strong>Production-ready hardware</strong>
-          <span>Validated for thermal, EMI/EMC, safety, and manufacturing yield.</span>
-        </div>
-      </aside>
+  <main class="wrap">
+    <section class="intro" id="services">
+      <p class="section-label">What we do</p>
+      <p class="sub">
+        Opotek designs and builds embedded hardware systems: PCB + enclosure + integration.
+        We work fast, document properly, and engineer for reliability, cost, and manufacturing constraints.
+      </p>
     </section>
 
-    <section class="card" id="projects" aria-label="Projects">
+    <section id="projects">
       <p class="section-label">Projects</p>
-      <h2>Production-grade electronics and mechanical design</h2>
-      <p class="muted" style="margin: 0 0 10px;">
-        Opotek delivers both electronics and mechanics. We design for EMI/EMC, thermal paths, safety, IP ratings, and manufacturing reliability.
-      </p>
+      <h2>Innovative builds for product teams</h2>
+      <p class="muted">A selection of our work across electronics, mechanics, and embedded systems.</p>
 
       <div class="filters" role="toolbar" aria-label="Project filters">
         <button class="chip" data-filter="all" aria-pressed="true">Show all</button>
-        <button class="chip" data-filter="electronics" aria-pressed="false">Electronics</button>
-        <button class="chip" data-filter="mechanical" aria-pressed="false">Mechanical</button>
-        <button class="chip" data-filter="firmware" aria-pressed="false">Firmware</button>
-        <button class="chip" data-filter="test" aria-pressed="false">Test &amp; Validation</button>
-        <button class="chip" data-filter="manufacturing" aria-pressed="false">Manufacturing / DFM</button>
+        <button class="chip" data-filter="electronics" aria-pressed="false">electronics</button>
+        <button class="chip" data-filter="mechanical" aria-pressed="false">mechanical</button>
+        <button class="chip" data-filter="hardware" aria-pressed="false">hardware</button>
+        <button class="chip" data-filter="firmware" aria-pressed="false">firmware</button>
+        <button class="chip" data-filter="integration" aria-pressed="false">integration</button>
       </div>
 
       <div class="projects" id="project-grid">
         <div class="empty-state">
-          <p><strong>Projects will be published soon.</strong></p>
-          <p>Request relevant case studies by email. <a href="#contact">Contact Opotek</a>.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="card" id="capabilities" aria-label="Capabilities">
-      <p class="section-label">Capabilities</p>
-      <h2>Electronics + mechanical under one roof</h2>
-      <div class="cap-grid">
-        <div class="cap-tile">
-          <div class="tile-icon">01</div>
-          <strong>Schematic &amp; PCB design</strong>
-          <span>Analog, digital, RF basics, power electronics, sensor front-ends.</span>
-        </div>
-        <div class="cap-tile">
-          <div class="tile-icon">02</div>
-          <strong>Power &amp; thermal engineering</strong>
-          <span>Efficiency, heat paths, derating, enclosure ventilation strategy.</span>
-        </div>
-        <div class="cap-tile">
-          <div class="tile-icon">03</div>
-          <strong>Mechanical design (CAD)</strong>
-          <span>Enclosures, fixtures, mounts, product packaging, assembly strategy.</span>
-        </div>
-        <div class="cap-tile">
-          <div class="tile-icon">04</div>
-          <strong>Prototyping &amp; bring-up</strong>
-          <span>Board bring-up, debugging, instrumentation, rapid iterations.</span>
-        </div>
-        <div class="cap-tile">
-          <div class="tile-icon">05</div>
-          <strong>Firmware integration</strong>
-          <span>MCU selection, drivers, comms stacks, control loops.</span>
-        </div>
-        <div class="cap-tile">
-          <div class="tile-icon">06</div>
-          <strong>DFM / DFA</strong>
-          <span>Cost-down, assembly simplification, manufacturing documentation.</span>
-        </div>
-        <div class="cap-tile">
-          <div class="tile-icon">07</div>
-          <strong>Compliance readiness</strong>
-          <span>Design choices that reduce EMI risk and ease certification.</span>
-        </div>
-        <div class="cap-tile">
-          <div class="tile-icon">08</div>
-          <strong>Test tooling</strong>
-          <span>End-of-line fixtures, scripts, calibration flows.</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="card" id="clients" aria-label="Clients">
-      <p class="section-label">Clients</p>
-      <h2>Teams we support</h2>
-      <p class="muted" style="margin: 0 0 12px;">Client logos and public references will be added here.</p>
-      <div class="logo-strip">Confidential by default; references available on request.</div>
-    </section>
-
-    <section class="card" id="services" aria-label="Project inquiry">
-      <div class="cta-block">
-        <div>
-          <p class="section-label">Project inquiry</p>
-          <h2>Have a hardware project?</h2>
-          <p class="muted" style="margin: 0 0 12px;">
-            Send scope, constraints, timelines. You’ll get a technical reply, not a sales script.
-          </p>
+          <h3>Projects will be published soon</h3>
+          <p class="muted">If you want relevant case studies, send your constraints and industry. We’ll share what’s comparable.</p>
           <div class="cta-row">
-            <a class="btn primary" href="#contact">Contact Opotek</a>
-            <a class="btn secondary" href="#contact">Share requirements</a>
+            <a class="btn primary" href="#contact">request case studies</a>
+            <a class="btn secondary" href="#contact">contact</a>
           </div>
         </div>
-        <div>
-          <p class="section-label">What to send</p>
-          <ul class="checklist">
-            <li>Target BOM cost</li>
-            <li>Power budget / thermal constraints</li>
-            <li>Mechanical constraints (size, IP rating)</li>
-            <li>Interfaces (USB, CAN, BLE, etc.)</li>
-            <li>Certification targets (CE/FCC/medical)</li>
-          </ul>
-        </div>
+
+        <article class="proj skeleton" aria-hidden="true">
+          <div class="thumb"></div>
+          <div class="line" style="width: 60%;"></div>
+          <div class="line" style="width: 80%;"></div>
+        </article>
+        <article class="proj skeleton" aria-hidden="true">
+          <div class="thumb"></div>
+          <div class="line" style="width: 52%;"></div>
+          <div class="line" style="width: 74%;"></div>
+        </article>
+        <article class="proj skeleton" aria-hidden="true">
+          <div class="thumb"></div>
+          <div class="line" style="width: 58%;"></div>
+          <div class="line" style="width: 68%;"></div>
+        </article>
       </div>
     </section>
 
-    <section class="card" id="insights" aria-label="Engineering notes">
-      <p class="section-label">Engineering notes</p>
-      <h2>Get engineering notes (no spam)</h2>
+    <section id="clients">
+      <p class="section-label">Clients</p>
+      <h2>Teams we work with</h2>
+      <p class="muted">Client logos will be added here. Confidential by default—references available on request.</p>
+      <div class="logo-strip" aria-hidden="true">Logo strip placeholder</div>
+    </section>
+
+    <section id="contact">
+      <div class="cta-block">
+        <h2>Do you have a project? Let’s talk!</h2>
+        <p class="muted">Share scope, constraints, and timeline. You’ll get a technical reply.</p>
+        <a class="btn primary" href="mailto:hello@opotek.com?subject=Opotek%20project%20inquiry">get in touch with us!</a>
+      </div>
+    </section>
+
+    <section id="blog">
+      <p class="section-label">Updates</p>
+      <h2>Subscribe to get updates from Opotek</h2>
       <form class="newsletter">
         <label>
-          <span class="muted">Email address</span>
+          <span class="muted">Email</span>
           <input class="input" type="email" name="email" placeholder="you@example.com" required />
         </label>
         <label class="consent">
           <input type="checkbox" name="consent" required />
-          <span>I agree to the Privacy Policy and receive updates.</span>
+          <span>I have read and agree to the Terms and conditions.</span>
         </label>
         <label style="display:none;">
           Leave this field empty if you are human:
           <input type="text" name="company" tabindex="-1" autocomplete="off" />
         </label>
-        <button class="btn secondary" type="submit">Subscribe</button>
+        <button class="btn secondary" type="submit">subscribe</button>
       </form>
-    </section>
-
-    <section class="card" id="contact" aria-label="Contact">
-      <p class="section-label">Contact</p>
-      <h2>Talk through requirements</h2>
-      <p class="muted" style="margin:0 0 12px;">
-        Send project scope, constraints, and any existing design files. We can start with a short technical call.
-      </p>
-      <div class="cta-row">
-        <a class="btn primary" href="mailto:hello@opotek.com?subject=Opotek%20project%20inquiry">Email Opotek</a>
-        <a class="btn secondary" href="#projects">See project approach</a>
-      </div>
     </section>
 
     <footer>
@@ -622,11 +531,11 @@
         <a href="#">Disclaimer</a>
       </div>
     </footer>
-  </div>
+  </main>
 
   <script>
     const chips = Array.from(document.querySelectorAll('.chip'));
-    const cards = Array.from(document.querySelectorAll('.proj'));
+    const cards = Array.from(document.querySelectorAll('.proj:not(.skeleton)'));
 
     function setFilter(tag){
       chips.forEach(c => c.setAttribute('aria-pressed', String(c.dataset.filter === tag)));
@@ -637,6 +546,19 @@
       });
     }
     chips.forEach(chip => chip.addEventListener('click', () => setFilter(chip.dataset.filter)));
+
+    const menuButtons = Array.from(document.querySelectorAll('.menu-toggle'));
+    const mobileMenu = document.getElementById('mobileMenu');
+    const toggleMenu = (open) => {
+      mobileMenu.classList.toggle('open', open);
+      mobileMenu.setAttribute('aria-hidden', String(!open));
+      menuButtons.forEach(btn => btn.setAttribute('aria-expanded', String(open)));
+    };
+    menuButtons[0].addEventListener('click', () => toggleMenu(true));
+    menuButtons[1].addEventListener('click', () => toggleMenu(false));
+    mobileMenu.addEventListener('click', (event) => {
+      if (event.target.tagName === 'A') toggleMenu(false);
+    });
   </script>
 </body>
 </html>
