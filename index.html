@@ -321,7 +321,7 @@
 
     .projects{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 16px;
       margin-top: 20px;
     }
@@ -362,6 +362,52 @@
       background: #0c0c0c;
       border: 1px solid var(--line);
     }
+    .proj{ text-align:left; }
+    .proj .thumb{ overflow:hidden; }
+    .proj .thumb img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display:block;
+      border-radius: 12px;
+    }
+    .proj-title{
+      margin: 2px 0 0;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+    .proj-kv{
+      display: grid;
+      gap: 4px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .proj-kv .k{
+      color: var(--txt);
+      font-weight: 600;
+    }
+    .proj-tags{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 2px;
+    }
+    .tag{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      text-transform: none;
+      white-space: nowrap;
+    }
+    .proj-desc{
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
     .proj.skeleton .thumb{ opacity: .6; }
     .proj.skeleton .line{ height: 10px; background: #111111; border-radius: 999px; }
 
@@ -545,7 +591,8 @@
     <section id="projects" class="projects-block">
       <p class="section-label">Projects</p>
     
-      <p class="muted">Case studies are being published. Request relevant examples by industry and constraints.</p>
+      <p class="muted">Case studies available upon request. <br> Some clients prefer confidentiality, we'll share relevant examples matching your industry and technical requirements.</p>
+
 
       <div class="filters" role="toolbar" aria-label="Project filters">
         <button class="chip" data-filter="all" aria-pressed="true" type="button">Show all</button>
@@ -557,33 +604,190 @@
       </div>
 
       <div class="projects" id="project-grid">
-        <div class="empty-state" id="emptyState">
-          <h3>Case studies coming soon</h3>
-          <p class="muted">
-            Want something comparable? Send your scope, constraints, and timeline.
-            We’ll share relevant references and a realistic delivery plan.
+
+        <article class="proj" data-tags="electronics,hardware,firmware,integration">
+          <div class="thumb">
+            <img src="/img/rupert.jpg" width="640" height="360" loading="lazy"
+                alt="Microfluidics control system electronics and lab setup">
+          </div>
+
+          <div class="proj-title">Microfluidics Control System</div>
+
+          <div class="proj-kv">
+            <div><span class="k">Client:</span> Droplet Scientific Ltd.</div>
+            <div><span class="k">Industry:</span> Medical Research / Laboratory Equipment</div>
+          </div>
+
+          <div class="proj-tags" aria-label="Tags">
+            <span class="tag">IoT</span>
+            <span class="tag">Medical Devices</span>
+            <span class="tag">Microfluidics</span>
+          </div>
+
+          <p class="proj-desc">
+            End-to-end hardware, firmware, and software development for a microfluidics control system used in medical research.
+            Integrated sensor arrays, precision fluid control, and real-time data acquisition with cloud connectivity.
           </p>
+        </article>
+
+        <article class="proj" data-tags="electronics,hardware,firmware,integration">
+          <div class="thumb">
+            <img src="/img/diesn.jpg" width="640" height="360" loading="lazy"
+                alt="Therapeutic massage device prototype with electronics">
+          </div>
+
+          <div class="proj-title">Therapeutic Massage Device MVP</div>
+
+          <div class="proj-kv">
+            <div><span class="k">Client:</span> Confidential</div>
+            <div><span class="k">Industry:</span> Wellness / Consumer Health</div>
+          </div>
+
+          <div class="proj-tags" aria-label="Tags">
+            <span class="tag">Power Electronics</span>
+            <span class="tag">Therapeutic Devices</span>
+            <span class="tag">Consumer Electronics</span>
+          </div>
+
+          <p class="proj-desc">
+            Complete product development for a therapeutic massage device using targeted light therapy and controlled heating.
+            Designed embedded controls, wireless connectivity, and mobile app integration for personalized treatment protocols.
+          </p>
+        </article>
+
+            <article class="proj" data-tags="electronics,firmware,integration">
+        <div class="thumb">
+          <img src="/img/projects/edge-ml-motors.jpg" width="640" height="360" loading="lazy"
+              alt="Industrial motor monitoring and edge ML system">
+        </div>
+
+        <div class="proj-title">Edge ML Predictive Maintenance for Induction Motors</div>
+
+        <div class="proj-kv">
+          <div><span class="k">Client:</span> Confidential</div>
+          <div><span class="k">Industry:</span> Industrial / Predictive Maintenance</div>
+        </div>
+
+        <div class="proj-tags" aria-label="Tags">
+          <span class="tag">Edge ML</span>
+          <span class="tag">IoT</span>
+          <span class="tag">Condition Monitoring</span>
+        </div>
+
+        <p class="proj-desc">
+          Edge ML system for real-time fault detection and predictive maintenance of industrial induction motors.
+          Developed sensor integration, on-device inference pipeline, and anomaly detection algorithms for early failure prediction.
+        </p>
+      </article>
+
+      <article class="proj" data-tags="electronics,hardware,integration">
+        <div class="thumb">
+          <img src="/img/projects/cetac-banana-adapter.jpg" width="640" height="360" loading="lazy"
+              alt="Rugged CETAC-to-banana adapter for industrial testers">
+        </div>
+
+        <div class="proj-title">CETAC-to-Banana Adapter for Industrial Testers</div>
+
+        <div class="proj-kv">
+          <div><span class="k">Client:</span> Confidential</div>
+          <div><span class="k">Industry:</span> Industrial Testing Equipment</div>
+        </div>
+
+        <div class="proj-tags" aria-label="Tags">
+          <span class="tag">Test &amp; Measurement</span>
+          <span class="tag">Industrial Electronics</span>
+        </div>
+
+        <p class="proj-desc">
+          Custom CETAC-to-banana adapter for multifunctional industrial testers.
+          Designed ruggedized interface hardware for reliable electrical testing in harsh manufacturing environments.
+        </p>
+      </article>
+
+      <article class="proj" data-tags="electronics,hardware,firmware">
+        <div class="thumb">
+          <img src="/img/projects/induction-motor-driver.jpg" width="640" height="360" loading="lazy"
+              alt="Industrial induction motor driver and control electronics">
+        </div>
+
+        <div class="proj-title">Industrial Induction Motor Driver</div>
+
+        <div class="proj-kv">
+          <div><span class="k">Client:</span> Confidential</div>
+          <div><span class="k">Industry:</span> Industrial Automation</div>
+        </div>
+
+        <div class="proj-tags" aria-label="Tags">
+          <span class="tag">Motor Control</span>
+          <span class="tag">Power Electronics</span>
+        </div>
+
+        <p class="proj-desc">
+          Industrial-grade induction motor driver with precision control and safety features.
+          Full hardware and firmware development for demanding industrial applications.
+        </p>
+      </article>
+
+      <article class="proj" data-tags="electronics,hardware,firmware">
+        <div class="thumb">
+          <img src="/img/projects/smart-dice-math.jpg" width="640" height="360" loading="lazy"
+              alt="Interactive educational embedded device for teaching mathematics">
+        </div>
+
+        <div class="proj-title">Interactive Math Learning Device</div>
+
+        <div class="proj-kv">
+          <div><span class="k">Client:</span> Internal R&amp;D</div>
+          <div><span class="k">Industry:</span> Education Technology</div>
+        </div>
+
+        <div class="proj-tags" aria-label="Tags">
+          <span class="tag">EdTech</span>
+          <span class="tag">Embedded Systems</span>
+          <span class="tag">Hardware</span>
+        </div>
+
+        <p class="proj-desc">
+          Interactive educational device for teaching mathematics through hands-on learning.
+          Embedded system generates adaptive math problems using statistical analysis, creating a physical “smart dice” learning tool.
+        </p>
+      </article>
+
+      <article class="proj" data-tags="electronics,firmware,integration">
+        <div class="thumb">
+          <img src="/img/projects/equestrian-dispenser.jpg" width="640" height="360" loading="lazy"
+              alt="Automated dispensing system for equestrian competition feed management">
+        </div>
+
+        <div class="proj-title">Automated Dispensing System for Equestrian Feed Management</div>
+
+        <div class="proj-kv">
+          <div><span class="k">Client:</span> Confidential</div>
+          <div><span class="k">Industry:</span> Equestrian / Sports Equipment</div>
+        </div>
+
+        <div class="proj-tags" aria-label="Tags">
+          <span class="tag">Precision Dispensing</span>
+          <span class="tag">Competition Equipment</span>
+        </div>
+
+        <p class="proj-desc">
+          Automated dispensing system for equestrian competition feed management.
+          Developed precision dosing hardware and control firmware for consistent, competition-compliant delivery.
+        </p>
+      </article>
+
+        <div class="empty-state" id="emptyState" style="display:none;">
+          <h3>No projects match this filter</h3>
+          <p class="muted">Try another filter, or contact us for references relevant to your industry and constraints.</p>
           <div class="cta-row">
-            <a class="btn primary" href="#contact">request case studies</a>
-            <a class="btn secondary" href="#contact">contact</a>
+            <a class="btn primary" href="#contact">contact</a>
           </div>
         </div>
 
-        <article class="proj skeleton" aria-hidden="true">
-          <div class="thumb"></div>
-          <div class="line" style="width: 60%;"></div>
-          <div class="line" style="width: 80%;"></div>
-        </article>
-        <article class="proj skeleton" aria-hidden="true">
-          <div class="thumb"></div>
-          <div class="line" style="width: 52%;"></div>
-          <div class="line" style="width: 74%;"></div>
-        </article>
-        <article class="proj skeleton" aria-hidden="true">
-          <div class="thumb"></div>
-          <div class="line" style="width: 58%;"></div>
-          <div class="line" style="width: 68%;"></div>
-        </article>
+      </div>
+
+
       </div>
     </section>
 
