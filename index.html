@@ -234,6 +234,20 @@
       font-size: 13px;
     }
 
+    .service-bullets{
+      margin: 18px 0 0;
+      padding-left: 18px;
+      max-width: 72ch;
+      color: #dcdcdc;
+    }
+    .service-bullets li{
+      margin: 10px 0;
+      line-height: 1.45;
+    }
+    .service-bullets strong{
+      color: #f7f7f7;
+      font-weight: 600;
+    }
     .cta-row{
       display:flex;
       flex-wrap: wrap;
@@ -321,7 +335,7 @@
       margin-left: auto;
       margin-right: auto;
     }
-    
+
     .projects-block .filters{
       justify-content: center;
     }
@@ -509,12 +523,20 @@
     </section>
 
     <section class="intro" id="services">
-      <p class="section-label">What we do</p>
+      <p class="section-label">What we do best</p>
       <p class="sub">
         Design integrity. Manufacturing certainty. <br>
         We build complete embedded hardware systems: schematics, PCB design, enclosure CAD, prototyping, and system integration.
         You get production-ready deliverables: manufacturing files, test documentation, BOM support, and specs that work on the factory floor.
       </p>
+       <ul class="service-bullets" aria-label="Services">
+        <li><strong>Concept to working prototype</strong> — Complete system design: electronics, firmware, and enclosure integrated from day one for your MVP.</li>
+        <li><strong>Validation builds</strong> — EVT builds, bring-up, iteration, and validation.</li>
+        <li><strong>Production support</strong> — Test fixtures, programming jigs, and DFM/DFT analysis for smooth scaling.</li>
+        <li><strong>Embedded systems</strong> — MCU/RTOS firmware, drivers, and wireless connectivity (BLE, Wi-Fi, LoRa, cellular)..</li>
+        <li><strong>Edge AI / ML</strong> — Sensor fusion, signal processing, and on-device inference for intelligent products.</li>
+        <li><strong>Turnkey delivery</strong> — Coordinated mechanical, electrical, firmware, and software—one integrated product.</li>
+      </ul>
       <p class="micro">
         Outcome-focused deliverables: production files, test notes, BOM support, and documentation that survives manufacturing.
       </p>
@@ -576,9 +598,10 @@
 
     <section id="contact">
       <div class="cta-block">
-        <h2>Have a hardware project?</h2>
-        <p class="muted">Share your constraints and timeline. We’ll reply with technical next steps.</p>
-        <a class="btn primary" href="mailto:hello@opotek.com?subject=Opotek%20project%20inquiry">contact Opotek</a>
+        <h2>Building a hardware product?</h2>
+        
+        <p class="muted">Tell us about your project and timeline. We'll outline the technical path forward.</p>
+        <a class="btn primary" href="mailto:opotek@protonmail.com?subject=Opotek%20project%20inquiry">contact Opotek</a>
       </div>
     </section>
 
@@ -640,15 +663,8 @@
       }
     });
 
-    const newsletterForm = document.getElementById('newsletterForm');
-    const newsletterMsg = document.getElementById('newsletterMsg');
-    if (newsletterForm && newsletterMsg) {
-      newsletterForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        newsletterMsg.textContent = 'Thanks! Newsletter signup will be available soon.';
-      });
-    }
 
   </script>
+  
 </body>
 </html>
