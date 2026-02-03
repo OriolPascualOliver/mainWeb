@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projects | Opotek — Electronics + Mechanical Engineering Services</title>
+  <title>Projects | Opotek — Electronics Engineering Services</title>
   <meta name="description" content="Opotek projects portfolio for production-ready electronics and mechanical engineering. From prototype to production-ready delivery." />
   <meta name="theme-color" content="#0a0a0a" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Projects | Opotek — Electronics + Mechanical Engineering Services" />
+  <meta property="og:title" content="Projects | Opotek — Electronics and Mechanical Engineering Services for MVPs and production" />
   <meta property="og:description" content="Smart hardware for real products. Electronics engineering and mechanical design, fully delivered." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://opotek.es/projects" />
   <meta property="og:image" content="https://opotek.es/img/og-projects.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <link rel="preload" as="image" href="img/hero-1920.svg" />
+  <link rel="preload" as="image" href="Banner.png" />
 
   <style>
     :root{
@@ -30,6 +30,11 @@
       --shadow: 0 20px 40px rgba(0,0,0,.35);
       --radius: 18px;
       --radius2: 14px;
+    }
+    .slashed0{
+      font-variant-numeric: slashed-zero;
+      font-feature-settings: "zero" 1; /* fallback para algunos browsers */
+      font-family: "JetBrains Mono", "Fira Code", "IBM Plex Mono", monospace;
     }
 
     *{ box-sizing:border-box; }
@@ -79,18 +84,13 @@
     .brand{
       display:flex;
       align-items:center;
-      gap: 10px;
+      gap: 1;
       text-decoration:none;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      font-size: 14px;
     }
     .brand img{
-      width: 34px;
-      height: 34px;
-      object-fit: contain;
-      filter: grayscale(1) brightness(1.2);
+      height: 45px;
+      width: auto;
+      display: block;
     }
     .nav-links{
       display:flex;
@@ -182,8 +182,8 @@
       position: absolute;
       inset: 0;
       background-image: image-set(
-        url("img/hero-960.svg") 1x,
-        url("img/hero-1920.svg") 2x
+        url("img/Banner.png") 1x,
+        url("img/Banner.png") 2x
       );
       background-size: cover;
       background-position: center;
@@ -207,8 +207,8 @@
 
     .section-label{
       color: var(--accent);
-      font-size: 12px;
-      letter-spacing: 2.4px;
+      font-size: 20px;
+      letter-spacing: 2px;
       text-transform: uppercase;
       margin: 0 0 12px;
     }
@@ -312,8 +312,16 @@
       margin-top: 20px;
     }
     .projects-block{
-      text-align: center;
+      text-align: center; /* keep */
     }
+
+    .projects-block .section-label{
+      width: 100%;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
     .projects-block .filters{
       justify-content: center;
     }
@@ -446,10 +454,9 @@
   <a class="skip" href="#main">Skip to content</a>
   <header class="nav">
     <div class="nav-inner">
-      <a class="brand" href="/" aria-label="Opotek home">
-        <img src="img/LOGO_SVG.svg" alt="Opotek logo" />
-        Opotek
-      </a>
+    <a class="brand" href="/" aria-label="Opotek home">
+      <img class="brand-logo" src="img/LOGO_PNG_INV.png" alt="Opotek logo" />
+    </a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#about">about</a>
         <a href="#services">services</a>
@@ -477,13 +484,14 @@
 
   <section class="hero" id="top">
     <div class="hero-content">
-      <p class="section-label">Projects</p>
-      <h1>Hardware that ships</h1>
-      <p class="sub">Electronics + mechanical design, delivered from prototype to production.</p>
-      <p class="micro">Fast iterations. Clean documentation. Built for manufacturing.</p>
+    
+      <h1>Hardware products:  <span class="slashed0">0</span> to mass production</h1>
+      <p class="sub">
+      End-to-end product development: electronics, software, and mechanics
+      <br>From idea to manufacturable product. Fast iterations, built robust for production.</p>
+      <p class="micro">Fast iterations. Built robust for manufacturing.</p>
       <div class="cta-row">
-        <a class="btn primary" href="#contact">get in touch</a>
-        <a class="btn secondary" href="#services">see services</a>
+        <a class="btn primary" href="#services">see services</a>
       </div>
     </div>
   </section>
@@ -492,18 +500,20 @@
     <section class="intro" id="about">
       <p class="section-label">About</p>
       <p class="sub">
-        Opotek is an engineering partner for teams building real products.
-        We design the electronics, the mechanics, and the integration—then validate and hand off what manufacturing needs.
+        Opotek is the engineering team you call when you’re building a real product.
+        <br>We design the full stack: Electronics, firmware, software, and mechanics. 
+        And make sure it all works together in the real world, not just on paper. 
+        You get tested, validated files ready for production.
       </p>
-      <p class="micro">
-        Typical constraints: tight envelopes, thermal limits, EMI risk, cost targets, reliability, and assembly simplicity.
-      </p>
+
     </section>
 
     <section class="intro" id="services">
       <p class="section-label">What we do</p>
       <p class="sub">
-        We build embedded hardware systems end-to-end: schematics, PCB layout, enclosure CAD, prototyping, and integration.
+        Design integrity. Manufacturing certainty. <br>
+        We build complete embedded hardware systems: schematics, PCB design, enclosure CAD, prototyping, and system integration.
+        You get production-ready deliverables: manufacturing files, test documentation, BOM support, and specs that work on the factory floor.
       </p>
       <p class="micro">
         Outcome-focused deliverables: production files, test notes, BOM support, and documentation that survives manufacturing.
@@ -512,7 +522,7 @@
 
     <section id="projects" class="projects-block">
       <p class="section-label">Projects</p>
-      <h2>Selected work</h2>
+    
       <p class="muted">Case studies are being published. Request relevant examples by industry and constraints.</p>
 
       <div class="filters" role="toolbar" aria-label="Project filters">
@@ -557,11 +567,11 @@
 
     <section id="clients">
       <p class="section-label">Clients</p>
-      <h2>Teams we support</h2>
       <p class="muted">
-        Logos will be added here. Confidential by default—references available on request.
+        We've partnered with startups and established companies across various industries to bring their hardware visions to life.
       </p>
-      <div class="logo-strip" aria-hidden="true">Logo strip placeholder</div>
+      <div class="logo-strip" aria-hidden="true">placeholder</div>
+    
     </section>
 
     <section id="contact">
@@ -572,28 +582,7 @@
       </div>
     </section>
 
-    <section id="blog">
-      <p class="section-label">Updates</p>
-      <h2>Get engineering updates</h2>
-      <p class="muted">Occasional notes on electronics, mechanics, and product build quality. No spam.</p>
 
-      <form class="newsletter" id="newsletterForm" novalidate>
-        <label>
-          <span class="muted">Email</span>
-          <input class="input" type="email" name="email" placeholder="you@example.com" required />
-        </label>
-        <label class="consent">
-          <input type="checkbox" name="consent" required />
-          <span>I agree to the Terms and conditions.</span>
-        </label>
-        <label style="display:none;">
-          Leave this field empty if you are human:
-          <input type="text" name="company" tabindex="-1" autocomplete="off" />
-        </label>
-        <button class="btn secondary" type="submit">subscribe</button>
-        <p class="status" id="newsletterMsg" role="status" aria-live="polite"></p>
-      </form>
-    </section>
 
     <footer>
       <div>© 2026 Opotek. All rights reserved.</div>
