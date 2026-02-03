@@ -1,29 +1,30 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OPOTEK — Portfolio | Oriol Pascual</title>
-  <meta name="description" content="Portfolio de Oriol Pascual (OPOTEK): firmware y software embebido, diseño electrónico y trabajos eléctricos. Proyectos seleccionados, servicios y contacto." />
-  <meta name="theme-color" content="#0f172a" />
+  <title>Projects | Opotek — Electronics + Mechanical Engineering Services</title>
+  <meta name="description" content="Opotek projects portfolio for production-ready electronics and mechanical engineering. From prototype validation to manufacturing handoff, including firmware support." />
+  <meta name="theme-color" content="#0b0f17" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="OPOTEK — Portfolio | Oriol Pascual" />
-  <meta property="og:description" content="Firmware • Software • Hardware • Electricidad. Proyectos seleccionados y contacto." />
+  <meta property="og:title" content="Projects | Opotek — Electronics + Mechanical Engineering Services" />
+  <meta property="og:description" content="Electronics engineering and mechanical design for products that must work, scale, and pass real-world constraints." />
   <meta property="og:type" content="website" />
 
   <style>
     :root{
-      --bg:#0b1221;
-      --card:#0f172a;
-      --card2:#0b1326;
-      --txt:#e5e7eb;
-      --muted:#a1a1aa;
+      --bg:#0b0f17;
+      --card:#0f1624;
+      --card2:#101a2c;
+      --txt:#e6e9ef;
+      --muted:#9aa2b3;
       --line:rgba(255,255,255,.08);
-      --accent:#22c55e;
-      --accent2:#60a5fa;
-      --overlay: rgba(0,0,0,.70);
-      --shadow: 0 10px 30px rgba(0,0,0,.25);
+      --accent:#f8fafc;
+      --accent-ink:#0b0f17;
+      --cta:#3b82f6;
+      --cta-ink:#0b0f17;
+      --shadow: 0 18px 40px rgba(0,0,0,.35);
       --radius: 18px;
       --radius2: 14px;
     }
@@ -34,26 +35,27 @@
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
       background:
-        radial-gradient(1200px 600px at 10% 0%, rgba(34,197,94,.14), transparent 60%),
-        radial-gradient(900px 500px at 90% 10%, rgba(96,165,250,.12), transparent 55%),
-        radial-gradient(700px 500px at 40% 100%, rgba(34,197,94,.09), transparent 55%),
+        radial-gradient(1200px 640px at 8% 0%, rgba(255,255,255,.06), transparent 60%),
+        radial-gradient(900px 540px at 90% 10%, rgba(59,130,246,.20), transparent 55%),
+        radial-gradient(700px 500px at 40% 100%, rgba(15,23,42,.7), transparent 55%),
         var(--bg);
       color: var(--txt);
       line-height: 1.6;
     }
 
     a{ color: inherit; }
-    .wrap{ max-width: 1040px; margin: 0 auto; padding: 28px 18px 60px; }
+    .wrap{ max-width: 1100px; margin: 0 auto; padding: 28px 18px 80px; }
+
     .nav{
       position: sticky;
       top: 0;
       z-index: 20;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(180deg, rgba(11,18,33,.85), rgba(11,18,33,.55));
+      backdrop-filter: blur(12px);
+      background: linear-gradient(180deg, rgba(11,15,23,.92), rgba(11,15,23,.7));
       border-bottom: 1px solid var(--line);
     }
     .nav-inner{
-      max-width: 1040px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 12px 18px;
       display:flex;
@@ -63,18 +65,20 @@
     }
     .brand{
       display:flex;
-      align-items: baseline;
+      align-items:center;
       gap: 10px;
       text-decoration:none;
     }
-    .brand strong{
-      letter-spacing: 0.5px;
-      font-size: 16px;
+    .brand img{
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      filter: grayscale(1) brightness(1.2);
     }
     .brand span{
-      color: var(--muted);
-      font-size: 12px;
-      letter-spacing: 1.6px;
+      font-weight: 650;
+      letter-spacing: 1px;
+      font-size: 14px;
       text-transform: uppercase;
     }
     .nav-links{
@@ -97,58 +101,63 @@
       border-color: var(--line);
       background: rgba(255,255,255,.03);
     }
+    .nav-links .contact-btn{
+      background: var(--cta);
+      color: var(--cta-ink);
+      font-weight: 650;
+      border: 1px solid rgba(255,255,255,.15);
+    }
+    .nav-links .contact-btn:hover{
+      filter: brightness(1.05);
+      color: var(--cta-ink);
+    }
 
     .hero{
-      padding: 32px 0 12px;
+      padding: 40px 0 24px;
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 18px;
-      align-items: start;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 24px;
+      align-items: center;
     }
-    @media (max-width: 900px){
+    @media (max-width: 960px){
       .hero{ grid-template-columns: 1fr; }
     }
 
-    .kicker{
+    .section-label{
       color: var(--muted);
       font-size: 12px;
-      letter-spacing: 2.2px;
+      letter-spacing: 2.6px;
       text-transform: uppercase;
       margin: 0 0 10px;
     }
     h1{
-      margin: 0 0 10px;
-      font-size: clamp(32px, 4.6vw, 56px);
+      margin: 0 0 12px;
+      font-size: clamp(34px, 4.8vw, 60px);
       line-height: 1.05;
       letter-spacing: .2px;
     }
-    .sub{
-      margin: 0 0 16px;
-      color: rgba(229,231,235,.86);
-      font-size: 16px;
-      max-width: 62ch;
-    }
-
-    .pill-row{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 14px 0 18px;
-    }
-    .pill{
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      color: var(--muted);
-      padding: 8px 10px;
-      border-radius: 999px;
-      font-size: 12px;
+    h2{
+      margin: 0 0 10px;
+      font-size: clamp(24px, 2.6vw, 32px);
       letter-spacing: .3px;
+    }
+    .sub{
+      margin: 0 0 14px;
+      color: rgba(230,233,239,.86);
+      font-size: 16px;
+      max-width: 64ch;
+    }
+    .support-line{
+      margin: 0 0 18px;
+      color: rgba(230,233,239,.7);
+      font-size: 14px;
+      max-width: 70ch;
     }
 
     .cta-row{
       display:flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
       align-items:center;
       margin-top: 10px;
     }
@@ -157,14 +166,14 @@
       align-items:center;
       justify-content:center;
       gap: 10px;
-      padding: 12px 16px;
+      padding: 12px 18px;
       border-radius: 14px;
       text-decoration:none;
       font-weight: 650;
-      border: 1px solid rgba(0,0,0,.12);
+      border: 1px solid rgba(255,255,255,.12);
       box-shadow: var(--shadow);
     }
-    .btn.primary{ background: var(--accent); color: #07121a; }
+    .btn.primary{ background: var(--cta); color: var(--cta-ink); }
     .btn.primary:hover{ filter: brightness(1.05); }
     .btn.secondary{
       background: rgba(255,255,255,.04);
@@ -174,93 +183,90 @@
     }
     .btn.secondary:hover{ background: rgba(255,255,255,.06); }
 
-    .side-card{
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    .hero-media{
+      background:
+        linear-gradient(160deg, rgba(15,23,42,.2), rgba(15,23,42,.8)),
+        radial-gradient(400px 220px at 20% 20%, rgba(59,130,246,.35), transparent 60%),
+        radial-gradient(380px 200px at 80% 80%, rgba(248,250,252,.16), transparent 55%);
       border: 1px solid var(--line);
       border-radius: var(--radius);
       padding: 18px;
-    }
-    .side-card h3{ margin: 0 0 10px; font-size: 14px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); }
-    .side-card .line{
+      min-height: 320px;
       display:flex;
+      flex-direction: column;
       justify-content: space-between;
-      gap: 10px;
-      padding: 10px 0;
-      border-top: 1px solid var(--line);
-      font-variant-numeric: tabular-nums;
+      box-shadow: var(--shadow);
     }
-    .side-card .line:first-of-type{ border-top: none; padding-top: 0; }
-    .side-card .label{ color: var(--muted); font-size: 13px; }
-    .side-card .value{ font-size: 13px; }
-
-    .grid{
+    .hero-media .media-title{
+      font-size: 13px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 8px;
+    }
+    .media-stack{
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 18px;
+      gap: 12px;
     }
-    @media (max-width: 900px){
-      .grid{ grid-template-columns: 1fr; }
+    .media-frame{
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.04);
+      padding: 14px;
     }
+    .media-frame strong{ display:block; font-size: 14px; margin-bottom: 6px; }
+    .media-frame span{ color: rgba(230,233,239,.7); font-size: 13px; }
 
     section.card{
       background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 20px;
-    }
-    section.card h2{
-      margin: 0 0 12px;
-      font-size: 16px;
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
-      color: rgba(229,231,235,.88);
+      padding: 24px;
+      margin-top: 22px;
     }
     .muted{ color: var(--muted); }
-
-    .two{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    @media (max-width: 700px){ .two{ grid-template-columns: 1fr; } }
-
-    ul.clean{
-      margin: 0;
-      padding-left: 18px;
-    }
-    ul.clean li{ margin: 6px 0; }
 
     /* Portfolio */
     .filters{
       display:flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin: 10px 0 14px;
+      margin: 12px 0 16px;
     }
     .chip{
       background: rgba(255,255,255,.03);
       border: 1px solid var(--line);
       color: var(--muted);
       font-size: 12px;
-      padding: 8px 10px;
+      padding: 8px 12px;
       border-radius: 999px;
       cursor: pointer;
       user-select: none;
     }
     .chip[aria-pressed="true"]{
-      border-color: rgba(34,197,94,.45);
-      color: rgba(229,231,235,.92);
-      background: rgba(34,197,94,.08);
+      border-color: rgba(59,130,246,.55);
+      color: rgba(230,233,239,.95);
+      background: rgba(59,130,246,.12);
     }
 
     .projects{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+      gap: 16px;
+      margin-top: 10px;
     }
-    @media (max-width: 1000px){ .projects{ grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 650px){ .projects{ grid-template-columns: 1fr; } }
+    @media (max-width: 1020px){ .projects{ grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 700px){ .projects{ grid-template-columns: 1fr; } }
+
+    .empty-state{
+      grid-column: 1 / -1;
+      border: 1px dashed var(--line);
+      border-radius: var(--radius2);
+      padding: 18px;
+      background: rgba(255,255,255,.02);
+    }
+    .empty-state p{ margin: 0 0 6px; }
+    .empty-state a{ color: var(--accent); text-decoration: underline; }
 
     .proj{
       background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
@@ -269,28 +275,15 @@
       overflow: hidden;
       display:flex;
       flex-direction: column;
-      min-height: 280px;
-      cursor: pointer;
+      min-height: 260px;
     }
     .thumb{
       height: 110px;
       background:
-        radial-gradient(800px 200px at 20% 50%, rgba(34,197,94,.24), transparent 60%),
-        radial-gradient(700px 180px at 80% 40%, rgba(96,165,250,.20), transparent 55%),
+        radial-gradient(800px 200px at 20% 50%, rgba(59,130,246,.25), transparent 60%),
+        radial-gradient(700px 180px at 80% 40%, rgba(248,250,252,.20), transparent 55%),
         linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0));
       border-bottom: 1px solid var(--line);
-      position: relative;
-    }
-    .thumb .badge{
-      position:absolute;
-      bottom: 10px;
-      left: 12px;
-      background: rgba(11,18,33,.72);
-      border: 1px solid var(--line);
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      color: rgba(229,231,235,.92);
     }
     .proj-body{
       padding: 14px 14px 16px;
@@ -300,7 +293,7 @@
       flex:1;
     }
     .proj h3{ margin: 0; font-size: 15px; }
-    .proj p{ margin: 0; color: rgba(229,231,235,.80); font-size: 13px; }
+    .proj p{ margin: 0; color: rgba(230,233,239,.80); font-size: 13px; }
     .tags{ display:flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
     .tag{
       font-size: 11px;
@@ -311,26 +304,87 @@
       background: rgba(255,255,255,.02);
     }
 
-    /* Process */
-    .steps{
+    /* Capabilities */
+    .cap-grid{
       display:grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
+      gap: 12px;
+      margin-top: 14px;
     }
-    @media (max-width: 900px){ .steps{ grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 520px){ .steps{ grid-template-columns: 1fr; } }
-    .step{
+    @media (max-width: 1000px){ .cap-grid{ grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px){ .cap-grid{ grid-template-columns: 1fr; } }
+    .cap-tile{
       background: rgba(255,255,255,.02);
       border: 1px solid var(--line);
       border-radius: var(--radius2);
-      padding: 12px;
-      min-height: 98px;
+      padding: 14px;
+      display:grid;
+      gap: 8px;
     }
-    .step strong{ display:block; font-size: 13px; margin-bottom: 6px; }
-    .step span{ display:block; font-size: 13px; color: rgba(229,231,235,.80); }
+    .tile-icon{
+      width: 28px;
+      height: 28px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size: 12px;
+      color: var(--muted);
+      background: rgba(255,255,255,.04);
+    }
+    .cap-tile strong{ font-size: 14px; }
+    .cap-tile span{ color: rgba(230,233,239,.7); font-size: 13px; }
+
+    /* Clients */
+    .logo-strip{
+      border: 1px dashed var(--line);
+      border-radius: var(--radius2);
+      padding: 14px;
+      color: var(--muted);
+      background: rgba(255,255,255,.02);
+    }
+
+    /* CTA */
+    .cta-block{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items: start;
+    }
+    @media (max-width: 900px){ .cta-block{ grid-template-columns: 1fr; } }
+    .checklist{
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: rgba(230,233,239,.8);
+      font-size: 13px;
+    }
+
+    /* Newsletter */
+    form.newsletter{
+      display:grid;
+      gap: 10px;
+      max-width: 520px;
+    }
+    .input{
+      width: 100%;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--line);
+      color: var(--txt);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+    .consent{
+      display:flex;
+      gap: 8px;
+      align-items:flex-start;
+      font-size: 13px;
+      color: var(--muted);
+    }
 
     footer{
-      margin-top: 30px;
+      margin-top: 40px;
       color: var(--muted);
       font-size: 13px;
       padding: 18px 0 0;
@@ -351,78 +405,6 @@
     }
     .small-links a:hover{ color: var(--txt); text-decoration: underline; }
 
-    /* Modal */
-    .modal{
-      position: fixed;
-      inset: 0;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      background: var(--overlay);
-      padding: 18px;
-      z-index: 50;
-    }
-    .modal[open]{ display:flex; }
-    .modal-card{
-      width: min(920px, 96vw);
-      max-height: 86vh;
-      overflow: auto;
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-    }
-    .modal-top{
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 12px 14px;
-      border-bottom: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0));
-      position: sticky;
-      top: 0;
-    }
-    .modal-title{ font-weight: 650; }
-    .close{
-      appearance:none;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 12px;
-      padding: 8px 12px;
-      background: rgba(255,255,255,.02);
-      color: var(--txt);
-      cursor: pointer;
-    }
-    .close:hover{ background: rgba(255,255,255,.06); }
-    .modal-content{
-      padding: 14px;
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-    .modal-kv{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-    @media (max-width: 720px){ .modal-kv{ grid-template-columns: 1fr; } }
-    .kv{
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 12px;
-      background: rgba(255,255,255,.02);
-    }
-    .kv .k{ font-size: 12px; color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase; }
-    .kv .v{ margin-top: 6px; font-size: 13px; color: rgba(229,231,235,.86); }
-
-    .note{
-      margin-top: 6px;
-      color: rgba(229,231,235,.72);
-      font-size: 13px;
-    }
-    .divider{ height: 1px; background: var(--line); margin: 8px 0; }
-
-    /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
       *{ scroll-behavior: auto !important; }
     }
@@ -431,22 +413,12 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Oriol Pascual",
-    "alternateName": "OPOTEK",
+    "@type": "Organization",
+    "name": "Opotek",
     "url": "https://opotek.es",
-    "jobTitle": "Ingeniero electrónico / Electricista",
-    "telephone": "+34 646 617 993",
-    "email": "opotek@protonmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Viladecavalls",
-      "addressCountry": "ES"
-    },
-    "knowsAbout": [
-      "Firmware", "Embedded Systems", "Electronics Design", "Power Electronics",
-      "Python", "C/C++", "STM32", "ESP32", "Teensy", "Industrial Electrical Work"
-    ]
+    "description": "Electronics engineering and mechanical design services delivering production-ready hardware.",
+    "areaServed": "Worldwide",
+    "sameAs": []
   }
   </script>
 </head>
@@ -454,318 +426,205 @@
 
   <div class="nav">
     <div class="nav-inner">
-      <a class="brand" href="#top" aria-label="Ir al inicio">
-        <strong>OPOTEK</strong>
-        <span>Oriol Pascual</span>
+      <a class="brand" href="/" aria-label="Opotek home">
+        <img src="img/LOGO_SVG.svg" alt="Opotek logo" />
+        <span>Opotek</span>
       </a>
-      <div class="nav-links" aria-label="Navegación">
-        <a href="#portfolio">Portfolio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#stack">Stack</a>
-        <a href="#proceso">Proceso</a>
-        <a href="#contacto">Contacto</a>
+      <div class="nav-links" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#insights">Insights</a>
+        <a href="#contact" class="contact-btn">Contact</a>
       </div>
     </div>
   </div>
 
   <div class="wrap" id="top">
-    <div class="hero">
+    <section class="hero" id="about">
       <div>
-        <p class="kicker">Firmware • Software • Hardware • Electricidad</p>
-        <h1>Ingeniería práctica para llegar a producción.</h1>
+        <p class="section-label">Portfolio entry</p>
+        <h1>Engineering that ships</h1>
         <p class="sub">
-          Desarrollo y mantenimiento de sistemas embebidos, diseño electrónico y soporte en instalaciones eléctricas
-          (industrial y doméstico). Foco en fiabilidad, diagnóstico rápido y documentación.
+          Electronics engineering and mechanical design for products that must work, scale, and pass real-world constraints.
         </p>
-
-        <div class="pill-row" aria-label="Especialidades">
-          <div class="pill">Embedded C/C++</div>
-          <div class="pill">Teensy / STM32 / ESP32</div>
-          <div class="pill">Electrónica analógica + potencia</div>
-          <div class="pill">Python (tooling / visión)</div>
-          <div class="pill">IoT a medida</div>
-        </div>
-
+        <p class="support-line">
+          From proof-of-concept to manufacturing handoff: schematics, PCB, enclosures, firmware integration, testing, and DFM.
+        </p>
         <div class="cta-row">
-          <a class="btn primary" href="https://wa.me/34646617993?text=Hola%20Oriol.%20Tengo%20un%20proyecto%20y%20quiero%20comentar%20requisitos." target="_blank" rel="noopener">WhatsApp</a>
-          <a class="btn secondary" href="#portfolio">Ver proyectos</a>
-          <a class="btn secondary" href="mailto:opotek@protonmail.com?subject=Proyecto%20OPOTEK&body=Hola%20Oriol,%0A%0AResumen%20del%20proyecto:%0A-%20...%0A%0APlazo%20deseado:%20...%0APresupuesto%20aproximado:%20...%0A%0AGracias.">Email</a>
+          <a class="btn primary" href="#contact">Talk to an engineer</a>
+          <a class="btn secondary" href="#capabilities">See capabilities</a>
         </div>
-
-        <p class="note">Disponible para proyectos puntuales y soporte continuo. Zona: Viladecavalls / Barcelona + remoto.</p>
       </div>
 
-      <aside class="side-card" aria-label="Ficha rápida">
-        <h3>Ficha rápida</h3>
-        <div class="line">
-          <div class="label">Ubicación</div>
-          <div class="value">Viladecavalls (ES)</div>
+      <aside class="hero-media" aria-label="Workshop and CAD preview">
+        <div>
+          <p class="media-title">Built in-house</p>
+          <div class="media-stack">
+            <div class="media-frame">
+              <strong>Bench + prototype assembly</strong>
+              <span>Hands-on bring-up, instrumentation, and quick iteration.</span>
+            </div>
+            <div class="media-frame">
+              <strong>CAD overlays + enclosure fit</strong>
+              <span>Mechanical packaging aligned with PCB constraints.</span>
+            </div>
+          </div>
         </div>
-        <div class="line">
-          <div class="label">Teléfono</div>
-          <div class="value"><a href="tel:+34646617993" style="text-decoration:none;">+34 646 617 993</a></div>
-        </div>
-        <div class="line">
-          <div class="label">Email</div>
-          <div class="value"><a href="mailto:opotek@protonmail.com" style="text-decoration:none;">opotek@protonmail.com</a></div>
-        </div>
-        <div class="line">
-          <div class="label">Entrega</div>
-          <div class="value">Prototipo → validación → handover</div>
+        <div class="media-frame">
+          <strong>Production-ready hardware</strong>
+          <span>Validated for thermal, EMI/EMC, safety, and manufacturing yield.</span>
         </div>
       </aside>
-    </div>
+    </section>
 
-    <section class="card" id="portfolio" aria-label="Portfolio">
-      <h2>Portfolio</h2>
+    <section class="card" id="projects" aria-label="Projects">
+      <p class="section-label">Projects</p>
+      <h2>Production-grade electronics and mechanical design</h2>
       <p class="muted" style="margin: 0 0 10px;">
-        Proyectos seleccionados (resumen). Si necesitas NDA, se puede adaptar el nivel de detalle.
+        Opotek delivers both electronics and mechanics. We design for EMI/EMC, thermal paths, safety, IP ratings, and manufacturing reliability.
       </p>
 
-      <div class="filters" role="toolbar" aria-label="Filtros de proyectos">
-        <button class="chip" data-filter="all" aria-pressed="true">Todo</button>
-        <button class="chip" data-filter="embedded" aria-pressed="false">Embedded</button>
-        <button class="chip" data-filter="software" aria-pressed="false">Software</button>
-        <button class="chip" data-filter="hardware" aria-pressed="false">Hardware</button>
-        <button class="chip" data-filter="iot" aria-pressed="false">IoT</button>
-        <button class="chip" data-filter="industrial" aria-pressed="false">Industrial</button>
+      <div class="filters" role="toolbar" aria-label="Project filters">
+        <button class="chip" data-filter="all" aria-pressed="true">Show all</button>
+        <button class="chip" data-filter="electronics" aria-pressed="false">Electronics</button>
+        <button class="chip" data-filter="mechanical" aria-pressed="false">Mechanical</button>
+        <button class="chip" data-filter="firmware" aria-pressed="false">Firmware</button>
+        <button class="chip" data-filter="test" aria-pressed="false">Test &amp; Validation</button>
+        <button class="chip" data-filter="manufacturing" aria-pressed="false">Manufacturing / DFM</button>
       </div>
 
-      <div class="projects" id="projects">
-        <!-- Nota: edita estas tarjetas para que reflejen tu trabajo real (título, impacto, tecnologías). -->
-        <article class="proj" tabindex="0"
-          data-tags="embedded,hardware,industrial"
-          data-title="Controlador de sensor microfluídico (Teensy 4.1)"
-          data-summary="Firmware modular con control de motores, PID de calefactores, sensores ópticos y logging."
-          data-impact="Arquitectura por módulos, diagnóstico por comandos, y registro de datos para trazabilidad."
-          data-tech="Teensy 4.1; C/C++; I2C (TSL2591); FRAM; SD logging; PID; MegunoLink"
-        >
-          <div class="thumb"><div class="badge">Embedded + Hardware</div></div>
-          <div class="proj-body">
-            <h3>Controlador de sensor microfluídico</h3>
-            <p>Motorización + control térmico + lectura óptica + logging para validación.</p>
-            <div class="tags">
-              <span class="tag">Teensy</span><span class="tag">C/C++</span><span class="tag">PID</span><span class="tag">FRAM</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="proj" tabindex="0"
-          data-tags="software,industrial"
-          data-title="Web de análisis de imágenes (microscopio)"
-          data-summary="App web para subir/capturar fotos, extraer métricas (burbujas) y exportar CSV."
-          data-impact="Workflow rápido para operarios: entrada de metadatos, visualización y exportación reproducible."
-          data-tech="Python; Flask; OpenCV; Export CSV; UI responsive"
-        >
-          <div class="thumb"><div class="badge">Software</div></div>
-          <div class="proj-body">
-            <h3>Análisis de imágenes (web)</h3>
-            <p>Pipeline reproducible: captura → medida → visualización → CSV.</p>
-            <div class="tags">
-              <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">OpenCV</span><span class="tag">CSV</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="proj" tabindex="0"
-          data-tags="hardware,iot,embedded"
-          data-title="Tarjeta de visita PCB con RFID"
-          data-summary="PCB compacta como tarjeta de visita: RFID + diseño orientado a fabricación."
-          data-impact="Demostración tangible de electrónica, layout y atención a DFM/ensamblaje."
-          data-tech="RFID; Diseño PCB; DFM; Prototipado"
-        >
-          <div class="thumb"><div class="badge">Hardware</div></div>
-          <div class="proj-body">
-            <h3>PCB business card (RFID)</h3>
-            <p>Diseño demostrador: compacto, fabricable y con funcionalidad real.</p>
-            <div class="tags">
-              <span class="tag">PCB</span><span class="tag">RFID</span><span class="tag">DFM</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="proj" tabindex="0"
-          data-tags="embedded,hardware"
-          data-title="Spinner controlado por Arduino + monitorización de vibración"
-          data-summary="Interfaz LCD + control PWM, y parada por umbral de vibración (MPU-6050)."
-          data-impact="Aumenta seguridad operativa y reduce fallos por desbalanceo."
-          data-tech="Arduino; PWM; MPU-6050; LCD Keypad Shield"
-        >
-          <div class="thumb"><div class="badge">Embedded</div></div>
-          <div class="proj-body">
-            <h3>Control de spinner con protección</h3>
-            <p>Control + UI + protección por vibración para operación segura.</p>
-            <div class="tags">
-              <span class="tag">Arduino</span><span class="tag">MPU-6050</span><span class="tag">PWM</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="proj" tabindex="0"
-          data-tags="hardware,embedded,industrial"
-          data-title="Sistema LiDAR batimétrico en dron (concepto)"
-          data-summary="Arquitectura de medición de altura (IR) y profundidad (verde) para agua."
-          data-impact="Definición de requisitos, riesgos ópticos y estrategia de integración."
-          data-tech="Optoelectrónica; Integración en dron; Calibración; Seguridad láser"
-        >
-          <div class="thumb"><div class="badge">I+D</div></div>
-          <div class="proj-body">
-            <h3>LiDAR batimétrico en dron</h3>
-            <p>Diseño conceptual: dos longitudes de onda, calibración y montaje.</p>
-            <div class="tags">
-              <span class="tag">Opto</span><span class="tag">Integración</span><span class="tag">Calibración</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="proj" tabindex="0"
-          data-tags="embedded,hardware,software"
-          data-title="Programador MCU standalone (concepto)"
-          data-summary="Tool compacto con OLED + USB para programar familias MCU (STM32, AVR, ESP32, etc.)."
-          data-impact="Diseño de UX y arquitectura de soporte multi-target."
-          data-tech="USB; OLED UI; Tooling; Bootloaders/Debug"
-        >
-          <div class="thumb"><div class="badge">Tooling</div></div>
-          <div class="proj-body">
-            <h3>Programador MCU standalone</h3>
-            <p>Arquitectura y UX para programación multi-plataforma.</p>
-            <div class="tags">
-              <span class="tag">USB</span><span class="tag">OLED</span><span class="tag">Tooling</span>
-            </div>
-          </div>
-        </article>
+      <div class="projects" id="project-grid">
+        <div class="empty-state">
+          <p><strong>Projects will be published soon.</strong></p>
+          <p>Request relevant case studies by email. <a href="#contact">Contact Opotek</a>.</p>
+        </div>
       </div>
-
-      <p class="note">
-        Consejo: si quieres “portafolio más fuerte”, cambia cada tarjeta a formato <strong>problema → solución → resultado medible</strong> (tiempo, coste, fallos evitados, % mejora).
-      </p>
     </section>
 
-    <div class="grid">
-      <section class="card" id="servicios" aria-label="Servicios">
-        <h2>Servicios</h2>
-        <div class="two">
-          <div>
-            <ul class="clean">
-              <li><strong>Firmware embebido</strong>: drivers, I2C/SPI/UART, RTOS (si aplica), logging, tests.</li>
-              <li><strong>Electrónica</strong>: esquemático, PCB, prototipado, bring-up, DFM/DFT.</li>
-              <li><strong>Software</strong>: Python, backends web, herramientas internas, visión por computador.</li>
-            </ul>
-          </div>
-          <div>
-            <ul class="clean">
-              <li><strong>IoT a medida</strong>: sensores, conectividad, telemetría, actualizaciones.</li>
-              <li><strong>Diagnóstico</strong>: análisis de fallos, instrumentación, corrección rápida.</li>
-              <li><strong>Electricista</strong>: trabajos industriales y domésticos (según alcance).</li>
-            </ul>
-          </div>
+    <section class="card" id="capabilities" aria-label="Capabilities">
+      <p class="section-label">Capabilities</p>
+      <h2>Electronics + mechanical under one roof</h2>
+      <div class="cap-grid">
+        <div class="cap-tile">
+          <div class="tile-icon">01</div>
+          <strong>Schematic &amp; PCB design</strong>
+          <span>Analog, digital, RF basics, power electronics, sensor front-ends.</span>
         </div>
-        <p class="note">Si me pasas requisitos + restricciones (plazo, coste, certificaciones), puedo acotar alcance y riesgos desde el inicio.</p>
-      </section>
-
-      <section class="card" id="stack" aria-label="Stack">
-        <h2>Stack</h2>
-        <div class="two">
-          <div class="kv">
-            <div class="k">Embedded</div>
-            <div class="v">C/C++, drivers, control (PID), buses (I2C/SPI/UART), logs y diagnósticos.</div>
-          </div>
-          <div class="kv">
-            <div class="k">MCUs</div>
-            <div class="v">Teensy / STM32 / ESP32 / AVR (según producto y disponibilidad).</div>
-          </div>
-          <div class="kv">
-            <div class="k">Electrónica</div>
-            <div class="v">Diseño PCB, analógica, potencia, sensores, validación y trazabilidad.</div>
-          </div>
-          <div class="kv">
-            <div class="k">Software</div>
-            <div class="v">Python, Flask, pipelines de visión, exportación de datos, automatización.</div>
-          </div>
+        <div class="cap-tile">
+          <div class="tile-icon">02</div>
+          <strong>Power &amp; thermal engineering</strong>
+          <span>Efficiency, heat paths, derating, enclosure ventilation strategy.</span>
         </div>
-      </section>
-    </div>
-
-    <section class="card" id="proceso" aria-label="Proceso de trabajo">
-      <h2>Proceso</h2>
-      <div class="steps">
-        <div class="step">
-          <strong>1) Alcance</strong>
-          <span>Objetivo, restricciones, riesgos y definición de entregables.</span>
+        <div class="cap-tile">
+          <div class="tile-icon">03</div>
+          <strong>Mechanical design (CAD)</strong>
+          <span>Enclosures, fixtures, mounts, product packaging, assembly strategy.</span>
         </div>
-        <div class="step">
-          <strong>2) Diseño</strong>
-          <span>Arquitectura, interfaces, pruebas y criterios de aceptación.</span>
+        <div class="cap-tile">
+          <div class="tile-icon">04</div>
+          <strong>Prototyping &amp; bring-up</strong>
+          <span>Board bring-up, debugging, instrumentation, rapid iterations.</span>
         </div>
-        <div class="step">
-          <strong>3) Implementación</strong>
-          <span>Iteraciones cortas, integración, instrumentación y documentación.</span>
+        <div class="cap-tile">
+          <div class="tile-icon">05</div>
+          <strong>Firmware integration</strong>
+          <span>MCU selection, drivers, comms stacks, control loops.</span>
         </div>
-        <div class="step">
-          <strong>4) Entrega</strong>
-          <span>Handover, checklist, soporte y siguientes pasos.</span>
+        <div class="cap-tile">
+          <div class="tile-icon">06</div>
+          <strong>DFM / DFA</strong>
+          <span>Cost-down, assembly simplification, manufacturing documentation.</span>
+        </div>
+        <div class="cap-tile">
+          <div class="tile-icon">07</div>
+          <strong>Compliance readiness</strong>
+          <span>Design choices that reduce EMI risk and ease certification.</span>
+        </div>
+        <div class="cap-tile">
+          <div class="tile-icon">08</div>
+          <strong>Test tooling</strong>
+          <span>End-of-line fixtures, scripts, calibration flows.</span>
         </div>
       </div>
-      <p class="note">Si el proyecto lo requiere, se añade: trazabilidad de requisitos, plan de validación y logs orientados a auditoría.</p>
     </section>
 
-    <section class="card" id="contacto" aria-label="Contacto">
-      <h2>Contacto</h2>
-      <p style="margin:0 0 12px;">
-        Envíame 3 datos y respondo con una propuesta concreta:
-        <span class="muted">qué quieres conseguir</span>, <span class="muted">qué ya tienes</span>, <span class="muted">plazo/presupuesto aproximado</span>.
-      </p>
+    <section class="card" id="clients" aria-label="Clients">
+      <p class="section-label">Clients</p>
+      <h2>Teams we support</h2>
+      <p class="muted" style="margin: 0 0 12px;">Client logos and public references will be added here.</p>
+      <div class="logo-strip">Confidential by default; references available on request.</div>
+    </section>
 
+    <section class="card" id="services" aria-label="Project inquiry">
+      <div class="cta-block">
+        <div>
+          <p class="section-label">Project inquiry</p>
+          <h2>Have a hardware project?</h2>
+          <p class="muted" style="margin: 0 0 12px;">
+            Send scope, constraints, timelines. You’ll get a technical reply, not a sales script.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="#contact">Contact Opotek</a>
+            <a class="btn secondary" href="#contact">Share requirements</a>
+          </div>
+        </div>
+        <div>
+          <p class="section-label">What to send</p>
+          <ul class="checklist">
+            <li>Target BOM cost</li>
+            <li>Power budget / thermal constraints</li>
+            <li>Mechanical constraints (size, IP rating)</li>
+            <li>Interfaces (USB, CAN, BLE, etc.)</li>
+            <li>Certification targets (CE/FCC/medical)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="insights" aria-label="Engineering notes">
+      <p class="section-label">Engineering notes</p>
+      <h2>Get engineering notes (no spam)</h2>
+      <form class="newsletter">
+        <label>
+          <span class="muted">Email address</span>
+          <input class="input" type="email" name="email" placeholder="you@example.com" required />
+        </label>
+        <label class="consent">
+          <input type="checkbox" name="consent" required />
+          <span>I agree to the Privacy Policy and receive updates.</span>
+        </label>
+        <label style="display:none;">
+          Leave this field empty if you are human:
+          <input type="text" name="company" tabindex="-1" autocomplete="off" />
+        </label>
+        <button class="btn secondary" type="submit">Subscribe</button>
+      </form>
+    </section>
+
+    <section class="card" id="contact" aria-label="Contact">
+      <p class="section-label">Contact</p>
+      <h2>Talk through requirements</h2>
+      <p class="muted" style="margin:0 0 12px;">
+        Send project scope, constraints, and any existing design files. We can start with a short technical call.
+      </p>
       <div class="cta-row">
-        <a class="btn primary" href="https://wa.me/34646617993?text=Hola%20Oriol.%0A%0AObjetivo:%20...%0AEstado%20actual:%20...%0APlazo:%20...%0APresupuesto:%20...%0A" target="_blank" rel="noopener">WhatsApp</a>
-        <a class="btn secondary" href="tel:+34646617993">Llamar</a>
-        <a class="btn secondary" href="mailto:opotek@protonmail.com?subject=Proyecto%20OPOTEK&body=Hola%20Oriol,%0A%0AObjetivo:%20...%0AEstado%20actual:%20...%0APlazo:%20...%0APresupuesto:%20...%0A%0AGracias.">Email</a>
+        <a class="btn primary" href="mailto:hello@opotek.com?subject=Opotek%20project%20inquiry">Email Opotek</a>
+        <a class="btn secondary" href="#projects">See project approach</a>
       </div>
     </section>
 
     <footer>
-      <div>© <span id="y"></span> OPOTEK — Viladecavalls, ES</div>
+      <div>© 2026 Opotek. All rights reserved.</div>
       <div class="small-links">
-        <a href="#top">Inicio</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookies Policy</a>
+        <a href="#">Disclaimer</a>
       </div>
     </footer>
   </div>
 
-  <!-- Modal detalle de proyecto -->
-  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal-card">
-      <div class="modal-top">
-        <div class="modal-title" id="modal-title">Proyecto</div>
-        <button class="close" id="close">Cerrar</button>
-      </div>
-      <div class="modal-content">
-        <div class="modal-kv">
-          <div class="kv">
-            <div class="k">Resumen</div>
-            <div class="v" id="m-summary"></div>
-          </div>
-          <div class="kv">
-            <div class="k">Impacto</div>
-            <div class="v" id="m-impact"></div>
-          </div>
-        </div>
-        <div class="kv">
-          <div class="k">Tecnologías</div>
-          <div class="v" id="m-tech"></div>
-        </div>
-        <div class="divider"></div>
-        <div class="note">Si quieres, puedo preparar una versión con imágenes reales y enlaces (GitHub, vídeo, notas técnicas).</div>
-      </div>
-    </div>
-  </div>
-
   <script>
-    // Year
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Portfolio filter
     const chips = Array.from(document.querySelectorAll('.chip'));
     const cards = Array.from(document.querySelectorAll('.proj'));
 
@@ -778,35 +637,6 @@
       });
     }
     chips.forEach(chip => chip.addEventListener('click', () => setFilter(chip.dataset.filter)));
-
-    // Modal
-    const modal = document.getElementById('modal');
-    const closeBtn = document.getElementById('close');
-    const modalTitle = document.getElementById('modal-title');
-    const mSummary = document.getElementById('m-summary');
-    const mImpact = document.getElementById('m-impact');
-    const mTech = document.getElementById('m-tech');
-
-    function openProject(card){
-      modalTitle.textContent = card.dataset.title || 'Proyecto';
-      mSummary.textContent = card.dataset.summary || '';
-      mImpact.textContent = card.dataset.impact || '';
-      mTech.textContent = card.dataset.tech || '';
-      modal.setAttribute('open','');
-      closeBtn.focus();
-    }
-
-    cards.forEach(card => {
-      card.addEventListener('click', () => openProject(card));
-      card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openProject(card); }
-      });
-    });
-
-    const close = () => modal.removeAttribute('open');
-    closeBtn.addEventListener('click', close);
-    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
-    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
   </script>
 </body>
 </html>
