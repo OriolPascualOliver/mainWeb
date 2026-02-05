@@ -1,0 +1,1061 @@
+
+CHATR
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects | Opotek — Electronics Engineering Services</title>
+  <meta name="description" content="Opotek projects portfolio for production-ready electronics and mechanical engineering. From prototype to production-ready delivery." />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Projects | Opotek — Electronics and Mechanical Engineering Services for MVPs and production" />
+  <meta property="og:description" content="Smart hardware for real products. Electronics engineering and mechanical design, fully delivered." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://opotek.es/projects" />
+  <meta property="og:image" content="https://opotek.es/img/og-projects.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preload" as="image" href="Banner.png" />
+
+  <style>
+    :root{
+      --bg:#0a0a0a;
+      --bg-alt:#111111;
+      --card:#151515;
+      --txt:#f7f7f7;
+      --muted:#b4b4b4;
+      --line:rgba(255,255,255,.08);
+      --accent:#9ca3af;
+      --accent-strong:#ffffff;
+      --shadow: 0 20px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+      --radius2: 14px;
+    }
+    .slashed0{
+      font-variant-numeric: slashed-zero;
+      font-feature-settings: "zero" 1; /* fallback para algunos browsers */
+      font-family: "JetBrains Mono", "Fira Code", "IBM Plex Mono", monospace;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+      background: var(--bg);
+      color: var(--txt);
+      line-height: 1.6;
+    }
+
+    a{ color: inherit; }
+    .wrap{ max-width: 1120px; margin: 0 auto; padding: 0 18px 80px; }
+    .skip{
+      position: absolute;
+      left: -999px;
+      top: 12px;
+      background: #ffffff;
+      color: #0a0a0a;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      text-decoration: none;
+      z-index: 40;
+    }
+    .skip:focus{
+      left: 12px;
+    }
+
+    .nav{
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(10,10,10,.95);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner{
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 12px 18px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 1;
+      text-decoration:none;
+    }
+    .brand img{
+      height: 45px;
+      width: auto;
+      display: block;
+    }
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav-links a{
+      text-decoration:none;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: lowercase;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+    .nav-links a:hover{
+      color: var(--txt);
+      border-color: var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .nav-links .contact-btn{
+      background: var(--accent-strong);
+      color: #0a0a0a;
+      font-weight: 700;
+    }
+
+    .menu-toggle{
+      display:none;
+      background: none;
+      border: 1px solid var(--line);
+      color: var(--txt);
+      border-radius: 12px;
+      padding: 8px 12px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .mobile-menu{
+      position: fixed;
+      inset: 0;
+      background: rgba(8,8,8,.98);
+      display: none;
+      flex-direction: column;
+      padding: 24px;
+      gap: 18px;
+      z-index: 30;
+    }
+    .mobile-menu.open{ display:flex; }
+    .mobile-menu .top{
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .mobile-menu .links{
+      display:flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .mobile-menu a{
+      text-decoration:none;
+      font-size: 20px;
+      letter-spacing: 1px;
+      text-transform: lowercase;
+    }
+    .mobile-menu .contact-btn{
+      background: var(--accent-strong);
+      color: #0a0a0a;
+      padding: 12px 16px;
+      border-radius: 999px;
+      text-align: center;
+      font-weight: 700;
+      max-width: 220px;
+    }
+
+    .hero{
+      position: relative;
+      min-height: 70vh;
+      display:flex;
+      align-items: center;
+      padding: 80px 0;
+    }
+    .hero::before{
+      content:"";
+      position: absolute;
+      inset: 0;
+      background-image: image-set(
+        url("img/Banner.png") 1x,
+        url("img/Banner.png") 2x
+      );
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    .hero::after{
+      content:"";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.58);
+      z-index: 1;
+    }
+    .hero-content{
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      padding: 0 18px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section-label{
+      color: var(--accent);
+      font-size: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin: 0 0 12px;
+    }
+    h1{
+      margin: 0 0 12px;
+      font-size: clamp(32px, 5vw, 64px);
+      line-height: 1.05;
+      letter-spacing: .4px;
+    }
+    h2{
+      margin: 0 0 10px;
+      font-size: clamp(22px, 2.6vw, 34px);
+      letter-spacing: .2px;
+    }
+    .sub{
+      margin: 0 0 10px;
+      color: rgba(247,247,247,.88);
+      font-size: 16px;
+    }
+    .micro{
+      margin: 0 0 20px;
+      color: rgba(247,247,247,.65);
+      font-size: 13px;
+    }
+
+    .service-bullets{
+      margin: 18px 0 0;
+      padding-left: 18px;
+      max-width: 72ch;
+      color: #dcdcdc;
+    }
+    .service-bullets li{
+      margin: 10px 0;
+      line-height: 1.45;
+    }
+    .service-bullets strong{
+      color: #f7f7f7;
+      font-weight: 600;
+    }
+    .cta-row{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items:center;
+      margin-top: 12px;
+      justify-content: center;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      text-decoration:none;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .btn.primary{ background: var(--accent-strong); color: #0a0a0a; }
+    .btn.secondary{
+      color: var(--txt);
+      border: 1px solid var(--line);
+      background: transparent;
+    }
+
+    :focus-visible{
+      outline: 2px solid rgba(255,255,255,.65);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    section{
+      padding: 70px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .intro{
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .muted{ color: var(--muted); }
+
+    .filters{
+      display:flex;
+      gap: 10px;
+      margin-top: 12px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scroll-snap-type: x mandatory;
+    }
+    .filters::-webkit-scrollbar{ height: 6px; }
+    .filters::-webkit-scrollbar-thumb{ background: rgba(255,255,255,.08); border-radius: 999px; }
+    .chip{
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: lowercase;
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      user-select: none;
+      scroll-snap-align: start;
+      white-space: nowrap;
+    }
+    .chip[aria-pressed="true"]{
+      border-color: var(--accent-strong);
+      color: var(--accent-strong);
+    }
+
+    .projects{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .projects-block{
+      text-align: center; /* keep */
+    }
+
+    .projects-block .section-label{
+      width: 100%;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .projects-block .filters{
+      justify-content: center;
+    }
+    .projects-block .projects{
+      justify-items: center;
+    }
+    .projects-block .empty-state{
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .proj{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius2);
+      min-height: 240px;
+      padding: 18px;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .proj .thumb{
+      height: 120px;
+      border-radius: 12px;
+      background: #0c0c0c;
+      border: 1px solid var(--line);
+    }
+    .proj{ text-align:left; }
+    .proj .thumb{ overflow:hidden; }
+    .proj .thumb img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display:block;
+      border-radius: 12px;
+    }
+    .proj-title{
+      margin: 2px 0 0;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+    .proj-kv{
+      display: grid;
+      gap: 4px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .proj-kv .k{
+      color: var(--txt);
+      font-weight: 600;
+    }
+    .proj-tags{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 2px;
+    }
+    .tag{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      text-transform: none;
+      white-space: nowrap;
+    }
+    .proj-desc{
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .proj.skeleton .thumb{ opacity: .6; }
+    .proj.skeleton .line{ height: 10px; background: #111111; border-radius: 999px; }
+
+    .empty-state{
+      grid-column: 1 / -1;
+      border: 1px solid var(--line);
+      border-radius: var(--radius2);
+      padding: 20px;
+      background: #0c0c0c;
+    }
+
+    .logo-strip{
+      border: 1px solid var(--line);
+      border-radius: var(--radius2);
+      padding: 18px;
+      background: #0c0c0c;
+    }
+
+    .logo-strip.logo-carousel{
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.06) 0%,
+        rgba(255,255,255,0.1) 60%,
+        rgba(0,0,0,0.00) 100%
+      );
+      border-color: rgba(255,255,255,0.14);
+    }
+    .logo-carousel{
+      --per-page: 3;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 10px;
+    }
+    .carousel-viewport{
+      overflow: hidden;
+      width: 100%;
+    }
+    .carousel-track{
+      display: flex;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      transition: transform 260ms ease;
+      will-change: transform;
+    }
+    .carousel-item{
+      flex: 0 0 calc(100% / var(--per-page));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+    .carousel-item a{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 56px; /* tweak if needed */
+      text-decoration: none;
+    }
+    .carousel-item img{
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      opacity: 0.9;
+      transition: opacity 160ms ease;
+    }
+    .carousel-item a:hover img{ opacity: 1; }
+    .carousel-btn{
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: inherit;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      user-select: none;
+      padding: 0;
+      line-height: 1;
+      font-size: 18px;
+    }
+    .carousel-btn:disabled{
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .cta-block{
+      background: var(--bg-alt);
+      padding: 40px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    form.newsletter{
+      display:grid;
+      gap: 10px;
+      max-width: 520px;
+    }
+    .input{
+      width: 100%;
+      background: #0c0c0c;
+      border: 1px solid var(--line);
+      color: var(--txt);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+    .consent{
+      display:flex;
+      gap: 8px;
+      align-items:flex-start;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .status{
+      font-size: 13px;
+      color: var(--muted);
+      min-height: 18px;
+    }
+
+    footer{
+      padding: 30px 0 60px;
+      color: var(--muted);
+      font-size: 13px;
+      display:flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .small-links{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .small-links a{
+      color: var(--muted);
+      text-decoration:none;
+    }
+    .small-links a:hover{ color: var(--txt); text-decoration: underline; }
+
+    @media (max-width: 960px){
+      .projects{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 720px){
+      .nav-links{ display:none; }
+      .menu-toggle{ display:inline-flex; }
+      .hero{ min-height: 60vh; padding: 70px 0; }
+      .projects{ grid-template-columns: 1fr; }
+      .cta-row .btn{ width: 100%; justify-content: center; }
+    }
+    @media (prefers-reduced-motion: reduce){
+      *{ scroll-behavior: auto !important; }
+    }
+  
+    /* Projects media: increase image size (thumbs + project carousel) */
+    :root{
+      --proj-media-h: clamp(180px, 22vw, 260px);
+    }
+
+    /* Static project thumbs are capped by height */
+    .proj .thumb{
+      height: var(--proj-media-h);
+    }
+
+    /* Project carousel (inside .proj): give it a real height and let images fill it */
+    .proj .logo-strip.logo-carousel{
+      padding: 10px; /* reduce inner padding vs default 18px */
+    }
+    .proj .logo-carousel .carousel-viewport{
+      height: var(--proj-media-h);
+      border-radius: 12px;
+    }
+    .proj .logo-carousel .carousel-track{
+      height: 100%;
+    }
+    .proj .logo-carousel .carousel-item{
+      height: 100%;
+      padding: 0;            /* remove logo padding */
+      align-items: stretch;
+    }
+    .proj .logo-carousel .carousel-item img{
+      width: 100%;
+      height: 100%;
+      max-height: none;      /* overrides .carousel-item img max-height:100% */
+      object-fit: cover;     /* fill the viewport */
+      display: block;
+      border-radius: 12px;
+      opacity: 1;
+    }
+
+    /* Optional: make cards use full grid column width (remove "shrink-to-content") */
+    .projects-block .proj{ width: 100%; }
+
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Opotek",
+    "url": "https://opotek.es",
+    "description": "Electronics engineering and mechanical design services delivering production-ready hardware.",
+    "areaServed": "Worldwide",
+    "sameAs": []
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav">
+    <div class="nav-inner">
+    <a class="brand" href="/" aria-label="Opotek home">
+      <img class="brand-logo" src="img/LOGO_PNG_INV.png" alt="Opotek logo" />
+    </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#about">about</a>
+        <a href="#services">services</a>
+        <a href="#projects">projects</a>
+        <a href="#contact" class="contact-btn">contact</a>
+      </nav>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">menu</button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="top">
+      <span class="brand">Opotek</span>
+      <button class="menu-toggle" type="button" aria-label="Close menu">close</button>
+    </div>
+    <div class="links">
+      <a href="#about">about</a>
+      <a href="#services">services</a>
+      <a href="#projects">projects</a>
+      <a href="#contact" class="contact-btn">contact</a>
+    </div>
+  </div>
+
+  <section class="hero" id="top">
+    <div class="hero-content">
+    
+      <h1>Hardware products:  <span class="slashed0">0</span> to mass production</h1>
+      <p class="sub">
+      End-to-end product development: electronics, software, and mechanical design
+      <br>From idea to manufacturable product. Fast iterations, built robust for production.</p>
+      <p class="micro">Fast iterations. Built robust for manufacturing.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#services">see services</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap" id="main">
+    <section class="intro" id="about">
+      <p class="section-label">About</p>
+      <p class="sub">
+        Opotek is the engineering team you call when you’re building a real product.
+        <br>We design the full stack: Electronics, firmware, software, and mechanical design. 
+        And make sure it all works together in the real world, not just on paper. 
+        You get tested, validated files ready for production.
+      </p>
+
+    </section>
+
+    <section class="intro" id="services">
+      <p class="section-label">What we do best</p>
+      <p class="sub">
+        Design integrity. Manufacturing certainty. <br>
+        We build complete embedded hardware systems: schematics, PCB design, enclosure CAD, prototyping, and system integration.
+        You get production-ready deliverables: manufacturing files, test documentation, BOM support, and specs that work on the factory floor.
+      </p>
+       <ul class="service-bullets" aria-label="Services">
+        <li><strong>Concept to working prototype</strong> — Complete system design: electronics, firmware, and enclosure integrated from day one for your MVP.</li>
+        <li><strong>Validation builds</strong> — EVT builds, bring-up, iteration, and validation.</li>
+        <li><strong>Production support</strong> — Test fixtures, programming jigs, and DFM/DFT analysis for smooth scaling.</li>
+        <li><strong>Embedded systems</strong> — MCU/RTOS firmware, drivers, and wireless connectivity (BLE, Wi-Fi, LoRa, cellular)..</li>
+        <li><strong>Edge AI / ML</strong> — Sensor fusion, signal processing, and on-device inference for intelligent products.</li>
+        <li><strong>Turnkey delivery</strong> — Coordinated mechanical, electrical, firmware, and software—one integrated product.</li>
+      </ul>
+      <p class="micro">
+        Outcome-focused deliverables: production files, test notes, BOM support, and documentation that survives manufacturing.
+      </p>
+    </section>
+
+    <section id="projects" class="projects-block">
+      <p class="section-label">Projects</p>
+    
+      <p class="muted">Case studies available upon request. <br> Some clients prefer confidentiality, we'll share relevant examples matching your industry and technical requirements.</p>
+
+
+      <div class="filters" role="toolbar" aria-label="Project filters">
+        <button class="chip" data-filter="all" aria-pressed="true" type="button">Show all</button>
+        <button class="chip" data-filter="electronics" aria-pressed="false" type="button">electronics</button>
+        <button class="chip" data-filter="mechanical" aria-pressed="false" type="button">mechanical</button>
+        <button class="chip" data-filter="hardware" aria-pressed="false" type="button">hardware</button>
+        <button class="chip" data-filter="firmware" aria-pressed="false" type="button">firmware</button>
+        <button class="chip" data-filter="integration" aria-pressed="false" type="button">integration</button>
+      </div>
+
+      <div class="projects" id="project-grid">
+
+        <article class="proj" data-tags="electronics,hardware,firmware,integration">
+          <div class="thumb">
+            <img src="/img/rupert.jpg" width="640" height="360" loading="lazy"
+                alt="Microfluidics control system electronics and lab setup">
+          </div>
+
+          <div class="proj-title">Microfluidics Control System</div>
+
+          <div class="proj-kv">
+            <div><span class="k">Client:</span> Droplet Scientific Ltd.</div>
+            <div><span class="k">Industry:</span> Medical Research / Laboratory Equipment</div>
+          </div>
+
+          <div class="proj-tags" aria-label="Tags">
+            <span class="tag">IoT</span>
+            <span class="tag">Medical Devices</span>
+            <span class="tag">Microfluidics</span>
+          </div>
+
+          <p class="proj-desc">
+            End-to-end hardware, firmware, and software development for a microfluidics control system used in medical research.
+            Integrated sensor arrays, precision fluid and temperature control, and real-time data acquisition with wireless connectivity.
+          </p>
+        </article>
+
+        <article class="proj" data-tags="electronics,hardware,firmware,integration">
+          <div class="thumb">
+            <img src="/img/diesn.jpg" width="640" height="360" loading="lazy"
+                alt="Therapeutic massage device prototype with electronics">
+          </div>
+
+          <div class="proj-title">Therapeutic Massage Device MVP</div>
+
+          <div class="proj-kv">
+            <div><span class="k">Client:</span> Confidential</div>
+            <div><span class="k">Industry:</span> Wellness / Consumer Health</div>
+          </div>
+
+          <div class="proj-tags" aria-label="Tags">
+            <span class="tag">Power Electronics</span>
+            <span class="tag">Therapeutic Devices</span>
+            <span class="tag">Consumer Electronics</span>
+          </div>
+
+          <p class="proj-desc">
+            Complete product development for a therapeutic massage device using targeted light therapy and controlled heating.
+            Delivered electronics design and firmware for a manufacturable MVP.
+          </p>
+        </article>
+
+            <article class="proj" data-tags="electronics,firmware,integration">
+        <div class="thumb">
+          <img src="/img/projects/edge-ml-motors.jpg" width="640" height="360" loading="lazy"
+              alt="Industrial motor monitoring and edge ML system">
+        </div>
+
+        <div class="proj-title">Edge ML Predictive Maintenance for Induction Motors</div>
+
+        <div class="proj-kv">
+          <div><span class="k">Client:</span> Confidential</div>
+          <div><span class="k">Industry:</span> Industrial / Predictive Maintenance</div>
+        </div>
+
+        <div class="proj-tags" aria-label="Tags">
+          <span class="tag">Edge ML</span>
+          <span class="tag">IoT</span>
+          <span class="tag">Predictive Maintenance</span>
+        </div>
+
+        <p class="proj-desc">
+          Edge ML system for real-time fault detection and predictive maintenance of industrial induction motors.
+          Developed sensor integration, on-device inference pipeline, and anomaly detection algorithms for early failure prediction.
+        </p>
+      </article>
+
+      <article class="proj" data-tags="electronics,hardware,integration">
+        <div class="thumb">
+          <img src="/img/projects/cetac-banana-adapter.jpg" width="640" height="360" loading="lazy"
+              alt="Rugged CETAC-to-banana adapter for industrial testers">
+        </div>
+
+        <div class="proj-title">CETAC to Banana Adapter for Industrial Multifunction Testers</div>
+
+        <div class="proj-kv">
+          <div><span class="k">Client:</span> Internal</div>
+          <div><span class="k">Industry:</span> Industrial Testing Equipment</div>
+        </div>
+
+        <div class="proj-tags" aria-label="Tags">
+          <span class="tag">Test &amp; Measurement</span>
+          <span class="tag">Industrial Electronics</span>
+        </div>
+
+        <p class="proj-desc">
+          Custom CETAC to banana adapter for multifunctional industrial testers.
+          Designed ruggedized interface hardware for reliable electrical testing in harsh manufacturing environments.
+        </p>
+      </article>
+
+      <article class="proj" data-tags="electronics,hardware,firmware">
+        <div class="thumb">
+          <img src="/img/projects/induction-motor-driver.jpg" width="640" height="360" loading="lazy"
+              alt="Industrial induction motor driver and control electronics">
+        </div>
+
+        <div class="proj-title">Industrial Induction Motor Driver</div>
+
+        <div class="proj-kv">
+          <div><span class="k">Client:</span> Confidential</div>
+          <div><span class="k">Industry:</span> Industrial Automation</div>
+        </div>
+
+        <div class="proj-tags" aria-label="Tags">
+          <span class="tag">Motor Control</span>
+          <span class="tag">Power Electronics</span>
+        </div>
+
+        <p class="proj-desc">
+          Industrial grade induction motor driver with precision control and safety features.
+          Full hardware and firmware development for demanding industrial applications.
+        </p>
+      </article>
+
+      <article class="proj" data-tags="electronics,hardware,firmware">
+        <div class="thumb">
+          <img src="/img/projects/smart-dice-math.jpg" width="640" height="360" loading="lazy"
+              alt="Interactive educational embedded device for teaching mathematics">
+        </div>
+
+        <div class="proj-title">Interactive Math Learning Device</div>
+
+        <div class="proj-kv">
+          <div><span class="k">Client:</span> Internal</div>
+          <div><span class="k">Industry:</span> Education Technology</div>
+        </div>
+
+        <div class="proj-tags" aria-label="Tags">
+          <span class="tag">EdTech</span>
+          <span class="tag">Embedded Systems</span>
+          <span class="tag">Hardware</span>
+        </div>
+
+        <p class="proj-desc">
+          Interactive educational device for teaching mathematics through hands-on learning.
+          Embedded system generates adaptive math problems using statistical analysis, creating a physical “smart dice” learning tool.
+        </p>
+      </article>
+
+      <article class="proj" data-tags="electronics,firmware,integration">
+        <div class="thumb">
+          <img src="/img/projects/equestrian-dispenser.jpg" width="640" height="360" loading="lazy"
+              alt="Automated dispensing system for equestrian competition feed management">
+        </div>
+
+        <div class="proj-title">Automated Dispensing System for Equestrian competitions</div>
+
+        <div class="proj-kv">
+          <div><span class="k">Client:</span> Confidential</div>
+          <div><span class="k">Industry:</span> Equestrian / Sports Equipment</div>
+        </div>
+
+        <div class="proj-tags" aria-label="Tags">
+          <span class="tag">Precision Dispensing</span>
+          <span class="tag">Competition Equipment</span>
+        </div>
+
+        <p class="proj-desc">
+        Automated feed dispensing system for equestrian competitions. 
+        End-to-end development: sourcing, mechanical design (timed-release latch mechanism), electronics, firmware, and IoT connectivity for precise, scheduled feeding.        </p>
+      </article>
+
+        <div class="empty-state" id="emptyState" style="display:none;">
+          <h3>No projects match this filter</h3>
+          <p class="muted">Try another filter, or contact us for references relevant to your industry and constraints.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#contact">contact</a>
+          </div>
+        </div>
+
+      </div>
+
+
+      </div>
+    </section>
+
+    <section id="clients">
+      <p class="section-label">Clients</p>
+      <p class="muted">
+        We've partnered with startups and established companies across various industries to bring their hardware visions to life.
+      </p>
+      <div class="logo-strip logo-carousel" role="region" aria-label="Client logos">
+        <button class="carousel-btn prev" type="button" aria-label="Previous clients">‹</button>
+
+        <div class="carousel-viewport">
+          <ul class="carousel-track">
+            <li class="carousel-item">
+              <a href="#" aria-label="Client 1">
+                <img src="img/Client1.png" alt="Client 1" loading="lazy" />
+              </a>
+            </li>
+            <li class="carousel-item">
+              <a href="#" aria-label="Client 2">
+                <img src="img/Client2.png" alt="Client 2" loading="lazy" />
+              </a>
+            </li>
+            <li class="carousel-item">
+              <a href="#" aria-label="Client 3">
+                <img src="img/client3.svg" alt="Client 3" loading="lazy" />
+              </a>
+            </li>
+            <li class="carousel-item">
+              <a href="#" aria-label="Client 4">
+                <img src="img/Client4.png" alt="Client 4" loading="lazy" />
+              </a>
+            </li>
+            <li class="carousel-item">
+              <a href="#" aria-label="Client 5">
+                <img src="img/Client5.png" alt="Client 5" loading="lazy" />
+              </a>
+            </li>
+            <li class="carousel-item">
+              <a href="#" aria-label="Client 6">
+                <img src="img/Client6.png" alt="Client 6" loading="lazy" />
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <button class="carousel-btn next" type="button" aria-label="Next clients">›</button>
+      </div>
+    
+    </section>
+
+    <section id="contact">
+      <div class="cta-block">
+        <h2>Building a hardware product?</h2>
+        
+        <p class="muted">Tell us about your project and timeline. We'll outline the technical path forward. [Opotek@protonmail.com. (+34) 646617993]</p>
+        <a class="btn primary" href="mailto:opotek@protonmail.com?subject=Opotek%20project%20inquiry">contact Opotek</a>
+
+      </div>
+    </section>
+
+
+
+    <footer>
+      <div>© 2026 Opotek. All rights reserved.</div>
+      <div class="small-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookies Policy</a>
+        <a href="#">Disclaimer</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const chips = Array.from(document.querySelectorAll('.chip'));
+    const cards = Array.from(document.querySelectorAll('.proj:not(.skeleton)'));
+    const emptyState = document.getElementById('emptyState');
+
+    function setFilter(tag){
+      chips.forEach(c => c.setAttribute('aria-pressed', String(c.dataset.filter === tag)));
+      let visibleCount = 0;
+      cards.forEach(card => {
+        const tags = (card.dataset.tags || '').split(',').map(s => s.trim()).filter(Boolean);
+        const show = (tag === 'all') || tags.includes(tag);
+        card.style.display = show ? '' : 'none';
+        if (show) visibleCount += 1;
+      });
+      if (emptyState && cards.length) {
+        emptyState.style.display = visibleCount ? 'none' : '';
+      }
+    }
+    chips.forEach(chip => chip.addEventListener('click', () => setFilter(chip.dataset.filter)));
+
+    const menuButtons = Array.from(document.querySelectorAll('.menu-toggle'));
+    const openBtn = menuButtons[0];
+    const closeBtn = menuButtons[1];
+    const mobileMenu = document.getElementById('mobileMenu');
+    const toggleMenu = (open) => {
+      mobileMenu.classList.toggle('open', open);
+      mobileMenu.setAttribute('aria-hidden', String(!open));
+      openBtn.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+      if (open) {
+        closeBtn.focus();
+      } else {
+        openBtn.focus();
+      }
+    };
+    openBtn.addEventListener('click', () => toggleMenu(true));
+    closeBtn.addEventListener('click', () => toggleMenu(false));
+    mobileMenu.addEventListener('click', (event) => {
+      if (event.target.tagName === 'A') toggleMenu(false);
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        toggleMenu(false);
+      }
+    });
+
+    // Clients carousel: page by 3
+    (() => {
+      const carousel = document.querySelector('#clients .logo-carousel');
+      if (!carousel) return;
+
+      const track = carousel.querySelector('.carousel-track');
+      const items = Array.from(track.querySelectorAll('.carousel-item'));
+      const prevBtn = carousel.querySelector('.carousel-btn.prev');
+      const nextBtn = carousel.querySelector('.carousel-btn.next');
+
+      let page = 0;
+      const perPage = () => {
+        const v = getComputedStyle(carousel).getPropertyValue('--per-page').trim();
+        const n = parseInt(v, 10);
+        return Number.isFinite(n) && n > 0 ? n : 3;
+      };
+      const maxPage = () => Math.max(0, Math.ceil(items.length / perPage()) - 1);
+      const render = () => {
+       const mp = maxPage();
+        page = Math.min(Math.max(page, 0), mp);
+       track.style.transform = `translateX(${-page * 100}%)`;
+        prevBtn.disabled = page === 0;
+        nextBtn.disabled = page === mp;
+      };
+
+      prevBtn.addEventListener('click', () => { page -= 1; render(); });
+      nextBtn.addEventListener('click', () => { page += 1; render(); });
+
+      // Stop jump-to-top if you keep href="#"
+      carousel.querySelectorAll('a[href="#"]').forEach(a => {
+        a.addEventListener('click', (e) => e.preventDefault());
+      });
+
+      window.addEventListener('resize', render, { passive: true });
+      render();
+    })();
+ 
+
+  </script>
+  
+</body>
+</html>

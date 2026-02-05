@@ -466,7 +466,7 @@
       align-items: center;
       justify-content: center;
       width: 100%;
-      height: 56px; /* tweak if needed */
+      height: 76px; /* tweak if needed */
       text-decoration: none;
     }
     .carousel-item img{
@@ -496,6 +496,57 @@
       opacity: 0.35;
       cursor: not-allowed;
     }
+
+  #clients .carousel-item a{
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 14px;
+    padding: 10px 12px;
+  }
+  #clients .carousel-item img{
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 82%, transparent 100%);
+    mask-image: radial-gradient(circle at 50% 50%, #000 82%, transparent 100%);
+    filter: saturate(0.85) contrast(1.05);
+    opacity: 0.95;
+  }
+
+
+  /* 2) PROJECT GALLERY (the slider you put inside .proj): make it behave like a pleasant thumbnail */
+  .proj .logo-carousel{
+      padding: 12px;
+  }
+
+  .proj .logo-carousel .carousel-viewport{
+    height: 140px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #0c0c0c;
+  }
+
+  .proj .logo-carousel .carousel-item{
+    padding: 0;
+    position: relative;
+  }
+
+  .proj .logo-carousel img{
+    width: 100%;
+    height: 140px;
+      object-fit: cover;
+    display: block;
+      opacity: 1;
+  }
+
+  /* subtle overlay that unifies mixed backgrounds */
+  .proj .logo-carousel .carousel-item::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(120% 100% at 50% 20%, rgba(255,255,255,0.08), rgba(0,0,0,0) 65%),
+      linear-gradient(180deg, rgba(0,0,0,0.10), rgba(0,0,0,0.35));
+    pointer-events:none;
+  }
+
 
     .cta-block{
       background: var(--bg-alt);
@@ -648,7 +699,7 @@
         <li><strong>Concept to working prototype</strong> — Complete system design: electronics, firmware, and enclosure integrated from day one for your MVP.</li>
         <li><strong>Validation builds</strong> — EVT builds, bring-up, iteration, and validation.</li>
         <li><strong>Production support</strong> — Test fixtures, programming jigs, and DFM/DFT analysis for smooth scaling.</li>
-        <li><strong>Embedded systems</strong> — MCU/RTOS firmware, drivers, and wireless connectivity (BLE, Wi-Fi, LoRa, cellular)..</li>
+        <li><strong>Embedded systems</strong> — MCU/RTOS firmware, drivers, and wireless connectivity for IoT(BLE, Wi-Fi, LoRa, GNS, GSM)..</li>
         <li><strong>Edge AI / ML</strong> — Sensor fusion, signal processing, and on-device inference for intelligent products.</li>
         <li><strong>Turnkey delivery</strong> — Coordinated mechanical, electrical, firmware, and software—one integrated product.</li>
       </ul>
@@ -663,21 +714,19 @@
       <p class="muted">Case studies available upon request. <br> Some clients prefer confidentiality, we'll share relevant examples matching your industry and technical requirements.</p>
 
 
-      <div class="filters" role="toolbar" aria-label="Project filters">
-        <button class="chip" data-filter="all" aria-pressed="true" type="button">Show all</button>
-        <button class="chip" data-filter="electronics" aria-pressed="false" type="button">electronics</button>
-        <button class="chip" data-filter="mechanical" aria-pressed="false" type="button">mechanical</button>
-        <button class="chip" data-filter="hardware" aria-pressed="false" type="button">hardware</button>
-        <button class="chip" data-filter="firmware" aria-pressed="false" type="button">firmware</button>
-        <button class="chip" data-filter="integration" aria-pressed="false" type="button">integration</button>
-      </div>
 
       <div class="projects" id="project-grid">
 
         <article class="proj" data-tags="electronics,hardware,firmware,integration">
-          <div class="thumb">
-            <img src="/img/rupert.jpg" width="640" height="360" loading="lazy"
-                alt="Microfluidics control system electronics and lab setup">
+          <div class="logo-strip logo-carousel" data-carousel="paged" style="--per-page: 1" aria-label="Gallery">
+            <button class="carousel-btn prev" type="button" aria-label="Previous">‹</button>
+
+            <div class="carousel-viewport">
+              <ul class="carousel-track">
+                <li class="carousel-item"><img src="img/proj/p11.png" alt="Image 1" loading="lazy"></li>
+              </ul>
+            </div>
+            <button class="carousel-btn next" type="button" aria-label="Next">›</button>
           </div>
 
           <div class="proj-title">Microfluidics Control System</div>
@@ -700,9 +749,16 @@
         </article>
 
         <article class="proj" data-tags="electronics,hardware,firmware,integration">
-          <div class="thumb">
-            <img src="/img/diesn.jpg" width="640" height="360" loading="lazy"
-                alt="Therapeutic massage device prototype with electronics">
+          <div class="logo-strip logo-carousel" data-carousel="paged" style="--per-page: 1" aria-label="Gallery">
+            <button class="carousel-btn prev" type="button" aria-label="Previous">‹</button>
+
+            <div class="carousel-viewport">
+              <ul class="carousel-track">
+                <li class="carousel-item"><img src="img/proj/p21.png" alt="Image 1" loading="lazy"></li>
+                <li class="carousel-item"><img src="img/proj/p22.png" alt="Image 2" loading="lazy"></li>
+              </ul>
+            </div>
+            <button class="carousel-btn next" type="button" aria-label="Next">›</button>
           </div>
 
           <div class="proj-title">Therapeutic Massage Device MVP</div>
@@ -725,10 +781,16 @@
         </article>
 
             <article class="proj" data-tags="electronics,firmware,integration">
-        <div class="thumb">
-          <img src="/img/projects/edge-ml-motors.jpg" width="640" height="360" loading="lazy"
-              alt="Industrial motor monitoring and edge ML system">
-        </div>
+          <div class="logo-strip logo-carousel" data-carousel="paged" style="--per-page: 1" aria-label="Gallery">
+            <button class="carousel-btn prev" type="button" aria-label="Previous">‹</button>
+
+            <div class="carousel-viewport">
+              <ul class="carousel-track">
+                <li class="carousel-item"><img src="img/proj/p31.jpg" alt="Image 1" loading="lazy"></li>
+              </ul>
+            </div>
+            <button class="carousel-btn next" type="button" aria-label="Next">›</button>
+          </div>
 
         <div class="proj-title">Edge ML Predictive Maintenance for Induction Motors</div>
 
@@ -750,10 +812,18 @@
       </article>
 
       <article class="proj" data-tags="electronics,hardware,integration">
-        <div class="thumb">
-          <img src="/img/projects/cetac-banana-adapter.jpg" width="640" height="360" loading="lazy"
-              alt="Rugged CETAC-to-banana adapter for industrial testers">
-        </div>
+          <div class="logo-strip logo-carousel" data-carousel="paged" style="--per-page: 1" aria-label="Gallery">
+            <button class="carousel-btn prev" type="button" aria-label="Previous">‹</button>
+
+            <div class="carousel-viewport">
+              <ul class="carousel-track">
+                <li class="carousel-item"><img src="img/proj/p41.jpg" alt="Image 1" loading="lazy"></li>
+                <li class="carousel-item"><img src="img/proj/p42.jpg" alt="Image 2" loading="lazy"></li>
+              </ul>
+            </div>
+            <button class="carousel-btn next" type="button" aria-label="Next">›</button>
+          </div>
+
 
         <div class="proj-title">CETAC to Banana Adapter for Industrial Multifunction Testers</div>
 
@@ -774,10 +844,17 @@
       </article>
 
       <article class="proj" data-tags="electronics,hardware,firmware">
-        <div class="thumb">
-          <img src="/img/projects/induction-motor-driver.jpg" width="640" height="360" loading="lazy"
-              alt="Industrial induction motor driver and control electronics">
-        </div>
+          <div class="logo-strip logo-carousel" data-carousel="paged" style="--per-page: 1" aria-label="Gallery">
+            <button class="carousel-btn prev" type="button" aria-label="Previous">‹</button>
+
+            <div class="carousel-viewport">
+              <ul class="carousel-track">
+                <li class="carousel-item"><img src="img/proj/p51.png" alt="Image 1" loading="lazy"></li>
+              </ul>
+            </div>
+            <button class="carousel-btn next" type="button" aria-label="Next">›</button>
+          </div>
+
 
         <div class="proj-title">Industrial Induction Motor Driver</div>
 
@@ -798,10 +875,17 @@
       </article>
 
       <article class="proj" data-tags="electronics,hardware,firmware">
-        <div class="thumb">
-          <img src="/img/projects/smart-dice-math.jpg" width="640" height="360" loading="lazy"
-              alt="Interactive educational embedded device for teaching mathematics">
-        </div>
+          <div class="logo-strip logo-carousel" data-carousel="paged" style="--per-page: 1" aria-label="Gallery">
+            <button class="carousel-btn prev" type="button" aria-label="Previous">‹</button>
+
+            <div class="carousel-viewport">
+              <ul class="carousel-track">
+                <li class="carousel-item"><img src="img/proj/p61.png" alt="Image 1" loading="lazy"></li>
+              </ul>
+            </div>
+            <button class="carousel-btn next" type="button" aria-label="Next">›</button>
+          </div>
+
 
         <div class="proj-title">Interactive Math Learning Device</div>
 
@@ -823,10 +907,17 @@
       </article>
 
       <article class="proj" data-tags="electronics,firmware,integration">
-        <div class="thumb">
-          <img src="/img/projects/equestrian-dispenser.jpg" width="640" height="360" loading="lazy"
-              alt="Automated dispensing system for equestrian competition feed management">
-        </div>
+          <div class="logo-strip logo-carousel" data-carousel="paged" style="--per-page: 1" aria-label="Gallery">
+            <button class="carousel-btn prev" type="button" aria-label="Previous">‹</button>
+
+            <div class="carousel-viewport">
+              <ul class="carousel-track">
+                <li class="carousel-item"><img src="img/proj/p71.jpg" alt="Image 1" loading="lazy"></li>
+              </ul>
+            </div>
+            <button class="carousel-btn next" type="button" aria-label="Next">›</button>
+          </div>
+
 
         <div class="proj-title">Automated Dispensing System for Equestrian competitions</div>
 
@@ -864,7 +955,7 @@
       <p class="muted">
         We've partnered with startups and established companies across various industries to bring their hardware visions to life.
       </p>
-      <div class="logo-strip logo-carousel" role="region" aria-label="Client logos">
+      <div class="logo-strip logo-carousel" data-carousel="paged" role="region" aria-label="Client logos">
         <button class="carousel-btn prev" type="button" aria-label="Previous clients">‹</button>
 
         <div class="carousel-viewport">
@@ -881,7 +972,7 @@
             </li>
             <li class="carousel-item">
               <a href="#" aria-label="Client 3">
-                <img src="img/client3.svg" alt="Client 3" loading="lazy" />
+                <img src="img/Client3.svg" alt="Client 3" loading="lazy" />
               </a>
             </li>
             <li class="carousel-item">
@@ -975,43 +1066,48 @@
       }
     });
 
-    // Clients carousel: page by 3
-    (() => {
-      const carousel = document.querySelector('#clients .logo-carousel');
-      if (!carousel) return;
 
-      const track = carousel.querySelector('.carousel-track');
-      const items = Array.from(track.querySelectorAll('.carousel-item'));
-      const prevBtn = carousel.querySelector('.carousel-btn.prev');
-      const nextBtn = carousel.querySelector('.carousel-btn.next');
+  function initPagedCarousel(carousel) {
+    const track = carousel.querySelector('.carousel-track');
+    const items = Array.from(carousel.querySelectorAll('.carousel-item'));
+    const prevBtn = carousel.querySelector('.carousel-btn.prev');
+    const nextBtn = carousel.querySelector('.carousel-btn.next');
 
-      let page = 0;
-      const perPage = () => {
-        const v = getComputedStyle(carousel).getPropertyValue('--per-page').trim();
-        const n = parseInt(v, 10);
-        return Number.isFinite(n) && n > 0 ? n : 3;
-      };
-      const maxPage = () => Math.max(0, Math.ceil(items.length / perPage()) - 1);
-      const render = () => {
-       const mp = maxPage();
-        page = Math.min(Math.max(page, 0), mp);
-       track.style.transform = `translateX(${-page * 100}%)`;
-        prevBtn.disabled = page === 0;
-        nextBtn.disabled = page === mp;
-      };
+    if (!track || !items.length || !prevBtn || !nextBtn) return;
 
-      prevBtn.addEventListener('click', () => { page -= 1; render(); });
-      nextBtn.addEventListener('click', () => { page += 1; render(); });
+    let page = 0;
 
-      // Stop jump-to-top if you keep href="#"
-      carousel.querySelectorAll('a[href="#"]').forEach(a => {
-        a.addEventListener('click', (e) => e.preventDefault());
-      });
+    const perPage = () => {
+      const v = getComputedStyle(carousel).getPropertyValue('--per-page').trim();
+      const n = parseInt(v, 10);
+      return Number.isFinite(n) && n > 0 ? n : 3;
+    };
 
-      window.addEventListener('resize', render, { passive: true });
-      render();
-    })();
- 
+    const maxPage = () => Math.max(0, Math.ceil(items.length / perPage()) - 1);
+
+    const render = () => {
+      const mp = maxPage();
+      page = Math.min(Math.max(page, 0), mp);
+
+      track.style.transform = `translateX(${-page * 100}%)`;
+      prevBtn.disabled = page === 0;
+      nextBtn.disabled = page === mp;
+    };
+
+    prevBtn.addEventListener('click', () => { page -= 1; render(); });
+    nextBtn.addEventListener('click', () => { page += 1; render(); });
+
+    carousel.querySelectorAll('a[href="#"]').forEach(a => {
+      a.addEventListener('click', (e) => e.preventDefault());
+    });
+
+    window.addEventListener('resize', render, { passive: true });
+    render();
+  }
+
+  document.querySelectorAll('[data-carousel="paged"]').forEach(initPagedCarousel);
+
+
 
   </script>
   
