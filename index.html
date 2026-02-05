@@ -466,7 +466,7 @@
       align-items: center;
       justify-content: center;
       width: 100%;
-      height: 76px; /* tweak if needed */
+      height: 56px; /* tweak if needed */
       text-decoration: none;
     }
     .carousel-item img{
@@ -496,57 +496,6 @@
       opacity: 0.35;
       cursor: not-allowed;
     }
-
-  #clients .carousel-item a{
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.10);
-    border-radius: 14px;
-    padding: 10px 12px;
-  }
-  #clients .carousel-item img{
-    -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 82%, transparent 100%);
-    mask-image: radial-gradient(circle at 50% 50%, #000 82%, transparent 100%);
-    filter: saturate(0.85) contrast(1.05);
-    opacity: 0.95;
-  }
-
-
-  /* 2) PROJECT GALLERY (the slider you put inside .proj): make it behave like a pleasant thumbnail */
-  .proj .logo-carousel{
-      padding: 12px;
-  }
-
-  .proj .logo-carousel .carousel-viewport{
-    height: 140px;
-    border-radius: 12px;
-    overflow: hidden;
-    background: #0c0c0c;
-  }
-
-  .proj .logo-carousel .carousel-item{
-    padding: 0;
-    position: relative;
-  }
-
-  .proj .logo-carousel img{
-    width: 100%;
-    height: 140px;
-      object-fit: cover;
-    display: block;
-      opacity: 1;
-  }
-
-  /* subtle overlay that unifies mixed backgrounds */
-  .proj .logo-carousel .carousel-item::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-      radial-gradient(120% 100% at 50% 20%, rgba(255,255,255,0.08), rgba(0,0,0,0) 65%),
-      linear-gradient(180deg, rgba(0,0,0,0.10), rgba(0,0,0,0.35));
-    pointer-events:none;
-  }
-
 
     .cta-block{
       background: var(--bg-alt);
@@ -618,6 +567,46 @@
     @media (prefers-reduced-motion: reduce){
       *{ scroll-behavior: auto !important; }
     }
+  
+    /* Projects media: increase image size (thumbs + project carousel) */
+    :root{
+      --proj-media-h: clamp(180px, 22vw, 260px);
+    }
+
+    /* Static project thumbs are capped by height */
+    .proj .thumb{
+      height: var(--proj-media-h);
+    }
+
+    /* Project carousel (inside .proj): give it a real height and let images fill it */
+    .proj .logo-strip.logo-carousel{
+      padding: 10px; /* reduce inner padding vs default 18px */
+    }
+    .proj .logo-carousel .carousel-viewport{
+      height: var(--proj-media-h);
+      border-radius: 12px;
+    }
+    .proj .logo-carousel .carousel-track{
+      height: 100%;
+    }
+    .proj .logo-carousel .carousel-item{
+      height: 100%;
+      padding: 0;            /* remove logo padding */
+      align-items: stretch;
+    }
+    .proj .logo-carousel .carousel-item img{
+      width: 100%;
+      height: 100%;
+      max-height: none;      /* overrides .carousel-item img max-height:100% */
+      object-fit: cover;     /* fill the viewport */
+      display: block;
+      border-radius: 12px;
+      opacity: 1;
+    }
+
+    /* Optional: make cards use full grid column width (remove "shrink-to-content") */
+    .projects-block .proj{ width: 100%; }
+
   </style>
 
   <script type="application/ld+json">
