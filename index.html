@@ -1062,8 +1062,8 @@
       <div>© 2026 Opotek. All rights reserved.</div>
       <div>Designed and developed with <3 by Opotek.</div>
       <div class="small-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Cookies Policy</a>
+        <a href="policy.html?lang=en#privacy">Privacy Policy</a>
+        <a href="policy.html?lang=en#cookies">Cookies Policy</a>
         <a href="legal.html">Disclaimer</a>
       </div>
     </footer>
@@ -1289,6 +1289,8 @@
       footerLinks[0].textContent = t.privacy;
       footerLinks[1].textContent = t.cookies;
       footerLinks[2].textContent = t.disclaimer;
+      footerLinks[0].href = `policy.html?lang=${lang}#privacy`;
+      footerLinks[1].href = `policy.html?lang=${lang}#cookies`;
 
       localStorage.setItem('opotekLang', lang);
     }
