@@ -119,6 +119,24 @@
       color: #0a0a0a;
       font-weight: 700;
     }
+    .lang-toggle{
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      text-decoration:none;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 8px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .lang-toggle:hover{
+      color: var(--txt);
+      border-color: var(--line);
+      background: rgba(255,255,255,.03);
+    }
 
     .menu-toggle{
       display:none;
@@ -168,6 +186,11 @@
       text-align: center;
       font-weight: 700;
       max-width: 220px;
+    }
+    .mobile-menu .lang-toggle{
+      width: fit-content;
+      font-size: 14px;
+      padding: 10px 16px;
     }
 
     .hero{
@@ -633,6 +656,7 @@
         <a href="#services">services</a>
         <a href="#projects">projects</a>
         <a href="#contact" class="contact-btn">contact</a>
+        <button class="lang-toggle" type="button" id="languageToggle" aria-label="Switch language">ES</button>
       </nav>
       <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">menu</button>
     </div>
@@ -648,6 +672,7 @@
       <a href="#services">services</a>
       <a href="#projects">projects</a>
       <a href="#contact" class="contact-btn">contact</a>
+      <button class="lang-toggle" type="button" id="languageToggleMobile" aria-label="Switch language">ES</button>
     </div>
   </div>
 
@@ -1045,6 +1070,238 @@
   </main>
 
   <script>
+    const translations = {
+      en: {
+        langCode: 'ES',
+        htmlLang: 'en',
+        pageTitle: 'Projects | Opotek — Electronics Engineering Services',
+        skip: 'Skip to content',
+        navAbout: 'about',
+        navServices: 'services',
+        navProjects: 'projects',
+        navContact: 'contact',
+        menu: 'menu',
+        close: 'close',
+        heroTitle: 'Hardware products: <span class="slashed0">0</span> to mass production',
+        heroSub: 'End-to-end product development: electronics, software, and mechanical design<br>From idea to manufacturable product. Fast iterations, built robust for production.',
+        heroMicro: 'Fast iterations. Built robust for manufacturing.',
+        heroCta: 'see services',
+        aboutLabel: 'About',
+        aboutSub: 'Opotek is the engineering team you call when you’re building a real product.<br>We design the full stack: Electronics, firmware, software, and mechanical design. And make sure it all works together in the real world, not just on paper. You get tested, validated files ready for production.',
+        servicesLabel: 'What we do best',
+        servicesSub: 'Design integrity. Manufacturing certainty. <br>We build complete embedded hardware systems: schematics, PCB design, enclosure CAD, prototyping, and system integration. You get production-ready deliverables: manufacturing files, test documentation, BOM support, and specs that work on the factory floor.',
+        servicesBullets: [
+          '<strong>Concept to working prototype</strong> — Complete system design: electronics, firmware, and enclosure integrated from day one for your MVP.',
+          '<strong>Validation builds</strong> — EVT builds, bring-up, iteration, and validation.',
+          '<strong>Production support</strong> — Test fixtures, programming jigs, and DFM/DFT analysis for smooth scaling.',
+          '<strong>Embedded systems</strong> — MCU/RTOS firmware, drivers, and wireless connectivity for IoT(BLE, Wi-Fi, LoRa, GNS, GSM)..',
+          '<strong>Edge AI / ML</strong> — Sensor fusion, signal processing, and on-device inference for intelligent products.',
+          '<strong>Turnkey delivery</strong> — Coordinated mechanical, electrical, firmware, and software—one integrated product.'
+        ],
+        servicesMicro: 'Outcome-focused deliverables: production files, test notes, BOM support, and documentation that survives manufacturing.',
+        projectsLabel: 'Projects',
+        projectsSub: "Case studies available upon request. <br> Some clients prefer confidentiality, we'll share relevant examples matching your industry and technical requirements.",
+        clientLabel: 'Client:',
+        industryLabel: 'Industry:',
+        emptyTitle: 'No projects match this filter',
+        emptySub: 'Try another filter, or contact us for references relevant to your industry and constraints.',
+        clientsLabel: 'Clients',
+        clientsSub: "We've partnered with startups and established companies across various industries to bring their hardware visions to life.",
+        contactTitle: 'Building a hardware product?',
+        contactSub: "Tell us about your project and timeline. We'll outline the technical path forward. [Opotek@protonmail.com. (+34) 646617993]",
+        contactBtn: 'contact Opotek',
+        footer1: '© 2026 Opotek. All rights reserved.',
+        footer2: 'Designed and developed with <3 by Opotek.',
+        privacy: 'Privacy Policy',
+        cookies: 'Cookies Policy',
+        disclaimer: 'Disclaimer',
+        projectTitles: [
+          'Microfluidics Control System',
+          'Smart Thermal Wearable for Extreme Sports',
+          'Wearable for Soil conductivity Monitoring',
+          'Indoor Air Quality Monitoring Device',
+          'Industrial Induction Motor Driver',
+          'Interactive Math Learning Device',
+          'Automated Dispensing System for Equestrian competitions',
+          'Human presence detector with mmWave for clothes fitting rooms'
+        ],
+        projectIndustries: [
+          'Medical Research / Laboratory Equipment',
+          'Extreme Sports / Wearables',
+          'Agriculture Technology / Precision Farming',
+          'Home & Building Automation / IoT',
+          'Industrial Automation',
+          'Education Technology',
+          'Equestrian / Sports Equipment',
+          'IoT / Retail / Smart Furniture'
+        ],
+        projectDescriptions: [
+          'End-to-end hardware, firmware, and software development for a microfluidics control system used in medical research. Integrated sensor arrays, precision fluid and temperature control, and real-time data acquisition with wireless connectivity.',
+          'Smart wearable for athletes in extreme environments, with integrated temperature sensing and active thermal control. Developed full electronics, firmware, and embedded software stack, including wireless app connectivity and long battery operation.',
+          'Portable soil conductivity monitoring device for precision farming. Developed complete hardware architecture, low-power firmware, and cloud-connected data pipeline for real-time field measurements and agricultural analytics.',
+          'Compact indoor air quality monitor with multi-sensor fusion for CO₂, VOC, humidity, and particulate matter. Delivered electronics design, embedded firmware, and IoT integration for smart-home and office deployments.',
+          'Industrial grade induction motor driver with precision control and safety features. Full hardware and firmware development for demanding industrial applications.',
+          'Interactive educational device for teaching mathematics through hands-on learning. Embedded system generates adaptive math problems using statistical analysis, creating a physical “smart dice” learning tool.',
+          'Automated feed dispensing system for equestrian competitions. End-to-end development: sourcing, mechanical design (timed-release latch mechanism), electronics, firmware, and IoT connectivity for precise, scheduled feeding.',
+          'Human presence detection system using hmmd mmWave sensors for smart fitting rooms. End-to-end development: hardware design, firmware, and integration with IoT platforms to allow real-time occupancy monitoring.'
+        ]
+      },
+      es: {
+        langCode: 'EN',
+        htmlLang: 'es',
+        pageTitle: 'Proyectos | Opotek — Servicios de Ingeniería Electrónica',
+        skip: 'Saltar al contenido',
+        navAbout: 'nosotros',
+        navServices: 'servicios',
+        navProjects: 'proyectos',
+        navContact: 'contacto',
+        menu: 'menú',
+        close: 'cerrar',
+        heroTitle: 'Productos hardware: de <span class="slashed0">0</span> a producción en masa',
+        heroSub: 'Desarrollo integral de producto: electrónica, software y diseño mecánico<br>De la idea a un producto fabricable. Iteraciones rápidas, construido de forma robusta para producción.',
+        heroMicro: 'Iteraciones rápidas. Robusto para fabricación.',
+        heroCta: 'ver servicios',
+        aboutLabel: 'Nosotros',
+        aboutSub: 'Opotek es el equipo de ingeniería al que llamas cuando estás construyendo un producto real.<br>Diseñamos el stack completo: electrónica, firmware, software y diseño mecánico. Y nos aseguramos de que todo funcione junto en el mundo real, no solo sobre el papel. Recibes archivos probados y validados, listos para producción.',
+        servicesLabel: 'Lo que mejor hacemos',
+        servicesSub: 'Integridad de diseño. Seguridad de fabricación. <br>Construimos sistemas hardware embebidos completos: esquemáticos, diseño de PCB, CAD de envolventes, prototipado e integración de sistemas. Recibes entregables listos para producción: archivos de fabricación, documentación de pruebas, soporte de BOM y especificaciones que funcionan en planta.',
+        servicesBullets: [
+          '<strong>Del concepto al prototipo funcional</strong> — Diseño completo del sistema: electrónica, firmware y envolvente integrados desde el primer día para tu MVP.',
+          '<strong>Construcciones de validación</strong> — Builds EVT, puesta en marcha, iteración y validación.',
+          '<strong>Soporte a producción</strong> — Fixtures de test, utillajes de programación y análisis DFM/DFT para escalar sin fricción.',
+          '<strong>Sistemas embebidos</strong> — Firmware MCU/RTOS, drivers y conectividad inalámbrica para IoT(BLE, Wi‑Fi, LoRa, GNS, GSM)..',
+          '<strong>Edge AI / ML</strong> — Fusión sensorial, procesado de señal e inferencia en dispositivo para productos inteligentes.',
+          '<strong>Entrega llave en mano</strong> — Mecánica, electrónica, firmware y software coordinados en un único producto integrado.'
+        ],
+        servicesMicro: 'Entregables orientados a resultados: archivos de producción, notas de test, soporte BOM y documentación que resiste la fabricación.',
+        projectsLabel: 'Proyectos',
+        projectsSub: 'Casos de estudio disponibles bajo solicitud. <br> Algunos clientes prefieren confidencialidad; compartiremos ejemplos relevantes según tu sector y requisitos técnicos.',
+        clientLabel: 'Cliente:',
+        industryLabel: 'Industria:',
+        emptyTitle: 'No hay proyectos para este filtro',
+        emptySub: 'Prueba otro filtro o contáctanos para referencias relevantes para tu sector y restricciones.',
+        clientsLabel: 'Clientes',
+        clientsSub: 'Hemos colaborado con startups y empresas consolidadas de varios sectores para hacer realidad sus productos hardware.',
+        contactTitle: '¿Construyendo un producto hardware?',
+        contactSub: 'Cuéntanos tu proyecto y tus plazos. Definiremos la ruta técnica a seguir. [Opotek@protonmail.com. (+34) 646617993]',
+        contactBtn: 'contactar con Opotek',
+        footer1: '© 2026 Opotek. Todos los derechos reservados.',
+        footer2: 'Diseñado y desarrollado con <3 por Opotek.',
+        privacy: 'Política de Privacidad',
+        cookies: 'Política de Cookies',
+        disclaimer: 'Aviso legal',
+        projectTitles: [
+          'Sistema de Control Microfluídico',
+          'Wearable térmico inteligente para deportes extremos',
+          'Dispositivo portable para monitorización de conductividad del suelo',
+          'Dispositivo de monitorización de calidad del aire interior',
+          'Driver industrial para motor de inducción',
+          'Dispositivo interactivo para aprendizaje matemático',
+          'Sistema automatizado de dispensación para competiciones ecuestres',
+          'Detector de presencia humana con mmWave para probadores de ropa'
+        ],
+        projectIndustries: [
+          'Investigación médica / Equipamiento de laboratorio',
+          'Deportes extremos / Wearables',
+          'Tecnología agrícola / Agricultura de precisión',
+          'Domótica y edificios inteligentes / IoT',
+          'Automatización industrial',
+          'Tecnología educativa',
+          'Ecuestre / Equipamiento deportivo',
+          'IoT / Retail / Mobiliario inteligente'
+        ],
+        projectDescriptions: [
+          'Desarrollo integral de hardware, firmware y software para un sistema de control microfluídico usado en investigación médica. Integra arrays de sensores, control preciso de fluidos y temperatura, y adquisición de datos en tiempo real con conectividad inalámbrica.',
+          'Wearable inteligente para atletas en entornos extremos, con sensado de temperatura y control térmico activo. Desarrollo completo de electrónica, firmware y software embebido, incluyendo conectividad inalámbrica con app y gran autonomía.',
+          'Dispositivo portátil de monitorización de conductividad del suelo para agricultura de precisión. Se desarrolló la arquitectura hardware completa, firmware de bajo consumo y pipeline de datos en la nube para mediciones en campo y analítica agrícola en tiempo real.',
+          'Monitor compacto de calidad del aire interior con fusión multisensor para CO₂, VOC, humedad y partículas. Se entregó diseño electrónico, firmware embebido e integración IoT para despliegues en hogar y oficinas.',
+          'Driver de motor de inducción de grado industrial con control de precisión y funciones de seguridad. Desarrollo completo de hardware y firmware para aplicaciones industriales exigentes.',
+          'Dispositivo educativo interactivo para enseñar matemáticas mediante aprendizaje práctico. El sistema embebido genera problemas matemáticos adaptativos usando análisis estadístico, creando una herramienta física tipo “dado inteligente”.',
+          'Sistema automatizado de dispensación de alimento para competiciones ecuestres. Desarrollo integral: sourcing, diseño mecánico (mecanismo de cierre temporizado), electrónica, firmware y conectividad IoT para alimentación precisa y programada.',
+          'Sistema de detección de presencia humana usando sensores mmWave hmmd para probadores inteligentes. Desarrollo integral: diseño hardware, firmware e integración con plataformas IoT para monitorización de ocupación en tiempo real.'
+        ]
+      }
+    };
+
+    const projectCards = Array.from(document.querySelectorAll('.proj:not(.skeleton)'));
+    const languageToggle = document.getElementById('languageToggle');
+    const languageToggleMobile = document.getElementById('languageToggleMobile');
+
+    function applyLanguage(lang) {
+      const t = translations[lang] || translations.en;
+      document.documentElement.lang = t.htmlLang;
+      document.title = t.pageTitle;
+
+      document.querySelector('.skip').textContent = t.skip;
+      document.querySelectorAll('.nav-links a')[0].textContent = t.navAbout;
+      document.querySelectorAll('.nav-links a')[1].textContent = t.navServices;
+      document.querySelectorAll('.nav-links a')[2].textContent = t.navProjects;
+      document.querySelectorAll('.nav-links a')[3].textContent = t.navContact;
+      document.querySelectorAll('.mobile-menu .links a')[0].textContent = t.navAbout;
+      document.querySelectorAll('.mobile-menu .links a')[1].textContent = t.navServices;
+      document.querySelectorAll('.mobile-menu .links a')[2].textContent = t.navProjects;
+      document.querySelectorAll('.mobile-menu .links a')[3].textContent = t.navContact;
+      document.querySelector('.menu-toggle[aria-controls="mobileMenu"]').textContent = t.menu;
+      document.querySelector('#mobileMenu .top .menu-toggle').textContent = t.close;
+
+      languageToggle.textContent = t.langCode;
+      languageToggleMobile.textContent = t.langCode;
+
+      document.querySelector('.hero h1').innerHTML = t.heroTitle;
+      document.querySelector('.hero .sub').innerHTML = t.heroSub;
+      document.querySelector('.hero .micro').textContent = t.heroMicro;
+      document.querySelector('.hero .btn').textContent = t.heroCta;
+
+      const sectionLabels = document.querySelectorAll('.section-label');
+      sectionLabels[0].textContent = t.aboutLabel;
+      sectionLabels[1].textContent = t.servicesLabel;
+      sectionLabels[2].textContent = t.projectsLabel;
+      sectionLabels[3].textContent = t.clientsLabel;
+
+      document.querySelector('#about .sub').innerHTML = t.aboutSub;
+      document.querySelector('#services .sub').innerHTML = t.servicesSub;
+      document.querySelectorAll('#services .service-bullets li').forEach((item, i) => item.innerHTML = t.servicesBullets[i]);
+      document.querySelector('#services .micro').textContent = t.servicesMicro;
+      document.querySelector('#projects > .muted').innerHTML = t.projectsSub;
+
+      document.querySelectorAll('.proj-kv').forEach((kv, i) => {
+        const rows = kv.querySelectorAll('div');
+        rows[0].innerHTML = `<span class="k">${t.clientLabel}</span> ${rows[0].textContent.split(':').slice(1).join(':').trim()}`;
+        rows[1].innerHTML = `<span class="k">${t.industryLabel}</span> ${t.projectIndustries[i]}`;
+      });
+
+      projectCards.forEach((card, i) => {
+        card.querySelector('.proj-title').textContent = t.projectTitles[i];
+        card.querySelector('.proj-desc').textContent = t.projectDescriptions[i];
+      });
+
+      document.querySelector('#emptyState h3').textContent = t.emptyTitle;
+      document.querySelector('#emptyState p').textContent = t.emptySub;
+      document.querySelector('#clients .muted').textContent = t.clientsSub;
+      document.querySelector('#contact h2').textContent = t.contactTitle;
+      document.querySelector('#contact .muted').textContent = t.contactSub;
+      document.querySelector('#contact .btn').textContent = t.contactBtn;
+
+      const footerBlocks = document.querySelectorAll('footer > div');
+      footerBlocks[0].textContent = t.footer1;
+      footerBlocks[1].textContent = t.footer2;
+      const footerLinks = document.querySelectorAll('footer .small-links a');
+      footerLinks[0].textContent = t.privacy;
+      footerLinks[1].textContent = t.cookies;
+      footerLinks[2].textContent = t.disclaimer;
+
+      localStorage.setItem('opotekLang', lang);
+    }
+
+    function switchLanguage() {
+      const next = (localStorage.getItem('opotekLang') || 'en') === 'en' ? 'es' : 'en';
+      applyLanguage(next);
+    }
+
+    languageToggle.addEventListener('click', switchLanguage);
+    languageToggleMobile.addEventListener('click', switchLanguage);
+    applyLanguage(localStorage.getItem('opotekLang') || 'en');
+
     const chips = Array.from(document.querySelectorAll('.chip'));
     const cards = Array.from(document.querySelectorAll('.proj:not(.skeleton)'));
     const emptyState = document.getElementById('emptyState');
