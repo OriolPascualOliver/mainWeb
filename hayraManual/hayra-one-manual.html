@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hayra ONE – User Manual / Manual de Usuario</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark: #1a3a2a;
+    --green-mid: #2d6a4f;
+    --green-accent: #52b788;
+    --green-light: #d8f3dc;
+    --cream: #f9f6f0;
+    --sand: #e9e3d5;
+    --text: #1c1c1c;
+    --text-muted: #5a5a5a;
+    --border: #c8c0b0;
+    --white: #ffffff;
+    --amber: #b5651d;
+    --amber-light: #fdf0e0;
+    --red: #8b2c2c;
+    --red-light: #fde8e8;
+    --blue: #1a4a7a;
+    --blue-light: #e8f0fa;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* COVER */
+  .cover {
+    background: var(--green-dark);
+    color: var(--white);
+    padding: 80px 60px 60px;
+    position: relative;
+    overflow: hidden;
+    min-height: 340px;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    border: 1px solid rgba(82,183,136,0.15);
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -120px; right: 60px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    border: 1px solid rgba(82,183,136,0.1);
+  }
+  .cover-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green-accent);
+    margin-bottom: 16px;
+  }
+  .cover h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 64px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .cover h1 span { color: var(--green-accent); }
+  .cover-subtitle {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    margin-bottom: 40px;
+  }
+  .cover-lang {
+    display: flex; gap: 12px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 500;
+  }
+  .cover-lang span { color: rgba(255,255,255,0.7); }
+
+  /* LANG TOGGLE */
+  .lang-bar {
+    background: var(--green-mid);
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .lang-btn {
+    flex: 1;
+    padding: 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    transition: all 0.2s;
+  }
+  .lang-btn.active {
+    background: var(--green-dark);
+    color: var(--green-accent);
+  }
+
+  /* LANG SECTIONS */
+  .lang-section { display: none; }
+  .lang-section.active { display: block; }
+
+  /* TOC */
+  .toc {
+    background: var(--green-dark);
+    color: var(--white);
+    padding: 40px 60px;
+  }
+  .toc-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green-accent);
+    margin-bottom: 20px;
+  }
+  .toc-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 40px;
+  }
+  .toc-list li a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.2s;
+  }
+  .toc-list li a:hover { color: var(--green-accent); }
+  .toc-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: rgba(255,255,255,0.15);
+    min-width: 24px;
+  }
+
+  /* MAIN CONTENT */
+  .content {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+
+  /* SECTIONS */
+  .section {
+    margin-bottom: 64px;
+    scroll-margin-top: 60px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--sand);
+  }
+  .section-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 48px;
+    color: var(--sand);
+    line-height: 1;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: var(--green-dark);
+    line-height: 1.1;
+  }
+
+  /* PROSE */
+  p { font-size: 15px; margin-bottom: 16px; color: var(--text); }
+  p:last-child { margin-bottom: 0; }
+
+  /* STEPS */
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 0 20px;
+  }
+  .step-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .step-circle {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--green-mid);
+    color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .step-line {
+    width: 1px;
+    flex: 1;
+    background: var(--sand);
+    min-height: 20px;
+  }
+  .step-body {
+    padding: 4px 0 28px;
+  }
+  .step-label {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--green-dark);
+    margin-bottom: 6px;
+  }
+  .step-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* CALLOUT BOXES */
+  .callout {
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .callout-icon {
+    font-size: 18px;
+    line-height: 1.4;
+    flex-shrink: 0;
+  }
+  .callout-body { flex: 1; }
+  .callout-title {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .callout-text { font-size: 14px; line-height: 1.6; }
+  .callout.tip { background: var(--green-light); }
+  .callout.tip .callout-title { color: var(--green-mid); }
+  .callout.tip .callout-text { color: #2d5016; }
+  .callout.warning { background: var(--amber-light); }
+  .callout.warning .callout-title { color: var(--amber); }
+  .callout.warning .callout-text { color: #5a3010; }
+  .callout.danger { background: var(--red-light); }
+  .callout.danger .callout-title { color: var(--red); }
+  .callout.danger .callout-text { color: #5a1a1a; }
+  .callout.info { background: var(--blue-light); }
+  .callout.info .callout-title { color: var(--blue); }
+  .callout.info .callout-text { color: #1a2e4a; }
+
+  /* LED TABLE */
+  .led-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin: 20px 0;
+  }
+  .led-table th {
+    background: var(--green-dark);
+    color: rgba(255,255,255,0.85);
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .led-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--sand);
+    vertical-align: middle;
+  }
+  .led-table tr:last-child td { border-bottom: none; }
+  .led-table tr:hover td { background: #f5f2ec; }
+
+  .led-dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 6px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+  }
+  .led-green { background: #22c55e; }
+  .led-red { background: #ef4444; }
+  .led-amber { background: #f59e0b; }
+  .led-off { background: #d1d5db; }
+  .led-blink-green { background: #22c55e; opacity: 0.7; }
+  .led-blink-amber { background: #f59e0b; opacity: 0.7; }
+
+  /* SPECS TABLE */
+  .specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin: 20px 0;
+    border: 1px solid var(--sand);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .specs-table td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--sand);
+  }
+  .specs-table tr:last-child td { border-bottom: none; }
+  .specs-table td:first-child {
+    font-weight: 500;
+    color: var(--text-muted);
+    width: 40%;
+    background: #f5f2ec;
+  }
+
+  /* BUTTON VISUAL */
+  .button-action {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--sand);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 12px 0;
+  }
+  .button-press {
+    background: var(--green-dark);
+    color: var(--green-accent);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+  }
+  .button-desc { font-size: 14px; color: var(--text); }
+
+  /* WIFI STEPS */
+  .wifi-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    margin: 20px 0;
+  }
+  .wifi-ssid {
+    font-family: monospace;
+    background: #f0ede8;
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--green-dark);
+    display: inline-block;
+    margin: 4px 0;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--green-dark);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 30px 40px;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .footer strong { color: rgba(255,255,255,0.7); }
+
+  /* DIVIDER */
+  .section-divider {
+    border: none;
+    border-top: 2px dashed var(--sand);
+    margin: 40px 0;
+  }
+
+  @media (max-width: 600px) {
+    .cover { padding: 50px 28px 40px; }
+    .cover h1 { font-size: 44px; }
+    .toc { padding: 32px 28px; }
+    .toc-list { grid-template-columns: 1fr; }
+    .content { padding: 40px 20px; }
+    .section-num { font-size: 36px; }
+    .section-title { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-tag">User Manual · Manual de Usuario</div>
+  <h1>Hayra <span>ONE</span></h1>
+  <div class="cover-subtitle">Automatic Feed Dispenser · Dispensador Automático de Pienso</div>
+  <div class="cover-lang">
+    <span>🇬🇧 English</span> &nbsp;·&nbsp; <span>🇪🇸 Español</span>
+  </div>
+</div>
+
+<!-- LANGUAGE TOGGLE -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en')">🇬🇧 &nbsp;English</button>
+  <button class="lang-btn" onclick="setLang('es')">🇪🇸 &nbsp;Español</button>
+</div>
+
+<!-- ══════════════════ ENGLISH ══════════════════ -->
+<div class="lang-section active" id="lang-en">
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <ul class="toc-list">
+      <li><a href="#en-overview"><span class="toc-num">1</span> Product overview</a></li>
+      <li><a href="#en-setup"><span class="toc-num">2</span> Loading the feed bag</a></li>
+      <li><a href="#en-power"><span class="toc-num">3</span> Power &amp; battery</a></li>
+      <li><a href="#en-wifi"><span class="toc-num">4</span> Wi-Fi &amp; scheduling</a></li>
+      <li><a href="#en-config"><span class="toc-num">5</span> Configuration mode</a></li>
+      <li><a href="#en-button"><span class="toc-num">6</span> Button reference</a></li>
+      <li><a href="#en-leds"><span class="toc-num">7</span> LED status indicators</a></li>
+      <li><a href="#en-cleaning"><span class="toc-num">8</span> Cleaning &amp; care</a></li>
+      <li><a href="#en-specs"><span class="toc-num">9</span> Specifications</a></li>
+    </ul>
+  </div>
+
+  <div class="content">
+
+    <!-- 1. OVERVIEW -->
+    <div class="section" id="en-overview">
+      <div class="section-header">
+        <span class="section-num">1</span>
+        <span class="section-title">Product overview</span>
+      </div>
+      <p>The <strong>Hayra ONE</strong> is an automatic feed dispenser designed for equestrian competitions and stable use. It lets you pre-load the exact amount of hay or feed your horse needs, set a precise dispensing time, and leave the rest to the device — giving you one less thing to worry about on competition day.</p>
+      <p>The device accepts a waterproof fold-seal bag, holds a measured portion of feed, and releases it at the scheduled time using a motorised buckle mechanism. Configuration is done via a built-in Wi-Fi access point from any smartphone or tablet.</p>
+
+      <div class="callout tip">
+        <span class="callout-icon">🌿</span>
+        <div class="callout-body">
+          <div class="callout-title">Designed for competitions</div>
+          <div class="callout-text">Hayra ONE is ideal for multi-day events, early-morning feeding, and situations where your schedule makes consistent feeding times difficult to maintain manually.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. LOADING -->
+    <div class="section" id="en-setup">
+      <div class="section-header">
+        <span class="section-num">2</span>
+        <span class="section-title">Loading the feed bag</span>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-left"><div class="step-circle">1</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Fill the bag</div>
+            <div class="step-desc">Place the desired amount of hay, hard feed, or pellets inside the waterproof bag. Do not overfill — leave at least 8 cm of clearance at the top to allow proper sealing.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">2</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Seal the bag</div>
+            <div class="step-desc">Fold the top edge of the bag down twice, as you would a dry-bag or waterproof roll-top sack. The bag features a magnetic strip along the fold line — press the two sides together firmly until you feel the magnets engage. This creates a secure, waterproof seal that protects the feed from rain and moisture.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">3</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Insert the buckle</div>
+            <div class="step-desc">Press the plastic buckle clip (similar to a seatbelt buckle) located on the folded seal firmly into the slot on the Hayra ONE device until you hear a click. This secures the bag and connects it to the release mechanism.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">4</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Hang the device</div>
+            <div class="step-desc">Use the two stainless D-rings on the device to hang it securely from a stable fence, stall door, or tie ring at an appropriate height for your horse. Ensure the bag hangs freely and the feed end faces downward.</div>
+          </div>
+        </div>
+      </div>
+      <div class="callout warning">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-body">
+          <div class="callout-title">Before hanging</div>
+          <div class="callout-text">Always check that the buckle is fully engaged before hanging the device. A partially inserted buckle may cause the feed to release unexpectedly or fall.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. POWER -->
+    <div class="section" id="en-power">
+      <div class="section-header">
+        <span class="section-num">3</span>
+        <span class="section-title">Power &amp; battery</span>
+      </div>
+      <p>The Hayra ONE is powered by a rechargeable battery that slides in and out of the device. It charges via a standard USB-C connector and lasts up to 7 days on a full charge.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-left"><div class="step-circle">1</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Charge the battery</div>
+            <div class="step-desc">Connect the battery to any USB-C charger or power bank. Charge until full before first use. The battery can be charged independently without removing it from the device if the USB-C port is accessible.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">2</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Check the battery level</div>
+            <div class="step-desc">Press the side button on the battery to display its charge level on the 4 built-in LEDs: 4 LEDs lit = full, 1 LED lit = low. Check the battery level before each use.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">3</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Slide in the battery</div>
+            <div class="step-desc">Slide the battery into its slot on the device until it clicks into place. The device will power on and broadcast a Wi-Fi access point ready for configuration.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">4</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Remove the battery</div>
+            <div class="step-desc">To remove, simply slide the battery out. Remove the battery when storing the device for extended periods or before cleaning.</div>
+          </div>
+        </div>
+      </div>
+
+      <table class="specs-table">
+        <tr><td>Battery life</td><td>Up to <strong>7 days</strong> per charge</td></tr>
+        <tr><td>Charging</td><td>USB-C (cable not included)</td></tr>
+        <tr><td>Battery indicator</td><td>4 LEDs on battery body — press side button to check</td></tr>
+        <tr><td>Low battery alert</td><td>Also indicated by device LED — see section 7</td></tr>
+      </table>
+    </div>
+
+    <!-- 4. WIFI -->
+    <div class="section" id="en-wifi">
+      <div class="section-header">
+        <span class="section-num">4</span>
+        <span class="section-title">Wi-Fi connection &amp; scheduling</span>
+      </div>
+      <p>The Hayra ONE creates its own Wi-Fi access point. You do not need an existing Wi-Fi network or internet connection to configure it — connect directly from your phone or tablet.</p>
+
+      <div class="wifi-card">
+        <div style="font-weight:600; font-size:14px; color:var(--green-dark); margin-bottom:12px;">Default credentials (first use)</div>
+        <div style="margin-bottom:8px;">
+          <span style="font-size:12px; color:var(--text-muted); display:block; margin-bottom:2px;">Network name (SSID)</span>
+          <span class="wifi-ssid">HayraONE</span>
+        </div>
+        <div>
+          <span style="font-size:12px; color:var(--text-muted); display:block; margin-bottom:2px;">Password</span>
+          <span class="wifi-ssid">hayra2024</span>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-left"><div class="step-circle">1</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Insert the battery</div>
+            <div class="step-desc">Power on the device. After a few seconds it will broadcast the Hayra ONE access point.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">2</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Connect your phone</div>
+            <div class="step-desc">On your phone, open Wi-Fi settings and connect to the network shown above using the default password.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">3</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Configuration page opens automatically</div>
+            <div class="step-desc">Once connected, the Hayra ONE configuration page will open automatically on your phone (captive portal). If it does not open by itself, open a browser and navigate to <strong>192.168.4.1</strong> as a fallback.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">4</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Set the dispense time</div>
+            <div class="step-desc">Enter the date and time you want the feed to be dispensed. Confirm and save. The device will trigger the release mechanism at the scheduled moment.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon">ℹ️</span>
+        <div class="callout-body">
+          <div class="callout-title">One schedule per load</div>
+          <div class="callout-text">The Hayra ONE supports one dispensing time per bag load. Once the feed has been dispensed, refill the bag and set a new schedule for the next feeding.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. CONFIG MODE -->
+    <div class="section" id="en-config">
+      <div class="section-header">
+        <span class="section-num">5</span>
+        <span class="section-title">Configuration mode</span>
+      </div>
+      <p>Configuration mode allows you to change the device's Wi-Fi network name, password, and display language (English / Spanish).</p>
+
+      <div class="button-action">
+        <span class="button-press">Hold button → slide in battery</span>
+        <span class="button-desc">Press and hold the button first, then slide in the battery while keeping it held for 2 seconds. Release to enter configuration mode.</span>
+      </div>
+
+      <p>Once in configuration mode, connect to the device's Wi-Fi network (using the current credentials) and open the configuration page at <strong>192.168.4.1</strong> (or wait for the captive portal to open automatically). You will see additional options to:</p>
+      <ul style="margin: 12px 0 16px 20px; font-size:15px; line-height:2;">
+        <li>Change the network name (SSID)</li>
+        <li>Change the Wi-Fi password</li>
+        <li>Select language: English or Spanish</li>
+      </ul>
+
+      <div class="callout warning">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-body">
+          <div class="callout-title">Keep your credentials safe</div>
+          <div class="callout-text">If you change the network name or password and forget them, you will need to perform a factory reset. Note your new credentials somewhere safe.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. BUTTON -->
+    <div class="section" id="en-button">
+      <div class="section-header">
+        <span class="section-num">6</span>
+        <span class="section-title">Button reference</span>
+      </div>
+
+      <div class="button-action">
+        <span class="button-press">Hold button → slide in battery</span>
+        <span class="button-desc">Enter configuration mode — hold button first, insert battery, keep held for 2 s. Change Wi-Fi name, password, and language.</span>
+      </div>
+      <div class="button-action">
+        <span class="button-press">Hold 5 s</span>
+        <span class="button-desc">Manual open — releases the bag buckle immediately. Use to dispense feed on demand, test the mechanism, or open the bag to inspect or refill it.</span>
+      </div>
+
+      <div class="callout warning">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-body">
+          <div class="callout-title">Manual open</div>
+          <div class="callout-text">The 5-second press releases the buckle and opens the bag immediately. If the bag is loaded with feed, it will dispense. Only trigger this when you intend to open the bag.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. LEDs -->
+    <div class="section" id="en-leds">
+      <div class="section-header">
+        <span class="section-num">7</span>
+        <span class="section-title">LED status indicators</span>
+      </div>
+      <p>The Hayra ONE has two LED indicator lights on the front face. Their colour and behaviour communicate the device's current status.</p>
+
+      <div class="callout info">
+        <span class="callout-icon">ℹ️</span>
+        <div class="callout-body">
+          <div class="callout-title">LED diagram</div>
+          <div class="callout-text">An LED status diagram image will be added here once provided. The table below reflects the current known states.</div>
+        </div>
+      </div>
+
+      <table class="led-table">
+        <thead>
+          <tr>
+            <th>LED 1</th>
+            <th>LED 2</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="led-dot led-green"></span> Solid green</td>
+            <td><span class="led-dot led-off"></span> Off</td>
+            <td>Standby — schedule set, waiting</td>
+          </tr>
+          <tr>
+            <td><span class="led-dot led-blink-green"></span> Blinking green</td>
+            <td><span class="led-dot led-off"></span> Off</td>
+            <td>Wi-Fi access point active</td>
+          </tr>
+          <tr>
+            <td><span class="led-dot led-green"></span> Solid green</td>
+            <td><span class="led-dot led-green"></span> Solid green</td>
+            <td>Feed dispensed successfully</td>
+          </tr>
+          <tr>
+            <td><span class="led-dot led-amber"></span> Solid amber</td>
+            <td><span class="led-dot led-off"></span> Off</td>
+            <td>Configuration mode active</td>
+          </tr>
+          <tr>
+            <td><span class="led-dot led-blink-amber"></span> Blinking amber</td>
+            <td><span class="led-dot led-off"></span> Off</td>
+            <td>Low battery warning</td>
+          </tr>
+          <tr>
+            <td><span class="led-dot led-red"></span> Solid red</td>
+            <td><span class="led-dot led-red"></span> Solid red</td>
+            <td>Error — check buckle and bag connection</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:13px; color:var(--text-muted); margin-top:8px;">* LED behaviour will be updated once the official status diagram is provided.</p>
+    </div>
+
+    <!-- 8. CLEANING -->
+    <div class="section" id="en-cleaning">
+      <div class="section-header">
+        <span class="section-num">8</span>
+        <span class="section-title">Cleaning &amp; care</span>
+      </div>
+      <p>Keeping your Hayra ONE clean ensures long-term reliable operation and is important for your horse's health.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-left"><div class="step-circle">1</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Slide out the battery before cleaning</div>
+            <div class="step-desc">Always remove the battery before cleaning the device to avoid accidental activation.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">2</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Wipe the device body</div>
+            <div class="step-desc">Use a lightly damp cloth to wipe down all external surfaces. The device housing is splash-resistant.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">3</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Clean the bag</div>
+            <div class="step-desc">The waterproof bag can be rinsed with clean water. Allow it to dry fully before refilling.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">4</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Check the buckle mechanism</div>
+            <div class="step-desc">Inspect the buckle and release slot for feed debris. Clear any blockage with a soft brush.</div>
+          </div>
+        </div>
+      </div>
+      <div class="callout danger">
+        <span class="callout-icon">🚫</span>
+        <div class="callout-body">
+          <div class="callout-title">Do not use solvents</div>
+          <div class="callout-text">Never use organic solvents, bleach, alcohol, or abrasive cleaning products. These will damage the housing, seals, and internal components, and may leave residues harmful to your horse.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. SPECS -->
+    <div class="section" id="en-specs">
+      <div class="section-header">
+        <span class="section-num">9</span>
+        <span class="section-title">Specifications</span>
+      </div>
+      <table class="specs-table">
+        <tr><td>Product name</td><td>Hayra ONE</td></tr>
+        <tr><td>Manufacturer</td><td>Opotek</td></tr>
+        <tr><td>Intended use</td><td>Equestrian feed dispensing at competitions and stables</td></tr>
+        <tr><td>Battery life</td><td>Up to 7 days per charge</td></tr>
+        <tr><td>Charging</td><td>USB-C</td></tr>
+        <tr><td>Connectivity</td><td>Wi-Fi 2.4 GHz (access point mode, no router needed)</td></tr>
+        <tr><td>Bag type</td><td>Included waterproof fold-seal bag with magnetic strip</td></tr>
+        <tr><td>Mounting</td><td>Stainless D-rings (×2)</td></tr>
+        <tr><td>Languages</td><td>English, Spanish</td></tr>
+        <tr><td>Water resistance</td><td>Bag: waterproof. Device body: splash-resistant</td></tr>
+        <tr><td>Cleaning</td><td>Damp cloth only. No solvents.</td></tr>
+      </table>
+    </div>
+
+  </div><!-- /content -->
+
+</div><!-- /lang-en -->
+
+
+<!-- ══════════════════ ESPAÑOL ══════════════════ -->
+<div class="lang-section" id="lang-es">
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">Índice</div>
+    <ul class="toc-list">
+      <li><a href="#es-overview"><span class="toc-num">1</span> Descripción del producto</a></li>
+      <li><a href="#es-setup"><span class="toc-num">2</span> Carga de la bolsa de pienso</a></li>
+      <li><a href="#es-power"><span class="toc-num">3</span> Alimentación y batería</a></li>
+      <li><a href="#es-wifi"><span class="toc-num">4</span> Wi-Fi y programación</a></li>
+      <li><a href="#es-config"><span class="toc-num">5</span> Modo de configuración</a></li>
+      <li><a href="#es-button"><span class="toc-num">6</span> Referencia del botón</a></li>
+      <li><a href="#es-leds"><span class="toc-num">7</span> Indicadores LED</a></li>
+      <li><a href="#es-cleaning"><span class="toc-num">8</span> Limpieza y cuidado</a></li>
+      <li><a href="#es-specs"><span class="toc-num">9</span> Especificaciones</a></li>
+    </ul>
+  </div>
+
+  <div class="content">
+
+    <!-- 1. DESCRIPCIÓN -->
+    <div class="section" id="es-overview">
+      <div class="section-header">
+        <span class="section-num">1</span>
+        <span class="section-title">Descripción del producto</span>
+      </div>
+      <p>El <strong>Hayra ONE</strong> es un dispensador automático de pienso diseñado para competiciones ecuestres y uso en establos. Permite cargar la cantidad exacta de heno o alimento que necesita su caballo, establecer una hora precisa de dispensación y dejar que el dispositivo haga el resto, facilitando la gestión durante el día de competición.</p>
+      <p>El dispositivo acepta una bolsa impermeable de cierre por doblez, contiene la ración de pienso medida y la libera a la hora programada mediante un mecanismo de hebilla motorizado. La configuración se realiza a través de un punto de acceso Wi-Fi integrado desde cualquier smartphone o tablet.</p>
+
+      <div class="callout tip">
+        <span class="callout-icon">🌿</span>
+        <div class="callout-body">
+          <div class="callout-title">Diseñado para competiciones</div>
+          <div class="callout-text">El Hayra ONE es ideal para eventos de varios días, alimentaciones tempranas y situaciones en las que el horario dificulta mantener una rutina de alimentación manual constante.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. CARGA -->
+    <div class="section" id="es-setup">
+      <div class="section-header">
+        <span class="section-num">2</span>
+        <span class="section-title">Carga de la bolsa de pienso</span>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-left"><div class="step-circle">1</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Llenar la bolsa</div>
+            <div class="step-desc">Introduzca la cantidad deseada de heno, pienso o pellets en la bolsa impermeable. No la llene en exceso: deje al menos 8 cm libres en la parte superior para un cierre correcto.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">2</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Cerrar la bolsa</div>
+            <div class="step-desc">Doble el borde superior de la bolsa hacia abajo dos veces, como si fuera una bolsa impermeable de tipo roll-top. La bolsa incorpora una tira magnética a lo largo de la línea de doblez — presione ambos lados firmemente hasta notar que los imanes encajan. Esto crea un cierre seguro e impermeable que protege el pienso de la lluvia y la humedad.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">3</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Insertar la hebilla</div>
+            <div class="step-desc">Presione el clip de plástico (similar a una hebilla de cinturón de seguridad) ubicado en el cierre doblado firmemente en la ranura del dispositivo Hayra ONE hasta escuchar un clic. Esto asegura la bolsa y la conecta al mecanismo de apertura.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">4</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Colgar el dispositivo</div>
+            <div class="step-desc">Utilice los dos anillos en D de acero inoxidable del dispositivo para colgarlo de una valla, puerta de box o argolla a la altura adecuada para su caballo. Asegúrese de que la bolsa cuelgue libremente con la boca del pienso hacia abajo.</div>
+          </div>
+        </div>
+      </div>
+      <div class="callout warning">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-body">
+          <div class="callout-title">Antes de colgar</div>
+          <div class="callout-text">Verifique siempre que la hebilla esté completamente enganchada antes de colgar el dispositivo. Una hebilla parcialmente insertada puede provocar la liberación inesperada del pienso o la caída de la bolsa.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. ALIMENTACIÓN -->
+    <div class="section" id="es-power">
+      <div class="section-header">
+        <span class="section-num">3</span>
+        <span class="section-title">Alimentación y batería</span>
+      </div>
+      <p>El Hayra ONE funciona con una batería recargable que se introduce y extrae fácilmente del dispositivo. Se carga mediante un conector USB-C estándar y tiene una autonomía de hasta 7 días con carga completa.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-left"><div class="step-circle">1</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Cargar la batería</div>
+            <div class="step-desc">Conecte la batería a cualquier cargador USB-C o batería externa. Cárguela completamente antes del primer uso. La batería puede cargarse de forma independiente sin extraerla del dispositivo si el puerto USB-C está accesible.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">2</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Comprobar el nivel de la batería</div>
+            <div class="step-desc">Pulse el botón lateral de la batería para mostrar su nivel de carga en los 4 LEDs integrados: 4 LEDs encendidos = carga completa, 1 LED encendido = batería baja. Compruebe el nivel antes de cada uso.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">3</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Insertar la batería</div>
+            <div class="step-desc">Deslice la batería en su ranura del dispositivo hasta que encaje con un clic. El dispositivo se encenderá y emitirá un punto de acceso Wi-Fi listo para la configuración.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">4</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Extraer la batería</div>
+            <div class="step-desc">Para extraerla, deslícela hacia afuera. Retire la batería cuando vaya a almacenar el dispositivo durante un período prolongado o antes de limpiarlo.</div>
+          </div>
+        </div>
+      </div>
+      <table class="specs-table">
+        <tr><td>Autonomía</td><td>Hasta <strong>7 días</strong> por carga</td></tr>
+        <tr><td>Carga</td><td>USB-C (cable no incluido)</td></tr>
+        <tr><td>Indicador de batería</td><td>4 LEDs en la batería — pulse el botón lateral para consultar</td></tr>
+        <tr><td>Aviso de batería baja</td><td>También indicado por el LED del dispositivo — véase sección 7</td></tr>
+      </table>
+    </div>
+
+    <!-- 4. WIFI -->
+    <div class="section" id="es-wifi">
+      <div class="section-header">
+        <span class="section-num">4</span>
+        <span class="section-title">Conexión Wi-Fi y programación</span>
+      </div>
+      <p>El Hayra ONE crea su propio punto de acceso Wi-Fi. No necesita una red Wi-Fi existente ni conexión a internet para configurarlo: conéctese directamente desde su teléfono o tablet.</p>
+
+      <div class="wifi-card">
+        <div style="font-weight:600; font-size:14px; color:var(--green-dark); margin-bottom:12px;">Credenciales predeterminadas (primer uso)</div>
+        <div style="margin-bottom:8px;">
+          <span style="font-size:12px; color:var(--text-muted); display:block; margin-bottom:2px;">Nombre de red (SSID)</span>
+          <span class="wifi-ssid">HayraONE</span>
+        </div>
+        <div>
+          <span style="font-size:12px; color:var(--text-muted); display:block; margin-bottom:2px;">Contraseña</span>
+          <span class="wifi-ssid">hayra2024</span>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-left"><div class="step-circle">1</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Insertar la batería</div>
+            <div class="step-desc">Encienda el dispositivo. Transcurridos unos segundos, emitirá el punto de acceso Wi-Fi de Hayra ONE.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">2</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Conectar el teléfono</div>
+            <div class="step-desc">En su teléfono, abra los ajustes de Wi-Fi y conéctese a la red indicada arriba usando la contraseña predeterminada.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">3</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">La página de configuración se abre automáticamente</div>
+            <div class="step-desc">Una vez conectado, la página de configuración del Hayra ONE se abrirá automáticamente en su teléfono (portal cautivo). Si no se abre sola, abra un navegador y acceda a <strong>192.168.4.1</strong> como método alternativo.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">4</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Programar la hora de dispensación</div>
+            <div class="step-desc">Introduzca la fecha y hora en que desea que se dispense el pienso. Confirme y guarde. El dispositivo activará el mecanismo de apertura a la hora indicada.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon">ℹ️</span>
+        <div class="callout-body">
+          <div class="callout-title">Una programación por carga</div>
+          <div class="callout-text">El Hayra ONE admite una sola hora de dispensación por carga de bolsa. Una vez dispensado el pienso, rellene la bolsa y establezca una nueva programación para la siguiente alimentación.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. MODO CONFIG -->
+    <div class="section" id="es-config">
+      <div class="section-header">
+        <span class="section-num">5</span>
+        <span class="section-title">Modo de configuración</span>
+      </div>
+      <p>El modo de configuración permite cambiar el nombre de la red Wi-Fi del dispositivo, la contraseña y el idioma de la interfaz (inglés / español).</p>
+
+      <div class="button-action">
+        <span class="button-press">Mantener botón → insertar batería</span>
+        <span class="button-desc">Presione y mantenga el botón primero, luego inserte la batería mientras lo mantiene pulsado durante 2 segundos. Suelte para entrar en el modo de configuración.</span>
+      </div>
+
+      <p>Una vez en el modo de configuración, conéctese a la red Wi-Fi del dispositivo (con las credenciales actuales) y abra la página de configuración en <strong>192.168.4.1</strong> (o espere a que el portal cautivo se abra automáticamente). Verá opciones adicionales para:</p>
+      <ul style="margin: 12px 0 16px 20px; font-size:15px; line-height:2;">
+        <li>Cambiar el nombre de la red (SSID)</li>
+        <li>Cambiar la contraseña Wi-Fi</li>
+        <li>Seleccionar el idioma: inglés o español</li>
+      </ul>
+
+      <div class="callout warning">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-body">
+          <div class="callout-title">Guarde sus credenciales</div>
+          <div class="callout-text">Si cambia el nombre de red o la contraseña y los olvida, deberá realizar un restablecimiento de fábrica. Anote las nuevas credenciales en un lugar seguro.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. BOTÓN -->
+    <div class="section" id="es-button">
+      <div class="section-header">
+        <span class="section-num">6</span>
+        <span class="section-title">Referencia del botón</span>
+      </div>
+
+      <div class="button-action">
+        <span class="button-press">Mantener botón → insertar batería</span>
+        <span class="button-desc">Entrar en modo de configuración — mantenga el botón pulsado, inserte la batería y mantenga 2 s. Cambie nombre de red Wi-Fi, contraseña e idioma.</span>
+      </div>
+      <div class="button-action">
+        <span class="button-press">Mantener 5 s</span>
+        <span class="button-desc">Apertura manual — libera la hebilla de la bolsa de forma inmediata. Úselo para dispensar el pienso en el momento, probar el mecanismo o abrir la bolsa para inspeccionarla o rellenarla.</span>
+      </div>
+
+      <div class="callout warning">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-body">
+          <div class="callout-title">Apertura manual</div>
+          <div class="callout-text">La pulsación de 5 segundos libera la hebilla y abre la bolsa de inmediato. Si la bolsa contiene pienso, se dispensará. Active esta función únicamente cuando tenga intención de abrir la bolsa.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. LEDs -->
+    <div class="section" id="es-leds">
+      <div class="section-header">
+        <span class="section-num">7</span>
+        <span class="section-title">Indicadores LED</span>
+      </div>
+      <p>El Hayra ONE dispone de dos luces LED indicadoras en la parte frontal. Su color y comportamiento comunican el estado actual del dispositivo.</p>
+
+      <div class="callout info">
+        <span class="callout-icon">ℹ️</span>
+        <div class="callout-body">
+          <div class="callout-title">Diagrama de LEDs</div>
+          <div class="callout-text">La imagen del diagrama de estado LED se añadirá aquí una vez proporcionada. La tabla siguiente refleja los estados conocidos hasta el momento.</div>
+        </div>
+      </div>
+
+      <table class="led-table">
+        <thead>
+          <tr>
+            <th>LED 1</th>
+            <th>LED 2</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="led-dot led-green"></span> Verde fijo</td>
+            <td><span class="led-dot led-off"></span> Apagado</td>
+            <td>En espera — programación activa</td>
+          </tr>
+          <tr>
+            <td><span class="led-dot led-blink-green"></span> Verde parpadeante</td>
+            <td><span class="led-dot led-off"></span> Apagado</td>
+            <td>Punto de acceso Wi-Fi activo</td>
+          </tr>
+          <tr>
+            <td><span class="led-dot led-green"></span> Verde fijo</td>
+            <td><span class="led-dot led-green"></span> Verde fijo</td>
+            <td>Pienso dispensado correctamente</td>
+          </tr>
+          <tr>
+            <td><span class="led-dot led-amber"></span> Ámbar fijo</td>
+            <td><span class="led-dot led-off"></span> Apagado</td>
+            <td>Modo de configuración activo</td>
+          </tr>
+          <tr>
+            <td><span class="led-dot led-blink-amber"></span> Ámbar parpadeante</td>
+            <td><span class="led-dot led-off"></span> Apagado</td>
+            <td>Aviso de batería baja</td>
+          </tr>
+          <tr>
+            <td><span class="led-dot led-red"></span> Rojo fijo</td>
+            <td><span class="led-dot led-red"></span> Rojo fijo</td>
+            <td>Error — compruebe la hebilla y la bolsa</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:13px; color:var(--text-muted); margin-top:8px;">* El comportamiento de los LEDs se actualizará una vez proporcionado el diagrama oficial.</p>
+    </div>
+
+    <!-- 8. LIMPIEZA -->
+    <div class="section" id="es-cleaning">
+      <div class="section-header">
+        <span class="section-num">8</span>
+        <span class="section-title">Limpieza y cuidado</span>
+      </div>
+      <p>Mantener el Hayra ONE limpio garantiza un funcionamiento fiable a largo plazo y es importante para la salud de su caballo.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-left"><div class="step-circle">1</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Extraer la batería antes de limpiar</div>
+            <div class="step-desc">Retire siempre la batería antes de limpiar el dispositivo para evitar activaciones accidentales.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">2</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Limpiar la carcasa del dispositivo</div>
+            <div class="step-desc">Utilice un paño ligeramente húmedo para limpiar todas las superficies externas. La carcasa del dispositivo es resistente a las salpicaduras.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">3</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Limpiar la bolsa</div>
+            <div class="step-desc">La bolsa impermeable puede enjuagarse con agua limpia. Déjela secar completamente antes de volver a llenarla.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-circle">4</div><div class="step-line"></div></div>
+          <div class="step-body">
+            <div class="step-label">Revisar el mecanismo de la hebilla</div>
+            <div class="step-desc">Inspeccione la hebilla y la ranura de apertura en busca de restos de pienso. Elimine cualquier obstrucción con un cepillo suave.</div>
+          </div>
+        </div>
+      </div>
+      <div class="callout danger">
+        <span class="callout-icon">🚫</span>
+        <div class="callout-body">
+          <div class="callout-title">No utilizar disolventes</div>
+          <div class="callout-text">Nunca utilice disolventes orgánicos, lejía, alcohol ni productos de limpieza abrasivos. Dañarán la carcasa, los sellos y los componentes internos, y pueden dejar residuos perjudiciales para su caballo.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. ESPECIFICACIONES -->
+    <div class="section" id="es-specs">
+      <div class="section-header">
+        <span class="section-num">9</span>
+        <span class="section-title">Especificaciones</span>
+      </div>
+      <table class="specs-table">
+        <tr><td>Nombre del producto</td><td>Hayra ONE</td></tr>
+        <tr><td>Fabricante</td><td>Opotek</td></tr>
+        <tr><td>Uso previsto</td><td>Dispensación de pienso equino en competiciones y establos</td></tr>
+        <tr><td>Autonomía</td><td>Hasta 7 días por carga</td></tr>
+        <tr><td>Carga</td><td>USB-C</td></tr>
+        <tr><td>Conectividad</td><td>Wi-Fi 2.4 GHz (modo punto de acceso, sin necesidad de router)</td></tr>
+        <tr><td>Tipo de bolsa</td><td>Bolsa impermeable de cierre por doblez con tira magnética (incluida)</td></tr>
+        <tr><td>Montaje</td><td>Anillos en D de acero inoxidable (×2)</td></tr>
+        <tr><td>Idiomas</td><td>Inglés, español</td></tr>
+        <tr><td>Resistencia al agua</td><td>Bolsa: impermeable. Carcasa: resistente a salpicaduras</td></tr>
+        <tr><td>Limpieza</td><td>Solo paño húmedo. Sin disolventes.</td></tr>
+      </table>
+    </div>
+
+  </div><!-- /content -->
+
+</div><!-- /lang-es -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>Hayra ONE</strong> — Automatic Feed Dispenser / Dispensador Automático de Pienso<br>
+  A product by <strong>Opotek</strong> &nbsp;·&nbsp; For support, contact your local distributor · Para soporte, contacte con su distribuidor local<br>
+  <span style="font-size:11px;">© Opotek · All rights reserved / Todos los derechos reservados</span>
+</div>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      if (btn.textContent.includes(lang === 'en' ? 'English' : 'Español')) btn.classList.add('active');
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
