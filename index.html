@@ -655,6 +655,7 @@
         <a href="#about">about</a>
         <a href="#services">services</a>
         <a href="#projects">projects</a>
+        <a href="/hayraManual">hayra manual</a>
         <a href="#contact" class="contact-btn">contact</a>
         <button class="lang-toggle" type="button" id="languageToggle" aria-label="Switch language">ES</button>
       </nav>
@@ -671,6 +672,7 @@
       <a href="#about">about</a>
       <a href="#services">services</a>
       <a href="#projects">projects</a>
+      <a href="/hayraManual">hayra manual</a>
       <a href="#contact" class="contact-btn">contact</a>
       <button class="lang-toggle" type="button" id="languageToggleMobile" aria-label="Switch language">ES</button>
     </div>
@@ -1079,6 +1081,7 @@
         navAbout: 'about',
         navServices: 'services',
         navProjects: 'projects',
+        navManual: 'hayra manual',
         navContact: 'contact',
         menu: 'menu',
         close: 'close',
@@ -1154,6 +1157,7 @@
         navAbout: 'nosotros',
         navServices: 'servicios',
         navProjects: 'proyectos',
+        navManual: 'manual hayra',
         navContact: 'contacto',
         menu: 'menú',
         close: 'cerrar',
@@ -1236,11 +1240,13 @@
       document.querySelectorAll('.nav-links a')[0].textContent = t.navAbout;
       document.querySelectorAll('.nav-links a')[1].textContent = t.navServices;
       document.querySelectorAll('.nav-links a')[2].textContent = t.navProjects;
-      document.querySelectorAll('.nav-links a')[3].textContent = t.navContact;
+      document.querySelectorAll('.nav-links a')[3].textContent = t.navManual;
+      document.querySelectorAll('.nav-links a')[4].textContent = t.navContact;
       document.querySelectorAll('.mobile-menu .links a')[0].textContent = t.navAbout;
       document.querySelectorAll('.mobile-menu .links a')[1].textContent = t.navServices;
       document.querySelectorAll('.mobile-menu .links a')[2].textContent = t.navProjects;
-      document.querySelectorAll('.mobile-menu .links a')[3].textContent = t.navContact;
+      document.querySelectorAll('.mobile-menu .links a')[3].textContent = t.navManual;
+      document.querySelectorAll('.mobile-menu .links a')[4].textContent = t.navContact;
       document.querySelector('.menu-toggle[aria-controls="mobileMenu"]').textContent = t.menu;
       document.querySelector('#mobileMenu .top .menu-toggle').textContent = t.close;
 

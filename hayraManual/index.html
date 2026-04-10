@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hayra ONE – User Manual / Manual de Usuario</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark: #1a3a2a;
+    --green-mid: #2d6a4f;
+    --green-accent: #52b788;
+    --green-light: #d8f3dc;
+    --cream: #f9f6f0;
+    --sand: #e9e3d5;
+    --text: #1c1c1c;
+    --text-muted: #5a5a5a;
+    --border: #c8c0b0;
+    --white: #ffffff;
+    --amber: #b5651d;
+    --amber-light: #fdf0e0;
+    --red: #8b2c2c;
+    --red-light: #fde8e8;
+    --blue: #1a4a7a;
+    --blue-light: #e8f0fa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); line-height: 1.7; }
+  .cover { background: var(--green-dark); color: var(--white); padding: 32px 60px 60px; position: relative; overflow: hidden; min-height: 340px; }
+  .cover-logo-wrap { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; position: relative; z-index: 2; }
+  .cover-logo { height: 52px; width: auto; display: block; }
+  .cover-home { color: rgba(255,255,255,0.8); font-size: 13px; text-decoration: none; }
+  .cover-home:hover { color: var(--green-accent); }
+  .cover::before { content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; border-radius: 50%; border: 1px solid rgba(82,183,136,0.15); }
+  .cover::after { content: ''; position: absolute; bottom: -120px; right: 60px; width: 280px; height: 280px; border-radius: 50%; border: 1px solid rgba(82,183,136,0.1); }
+  .cover-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-accent); margin-bottom: 16px; }
+  .cover h1 { font-family: 'DM Serif Display', serif; font-size: 64px; line-height: 1; margin-bottom: 8px; }
+  .cover h1 span { color: var(--green-accent); }
+  .cover-subtitle { font-size: 14px; color: rgba(255,255,255,0.55); font-weight: 300; letter-spacing: 0.05em; margin-bottom: 40px; }
+  .cover-lang { display: flex; gap: 12px; font-size: 12px; color: rgba(255,255,255,0.4); font-weight: 500; }
+  .cover-lang span { color: rgba(255,255,255,0.7); }
+  .lang-bar { background: var(--green-mid); display: flex; position: sticky; top: 0; z-index: 100; }
+  .lang-btn { flex: 1; padding: 14px; background: none; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); transition: all 0.2s; }
+  .lang-btn.active { background: var(--green-dark); color: var(--green-accent); }
+  .lang-section { display: none; }
+  .lang-section.active { display: block; }
+  .toc { background: var(--green-dark); color: var(--white); padding: 40px 60px; }
+  .toc-title { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-accent); margin-bottom: 20px; }
+  .toc-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 40px; }
+  .toc-list li a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; display: flex; align-items: center; gap: 10px; transition: color 0.2s; }
+  .toc-list li a:hover { color: var(--green-accent); }
+  .toc-num { font-family: 'DM Serif Display', serif; font-size: 20px; color: rgba(255,255,255,0.15); min-width: 24px; }
+  .content { max-width: 860px; margin: 0 auto; padding: 60px 40px; }
+  .section { margin-bottom: 64px; scroll-margin-top: 60px; }
+  .section-header { display: flex; align-items: flex-end; gap: 16px; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--sand); }
+  .section-num { font-family: 'DM Serif Display', serif; font-size: 48px; color: var(--sand); line-height: 1; }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 28px; color: var(--green-dark); line-height: 1.1; }
+  p { font-size: 15px; margin-bottom: 16px; color: var(--text); }
+  p:last-child { margin-bottom: 0; }
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step { display: grid; grid-template-columns: 48px 1fr; gap: 0 20px; }
+  .step-left { display: flex; flex-direction: column; align-items: center; }
+  .step-circle { width: 36px; height: 36px; border-radius: 50%; background: var(--green-mid); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; flex-shrink: 0; position: relative; z-index: 1; }
+  .step-line { width: 1px; flex: 1; background: var(--sand); min-height: 20px; }
+  .step-body { padding: 4px 0 28px; }
+  .step-label { font-weight: 600; font-size: 15px; color: var(--green-dark); margin-bottom: 6px; }
+  .step-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+  .callout { border-radius: 8px; padding: 16px 20px; margin: 20px 0; display: flex; gap: 14px; align-items: flex-start; }
+  .callout-icon { font-size: 18px; line-height: 1.4; flex-shrink: 0; }
+  .callout-body { flex: 1; }
+  .callout-title { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
+  .callout-text { font-size: 14px; line-height: 1.6; }
+  .callout.tip { background: var(--green-light); }
+  .callout.tip .callout-title { color: var(--green-mid); }
+  .callout.tip .callout-text { color: #2d5016; }
+  .callout.warning { background: var(--amber-light); }
+  .callout.warning .callout-title { color: var(--amber); }
+  .callout.warning .callout-text { color: #5a3010; }
+  .callout.danger { background: var(--red-light); }
+  .callout.danger .callout-title { color: var(--red); }
+  .callout.danger .callout-text { color: #5a1a1a; }
+  .callout.info { background: var(--blue-light); }
+  .callout.info .callout-title { color: var(--blue); }
+  .callout.info .callout-text { color: #1a2e4a; }
+  .led-table, .specs-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0; }
+  .led-table th { background: var(--green-dark); color: rgba(255,255,255,0.85); padding: 10px 14px; text-align: left; font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .led-table td { padding: 12px 14px; border-bottom: 1px solid var(--sand); vertical-align: middle; }
+  .led-table tr:last-child td { border-bottom: none; }
+  .led-table tr:hover td { background: #f5f2ec; }
+  .led-dot { width: 14px; height: 14px; border-radius: 50%; display: inline-block; vertical-align: middle; margin-right: 6px; box-shadow: 0 0 4px rgba(0,0,0,0.2); }
+  .led-green { background: #22c55e; } .led-red { background: #ef4444; } .led-amber { background: #f59e0b; } .led-off { background: #d1d5db; }
+  .led-blink-green { background: #22c55e; opacity: 0.7; } .led-blink-amber { background: #f59e0b; opacity: 0.7; }
+  .specs-table { border: 1px solid var(--sand); border-radius: 8px; overflow: hidden; }
+  .specs-table td { padding: 11px 16px; border-bottom: 1px solid var(--sand); }
+  .specs-table tr:last-child td { border-bottom: none; }
+  .specs-table td:first-child { font-weight: 500; color: var(--text-muted); width: 40%; background: #f5f2ec; }
+  .button-action { display: flex; align-items: center; gap: 16px; background: var(--sand); border-radius: 8px; padding: 14px 18px; margin: 12px 0; }
+  .button-press { background: var(--green-dark); color: var(--green-accent); font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 4px; white-space: nowrap; letter-spacing: 0.05em; }
+  .button-desc { font-size: 14px; color: var(--text); }
+  .wifi-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 24px; margin: 20px 0; }
+  .wifi-ssid { font-family: monospace; background: #f0ede8; padding: 8px 14px; border-radius: 4px; font-size: 14px; color: var(--green-dark); display: inline-block; margin: 4px 0; }
+  .footer { background: var(--green-dark); color: rgba(255,255,255,0.4); text-align: center; padding: 30px 40px; font-size: 12px; line-height: 1.8; }
+  .footer strong { color: rgba(255,255,255,0.7); }
+  @media (max-width: 600px) {
+    .cover { padding: 24px 28px 40px; }
+    .cover-logo { height: 40px; }
+    .cover h1 { font-size: 44px; }
+    .toc { padding: 32px 28px; }
+    .toc-list { grid-template-columns: 1fr; }
+    .content { padding: 40px 20px; }
+    .section-num { font-size: 36px; }
+    .section-title { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="cover-logo-wrap">
+    <img class="cover-logo" src="/logo/HayraLogo.png" alt="Hayra logo">
+    <a class="cover-home" href="/">← Opotek</a>
+  </div>
+  <div class="cover-tag">User Manual · Manual de Usuario</div>
+  <h1>Hayra <span>ONE</span></h1>
+  <div class="cover-subtitle">Automatic Feed Dispenser · Dispensador Automático de Pienso</div>
+  <div class="cover-lang"><span>🇬🇧 English</span> · <span>🇪🇸 Español</span></div>
+</div>
+<div class="lang-bar">
+  <button class="lang-btn active" data-lang="en" onclick="setLang('en')">🇬🇧 &nbsp;English</button>
+  <button class="lang-btn" data-lang="es" onclick="setLang('es')">🇪🇸 &nbsp;Español</button>
+</div>
+<div class="lang-section active" id="lang-en">
+  <div class="toc"><div class="toc-title">Contents</div><ul class="toc-list"><li><a href="#en-overview"><span class="toc-num">1</span> Product overview</a></li><li><a href="#en-setup"><span class="toc-num">2</span> Loading the feed bag</a></li><li><a href="#en-power"><span class="toc-num">3</span> Power &amp; battery</a></li><li><a href="#en-wifi"><span class="toc-num">4</span> Wi-Fi &amp; scheduling</a></li><li><a href="#en-config"><span class="toc-num">5</span> Configuration mode</a></li><li><a href="#en-button"><span class="toc-num">6</span> Button reference</a></li><li><a href="#en-leds"><span class="toc-num">7</span> LED status indicators</a></li><li><a href="#en-cleaning"><span class="toc-num">8</span> Cleaning &amp; care</a></li><li><a href="#en-specs"><span class="toc-num">9</span> Specifications</a></li></ul></div>
+  <div class="content"><div class="section" id="en-overview"><div class="section-header"><span class="section-num">1</span><span class="section-title">Product overview</span></div><p>The <strong>Hayra ONE</strong> is an automatic feed dispenser designed for equestrian competitions and stable use. It lets you pre-load the exact amount of hay or feed your horse needs, set a precise dispensing time, and leave the rest to the device — giving you one less thing to worry about on competition day.</p><p>The device accepts a waterproof fold-seal bag, holds a measured portion of feed, and releases it at the scheduled time using a motorised buckle mechanism. Configuration is done via a built-in Wi-Fi access point from any smartphone or tablet.</p></div><div class="section" id="en-setup"><div class="section-header"><span class="section-num">2</span><span class="section-title">Loading the feed bag</span></div><p>Fill the bag, seal twice with magnetic strip, insert buckle until click, and hang securely from D-rings with the outlet downward.</p></div><div class="section" id="en-power"><div class="section-header"><span class="section-num">3</span><span class="section-title">Power &amp; battery</span></div><p>Recharge via USB-C. Battery lasts up to 7 days and can be checked via its 4 LEDs.</p></div><div class="section" id="en-wifi"><div class="section-header"><span class="section-num">4</span><span class="section-title">Wi-Fi connection &amp; scheduling</span></div><p>Connect to SSID <strong>HayraONE</strong> with password <strong>hayra2024</strong>. Captive portal should open automatically, or browse to <strong>192.168.4.1</strong>.</p></div><div class="section" id="en-config"><div class="section-header"><span class="section-num">5</span><span class="section-title">Configuration mode</span></div><p>Hold button while inserting battery for 2 seconds to access advanced settings (SSID, password, language).</p></div><div class="section" id="en-button"><div class="section-header"><span class="section-num">6</span><span class="section-title">Button reference</span></div><p>Hold 5s to manually release the buckle and dispense immediately.</p></div><div class="section" id="en-leds"><div class="section-header"><span class="section-num">7</span><span class="section-title">LED status indicators</span></div><table class="led-table"><thead><tr><th>LED 1</th><th>LED 2</th><th>Status</th></tr></thead><tbody><tr><td><span class="led-dot led-green"></span> Solid green</td><td><span class="led-dot led-off"></span> Off</td><td>Standby — schedule set, waiting</td></tr><tr><td><span class="led-dot led-blink-green"></span> Blinking green</td><td><span class="led-dot led-off"></span> Off</td><td>Wi-Fi access point active</td></tr><tr><td><span class="led-dot led-green"></span> Solid green</td><td><span class="led-dot led-green"></span> Solid green</td><td>Feed dispensed successfully</td></tr></tbody></table></div><div class="section" id="en-cleaning"><div class="section-header"><span class="section-num">8</span><span class="section-title">Cleaning &amp; care</span></div><p>Remove battery first. Wipe body with damp cloth and rinse bag with clean water.</p></div><div class="section" id="en-specs"><div class="section-header"><span class="section-num">9</span><span class="section-title">Specifications</span></div><table class="specs-table"><tr><td>Product name</td><td>Hayra ONE</td></tr><tr><td>Manufacturer</td><td>Opotek</td></tr><tr><td>Battery life</td><td>Up to 7 days per charge</td></tr><tr><td>Charging</td><td>USB-C</td></tr><tr><td>Languages</td><td>English, Spanish</td></tr></table></div></div>
+</div>
+<div class="lang-section" id="lang-es">
+  <div class="toc"><div class="toc-title">Índice</div><ul class="toc-list"><li><a href="#es-overview"><span class="toc-num">1</span> Descripción del producto</a></li><li><a href="#es-setup"><span class="toc-num">2</span> Carga de la bolsa de pienso</a></li><li><a href="#es-power"><span class="toc-num">3</span> Alimentación y batería</a></li><li><a href="#es-wifi"><span class="toc-num">4</span> Wi-Fi y programación</a></li><li><a href="#es-config"><span class="toc-num">5</span> Modo de configuración</a></li><li><a href="#es-button"><span class="toc-num">6</span> Referencia del botón</a></li><li><a href="#es-leds"><span class="toc-num">7</span> Indicadores LED</a></li><li><a href="#es-cleaning"><span class="toc-num">8</span> Limpieza y cuidado</a></li><li><a href="#es-specs"><span class="toc-num">9</span> Especificaciones</a></li></ul></div>
+  <div class="content"><div class="section" id="es-overview"><div class="section-header"><span class="section-num">1</span><span class="section-title">Descripción del producto</span></div><p>El <strong>Hayra ONE</strong> es un dispensador automático de pienso diseñado para competiciones ecuestres y uso en establos.</p></div><div class="section" id="es-setup"><div class="section-header"><span class="section-num">2</span><span class="section-title">Carga de la bolsa de pienso</span></div><p>Llene, doble y selle la bolsa, inserte la hebilla y cuelgue el equipo de forma segura.</p></div><div class="section" id="es-power"><div class="section-header"><span class="section-num">3</span><span class="section-title">Alimentación y batería</span></div><p>Batería recargable USB-C con autonomía de hasta 7 días.</p></div><div class="section" id="es-wifi"><div class="section-header"><span class="section-num">4</span><span class="section-title">Conexión Wi-Fi y programación</span></div><p>Conéctese a <strong>HayraONE</strong> con contraseña <strong>hayra2024</strong>. Abra <strong>192.168.4.1</strong> si no aparece el portal.</p></div><div class="section" id="es-config"><div class="section-header"><span class="section-num">5</span><span class="section-title">Modo de configuración</span></div><p>Mantener botón + insertar batería (2s) para cambiar SSID, clave e idioma.</p></div><div class="section" id="es-button"><div class="section-header"><span class="section-num">6</span><span class="section-title">Referencia del botón</span></div><p>Mantener 5 segundos para apertura manual inmediata.</p></div><div class="section" id="es-leds"><div class="section-header"><span class="section-num">7</span><span class="section-title">Indicadores LED</span></div><table class="led-table"><thead><tr><th>LED 1</th><th>LED 2</th><th>Estado</th></tr></thead><tbody><tr><td><span class="led-dot led-green"></span> Verde fijo</td><td><span class="led-dot led-off"></span> Apagado</td><td>En espera</td></tr><tr><td><span class="led-dot led-blink-green"></span> Verde parpadeante</td><td><span class="led-dot led-off"></span> Apagado</td><td>Wi-Fi activo</td></tr></tbody></table></div><div class="section" id="es-cleaning"><div class="section-header"><span class="section-num">8</span><span class="section-title">Limpieza y cuidado</span></div><p>Retire batería antes de limpiar. Use solo paño húmedo y agua.</p></div><div class="section" id="es-specs"><div class="section-header"><span class="section-num">9</span><span class="section-title">Especificaciones</span></div><table class="specs-table"><tr><td>Nombre del producto</td><td>Hayra ONE</td></tr><tr><td>Fabricante</td><td>Opotek</td></tr><tr><td>Autonomía</td><td>Hasta 7 días por carga</td></tr><tr><td>Carga</td><td>USB-C</td></tr><tr><td>Idiomas</td><td>Inglés, español</td></tr></table></div></div>
+</div>
+<div class="footer"><strong>Hayra ONE</strong> — Automatic Feed Dispenser / Dispensador Automático de Pienso<br>A product by <strong>Opotek</strong></div>
+<script>
+function setLang(lang){
+  document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('lang-'+lang).classList.add('active');
+  document.querySelector('.lang-btn[data-lang="'+lang+'"]').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
