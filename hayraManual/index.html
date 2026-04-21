@@ -1,150 +1,1159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hayra ONE – User Manual / Manual de Usuario</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --green-dark: #1a3a2a;
-    --green-mid: #2d6a4f;
-    --green-accent: #52b788;
-    --green-light: #d8f3dc;
-    --cream: #f9f6f0;
-    --sand: #e9e3d5;
-    --text: #1c1c1c;
-    --text-muted: #5a5a5a;
-    --border: #c8c0b0;
-    --white: #ffffff;
-    --amber: #b5651d;
-    --amber-light: #fdf0e0;
-    --red: #8b2c2c;
-    --red-light: #fde8e8;
-    --blue: #1a4a7a;
-    --blue-light: #e8f0fa;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); line-height: 1.7; }
-  .cover { background: var(--green-dark); color: var(--white); padding: 32px 60px 60px; position: relative; overflow: hidden; min-height: 340px; }
-  .cover-logo-wrap { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; position: relative; z-index: 2; }
-  .cover-logo { height: 52px; width: auto; display: block; }
-  .cover-home { color: rgba(255,255,255,0.8); font-size: 13px; text-decoration: none; }
-  .cover-home:hover { color: var(--green-accent); }
-  .cover::before { content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; border-radius: 50%; border: 1px solid rgba(82,183,136,0.15); }
-  .cover::after { content: ''; position: absolute; bottom: -120px; right: 60px; width: 280px; height: 280px; border-radius: 50%; border: 1px solid rgba(82,183,136,0.1); }
-  .cover-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-accent); margin-bottom: 16px; }
-  .cover h1 { font-family: 'DM Serif Display', serif; font-size: 64px; line-height: 1; margin-bottom: 8px; }
-  .cover h1 span { color: var(--green-accent); }
-  .cover-subtitle { font-size: 14px; color: rgba(255,255,255,0.55); font-weight: 300; letter-spacing: 0.05em; margin-bottom: 40px; }
-  .cover-lang { display: flex; gap: 12px; font-size: 12px; color: rgba(255,255,255,0.4); font-weight: 500; }
-  .cover-lang span { color: rgba(255,255,255,0.7); }
-  .lang-bar { background: var(--green-mid); display: flex; position: sticky; top: 0; z-index: 100; }
-  .lang-btn { flex: 1; padding: 14px; background: none; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); transition: all 0.2s; }
-  .lang-btn.active { background: var(--green-dark); color: var(--green-accent); }
-  .lang-section { display: none; }
-  .lang-section.active { display: block; }
-  .toc { background: var(--green-dark); color: var(--white); padding: 40px 60px; }
-  .toc-title { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-accent); margin-bottom: 20px; }
-  .toc-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 40px; }
-  .toc-list li a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; display: flex; align-items: center; gap: 10px; transition: color 0.2s; }
-  .toc-list li a:hover { color: var(--green-accent); }
-  .toc-num { font-family: 'DM Serif Display', serif; font-size: 20px; color: rgba(255,255,255,0.15); min-width: 24px; }
-  .content { max-width: 860px; margin: 0 auto; padding: 60px 40px; }
-  .section { margin-bottom: 64px; scroll-margin-top: 60px; }
-  .section-header { display: flex; align-items: flex-end; gap: 16px; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--sand); }
-  .section-num { font-family: 'DM Serif Display', serif; font-size: 48px; color: var(--sand); line-height: 1; }
-  .section-title { font-family: 'DM Serif Display', serif; font-size: 28px; color: var(--green-dark); line-height: 1.1; }
-  p { font-size: 15px; margin-bottom: 16px; color: var(--text); }
-  p:last-child { margin-bottom: 0; }
-  .steps { display: flex; flex-direction: column; gap: 0; }
-  .step { display: grid; grid-template-columns: 48px 1fr; gap: 0 20px; }
-  .step-left { display: flex; flex-direction: column; align-items: center; }
-  .step-circle { width: 36px; height: 36px; border-radius: 50%; background: var(--green-mid); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; flex-shrink: 0; position: relative; z-index: 1; }
-  .step-line { width: 1px; flex: 1; background: var(--sand); min-height: 20px; }
-  .step-body { padding: 4px 0 28px; }
-  .step-label { font-weight: 600; font-size: 15px; color: var(--green-dark); margin-bottom: 6px; }
-  .step-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
-  .callout { border-radius: 8px; padding: 16px 20px; margin: 20px 0; display: flex; gap: 14px; align-items: flex-start; }
-  .callout-icon { font-size: 18px; line-height: 1.4; flex-shrink: 0; }
-  .callout-body { flex: 1; }
-  .callout-title { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
-  .callout-text { font-size: 14px; line-height: 1.6; }
-  .callout.tip { background: var(--green-light); }
-  .callout.tip .callout-title { color: var(--green-mid); }
-  .callout.tip .callout-text { color: #2d5016; }
-  .callout.warning { background: var(--amber-light); }
-  .callout.warning .callout-title { color: var(--amber); }
-  .callout.warning .callout-text { color: #5a3010; }
-  .callout.danger { background: var(--red-light); }
-  .callout.danger .callout-title { color: var(--red); }
-  .callout.danger .callout-text { color: #5a1a1a; }
-  .callout.info { background: var(--blue-light); }
-  .callout.info .callout-title { color: var(--blue); }
-  .callout.info .callout-text { color: #1a2e4a; }
-  .led-table, .specs-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 20px 0; }
-  .led-table th { background: var(--green-dark); color: rgba(255,255,255,0.85); padding: 10px 14px; text-align: left; font-weight: 500; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
-  .led-table td { padding: 12px 14px; border-bottom: 1px solid var(--sand); vertical-align: middle; }
-  .led-table tr:last-child td { border-bottom: none; }
-  .led-table tr:hover td { background: #f5f2ec; }
-  .led-dot { width: 14px; height: 14px; border-radius: 50%; display: inline-block; vertical-align: middle; margin-right: 6px; box-shadow: 0 0 4px rgba(0,0,0,0.2); }
-  .led-green { background: #22c55e; } .led-red { background: #ef4444; } .led-amber { background: #f59e0b; } .led-off { background: #d1d5db; }
-  .led-blink-green { background: #22c55e; opacity: 0.7; } .led-blink-amber { background: #f59e0b; opacity: 0.7; }
-  .specs-table { border: 1px solid var(--sand); border-radius: 8px; overflow: hidden; }
-  .specs-table td { padding: 11px 16px; border-bottom: 1px solid var(--sand); }
-  .specs-table tr:last-child td { border-bottom: none; }
-  .specs-table td:first-child { font-weight: 500; color: var(--text-muted); width: 40%; background: #f5f2ec; }
-  .button-action { display: flex; align-items: center; gap: 16px; background: var(--sand); border-radius: 8px; padding: 14px 18px; margin: 12px 0; }
-  .button-press { background: var(--green-dark); color: var(--green-accent); font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 4px; white-space: nowrap; letter-spacing: 0.05em; }
-  .button-desc { font-size: 14px; color: var(--text); }
-  .wifi-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 24px; margin: 20px 0; }
-  .wifi-ssid { font-family: monospace; background: #f0ede8; padding: 8px 14px; border-radius: 4px; font-size: 14px; color: var(--green-dark); display: inline-block; margin: 4px 0; }
-  .footer { background: var(--green-dark); color: rgba(255,255,255,0.4); text-align: center; padding: 30px 40px; font-size: 12px; line-height: 1.8; }
-  .footer strong { color: rgba(255,255,255,0.7); }
-  @media (max-width: 600px) {
-    .cover { padding: 24px 28px 40px; }
-    .cover-logo { height: 40px; }
-    .cover h1 { font-size: 44px; }
-    .toc { padding: 32px 28px; }
-    .toc-list { grid-template-columns: 1fr; }
-    .content { padding: 40px 20px; }
-    .section-num { font-size: 36px; }
-    .section-title { font-size: 22px; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hayra — Setup Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: oklch(97% 0.012 75);
+      --bg2: oklch(93% 0.014 75);
+      --text: oklch(18% 0.012 60);
+      --text-muted: oklch(52% 0.012 60);
+      --amber: oklch(68% 0.14 68);
+      --amber-light: oklch(93% 0.06 75);
+      --amber-dark: oklch(50% 0.14 60);
+      --teal: oklch(62% 0.14 200);
+      --teal-light: oklch(94% 0.04 200);
+      --green: oklch(62% 0.14 145);
+      --green-light: oklch(94% 0.04 145);
+      --border: oklch(88% 0.012 75);
+      --shadow: 0 2px 16px oklch(18% 0.012 60 / 0.08);
+      --shadow-lg: 0 8px 40px oklch(18% 0.012 60 / 0.12);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    #root { min-height: 100vh; }
+  </style>
+  <meta name="ext-resource-dependency" content="HayraLogo.svg" data-resource-id="hayraLogo" />
+  <template id="__bundler_thumbnail" data-bg-color="#f5f0e8">
+    <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="200" fill="#f5f0e8"/>
+      <rect x="40" y="70" width="200" height="20" rx="4" fill="#c9913a" opacity="0.9"/>
+      <rect x="40" y="100" width="140" height="12" rx="3" fill="#c9913a" opacity="0.4"/>
+      <rect x="260" y="60" width="100" height="80" rx="10" fill="#1a1a1a" opacity="0.08"/>
+      <rect x="272" y="72" width="76" height="56" rx="6" fill="#fff" opacity="0.7"/>
+      <rect x="280" y="82" width="60" height="8" rx="2" fill="#c9913a" opacity="0.5"/>
+      <rect x="280" y="96" width="44" height="6" rx="2" fill="#888" opacity="0.3"/>
+      <rect x="280" y="108" width="52" height="10" rx="3" fill="#1a1a1a" opacity="0.15"/>
+    </svg>
+  </template>
 </head>
 <body>
-<div class="cover">
-  <div class="cover-logo-wrap">
-    <img class="cover-logo" src="./HayraLogo.svg" alt="Hayra logo">
-    <a class="cover-home" href="/">← Opotek</a>
-  </div>
-  <div class="cover-tag">User Manual · Manual de Usuario</div>
-  <h1>Hayra <span>ONE</span></h1>
-  <div class="cover-subtitle">Automatic Feed Dispenser · Dispensador Automático de Pienso</div>
-  <div class="cover-lang"><span>🇬🇧 English</span> · <span>🇪🇸 Español</span></div>
-</div>
-<div class="lang-bar">
-  <button class="lang-btn active" data-lang="en" onclick="setLang('en')">🇬🇧 &nbsp;English</button>
-  <button class="lang-btn" data-lang="es" onclick="setLang('es')">🇪🇸 &nbsp;Español</button>
-</div>
-<div class="lang-section active" id="lang-en">
-  <div class="toc"><div class="toc-title">Contents</div><ul class="toc-list"><li><a href="#en-overview"><span class="toc-num">1</span> Product overview</a></li><li><a href="#en-setup"><span class="toc-num">2</span> Loading the feed bag</a></li><li><a href="#en-power"><span class="toc-num">3</span> Power &amp; battery</a></li><li><a href="#en-wifi"><span class="toc-num">4</span> Wi-Fi &amp; scheduling</a></li><li><a href="#en-config"><span class="toc-num">5</span> Configuration mode</a></li><li><a href="#en-button"><span class="toc-num">6</span> Button reference</a></li><li><a href="#en-leds"><span class="toc-num">7</span> LED status indicators</a></li><li><a href="#en-cleaning"><span class="toc-num">8</span> Cleaning &amp; care</a></li><li><a href="#en-specs"><span class="toc-num">9</span> Specifications</a></li></ul></div>
-  <div class="content"><div class="section" id="en-overview"><div class="section-header"><span class="section-num">1</span><span class="section-title">Product overview</span></div><p>The <strong>Hayra ONE</strong> is an automatic feed dispenser designed for equestrian competitions and stable use. It lets you pre-load the exact amount of hay or feed your horse needs, set a precise dispensing time, and leave the rest to the device — giving you one less thing to worry about on competition day.</p><p>The device accepts a waterproof fold-seal bag, holds a measured portion of feed, and releases it at the scheduled time using a motorised buckle mechanism. Configuration is done via a built-in Wi-Fi access point from any smartphone or tablet.</p></div><div class="section" id="en-setup"><div class="section-header"><span class="section-num">2</span><span class="section-title">Loading the feed bag</span></div><p>Fill the bag, seal twice with magnetic strip, insert buckle until click, and hang securely from D-rings with the outlet downward.</p></div><div class="section" id="en-power"><div class="section-header"><span class="section-num">3</span><span class="section-title">Power &amp; battery</span></div><p>Recharge via USB-C. Battery lasts up to 7 days and can be checked via its 4 LEDs.</p></div><div class="section" id="en-wifi"><div class="section-header"><span class="section-num">4</span><span class="section-title">Wi-Fi connection &amp; scheduling</span></div><p>Connect to SSID <strong>HayraONE</strong> with password <strong>hayra2024</strong>. Captive portal should open automatically, or browse to <strong>192.168.4.1</strong>.</p></div><div class="section" id="en-config"><div class="section-header"><span class="section-num">5</span><span class="section-title">Configuration mode</span></div><p>Hold button while inserting battery for 2 seconds to access advanced settings (SSID, password, language).</p></div><div class="section" id="en-button"><div class="section-header"><span class="section-num">6</span><span class="section-title">Button reference</span></div><p>Hold 5s to manually release the buckle and dispense immediately.</p></div><div class="section" id="en-leds"><div class="section-header"><span class="section-num">7</span><span class="section-title">LED status indicators</span></div><table class="led-table"><thead><tr><th>LED 1</th><th>LED 2</th><th>Status</th></tr></thead><tbody><tr><td><span class="led-dot led-green"></span> Solid green</td><td><span class="led-dot led-off"></span> Off</td><td>Standby — schedule set, waiting</td></tr><tr><td><span class="led-dot led-blink-green"></span> Blinking green</td><td><span class="led-dot led-off"></span> Off</td><td>Wi-Fi access point active</td></tr><tr><td><span class="led-dot led-green"></span> Solid green</td><td><span class="led-dot led-green"></span> Solid green</td><td>Feed dispensed successfully</td></tr></tbody></table></div><div class="section" id="en-cleaning"><div class="section-header"><span class="section-num">8</span><span class="section-title">Cleaning &amp; care</span></div><p>Remove battery first. Wipe body with damp cloth and rinse bag with clean water.</p></div><div class="section" id="en-specs"><div class="section-header"><span class="section-num">9</span><span class="section-title">Specifications</span></div><table class="specs-table"><tr><td>Product name</td><td>Hayra ONE</td></tr><tr><td>Manufacturer</td><td>Opotek</td></tr><tr><td>Battery life</td><td>Up to 7 days per charge</td></tr><tr><td>Charging</td><td>USB-C</td></tr><tr><td>Languages</td><td>English, Spanish</td></tr></table></div></div>
-</div>
-<div class="lang-section" id="lang-es">
-  <div class="toc"><div class="toc-title">Índice</div><ul class="toc-list"><li><a href="#es-overview"><span class="toc-num">1</span> Descripción del producto</a></li><li><a href="#es-setup"><span class="toc-num">2</span> Carga de la bolsa de pienso</a></li><li><a href="#es-power"><span class="toc-num">3</span> Alimentación y batería</a></li><li><a href="#es-wifi"><span class="toc-num">4</span> Wi-Fi y programación</a></li><li><a href="#es-config"><span class="toc-num">5</span> Modo de configuración</a></li><li><a href="#es-button"><span class="toc-num">6</span> Referencia del botón</a></li><li><a href="#es-leds"><span class="toc-num">7</span> Indicadores LED</a></li><li><a href="#es-cleaning"><span class="toc-num">8</span> Limpieza y cuidado</a></li><li><a href="#es-specs"><span class="toc-num">9</span> Especificaciones</a></li></ul></div>
-  <div class="content"><div class="section" id="es-overview"><div class="section-header"><span class="section-num">1</span><span class="section-title">Descripción del producto</span></div><p>El <strong>Hayra ONE</strong> es un dispensador automático de pienso diseñado para competiciones ecuestres y uso en establos.</p></div><div class="section" id="es-setup"><div class="section-header"><span class="section-num">2</span><span class="section-title">Carga de la bolsa de pienso</span></div><p>Llene, doble y selle la bolsa, inserte la hebilla y cuelgue el equipo de forma segura.</p></div><div class="section" id="es-power"><div class="section-header"><span class="section-num">3</span><span class="section-title">Alimentación y batería</span></div><p>Batería recargable USB-C con autonomía de hasta 7 días.</p></div><div class="section" id="es-wifi"><div class="section-header"><span class="section-num">4</span><span class="section-title">Conexión Wi-Fi y programación</span></div><p>Conéctese a <strong>HayraONE</strong> con contraseña <strong>hayra2024</strong>. Abra <strong>192.168.4.1</strong> si no aparece el portal.</p></div><div class="section" id="es-config"><div class="section-header"><span class="section-num">5</span><span class="section-title">Modo de configuración</span></div><p>Mantener botón + insertar batería (2s) para cambiar SSID, clave e idioma.</p></div><div class="section" id="es-button"><div class="section-header"><span class="section-num">6</span><span class="section-title">Referencia del botón</span></div><p>Mantener 5 segundos para apertura manual inmediata.</p></div><div class="section" id="es-leds"><div class="section-header"><span class="section-num">7</span><span class="section-title">Indicadores LED</span></div><table class="led-table"><thead><tr><th>LED 1</th><th>LED 2</th><th>Estado</th></tr></thead><tbody><tr><td><span class="led-dot led-green"></span> Verde fijo</td><td><span class="led-dot led-off"></span> Apagado</td><td>En espera</td></tr><tr><td><span class="led-dot led-blink-green"></span> Verde parpadeante</td><td><span class="led-dot led-off"></span> Apagado</td><td>Wi-Fi activo</td></tr></tbody></table></div><div class="section" id="es-cleaning"><div class="section-header"><span class="section-num">8</span><span class="section-title">Limpieza y cuidado</span></div><p>Retire batería antes de limpiar. Use solo paño húmedo y agua.</p></div><div class="section" id="es-specs"><div class="section-header"><span class="section-num">9</span><span class="section-title">Especificaciones</span></div><table class="specs-table"><tr><td>Nombre del producto</td><td>Hayra ONE</td></tr><tr><td>Fabricante</td><td>Opotek</td></tr><tr><td>Autonomía</td><td>Hasta 7 días por carga</td></tr><tr><td>Carga</td><td>USB-C</td></tr><tr><td>Idiomas</td><td>Inglés, español</td></tr></table></div></div>
-</div>
-<div class="footer"><strong>Hayra ONE</strong> — Automatic Feed Dispenser / Dispensador Automático de Pienso<br>A product by <strong>Opotek</strong></div>
-<script>
-function setLang(lang){
-  document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
-  document.getElementById('lang-'+lang).classList.add('active');
-  document.querySelector('.lang-btn[data-lang="'+lang+'"]').classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "accentColor": "#81d41c",
+  "showTips": true,
+  "compactMode": false
+}/*EDITMODE-END*/;
+
+// ── Translations ──────────────────────────────────────────────────────────────
+const T = {
+  en: {
+    brand: "Hayra",
+    tagline: "Automated Horse Feeder",
+    guideTitle: "Wi-Fi Setup Guide",
+    guideSub: "Follow these steps to connect your Hayra feeder and set feeding times.",
+    steps: [
+      {
+        num: "01",
+        title: "First-time Setup",
+        short: "Device setup",
+        body: "Before your first use, configure your Hayra's network name, password and language. Insert the battery, then hold the button for 2 seconds — the LED will flash rapidly, opening the Configuration Portal.",
+        tip: "You only need to do this once. Your settings are saved permanently on the device.",
+        tipLabel: "First use only",
+        accent: "amber",
+        visual: "config-portal",
+        substeps: [
+          { icon: "🔋", label: "Insert the battery into the electronic box." },
+          { icon: "⏱", label: "Hold the button for 2 seconds until the LED flashes rapidly." },
+          { icon: "📶", label: "Connect to the HAYRA_CONFIG network on your phone." },
+          { icon: "⚙️", label: "A captive portal page will open automatically. If it doesn't appear, type 192.168.4.1 in your browser's address bar (not a search engine)." },
+          { icon: "💾", label: "Set your SSID name, password and language, then tap Save." },
+        ],
+        buttonActions: [
+          { hold: "Short press", action: "Activates Wi-Fi access point", color: "amber" },
+          { hold: "Hold 2 s", action: "Opens Configuration Portal (first-time setup)", color: "teal" },
+          { hold: "Hold 5 s", action: "Manually opens the bag latch", color: "green" },
+          { hold: "Right button", action: "Check battery — 4 LEDs light up showing charge level", color: "teal" },
+        ],
+      },
+      {
+        num: "02",
+        title: "Power on Wi-Fi",
+        short: "Activate Wi-Fi",
+        body: "If the Wi-Fi LED on the electronic box is off, press the button on the Hayra unit once. The LED will begin to blink, indicating the access point is active.",
+        tip: "The LED is located on the front panel of the black electronic box. A slow blink means it's ready to connect.",
+        tipLabel: "Tip",
+        accent: "amber",
+        visual: "device",
+      },
+      {
+        num: "03",
+        title: "Find the Network",
+        short: "Find network",
+        body: "Open your phone's Wi-Fi settings. A new network named HAYRA_XXXX will appear in the list within a few seconds.",
+        tip: "The network name (SSID) is printed on a sticker inside the electronic box lid.",
+        tipLabel: "Tip",
+        accent: "teal",
+        visual: "wifi-list",
+      },
+      {
+        num: "04",
+        title: "Connect & Set Password",
+        short: "Connect",
+        body: "Tap the HAYRA network. If this is your first time, use the default password you set in the Config Portal. You will be prompted to change the password after your first login — we strongly recommend doing so.",
+        tip: "If you haven't changed it yet, the factory default password is hayra1234.",
+        tipLabel: "Important",
+        accent: "amber",
+        visual: "password",
+      },
+      {
+        num: "05",
+        title: "Open the Control Page",
+        short: "Open web page",
+        body: "When you connect to the Hayra Wi-Fi, the control page opens automatically as a captive portal. Some devices may show a security warning — this is normal, just tap \"Connect\" or \"Continue\". If the page doesn't appear, open your browser and type 192.168.4.1 in the address bar.",
+        tip: "Tap 'Add to Home Screen' in your browser menu to get a one-tap icon that opens Hayra like an app.",
+        tipLabel: "Pro tip",
+        accent: "teal",
+        visual: "captive-portal",
+      },
+      {
+        num: "06",
+        title: "Set Feeding Time",
+        short: "Set time",
+        body: "On the Hayra control page, select the time you want the bag to open. Tap Save — the feeder will automatically open at the scheduled time.",
+        tip: "You can set multiple feeding times. The device stores settings even when your phone disconnects.",
+        tipLabel: "Tip",
+        accent: "green",
+        visual: "timepicker",
+      },
+    ],
+    allDone: "All done!",
+    allDoneSub: "Your Hayra feeder is configured and ready. The bag will open automatically at your scheduled time.",
+    needHelp: "Need help?",
+    contact: "Contact support",
+    addToHomeTitle: "Add to Android home screen",
+    addToHomeSteps: ["Open Chrome and go to 192.168.4.1", "Tap the ⋮ menu (top right)", "Select 'Add to Home Screen'", "Tap 'Add' — done!"],
+    defaultPw: "Default password",
+    changePwLabel: "Change after first use",
+    stepLabel: "Step",
+    ofLabel: "of",
+    nextStep: "Next step →",
+    prevStep: "← Back",
+    jumpTo: "Jump to step",
+  },
+  es: {
+    brand: "Hayra",
+    tagline: "Alimentador automático para caballos",
+    guideTitle: "Guía de configuración Wi-Fi",
+    guideSub: "Sigue estos pasos para conectar tu alimentador Hayra y configurar los horarios.",
+    steps: [
+      {
+        num: "01",
+        title: "Configuración inicial",
+        short: "Primer uso",
+        body: "Antes del primer uso, configura el nombre de red, contraseña e idioma de tu Hayra. Inserta la batería y mantén el botón pulsado 2 segundos — el LED parpadeará rápido y se abrirá el Portal de Configuración.",
+        tip: "Solo necesitas hacerlo una vez. Los ajustes se guardan permanentemente en el dispositivo.",
+        tipLabel: "Solo primer uso",
+        accent: "amber",
+        visual: "config-portal",
+        substeps: [
+          { icon: "🔋", label: "Inserta la batería en la caja electrónica." },
+          { icon: "⏱", label: "Mantén el botón 2 segundos hasta que el LED parpadee rápido." },
+          { icon: "📶", label: "Conéctate a la red HAYRA_CONFIG desde tu teléfono." },
+          { icon: "⚙️", label: "Se abrirá automáticamente una página de portal. Si no aparece, escribe 192.168.4.1 en la barra de dirección del navegador (no en el buscador)." },
+          { icon: "💾", label: "Configura SSID, contraseña e idioma y pulsa Guardar." },
+        ],
+        buttonActions: [
+          { hold: "Pulsación corta", action: "Activa el punto de acceso Wi-Fi", color: "amber" },
+          { hold: "Mantener 2 s", action: "Abre el Portal de Configuración (primer uso)", color: "teal" },
+          { hold: "Mantener 5 s", action: "Abre el cierre de la bolsa manualmente", color: "green" },
+          { hold: "Botón derecho", action: "Ver batería — 4 LEDs muestran el nivel de carga", color: "teal" },
+        ],
+      },
+      {
+        num: "02",
+        title: "Activar Wi-Fi",
+        short: "Activar Wi-Fi",
+        body: "Si el LED de Wi-Fi de la caja electrónica está apagado, pulsa el botón del equipo Hayra una vez. El LED empezará a parpadear, indicando que el punto de acceso está activo.",
+        tip: "El LED está en el panel frontal de la caja electrónica negra. Un parpadeo lento significa que está listo para conectar.",
+        tipLabel: "Consejo",
+        accent: "amber",
+        visual: "device",
+      },
+      {
+        num: "03",
+        title: "Encontrar la red",
+        short: "Buscar red",
+        body: "Abre los ajustes de Wi-Fi de tu teléfono. En unos segundos aparecerá una red llamada HAYRA_XXXX en la lista.",
+        tip: "El nombre de la red (SSID) está impreso en una etiqueta dentro de la tapa de la caja electrónica.",
+        tipLabel: "Consejo",
+        accent: "teal",
+        visual: "wifi-list",
+      },
+      {
+        num: "04",
+        title: "Conectar y cambiar contraseña",
+        short: "Conectar",
+        body: "Pulsa sobre la red HAYRA. Usa la contraseña que configuraste en el Portal. Se te pedirá cambiarla si no lo has hecho ya — te recomendamos hacerlo.",
+        tip: "Si aún no la has cambiado, la contraseña de fábrica es hayra1234.",
+        tipLabel: "Importante",
+        accent: "amber",
+        visual: "password",
+      },
+      {
+        num: "05",
+        title: "Abrir la página de control",
+        short: "Abrir web",
+        body: "Al conectarte a la red Hayra, la página de control se abre automáticamente como portal cautivo. Algunos dispositivos muestran un aviso de seguridad — es normal, pulsa \"Conectar\" o \"Continuar\". Si la página no aparece, abre el navegador y escribe 192.168.4.1 en la barra de dirección.",
+        tip: "Pulsa 'Añadir a pantalla de inicio' en el menú del navegador para acceder a Hayra como si fuera una app.",
+        tipLabel: "Pro tip",
+        accent: "teal",
+        visual: "captive-portal",
+        tip: "Pulsa 'Añadir a pantalla de inicio' en el menú del navegador para acceder a Hayra como si fuera una app.",
+        tipLabel: "Pro tip",
+        accent: "teal",
+        visual: "browser",
+      },
+      {
+        num: "06",
+        title: "Establecer horario",
+        short: "Poner hora",
+        body: "En la página de control de Hayra, selecciona la hora a la que quieres que se abra la bolsa. Pulsa Guardar — el alimentador se abrirá automáticamente a la hora programada.",
+        tip: "Puedes programar varias horas de alimentación. El dispositivo guarda la configuración aunque el teléfono se desconecte.",
+        tipLabel: "Consejo",
+        accent: "green",
+        visual: "timepicker",
+      },
+    ],
+    allDone: "¡Todo listo!",
+    allDoneSub: "Tu alimentador Hayra está configurado. La bolsa se abrirá automáticamente a la hora programada.",
+    needHelp: "¿Necesitas ayuda?",
+    contact: "Contactar soporte",
+    addToHomeTitle: "Añadir a pantalla Android",
+    addToHomeSteps: ["Abre Chrome y ve a 192.168.4.1", "Pulsa el menú ⋮ (arriba derecha)", "Selecciona 'Añadir a pantalla de inicio'", "Pulsa 'Añadir' — ¡listo!"],
+    defaultPw: "Contraseña por defecto",
+    changePwLabel: "Cámbiala en el primer uso",
+    stepLabel: "Paso",
+    ofLabel: "de",
+    nextStep: "Siguiente →",
+    prevStep: "← Atrás",
+    jumpTo: "Ir al paso",
+  },
+  ca: {
+    brand: "Hayra",
+    tagline: "Alimentador automàtic per a cavalls",
+    guideTitle: "Guia de configuració Wi-Fi",
+    guideSub: "Segueix aquests passos per connectar el teu alimentador Hayra i configurar els horaris.",
+    steps: [
+      {
+        num: "01",
+        title: "Configuració inicial",
+        short: "Primer ús",
+        body: "Abans del primer ús, configura el nom de xarxa, contrasenya i idioma del teu Hayra. Insereix la bateria i mantén el botó pressionat 2 segons — el LED parpellejarà ràpid i s'obrirà el Portal de Configuració.",
+        tip: "Només cal fer-ho una vegada. Els ajustos es desen permanentment al dispositiu.",
+        tipLabel: "Només primer ús",
+        accent: "amber",
+        visual: "config-portal",
+        substeps: [
+          { icon: "🔋", label: "Insereix la bateria a la caixa electrònica." },
+          { icon: "⏱", label: "Mantén el botó 2 segons fins que el LED parpelleji ràpid." },
+          { icon: "📶", label: "Connecta't a la xarxa HAYRA_CONFIG des del teu telèfon." },
+          { icon: "⚙️", label: "S'obrirà automàticament una pàgina de portal. Si no apareix, escriu 192.168.4.1 a la barra d'adreces del navegador (no al cercador)." },
+          { icon: "💾", label: "Configura SSID, contrasenya i idioma i prem Desa." },
+        ],
+        buttonActions: [
+          { hold: "Pulsació curta", action: "Activa el punt d'accés Wi-Fi", color: "amber" },
+          { hold: "Mantenir 2 s", action: "Obre el Portal de Configuració (primer ús)", color: "teal" },
+          { hold: "Mantenir 5 s", action: "Obre el tancament de la bossa manualment", color: "green" },
+          { hold: "Botó dret", action: "Veure bateria — 4 LEDs mostren el nivell de càrrega", color: "teal" },
+        ],
+      },
+      {
+        num: "02",
+        title: "Activar Wi-Fi",
+        short: "Activar Wi-Fi",
+        body: "Si el LED de Wi-Fi de la caixa electrònica és apagat, prem el botó de l'equip Hayra una vegada. El LED començarà a parpellejar, indicant que el punt d'accés és actiu.",
+        tip: "El LED és al panell frontal de la caixa electrònica negra. Un parpelleig lent significa que està llest per connectar.",
+        tipLabel: "Consell",
+        accent: "amber",
+        visual: "device",
+      },
+      {
+        num: "03",
+        title: "Trobar la xarxa",
+        short: "Buscar xarxa",
+        body: "Obre la configuració Wi-Fi del teu telèfon. En uns segons apareixerà una xarxa anomenada HAYRA_XXXX a la llista.",
+        tip: "El nom de la xarxa (SSID) és imprès en un adhesiu a l'interior de la tapa de la caixa electrònica.",
+        tipLabel: "Consell",
+        accent: "teal",
+        visual: "wifi-list",
+      },
+      {
+        num: "04",
+        title: "Connectar i canviar contrasenya",
+        short: "Connectar",
+        body: "Toca la xarxa HAYRA. Usa la contrasenya que has configurat al Portal. Se't demanarà canviar-la si no ho has fet ja.",
+        tip: "Si encara no l'has canviada, la contrasenya de fàbrica és hayra1234.",
+        tipLabel: "Important",
+        accent: "amber",
+        visual: "password",
+      },
+      {
+        num: "05",
+        title: "Obrir la pàgina de control",
+        short: "Obrir web",
+        body: "En connectar-te a la xarxa Hayra, la pàgina de control s'obre automàticament com a portal captiu. Alguns dispositius mostren un avís de seguretat — és normal, toca \"Connecta't\" o \"Continua\". Si la pàgina no apareix, obre el navegador i escriu 192.168.4.1 a la barra d'adreces.",
+        tip: "Prem 'Afegeix a la pantalla d'inici' al menú del navegador per accedir a Hayra com si fos una app.",
+        tipLabel: "Pro tip",
+        accent: "teal",
+        visual: "captive-portal",
+        tip: "Prem 'Afegeix a la pantalla d'inici' al menú del navegador per accedir a Hayra com si fos una app.",
+        tipLabel: "Pro tip",
+        accent: "teal",
+        visual: "browser",
+      },
+      {
+        num: "06",
+        title: "Establir l'horari",
+        short: "Posar hora",
+        body: "A la pàgina de control de Hayra, selecciona l'hora a la qual vols que s'obri la bossa. Prem Desa — l'alimentador s'obrirà automàticament a l'hora programada.",
+        tip: "Pots programar diverses hores d'alimentació. El dispositiu guarda la configuració encara que el telèfon es desconnecti.",
+        tipLabel: "Consell",
+        accent: "green",
+        visual: "timepicker",
+      },
+    ],
+    allDone: "Tot llest!",
+    allDoneSub: "El teu alimentador Hayra està configurat. La bossa s'obrirà automàticament a l'hora programada.",
+    needHelp: "Necessites ajuda?",
+    contact: "Contactar suport",
+    addToHomeTitle: "Afegir a Android",
+    addToHomeSteps: ["Obre Chrome i vés a 192.168.4.1", "Toca el menú ⋮ (dalt a la dreta)", "Selecciona 'Afegeix a la pantalla d'inici'", "Toca 'Afegeix' — llest!"],
+    defaultPw: "Contrasenya per defecte",
+    changePwLabel: "Canvia-la al primer ús",
+    stepLabel: "Pas",
+    ofLabel: "de",
+    nextStep: "Següent →",
+    prevStep: "← Enrere",
+    jumpTo: "Anar al pas",
+  }
+};
+
+// ── Visual Components ──────────────────────────────────────────────────────────
+
+function Placeholder({ label, width = "100%", height = 200, accent = "amber" }) {
+  const colors = {
+    amber: { stripe: "#c9913a22", border: "#c9913a55", text: "#9a6e28" },
+    teal:  { stripe: "#3a9c9c22", border: "#3a9c9c55", text: "#2a7070" },
+    green: { stripe: "#3a9c6022", border: "#3a9c6055", text: "#2a7048" },
+  };
+  const c = colors[accent] || colors.amber;
+  return (
+    <div style={{
+      width, height, borderRadius: 12, border: `1.5px dashed ${c.border}`,
+      background: `repeating-linear-gradient(135deg, transparent, transparent 8px, ${c.stripe} 8px, ${c.stripe} 16px)`,
+      display: "flex", alignItems: "center", justifyContent: "center",
+      flexDirection: "column", gap: 8,
+    }}>
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <rect x="2" y="2" width="24" height="24" rx="4" stroke={c.border} strokeWidth="2" strokeDasharray="4 2"/>
+        <path d="M8 20 L12 14 L16 17 L20 11" stroke={c.text} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="20" cy="8" r="2.5" stroke={c.text} strokeWidth="1.5"/>
+      </svg>
+      <span style={{ fontFamily: "monospace", fontSize: 11, color: c.text, textAlign: "center", lineHeight: 1.4, padding: "0 12px" }}>{label}</span>
+    </div>
+  );
 }
+
+function DeviceIllustration() {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 24, justifyContent: "center", padding: "16px 0" }}>
+      {/* Bag */}
+      <div style={{ position: "relative" }}>
+        <svg width="90" height="130" viewBox="0 0 90 130">
+          {/* bag body */}
+          <rect x="10" y="30" width="70" height="85" rx="8" fill="oklch(72% 0.04 75)" stroke="oklch(55% 0.06 75)" strokeWidth="2"/>
+          {/* bag top flap */}
+          <rect x="15" y="18" width="60" height="20" rx="6" fill="oklch(65% 0.05 75)" stroke="oklch(55% 0.06 75)" strokeWidth="2"/>
+          {/* handle */}
+          <path d="M32 18 Q45 4 58 18" fill="none" stroke="oklch(45% 0.06 75)" strokeWidth="3" strokeLinecap="round"/>
+          {/* texture lines */}
+          <line x1="22" y1="55" x2="68" y2="55" stroke="oklch(60% 0.04 75)" strokeWidth="1" strokeDasharray="4 3"/>
+          <line x1="22" y1="70" x2="68" y2="70" stroke="oklch(60% 0.04 75)" strokeWidth="1" strokeDasharray="4 3"/>
+          <line x1="22" y1="85" x2="68" y2="85" stroke="oklch(60% 0.04 75)" strokeWidth="1" strokeDasharray="4 3"/>
+        </svg>
+        <div style={{ textAlign: "center", fontSize: 10, color: "var(--text-muted)", fontFamily: "monospace" }}>gray bag</div>
+      </div>
+      {/* Arrow */}
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M4 10h12M12 6l4 4-4 4" stroke="var(--text-muted)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+      {/* Electronic box */}
+      <div style={{ position: "relative" }}>
+        <svg width="80" height="100" viewBox="0 0 80 100">
+          {/* box */}
+          <rect x="8" y="15" width="64" height="70" rx="6" fill="oklch(22% 0.005 60)" stroke="oklch(35% 0.005 60)" strokeWidth="1.5"/>
+          {/* front panel */}
+          <rect x="14" y="22" width="52" height="56" rx="4" fill="oklch(26% 0.005 60)"/>
+          {/* LED */}
+          <circle cx="40" cy="36" r="5" fill="oklch(68% 0.14 68)" opacity="1">
+            <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <text x="40" y="50" textAnchor="middle" fill="oklch(60% 0.005 60)" fontSize="7" fontFamily="monospace">LED</text>
+          {/* Button */}
+          <rect x="28" y="57" width="24" height="12" rx="6" fill="oklch(35% 0.005 60)" stroke="oklch(50% 0.005 60)" strokeWidth="1"/>
+          <text x="40" y="66" textAnchor="middle" fill="oklch(65% 0.005 60)" fontSize="6" fontFamily="DM Sans">BUTTON</text>
+          {/* cable port */}
+          <rect x="32" y="76" width="16" height="8" rx="2" fill="oklch(18% 0.005 60)" stroke="oklch(40% 0.005 60)" strokeWidth="1"/>
+        </svg>
+        <div style={{ textAlign: "center", fontSize: 10, color: "var(--text-muted)", fontFamily: "monospace" }}>electronic box</div>
+      </div>
+    </div>
+  );
+}
+
+function PhoneMockup({ children, label }) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+      <div style={{
+        width: 220, background: "#111", borderRadius: 36, padding: "14px 8px",
+        boxShadow: "0 12px 40px #0004, inset 0 0 0 1.5px #333",
+        position: "relative",
+      }}>
+        {/* notch */}
+        <div style={{ width: 60, height: 10, background: "#111", borderRadius: 10, margin: "0 auto 10px", border: "1.5px solid #333" }}/>
+        {/* screen */}
+        <div style={{ background: "#fff", borderRadius: 20, overflow: "hidden", minHeight: 360 }}>
+          {children}
+        </div>
+        {/* home bar */}
+        <div style={{ width: 60, height: 4, background: "#444", borderRadius: 4, margin: "10px auto 0" }}/>
+      </div>
+      {label && <div style={{ fontSize: 11, color: "var(--text-muted)", fontFamily: "monospace", textAlign: "center" }}>{label}</div>}
+    </div>
+  );
+}
+
+function ButtonBehaviorCard({ actions }) {
+  const accentVars = {
+    amber: { bg: "oklch(93% 0.06 75)", border: "oklch(68% 0.14 68)", text: "oklch(40% 0.14 60)", dot: "oklch(68% 0.14 68)" },
+    teal:  { bg: "oklch(94% 0.04 200)", border: "oklch(62% 0.14 200)", text: "oklch(30% 0.1 200)", dot: "oklch(62% 0.14 200)" },
+    green: { bg: "oklch(94% 0.04 145)", border: "oklch(62% 0.14 145)", text: "oklch(30% 0.1 145)", dot: "oklch(62% 0.14 145)" },
+  };
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+      {actions.map((a, i) => {
+        const c = accentVars[a.color] || accentVars.amber;
+        return (
+          <div key={i} style={{
+            display: "flex", alignItems: "center", gap: 12,
+            background: c.bg, borderRadius: 10, padding: "10px 14px",
+            border: `1px solid ${c.border}44`,
+          }}>
+            <div style={{
+              width: 8, height: 8, borderRadius: "50%",
+              background: c.dot, flexShrink: 0,
+              boxShadow: `0 0 6px ${c.dot}`,
+            }}/>
+            <div style={{
+              minWidth: 90, fontSize: 12, fontWeight: 700,
+              color: c.text, fontFamily: "monospace", letterSpacing: "0.03em",
+            }}>{a.hold}</div>
+            <div style={{ fontSize: 13, color: "var(--text)", lineHeight: 1.4 }}>{a.action}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function ConfigPortalScreen() {
+  const [ssid, setSsid] = React.useState("HAYRA_3F2A");
+  const [pw, setPw] = React.useState("");
+  const [langVal, setLangVal] = React.useState("English");
+  const [saved, setSaved] = React.useState(false);
+  return (
+    <div style={{ background: "oklch(97% 0.012 75)", minHeight: 360 }}>
+      <div style={{ background: "oklch(22% 0.005 60)", padding: "14px 16px 10px", display:"flex", alignItems:"center", justifyContent:"space-between" }}>
+        <div style={{ fontSize: 12, color: "#888" }}>9:41</div>
+        <div style={{ fontSize: 13, fontWeight: 700, color: "#fff" }}>HAYRA Config</div>
+        <div style={{ width: 30 }}/>
+      </div>
+      <div style={{ padding: "16px", display: "flex", flexDirection: "column", gap: 12 }}>
+        <div style={{ fontSize: 11, color: "oklch(40% 0.14 60)", textAlign: "center", background: "oklch(93% 0.06 75)", borderRadius: 8, padding: "6px 10px" }}>
+          First-time configuration
+        </div>
+        <div style={{ background: "#fff", borderRadius: 10, padding: "10px 12px", boxShadow: "0 1px 4px #0001" }}>
+          <div style={{ fontSize: 9, color: "#888", textTransform: "uppercase", letterSpacing: "0.07em", marginBottom: 4 }}>Network name (SSID)</div>
+          <input value={ssid} onChange={e => setSsid(e.target.value)}
+            style={{ width: "100%", border: "none", outline: "none", fontSize: 13, fontFamily: "monospace", color: "oklch(22% 0.005 60)", background: "transparent" }}/>
+        </div>
+        <div style={{ background: "#fff", borderRadius: 10, padding: "10px 12px", boxShadow: "0 1px 4px #0001" }}>
+          <div style={{ fontSize: 9, color: "#888", textTransform: "uppercase", letterSpacing: "0.07em", marginBottom: 4 }}>Password</div>
+          <input type="password" placeholder="Enter new password" value={pw} onChange={e => setPw(e.target.value)}
+            style={{ width: "100%", border: "none", outline: "none", fontSize: 13, color: "oklch(22% 0.005 60)", background: "transparent" }}/>
+        </div>
+        <div style={{ background: "#fff", borderRadius: 10, padding: "10px 12px", boxShadow: "0 1px 4px #0001" }}>
+          <div style={{ fontSize: 9, color: "#888", textTransform: "uppercase", letterSpacing: "0.07em", marginBottom: 4 }}>Language</div>
+          <select value={langVal} onChange={e => setLangVal(e.target.value)}
+            style={{ width: "100%", border: "none", outline: "none", fontSize: 13, color: "oklch(22% 0.005 60)", background: "transparent" }}>
+            <option>English</option>
+            <option>Español</option>
+            <option>Català</option>
+          </select>
+        </div>
+        <button onClick={() => { setSaved(true); setTimeout(() => setSaved(false), 2000); }}
+          style={{
+            background: saved ? "oklch(62% 0.14 145)" : "oklch(22% 0.005 60)",
+            color: "#fff", border: "none", borderRadius: 10, padding: "11px",
+            fontSize: 13, fontWeight: 600, cursor: "pointer", transition: "background 0.3s",
+          }}>{saved ? "✓ Saved!" : "Save & Restart"}</button>
+      </div>
+    </div>
+  );
+}
+
+function WifiListScreen({ lang }) {
+  const networks = ["HAYRA_3F2A", "HomeWifi_5G", "iPhone de Carlos", "Vodafone_2024"];
+  return (
+    <div style={{ background: "#f2f2f7", minHeight: 360 }}>
+      <div style={{ background: "#fff", padding: "12px 16px 8px", borderBottom: "1px solid #e5e5e5" }}>
+        <div style={{ fontSize: 12, color: "#888", textAlign: "center" }}>9:41</div>
+        <div style={{ fontSize: 15, fontWeight: 600, textAlign: "center", marginTop: 2 }}>Wi-Fi</div>
+      </div>
+      <div style={{ padding: "8px 0" }}>
+        <div style={{ fontSize: 10, color: "#888", padding: "4px 16px", textTransform: "uppercase", letterSpacing: "0.08em" }}>Networks</div>
+        {networks.map((n, i) => (
+          <div key={n} style={{
+            display: "flex", alignItems: "center", justifyContent: "space-between",
+            padding: "10px 16px", background: "#fff",
+            borderBottom: "1px solid #f0f0f0",
+            ...(i === 0 ? { background: "oklch(93% 0.06 75)", borderLeft: "3px solid oklch(68% 0.14 68)" } : {}),
+          }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+                <path d="M1 4.5C3.5 2 6.5 1 8 1s4.5 1 7 3.5" stroke={i === 0 ? "oklch(68% 0.14 68)" : "#ccc"} strokeWidth="1.5" strokeLinecap="round"/>
+                <path d="M3 7C4.5 5.5 6.2 5 8 5s3.5.5 5 2" stroke={i === 0 ? "oklch(68% 0.14 68)" : "#ccc"} strokeWidth="1.5" strokeLinecap="round"/>
+                <path d="M5.5 9.5C6.2 8.8 7 8.5 8 8.5s1.8.3 2.5 1" stroke={i === 0 ? "oklch(68% 0.14 68)" : "#ccc"} strokeWidth="1.5" strokeLinecap="round"/>
+                <circle cx="8" cy="11.5" r="0.8" fill={i === 0 ? "oklch(68% 0.14 68)" : "#ccc"}/>
+              </svg>
+              <span style={{ fontSize: 13, fontWeight: i === 0 ? 600 : 400, color: i === 0 ? "oklch(45% 0.14 60)" : "#333" }}>{n}</span>
+            </div>
+            {i === 0 && <span style={{ fontSize: 10, background: "oklch(68% 0.14 68)", color: "#fff", padding: "2px 6px", borderRadius: 8 }}>HAYRA</span>}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function PasswordScreen({ lang }) {
+  return (
+    <div style={{ background: "#f2f2f7", minHeight: 360 }}>
+      <div style={{ background: "#fff", padding: "12px 16px 8px", borderBottom: "1px solid #e5e5e5" }}>
+        <div style={{ fontSize: 12, color: "#888", textAlign: "center" }}>9:41</div>
+        <div style={{ fontSize: 15, fontWeight: 600, textAlign: "center", marginTop: 2 }}>HAYRA_3F2A</div>
+      </div>
+      <div style={{ padding: "20px 16px", display: "flex", flexDirection: "column", gap: 16 }}>
+        <div style={{ background: "#fff", borderRadius: 12, overflow: "hidden" }}>
+          <div style={{ padding: "12px 14px", borderBottom: "1px solid #f0f0f0" }}>
+            <div style={{ fontSize: 10, color: "#888" }}>Password</div>
+            <div style={{ fontSize: 14, letterSpacing: 6, marginTop: 2 }}>••••••••</div>
+          </div>
+        </div>
+        <div style={{ background: "oklch(93% 0.06 75)", borderRadius: 10, padding: "10px 12px", display: "flex", gap: 8, alignItems: "flex-start" }}>
+          <span style={{ fontSize: 14 }}>🔑</span>
+          <div>
+            <div style={{ fontSize: 11, fontWeight: 600, color: "oklch(45% 0.14 60)" }}>Default: hayra1234</div>
+            <div style={{ fontSize: 10, color: "oklch(55% 0.1 60)", marginTop: 2 }}>Change after first login</div>
+          </div>
+        </div>
+        <div style={{ background: "#007AFF", borderRadius: 10, padding: "11px", textAlign: "center", color: "#fff", fontSize: 14, fontWeight: 600 }}>Join</div>
+      </div>
+    </div>
+  );
+}
+
+function BrowserScreen({ lang }) {
+  return (
+    <div style={{ background: "#f2f2f7", minHeight: 360 }}>
+      <div style={{ background: "#fff", padding: "12px 16px 8px", borderBottom: "1px solid #e5e5e5" }}>
+        <div style={{ fontSize: 12, color: "#888", textAlign: "center" }}>9:41</div>
+      </div>
+      {/* URL bar */}
+      <div style={{ background: "#fff", padding: "8px 12px", borderBottom: "1px solid #e5e5e5" }}>
+        <div style={{ background: "#f2f2f7", borderRadius: 10, padding: "7px 12px", display: "flex", alignItems: "center", gap: 6 }}>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#4CAF50" strokeWidth="1.5"/><path d="M4 6l1.5 1.5L8 4" stroke="#4CAF50" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          <span style={{ fontSize: 12, color: "#333", fontFamily: "monospace" }}>192.168.4.1</span>
+        </div>
+      </div>
+      {/* Hayra web UI */}
+      <div style={{ background: "oklch(97% 0.012 75)", minHeight: 280, padding: 16, display: "flex", flexDirection: "column", gap: 12 }}>
+        <div style={{ textAlign: "center", paddingBottom: 8, borderBottom: "1px solid oklch(88% 0.012 75)" }}>
+          <div style={{ fontSize: 16, fontWeight: 700, color: "oklch(18% 0.012 60)" }}>HAYRA</div>
+          <div style={{ fontSize: 10, color: "var(--text-muted)" }}>Feeder Control</div>
+        </div>
+        <div style={{ background: "#fff", borderRadius: 10, padding: "12px", boxShadow: "0 1px 4px #0001" }}>
+          <div style={{ fontSize: 10, color: "#888", marginBottom: 6 }}>FEEDING TIME</div>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 4 }}>
+            <div style={{ background: "oklch(93% 0.06 75)", borderRadius: 6, padding: "6px 12px", fontSize: 20, fontWeight: 700, color: "oklch(45% 0.14 60)", fontFamily: "monospace" }}>07</div>
+            <div style={{ fontSize: 20, fontWeight: 700, color: "oklch(45% 0.14 60)" }}>:</div>
+            <div style={{ background: "oklch(93% 0.06 75)", borderRadius: 6, padding: "6px 12px", fontSize: 20, fontWeight: 700, color: "oklch(45% 0.14 60)", fontFamily: "monospace" }}>30</div>
+          </div>
+        </div>
+        <div style={{ background: "#007AFF", borderRadius: 8, padding: "9px", textAlign: "center", color: "#fff", fontSize: 13, fontWeight: 600 }}>Save</div>
+        <div style={{ fontSize: 9, color: "#aaa", textAlign: "center" }}>Next feed in 21h 49m</div>
+      </div>
+    </div>
+  );
+}
+
+function AndroidShortcutCard({ t }) {
+  return (
+    <div style={{
+      background: "var(--teal-light)",
+      border: "1.5px solid var(--teal)",
+      borderRadius: 14,
+      padding: "18px 20px",
+      marginTop: 16,
+    }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
+        <div style={{
+          width: 36, height: 36, borderRadius: 10,
+          background: "oklch(22% 0.005 60)",
+          display: "flex", alignItems: "center", justifyContent: "center",
+        }}>
+          <span style={{ fontSize: 18 }}>🐴</span>
+        </div>
+        <div>
+          <div style={{ fontWeight: 600, fontSize: 14, color: "oklch(25% 0.08 200)" }}>{t.addToHomeTitle}</div>
+          <div style={{ fontSize: 11, color: "oklch(45% 0.1 200)" }}>Chrome on Android</div>
+        </div>
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+        {t.addToHomeSteps.map((step, i) => (
+          <div key={i} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+            <div style={{
+              width: 20, height: 20, borderRadius: "50%",
+              background: "var(--teal)", color: "#fff",
+              fontSize: 10, fontWeight: 700,
+              display: "flex", alignItems: "center", justifyContent: "center",
+              flexShrink: 0,
+            }}>{i + 1}</div>
+            <span style={{ fontSize: 13, color: "oklch(25% 0.08 200)", lineHeight: 1.5 }}>{step}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function TimePickerScreen() {
+  const [hour, setHour] = useState(7);
+  const [min, setMin] = useState(30);
+  const [saved, setSaved] = useState(false);
+  return (
+    <div style={{ background: "oklch(97% 0.012 75)", minHeight: 360 }}>
+      <div style={{ background: "oklch(22% 0.005 60)", padding: "14px 16px 10px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div style={{ fontSize: 12, color: "#888" }}>9:41</div>
+        <div style={{ fontSize: 13, fontWeight: 700, color: "#fff" }}>HAYRA</div>
+        <div style={{ width: 30 }}/>
+      </div>
+      <div style={{ padding: "20px 16px", display: "flex", flexDirection: "column", gap: 16 }}>
+        <div style={{ fontSize: 12, color: "var(--text-muted)", textAlign: "center" }}>Set Feeding Time</div>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
+            <button onClick={() => setHour(h => (h + 1) % 24)} style={{ background: "none", border: "none", cursor: "pointer", fontSize: 18, color: "oklch(62% 0.14 145)" }}>▲</button>
+            <div style={{ background: "oklch(93% 0.06 68)", borderRadius: 10, padding: "8px 18px", fontSize: 28, fontWeight: 700, color: "oklch(45% 0.14 60)", fontFamily: "monospace", minWidth: 64, textAlign: "center" }}>{String(hour).padStart(2,"0")}</div>
+            <button onClick={() => setHour(h => (h + 23) % 24)} style={{ background: "none", border: "none", cursor: "pointer", fontSize: 18, color: "oklch(62% 0.14 145)" }}>▼</button>
+          </div>
+          <div style={{ fontSize: 28, fontWeight: 700, color: "oklch(45% 0.14 60)", marginTop: -10 }}>:</div>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
+            <button onClick={() => setMin(m => (m + 5) % 60)} style={{ background: "none", border: "none", cursor: "pointer", fontSize: 18, color: "oklch(62% 0.14 145)" }}>▲</button>
+            <div style={{ background: "oklch(93% 0.06 68)", borderRadius: 10, padding: "8px 18px", fontSize: 28, fontWeight: 700, color: "oklch(45% 0.14 60)", fontFamily: "monospace", minWidth: 64, textAlign: "center" }}>{String(min).padStart(2,"0")}</div>
+            <button onClick={() => setMin(m => (m + 55) % 60)} style={{ background: "none", border: "none", cursor: "pointer", fontSize: 18, color: "oklch(62% 0.14 145)" }}>▼</button>
+          </div>
+        </div>
+        <button onClick={() => { setSaved(true); setTimeout(() => setSaved(false), 2000); }} style={{
+          background: saved ? "oklch(62% 0.14 145)" : "oklch(22% 0.005 60)",
+          color: "#fff", border: "none", borderRadius: 10, padding: "12px", fontSize: 14, fontWeight: 600, cursor: "pointer",
+          transition: "background 0.3s",
+        }}>
+          {saved ? "✓ Saved!" : "Save Time"}
+        </button>
+        {saved && <div style={{ textAlign: "center", fontSize: 12, color: "oklch(45% 0.14 145)" }}>Feeder scheduled for {String(hour).padStart(2,"0")}:{String(min).padStart(2,"0")}</div>}
+      </div>
+    </div>
+  );
+}
+
+// ── Step Visual Renderer ───────────────────────────────────────────────────────
+function StepVisual({ visual, step, lang, t }) {
+  switch(visual) {
+    case "config-portal": return (
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}>
+        <PhoneMockup label="phone UI — config portal screenshot here">
+          <ConfigPortalScreen/>
+        </PhoneMockup>
+        <div style={{ fontSize: 11, color: "var(--text-muted)", fontStyle: "italic" }}>↑ Interactive demo — try it!</div>
+      </div>
+    );
+    case "device": return (
+      <div style={{ padding: "8px 0" }}>
+        <DeviceIllustration />
+        <div style={{ textAlign: "center", marginTop: 8 }}>
+          <Placeholder label="photo: pressing button on electronic box" width="100%" height={120} accent="amber"/>
+        </div>
+      </div>
+    );
+    case "wifi-list": return (
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+        <PhoneMockup label="phone UI — wifi-list screenshot here">
+          <WifiListScreen lang={lang}/>
+        </PhoneMockup>
+      </div>
+    );
+    case "password": return (
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+        <PhoneMockup label="phone UI — password prompt screenshot here">
+          <PasswordScreen lang={lang}/>
+        </PhoneMockup>
+      </div>
+    );
+    case "captive-portal": return (
+      <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+        {/* Two phone states side by side */}
+        <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+          {/* State 1: security warning */}
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
+            <div style={{ fontSize: 11, fontWeight: 600, color: "var(--text-muted)", letterSpacing: "0.05em", textTransform: "uppercase" }}>Auto-opens</div>
+            <PhoneMockup>
+              <div style={{ background: "#f2f2f7", minHeight: 360 }}>
+                <div style={{ background: "#fff", padding: "12px 16px 8px", borderBottom: "1px solid #e5e5e5" }}>
+                  <div style={{ fontSize: 12, color: "#888", textAlign: "center" }}>9:41</div>
+                </div>
+                <div style={{ padding: "20px 16px", display: "flex", flexDirection: "column", gap: 14 }}>
+                  <div style={{ background: "#fff", borderRadius: 14, padding: "16px", boxShadow: "0 2px 8px #0002", display: "flex", flexDirection: "column", gap: 10, alignItems: "center" }}>
+                    <div style={{ width: 44, height: 44, borderRadius: "50%", background: "#fff3cd", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22 }}>⚠️</div>
+                    <div style={{ fontSize: 13, fontWeight: 700, textAlign: "center", color: "#1a1a1a" }}>Sign in to Network</div>
+                    <div style={{ fontSize: 11, color: "#666", textAlign: "center", lineHeight: 1.5 }}>HAYRA_3F2A requires you to sign in before accessing the internet.</div>
+                    <div style={{ width: "100%", background: "#007AFF", borderRadius: 8, padding: "9px", textAlign: "center", color: "#fff", fontSize: 13, fontWeight: 600 }}>Sign In</div>
+                    <div style={{ fontSize: 11, color: "#007AFF" }}>Use Without Signing In</div>
+                  </div>
+                </div>
+              </div>
+            </PhoneMockup>
+            <div style={{ fontSize: 10, color: "var(--text-muted)", fontFamily: "monospace", textAlign: "center", maxWidth: 120 }}>tap "Sign In" to open</div>
+          </div>
+          {/* Divider */}
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 4, color: "var(--text-muted)" }}>
+            <div style={{ fontSize: 11, fontWeight: 600 }}>OR</div>
+            <div style={{ width: 1, height: 60, background: "var(--border)" }}/>
+            <div style={{ fontSize: 10, textAlign: "center", maxWidth: 50 }}>if blocked</div>
+          </div>
+          {/* State 2: manual IP */}
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
+            <div style={{ fontSize: 11, fontWeight: 600, color: "var(--text-muted)", letterSpacing: "0.05em", textTransform: "uppercase" }}>Manual fallback</div>
+            <PhoneMockup>
+              <div style={{ background: "#f2f2f7", minHeight: 360 }}>
+                <div style={{ background: "#fff", padding: "12px 16px 8px", borderBottom: "1px solid #e5e5e5" }}>
+                  <div style={{ fontSize: 12, color: "#888", textAlign: "center" }}>9:41</div>
+                </div>
+                {/* Browser chrome */}
+                <div style={{ background: "#fff", padding: "8px 10px", borderBottom: "1px solid #e5e5e5", display: "flex", alignItems: "center", gap: 6 }}>
+                  <div style={{ flex: 1, background: "#f2f2f7", borderRadius: 8, padding: "6px 10px", display: "flex", alignItems: "center", gap: 5 }}>
+                    <span style={{ fontSize: 10, color: "#007AFF" }}>⌕</span>
+                    <span style={{ fontSize: 12, color: "#333", fontFamily: "monospace", fontWeight: 600 }}>192.168.4.1</span>
+                    <span style={{ fontSize: 10, color: "#4CAF50", marginLeft: "auto" }}>✓</span>
+                  </div>
+                </div>
+                {/* Hayra page */}
+                <div style={{ background: "oklch(97% 0.012 75)", padding: 14, display: "flex", flexDirection: "column", gap: 10 }}>
+                  <div style={{ textAlign: "center", paddingBottom: 8, borderBottom: "1px solid oklch(88% 0.012 75)" }}>
+                    <div style={{ fontSize: 15, fontWeight: 700, color: "oklch(18% 0.012 60)" }}>HAYRA</div>
+                    <div style={{ fontSize: 9, color: "var(--text-muted)" }}>Feeder Control</div>
+                  </div>
+                  <div style={{ background: "#fff", borderRadius: 8, padding: "10px", boxShadow: "0 1px 4px #0001", display: "flex", alignItems: "center", justifyContent: "center", gap: 4 }}>
+                    <div style={{ background: "oklch(93% 0.06 75)", borderRadius: 5, padding: "5px 10px", fontSize: 18, fontWeight: 700, color: "oklch(45% 0.14 60)", fontFamily: "monospace" }}>07</div>
+                    <div style={{ fontSize: 18, fontWeight: 700, color: "oklch(45% 0.14 60)" }}>:</div>
+                    <div style={{ background: "oklch(93% 0.06 75)", borderRadius: 5, padding: "5px 10px", fontSize: 18, fontWeight: 700, color: "oklch(45% 0.14 60)", fontFamily: "monospace" }}>30</div>
+                  </div>
+                  <div style={{ background: "oklch(22% 0.005 60)", borderRadius: 7, padding: "8px", textAlign: "center", color: "#fff", fontSize: 12, fontWeight: 600 }}>Save</div>
+                </div>
+              </div>
+            </PhoneMockup>
+            <div style={{ fontSize: 10, color: "var(--text-muted)", fontFamily: "monospace", textAlign: "center", maxWidth: 120 }}>type in browser bar</div>
+          </div>
+        </div>
+        {/* Image placeholder */}
+        <Placeholder label="screenshot: security warning captive portal dialog" height={100} accent="teal"/>
+      </div>
+    );
+    case "browser": return (
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}>
+        <PhoneMockup label="phone UI — browser screenshot here">
+          <BrowserScreen lang={lang}/>
+        </PhoneMockup>
+        <AndroidShortcutCard t={t}/>
+      </div>
+    );
+    case "timepicker": return (
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+        <PhoneMockup label="phone UI — time picker (interactive demo)">
+          <TimePickerScreen/>
+        </PhoneMockup>
+        <div style={{ fontSize: 11, color: "var(--text-muted)", fontStyle: "italic" }}>↑ Interactive demo — try it!</div>
+      </div>
+    );
+    default: return null;
+  }
+}
+
+// ── Main Step Card ─────────────────────────────────────────────────────────────
+function StepCard({ step, index, total, lang, t, active, onActivate }) {
+  const accentVars = {
+    amber: { main: "var(--amber)", light: "var(--amber-light)", dark: "var(--amber-dark)" },
+    teal:  { main: "var(--teal)", light: "var(--teal-light)", dark: "oklch(42% 0.14 200)" },
+    green: { main: "var(--green)", light: "var(--green-light)", dark: "oklch(42% 0.14 145)" },
+  };
+  const ac = accentVars[step.accent] || accentVars.amber;
+
+  const tipBorder = step.tipLabel === "Important" || step.tipLabel === "Importante" || step.tipLabel === "Important"
+    ? "var(--amber)" : step.accent === "green" ? "var(--green)" : "var(--teal)";
+
+  return (
+    <div
+      id={`step-${index}`}
+      data-screen-label={`Step ${index + 1}`}
+      style={{
+        background: "#fff",
+        borderRadius: 20,
+        overflow: "hidden",
+        boxShadow: active ? "0 8px 40px oklch(18% 0.012 60 / 0.12), 0 0 0 2px " + ac.main : "var(--shadow)",
+        transition: "box-shadow 0.3s",
+        cursor: active ? "default" : "pointer",
+      }}
+      onClick={() => !active && onActivate(index)}
+    >
+      {/* Step header */}
+      <div style={{
+        background: ac.light,
+        padding: "20px 28px",
+        display: "flex",
+        alignItems: "center",
+        gap: 16,
+        borderBottom: `1.5px solid ${ac.main}44`,
+      }}>
+        <div style={{
+          width: 52, height: 52, borderRadius: "50%",
+          background: ac.main, color: "#fff",
+          fontFamily: "'DM Serif Display', serif",
+          fontSize: 20, fontWeight: 400,
+          display: "flex", alignItems: "center", justifyContent: "center",
+          flexShrink: 0,
+          boxShadow: `0 4px 12px ${ac.main}55`,
+        }}>{step.num}</div>
+        <div>
+          <div style={{ fontSize: 11, color: ac.dark, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+            {t.stepLabel} {index + 1} {t.ofLabel} {total}
+          </div>
+          <div style={{ fontFamily: "'DM Serif Display', serif", fontSize: 22, color: "var(--text)", lineHeight: 1.2, marginTop: 2 }}>
+            {step.title}
+          </div>
+        </div>
+        {!active && (
+          <div style={{ marginLeft: "auto", fontSize: 12, color: ac.dark, fontWeight: 500, display: "flex", alignItems: "center", gap: 4 }}>
+            <span>expand</span>
+            <span style={{ fontSize: 16 }}>↓</span>
+          </div>
+        )}
+      </div>
+
+      {/* Body (expanded) */}
+      {active && (
+        <div style={{ padding: "24px 28px", display: "flex", flexDirection: "column", gap: 20 }}>
+          {/* Two-column on wide, stack on narrow */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 28 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+              <p style={{ fontSize: 16, lineHeight: 1.75, color: "var(--text)", textWrap: "pretty" }}>{step.body}</p>
+              {step.substeps && (
+                <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                  {step.substeps.map((s, i) => (
+                    <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                      <div style={{
+                        width: 24, height: 24, borderRadius: "50%", background: ac.main, color: "#fff",
+                        fontSize: 11, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+                      }}>{i + 1}</div>
+                      <span style={{ fontSize: 13, lineHeight: 1.6, paddingTop: 3 }}>{s.label}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {step.buttonActions && (
+                <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                  <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--text-muted)", marginBottom: 2 }}>Button reference</div>
+                  <ButtonBehaviorCard actions={step.buttonActions}/>
+                </div>
+              )}
+              <div style={{
+                background: step.accent === "amber" ? "oklch(96% 0.03 68)" : step.accent === "green" ? "oklch(96% 0.03 145)" : "oklch(96% 0.03 200)",
+                borderLeft: `3px solid ${ac.main}`,
+                borderRadius: "0 10px 10px 0",
+                padding: "12px 16px",
+              }}>
+                <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", color: ac.dark, marginBottom: 4 }}>{step.tipLabel}</div>
+                <div style={{ fontSize: 14, color: "var(--text)", lineHeight: 1.6 }}>{step.tip}</div>
+              </div>
+            </div>
+            <div>
+              <StepVisual visual={step.visual} step={step} lang={lang} t={t}/>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── Progress Nav ───────────────────────────────────────────────────────────────
+function ProgressBar({ steps, active, onSelect, t }) {
+  return (
+    <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap", justifyContent: "center" }}>
+      {steps.map((s, i) => (
+        <button
+          key={i}
+          onClick={() => onSelect(i)}
+          style={{
+            display: "flex", alignItems: "center", gap: 6, padding: "6px 12px",
+            borderRadius: 20, border: "none", cursor: "pointer", transition: "all 0.2s",
+            background: i === active ? "var(--amber)" : i < active ? "oklch(88% 0.06 75)" : "var(--bg2)",
+            color: i === active ? "#fff" : i < active ? "oklch(45% 0.1 68)" : "var(--text-muted)",
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: 12, fontWeight: i === active ? 600 : 400,
+          }}
+        >
+          {i < active && <span>✓</span>}
+          <span>{i + 1}. {s.short}</span>
+        </button>
+      ))}
+    </div>
+  );
+}
+
+// ── App ────────────────────────────────────────────────────────────────────────
+function App() {
+  const savedLang = localStorage.getItem("hayra_lang") || "en";
+  const savedStep = parseInt(localStorage.getItem("hayra_step") || "0");
+
+  const [lang, setLang] = useState(savedLang);
+  const [activeStep, setActiveStep] = useState(savedStep);
+  const [tweaks, setTweaks] = useState(TWEAK_DEFAULTS);
+  const [showTweaks, setShowTweaks] = useState(false);
+
+  const t = T[lang];
+
+  useEffect(() => {
+    localStorage.setItem("hayra_lang", lang);
+  }, [lang]);
+  useEffect(() => {
+    localStorage.setItem("hayra_step", activeStep);
+  }, [activeStep]);
+
+  // Tweaks integration
+  useEffect(() => {
+    const handler = (e) => {
+      if (e.data?.type === "__activate_edit_mode") setShowTweaks(true);
+      if (e.data?.type === "__deactivate_edit_mode") setShowTweaks(false);
+    };
+    window.addEventListener("message", handler);
+    window.parent.postMessage({ type: "__edit_mode_available" }, "*");
+    return () => window.removeEventListener("message", handler);
+  }, []);
+
+  const handleActivate = (i) => {
+    setActiveStep(i);
+    setTimeout(() => {
+      const el = document.getElementById(`step-${i}`);
+      if (el) el.scrollIntoView ? null : (document.documentElement.scrollTop = el.offsetTop - 80);
+    }, 50);
+  };
+
+  const allComplete = activeStep >= t.steps.length;
+
+  return (
+    <div style={{ minHeight: "100vh" }}>
+      {/* Header */}
+      <header style={{
+        position: "sticky", top: 0, zIndex: 100,
+        background: "oklch(97% 0.012 75 / 0.95)",
+        backdropFilter: "blur(12px)",
+        borderBottom: "1px solid var(--border)",
+        padding: "0 24px",
+      }}>
+        <div style={{ maxWidth: 900, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 60 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+            <img src={window.__resources && window.__resources.hayraLogo || "HayraLogo.svg"} alt="Hayra" style={{ height: 28, filter: "brightness(0)" }}/>
+            <span style={{ fontSize: 12, color: "var(--text-muted)", borderLeft: "1px solid var(--border)", paddingLeft: 10 }}>{t.tagline}</span>
+          </div>
+          {/* Lang switcher */}
+          <div style={{ display: "flex", gap: 4, background: "var(--bg2)", borderRadius: 20, padding: 3 }}>
+            {["en","es","ca"].map(l => (
+              <button key={l} onClick={() => setLang(l)} style={{
+                background: lang === l ? "#fff" : "transparent",
+                border: "none", borderRadius: 16, padding: "4px 10px",
+                fontSize: 12, fontWeight: lang === l ? 600 : 400,
+                cursor: "pointer", color: lang === l ? "var(--text)" : "var(--text-muted)",
+                boxShadow: lang === l ? "0 1px 4px #0001" : "none",
+                transition: "all 0.2s",
+                fontFamily: "'DM Sans', sans-serif",
+              }}>{l.toUpperCase()}</button>
+            ))}
+          </div>
+        </div>
+      </header>
+
+      {/* Hero */}
+      <div style={{ background: "oklch(22% 0.005 60)", padding: "48px 24px 40px" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 12 }}>
+            <div>
+              <img src={window.__resources && window.__resources.hayraLogo || "HayraLogo.svg"} alt="Hayra" style={{ height: 32, filter: "brightness(0) invert(1)", display: "block" }}/>
+              <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 18, color: "oklch(75% 0.012 60)", lineHeight: 1.3, marginTop: 4 }}>{t.guideTitle}</h1>
+            </div>
+          </div>
+          <p style={{ fontSize: 15, color: "oklch(75% 0.012 60)", maxWidth: 520, lineHeight: 1.7 }}>{t.guideSub}</p>
+          <div style={{ marginTop: 24 }}>
+            <ProgressBar steps={t.steps} active={activeStep} onSelect={handleActivate} t={t}/>
+          </div>
+        </div>
+      </div>
+
+      {/* Steps */}
+      <main style={{ maxWidth: 900, margin: "0 auto", padding: "32px 24px", display: "flex", flexDirection: "column", gap: 16 }}>
+        {t.steps.map((step, i) => (
+          <StepCard
+            key={i}
+            step={step}
+            index={i}
+            total={t.steps.length}
+            lang={lang}
+            t={t}
+            active={activeStep === i}
+            onActivate={handleActivate}
+          />
+        ))}
+
+        {/* Navigation */}
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "8px 0 16px" }}>
+          <button
+            onClick={() => handleActivate(Math.max(0, activeStep - 1))}
+            disabled={activeStep === 0}
+            style={{
+              background: "var(--bg2)", border: "none", borderRadius: 10, padding: "10px 20px",
+              fontSize: 14, cursor: activeStep === 0 ? "not-allowed" : "pointer",
+              color: activeStep === 0 ? "var(--text-muted)" : "var(--text)",
+              fontFamily: "'DM Sans', sans-serif", fontWeight: 500,
+            }}
+          >{t.prevStep}</button>
+          {activeStep < t.steps.length - 1
+            ? <button
+                onClick={() => handleActivate(activeStep + 1)}
+                style={{
+                  background: "var(--amber)", color: "#fff", border: "none", borderRadius: 10, padding: "10px 24px",
+                  fontSize: 14, cursor: "pointer", fontFamily: "'DM Sans', sans-serif", fontWeight: 600,
+                  boxShadow: "0 4px 14px var(--amber)55",
+                }}
+              >{t.nextStep}</button>
+            : <button
+                onClick={() => handleActivate(t.steps.length)}
+                style={{
+                  background: "var(--green)", color: "#fff", border: "none", borderRadius: 10, padding: "10px 24px",
+                  fontSize: 14, cursor: "pointer", fontFamily: "'DM Sans', sans-serif", fontWeight: 600,
+                  boxShadow: "0 4px 14px var(--green)55",
+                }}
+              >✓ {t.allDone}</button>
+          }
+        </div>
+
+        {/* All done */}
+        {allComplete && (
+          <div style={{
+            background: "oklch(22% 0.005 60)", borderRadius: 20, padding: "32px 28px", textAlign: "center",
+            boxShadow: "var(--shadow-lg)",
+          }}>
+            <div style={{ fontSize: 40, marginBottom: 12 }}>🎉</div>
+            <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 28, color: "#fff", marginBottom: 8 }}>{t.allDone}</h2>
+            <p style={{ fontSize: 15, color: "oklch(75% 0.012 60)", maxWidth: 420, margin: "0 auto" }}>{t.allDoneSub}</p>
+          </div>
+        )}
+
+        {/* Help footer */}
+        <div style={{ borderTop: "1px solid var(--border)", paddingTop: 24, display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
+          <span style={{ fontSize: 14, color: "var(--text-muted)" }}>{t.needHelp}</span>
+          <a href="mailto:support@hayra.com" style={{
+            background: "var(--bg2)", color: "var(--text)", textDecoration: "none",
+            padding: "8px 16px", borderRadius: 8, fontSize: 13, fontWeight: 500,
+          }}>{t.contact} →</a>
+        </div>
+      </main>
+
+      {/* Tweaks Panel */}
+      {showTweaks && (
+        <div style={{
+          position: "fixed", bottom: 24, right: 24, width: 260,
+          background: "#fff", borderRadius: 16, padding: 20, boxShadow: "var(--shadow-lg)",
+          border: "1px solid var(--border)", zIndex: 9999,
+          fontFamily: "'DM Sans', sans-serif",
+        }}>
+          <div style={{ fontWeight: 700, fontSize: 14, marginBottom: 16 }}>Tweaks</div>
+          <label style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12, fontSize: 13 }}>
+            Show tips
+            <input type="checkbox" checked={tweaks.showTips} onChange={e => {
+              const v = { ...tweaks, showTips: e.target.checked };
+              setTweaks(v);
+              window.parent.postMessage({ type: "__edit_mode_set_keys", edits: { showTips: e.target.checked } }, "*");
+            }}/>
+          </label>
+          <label style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12, fontSize: 13 }}>
+            Compact mode
+            <input type="checkbox" checked={tweaks.compactMode} onChange={e => {
+              const v = { ...tweaks, compactMode: e.target.checked };
+              setTweaks(v);
+              window.parent.postMessage({ type: "__edit_mode_set_keys", edits: { compactMode: e.target.checked } }, "*");
+            }}/>
+          </label>
+          <label style={{ display: "block", fontSize: 13, marginBottom: 4 }}>Accent color</label>
+          <input type="color" value={tweaks.accentColor} style={{ width: "100%", height: 32, borderRadius: 6, border: "1px solid var(--border)", cursor: "pointer" }}
+            onChange={e => {
+              const v = { ...tweaks, accentColor: e.target.value };
+              setTweaks(v);
+              window.parent.postMessage({ type: "__edit_mode_set_keys", edits: { accentColor: e.target.value } }, "*");
+            }}
+          />
+        </div>
+      )}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
 </script>
 </body>
 </html>
