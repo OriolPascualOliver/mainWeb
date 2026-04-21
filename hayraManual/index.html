@@ -35,6 +35,22 @@
       line-height: 1.6;
     }
     #root { min-height: 100vh; }
+    .step-body-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    @media (max-width: 660px) {
+      .step-body-grid {
+        grid-template-columns: 1fr;
+      }
+      .step-body-grid .step-visual-col {
+        order: 2;
+      }
+      .step-body-grid .step-text-col {
+        order: 1;
+      }
+    }
   </style>
   <meta name="ext-resource-dependency" content="HayraLogo.svg" data-resource-id="hayraLogo" />
   <template id="__bundler_thumbnail" data-bg-color="#f5f0e8">
@@ -429,7 +445,9 @@ function DeviceIllustration() {
   );
 }
 
-function PhoneMockup({ children, label }) {
+function PhoneMockup({ children, label, imageSrc }) {
+  const [imgError, setImgError] = React.useState(false);
+  const showImage = imageSrc && !imgError;
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
       <div style={{
@@ -440,8 +458,15 @@ function PhoneMockup({ children, label }) {
         {/* notch */}
         <div style={{ width: 60, height: 10, background: "#111", borderRadius: 10, margin: "0 auto 10px", border: "1.5px solid #333" }}/>
         {/* screen */}
-        <div style={{ background: "#fff", borderRadius: 20, overflow: "hidden", minHeight: 360 }}>
-          {children}
+        <div style={{ background: "#fff", borderRadius: 20, overflow: "hidden", minHeight: 360, position: "relative" }}>
+          {showImage ? (
+            <img
+              src={imageSrc}
+              alt=""
+              onError={() => setImgError(true)}
+              style={{ width: "100%", height: "100%", minHeight: 360, objectFit: "cover", display: "block" }}
+            />
+          ) : children}
         </div>
         {/* home bar */}
         <div style={{ width: 60, height: 4, background: "#444", borderRadius: 4, margin: "10px auto 0" }}/>
@@ -704,35 +729,63 @@ function TimePickerScreen() {
   );
 }
 
+function DevicePhoto({ imageSrc, accent }) {
+  const [imgError, setImgError] = React.useState(false);
+  if (imageSrc && !imgError) {
+    return (
+      <div style={{ width: "100%", borderRadius: 14, overflow: "hidden", boxShadow: "0 4px 20px #0002" }}>
+        <img
+          src={imageSrc}
+          alt=""
+          onError={() => setImgError(true)}
+          style={{ width: "100%", display: "block", objectFit: "cover" }}
+        />
+      </div>
+    );
+  }
+  return <Placeholder label="photo: pressing button on electronic box" width="100%" height={120} accent={accent}/>;
+}
+
+// ── Image map — place real screenshots in hayraManual/img/ ────────────────────
+const STEP_IMG = {
+  "config-portal":   "img/step-01-config-portal.jpg",
+  "device":          "img/step-02-device.jpg",
+  "wifi-list":       "img/step-03-wifi-list.jpg",
+  "password":        "img/step-04-password.jpg",
+  "captive-portal":  "img/step-05-captive-portal.jpg",
+  "captive-manual":  "img/step-05-manual.jpg",
+  "browser":         "img/step-05b-browser.jpg",
+  "timepicker":      "img/step-06-timepicker.jpg",
+};
+
 // ── Step Visual Renderer ───────────────────────────────────────────────────────
 function StepVisual({ visual, step, lang, t }) {
   switch(visual) {
     case "config-portal": return (
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}>
-        <PhoneMockup label="phone UI — config portal screenshot here">
+        <PhoneMockup imageSrc={STEP_IMG["config-portal"]}>
           <ConfigPortalScreen/>
         </PhoneMockup>
         <div style={{ fontSize: 11, color: "var(--text-muted)", fontStyle: "italic" }}>↑ Interactive demo — try it!</div>
       </div>
     );
     case "device": return (
-      <div style={{ padding: "8px 0" }}>
+      <div style={{ padding: "8px 0", display: "flex", flexDirection: "column", gap: 12, alignItems: "center" }}>
         <DeviceIllustration />
-        <div style={{ textAlign: "center", marginTop: 8 }}>
-          <Placeholder label="photo: pressing button on electronic box" width="100%" height={120} accent="amber"/>
-        </div>
+        {/* Device photo — falls back to placeholder if image missing */}
+        <DevicePhoto imageSrc={STEP_IMG["device"]} accent="amber"/>
       </div>
     );
     case "wifi-list": return (
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
-        <PhoneMockup label="phone UI — wifi-list screenshot here">
+        <PhoneMockup imageSrc={STEP_IMG["wifi-list"]}>
           <WifiListScreen lang={lang}/>
         </PhoneMockup>
       </div>
     );
     case "password": return (
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
-        <PhoneMockup label="phone UI — password prompt screenshot here">
+        <PhoneMockup imageSrc={STEP_IMG["password"]}>
           <PasswordScreen lang={lang}/>
         </PhoneMockup>
       </div>
@@ -744,7 +797,7 @@ function StepVisual({ visual, step, lang, t }) {
           {/* State 1: security warning */}
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
             <div style={{ fontSize: 11, fontWeight: 600, color: "var(--text-muted)", letterSpacing: "0.05em", textTransform: "uppercase" }}>Auto-opens</div>
-            <PhoneMockup>
+            <PhoneMockup imageSrc={STEP_IMG["captive-portal"]}>
               <div style={{ background: "#f2f2f7", minHeight: 360 }}>
                 <div style={{ background: "#fff", padding: "12px 16px 8px", borderBottom: "1px solid #e5e5e5" }}>
                   <div style={{ fontSize: 12, color: "#888", textAlign: "center" }}>9:41</div>
@@ -771,7 +824,7 @@ function StepVisual({ visual, step, lang, t }) {
           {/* State 2: manual IP */}
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
             <div style={{ fontSize: 11, fontWeight: 600, color: "var(--text-muted)", letterSpacing: "0.05em", textTransform: "uppercase" }}>Manual fallback</div>
-            <PhoneMockup>
+            <PhoneMockup imageSrc={STEP_IMG["captive-manual"]}>
               <div style={{ background: "#f2f2f7", minHeight: 360 }}>
                 <div style={{ background: "#fff", padding: "12px 16px 8px", borderBottom: "1px solid #e5e5e5" }}>
                   <div style={{ fontSize: 12, color: "#888", textAlign: "center" }}>9:41</div>
@@ -802,13 +855,11 @@ function StepVisual({ visual, step, lang, t }) {
             <div style={{ fontSize: 10, color: "var(--text-muted)", fontFamily: "monospace", textAlign: "center", maxWidth: 120 }}>type in browser bar</div>
           </div>
         </div>
-        {/* Image placeholder */}
-        <Placeholder label="screenshot: security warning captive portal dialog" height={100} accent="teal"/>
       </div>
     );
     case "browser": return (
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}>
-        <PhoneMockup label="phone UI — browser screenshot here">
+        <PhoneMockup imageSrc={STEP_IMG["browser"]}>
           <BrowserScreen lang={lang}/>
         </PhoneMockup>
         <AndroidShortcutCard t={t}/>
@@ -816,7 +867,7 @@ function StepVisual({ visual, step, lang, t }) {
     );
     case "timepicker": return (
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
-        <PhoneMockup label="phone UI — time picker (interactive demo)">
+        <PhoneMockup imageSrc={STEP_IMG["timepicker"]}>
           <TimePickerScreen/>
         </PhoneMockup>
         <div style={{ fontSize: 11, color: "var(--text-muted)", fontStyle: "italic" }}>↑ Interactive demo — try it!</div>
@@ -889,9 +940,9 @@ function StepCard({ step, index, total, lang, t, active, onActivate }) {
       {/* Body (expanded) */}
       {active && (
         <div style={{ padding: "24px 28px", display: "flex", flexDirection: "column", gap: 20 }}>
-          {/* Two-column on wide, stack on narrow */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 28 }}>
-            <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+          {/* Two-column on wide, single column on mobile (text first, image second) */}
+          <div className="step-body-grid">
+            <div className="step-text-col" style={{ display: "flex", flexDirection: "column", gap: 16 }}>
               <p style={{ fontSize: 16, lineHeight: 1.75, color: "var(--text)", textWrap: "pretty" }}>{step.body}</p>
               {step.substeps && (
                 <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
@@ -922,7 +973,7 @@ function StepCard({ step, index, total, lang, t, active, onActivate }) {
                 <div style={{ fontSize: 14, color: "var(--text)", lineHeight: 1.6 }}>{step.tip}</div>
               </div>
             </div>
-            <div>
+            <div className="step-visual-col">
               <StepVisual visual={step.visual} step={step} lang={lang} t={t}/>
             </div>
           </div>
