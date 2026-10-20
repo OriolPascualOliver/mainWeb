@@ -13,6 +13,7 @@ lang: en
   <link rel="alternate" hreflang="es" href="https://www.opotek.es/es/" />
   <link rel="alternate" hreflang="x-default" href="https://www.opotek.es/" />
   <meta name="theme-color" content="#0a0a0a" />
+  {% include icons.html %}
 
   <!-- Open Graph -->
   <meta property="og:title" content="Opotek | Electronics & Hardware Product Development in Spain" />
@@ -434,7 +435,13 @@ lang: en
       text-transform: none;
       white-space: nowrap;
     }
-    .proj-desc{
+    .testimonials{ display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .testimonial{ margin: 0; padding: 22px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius2); }
+    .testimonial blockquote{ margin: 0 0 12px; font-size: 15px; line-height: 1.6; }
+    .testimonial figcaption{ font-size: 13px; color: var(--muted); }
+\1 list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+    .proj-specs li{ font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 8px; background: rgba(255,255,255,.08); color: var(--txt); }
+\1
       margin: 0;
       color: var(--muted);
       font-size: 13px;
@@ -774,7 +781,7 @@ lang: en
     <section class="intro" id="about">
       <p class="section-label">About</p>
       <p class="sub">
-        Opotek is a Barcelona-based engineering studio. Consulting engineer <a href="/about/">Oriol Pascual</a> leads every project, bringing in a trusted team of highly capable engineers as each product requires.
+        Opotek is a Barcelona-based engineering studio. Consulting engineer <a href="/about/">Oriol Pascual</a> leads and engineers every project, working with specialist partners (mechanical design, machining, certification labs) when a project needs them.
         <br>We take care of the whole product: electronics, firmware, software and mechanical design,
         and we make sure it all works together on real hardware, not just on paper.
         You receive tested, validated files that are ready for production.
@@ -785,23 +792,19 @@ lang: en
     <section class="intro" id="services">
       <p class="section-label">What we do best</p>
       <p class="sub">
-        Design integrity. Manufacturing certainty. <br>
         We build complete embedded hardware systems: schematics, PCB design, enclosure CAD, prototyping, and system integration.
-        You get production-ready deliverables (manufacturing files, test documentation, BOM support and specs that work on the factory floor)
+        You get production-ready deliverables (manufacturing files, test documentation and a sourced BOM)
         and, if you need them, the physical product too: working prototypes or manufactured units.
       </p>
        <ul class="service-bullets" aria-label="Services">
         <li><strong>Concept to working prototype.</strong> Complete system design: electronics, firmware, and enclosure integrated from day one for your MVP.</li>
         <li><strong>Validation builds.</strong> EVT builds, bring-up, iteration, and validation.</li>
-        <li><strong>Production support.</strong> Test fixtures, programming jigs, and DFM/DFT analysis for smooth scaling.</li>
+        <li><strong>Production support.</strong> Test fixtures, programming jigs and DFM/DFT review before the first production run.</li>
         <li><strong>Embedded systems.</strong> MCU/RTOS firmware, drivers, and wireless connectivity for IoT (BLE, Wi-Fi, LoRa, GNSS, LTE-M/NB-IoT).</li>
-        <li><strong>AI and machine learning.</strong> On-device inference (edge AI), sensor fusion and signal processing, plus AI models that turn your product’s data into useful results.</li>
+        <li><strong>AI and machine learning.</strong> On-device inference (edge AI), sensor fusion and signal processing, plus AI models built on your product’s data, such as anomaly detection and classification.</li>
         <li><strong>Industrial automation.</strong> PLC programming, custom controllers, motor drives, sensing and operator controls for machines and industrial processes.</li>
         <li><strong>Turnkey delivery.</strong> Coordinated mechanical, electrical, firmware and software in one integrated product.</li>
       </ul>
-      <p class="micro">
-        Outcome-focused deliverables: production files, test notes, BOM support, and documentation that survives manufacturing.
-      </p>
       <p class="tiles-label">Explore each service · <a href="/services/">All services →</a></p>
       <nav class="service-grid" aria-label="Explore each service">
 {%- for s in site.data.services %}
@@ -840,8 +843,11 @@ lang: en
             <div><span class="k">{{ t.client_label }}</span> {{ c.client }}</div>
             <div><span class="k">{{ t.industry_label }}</span> {{ c.industry }}</div>
           </div>
+          {%- if c.specs %}
+          <ul class="proj-specs">{% for sp in c.specs %}<li>{{ sp }}</li>{% endfor %}</ul>
+          {%- endif %}
           <div class="proj-tags" aria-label="{{ t.tags_label }}">
-            {%- for tg in pr.tags %}
+            {%- for tg in c.tags %}
             <span class="tag">{{ tg }}</span>
             {%- endfor %}
           </div>
@@ -877,6 +883,20 @@ lang: en
       </div>
     
     </section>
+
+{%- if site.data.testimonials.size > 0 %}
+    <section id="testimonials">
+      <p class="section-label">{% if page.lang == 'es' %}Lo que dicen nuestros clientes{% else %}What clients say{% endif %}</p>
+      <div class="testimonials">
+        {%- for q in site.data.testimonials %}
+        <figure class="testimonial">
+          <blockquote>“{{ q[page.lang] | default: q.en }}”</blockquote>
+          <figcaption><strong>{{ q.name }}</strong>{% if q.role %}, {{ q.role }}{% endif %}{% if q.company %} · {{ q.company }}{% endif %}</figcaption>
+        </figure>
+        {%- endfor %}
+      </div>
+    </section>
+{%- endif %}
 
     <section id="contact">
       <div class="cta-block">

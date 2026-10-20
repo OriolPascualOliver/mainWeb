@@ -5,23 +5,30 @@ service: motor-control
 parent: services
 active: services
 title: "Motor control in Barcelona, Spain | Opotek"
-description: "Industrial motor drivers and inverters designed in Barcelona: power electronics, control firmware and protection, from schematic to working hardware."
-h1: "Motor Driver & Inverter Design for Industrial Motors"
-lead: "Opotek designs motor drivers and inverters for industrial applications, covering power electronics, control firmware and safety features. Our reference design is an industrial-grade induction motor driver developed end to end, hardware and firmware."
+description: "BLDC and PMSM motor control with field-oriented control (FOC), plus industrial induction motor drives: power stage, firmware and protection. Barcelona."
+h1: "Motor Control & FOC Drives for BLDC, PMSM and Induction Motors"
+lead: "Opotek designs motor drivers and the firmware that runs them: field-oriented control (FOC) for BLDC and PMSM motors, and drives for industrial induction motors. That covers the power stage, current sensing, control loops and protection, developed end to end. Projects range from an industrial induction motor driver to a haptic BLDC knob with tactile feedback."
 facts: true
 aside: contact
-related: [electronics-design, edge-ai, embedded-firmware]
-projects: [motor, haptic-knob, edgeml]
+related: [electronics-design, industrial-automation, embedded-firmware]
+projects: [haptic-knob, motor, edgeml]
 faq:
-- q: Which motors do you work with?
-  a: Our main reference is industrial induction motors. Contact us with your motor and power requirements for other cases.
+- q: "Which motors do you work with?"
+  a: "BLDC and PMSM motors, usually with field-oriented control (FOC), and industrial induction motors. Tell us your motor and power requirements."
+- q: "Do you implement field-oriented control (FOC)?"
+  a: "Yes. We write FOC firmware for BLDC and PMSM motors, including current, speed and position loops. Our haptic BLDC knob uses it to create tactile feedback."
 ---
 
 <h2>What does motor control design include?</h2>
 <ul class="checks">
+  <li>Field-oriented control (FOC) for BLDC and PMSM motors: current, speed and position loops.</li>
+  <li>Drives for industrial induction motors.</li>
   <li>Power stage: inverter topology, gate drive, current and voltage sensing.</li>
-  <li>Control firmware for induction and other motor types.</li>
-  <li>Protection and safety functions.</li>
+  <li>Haptic and precise-positioning applications, such as knobs with programmable tactile feedback.</li>
+  <li>Protection: overcurrent, overvoltage, overtemperature and fault handling.</li>
   <li>Thermal design and layout for power electronics.</li>
   <li>Optional condition monitoring with <a href="/services/edge-ai/">edge AI</a>.</li>
 </ul>
+
+<h2>What is field-oriented control (FOC)?</h2>
+<p class="callout">FOC controls a motor by regulating, separately, the current that produces torque and the current that produces magnetic flux, in a reference frame that rotates with the rotor. Compared with simple six-step commutation it gives smoother torque, higher efficiency and precise control at low speed, which is what haptic feedback and servo-like applications need.</p>

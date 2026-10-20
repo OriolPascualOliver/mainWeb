@@ -6,7 +6,7 @@ description: "Request a tailored quote for your electronics or hardware project.
 eyebrow: Request a quote
 crumb: Request a quote
 h1: Request a quote for your hardware project
-lead: "No two projects are alike, so we don’t publish a price list that could give you the wrong idea. Tell us what you need, we’ll set up a short call to understand it properly, and then send you a tailored quote."
+lead: "We don’t publish fixed prices, because no two projects are alike. To give you an idea there is <a href=\"/faq/\">a reference project in our FAQ</a>, but please don’t extrapolate it to your project. Tell us what you need, we’ll set up a free 30-min call to understand it properly, and then send you a tailored quote."
 facts: true
 aside: quote
 how: How it works
@@ -23,7 +23,7 @@ talk: Prefer to talk?
 talk_text: Email or call us directly.
 ---
 
-<form id="quote" class="qform" novalidate>
+<form id="quote" class="qform" novalidate data-endpoint="{{ site.form_endpoint }}" data-labels='{"need": "What do you need", "stage": "Where is the project now", "qty": "How many units", "time": "When do you need it", "desc": "About the product", "meeting": "I’d like to schedule a free 30-min call to discuss it.", "empty": "Select a few options above and your brief will appear here.", "subject": "Quote request", "copied": "Copied", "copy": "Copy brief", "email": "oriol@opotek.es", "needInfo": "Tell us a little about the project first: tick what you need or describe the product.", "needEmail": "Please add your email so we can reply.", "sending": "Sending…", "sent": "Thanks! Your request has been sent. We’ll get back to you shortly to set up the call.", "failed": "The form couldn’t be sent. Please use “Open it in your email app” below, or copy the brief and email it to <a href=\"mailto:oriol@opotek.es\">oriol@opotek.es</a>."}'>
 
 <fieldset><legend><span>01</span>What do you need?</legend>
 <div class="pills">
@@ -73,14 +73,18 @@ talk_text: Email or call us directly.
 <fieldset><legend><span>05</span>Tell us about the product</legend>
 <textarea name="desc" rows="5" placeholder="What does it do, who is it for, any constraints (size, power, cost target, certification)…" aria-label="Tell us about the product"></textarea>
 <div class="row2"><input name="name" placeholder="Name" aria-label="Name" autocomplete="name"><input name="company" placeholder="Company" aria-label="Company" autocomplete="organization"></div>
-<label class="check"><input type="checkbox" name="meeting" checked><span>I’d like a short call to discuss it</span></label>
+<div class="row2"><input type="email" name="email" required placeholder="Email (so we can reply)" aria-label="Email (so we can reply)" autocomplete="email"><input type="tel" name="phone" placeholder="Phone (optional)" aria-label="Phone (optional)" autocomplete="tel"></div>
+<input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<label class="check"><input type="checkbox" name="meeting" checked><span>I’d like a free 30-min call to discuss it</span></label>
 </fieldset>
 
 <div class="brief">
 <div class="brief-head"><strong>Your brief</strong><button type="button" class="btn ghost small" id="copyBrief">Copy brief</button></div>
 <pre id="briefText">Select a few options above and your brief will appear here.</pre>
-<a class="btn" id="sendBrief" href="mailto:oriol@opotek.es?subject=Quote%20request">Send request →</a>
-<p class="note">Opens your email app with the brief filled in. Nothing is sent until you press send.</p>
+<button type="submit" class="btn" id="sendBrief">Send request →</button>
+<p class="status" id="formStatus" role="status" aria-live="polite"></p>
+<p class="note">Your details are sent to oriol@opotek.es through the FormSubmit service and used only to answer your request (<a href="/policy.html?lang=en#privacy">privacy policy</a>).</p>
+<p class="note">Problems sending? <a id="mailFallback" href="mailto:oriol@opotek.es">Open it in your email app</a> or copy the brief.</p>
 </div>
 </form>
 
@@ -94,37 +98,4 @@ talk_text: Email or call us directly.
 </ul>
 <p>These factors change the effort a lot from one project to another, which is why we quote each project individually instead of publishing fixed prices.</p>
 
-<!-- Builds the brief and the mailto link from the selected options. -->
-<script>
-(() => {
-  const L = {"need": "What do you need", "stage": "Where is the project now", "qty": "How many units", "time": "When do you need it", "desc": "Tell us about the product", "meeting": "I’d like to schedule a short call to discuss it.", "empty": "Select a few options above and your brief will appear here.", "subject": "Quote request", "copied": "Copied", "copy": "Copy brief", "email": "oriol@opotek.es"};
-  const form = document.getElementById('quote');
-  const out = document.getElementById('briefText');
-  const send = document.getElementById('sendBrief');
-  const copy = document.getElementById('copyBrief');
-  function build() {
-    const fd = new FormData(form);
-    const lines = [];
-    const needs = fd.getAll('need');
-    if (needs.length) lines.push(L.need + ': ' + needs.join(', '));
-    ['stage', 'qty', 'time'].forEach(k => { if (fd.get(k)) lines.push(L[k] + ': ' + fd.get(k)); });
-    const desc = (fd.get('desc') || '').trim();
-    if (desc) lines.push('', L.desc + ':', desc);
-    if (lines.length && fd.get('meeting')) lines.push('', L.meeting);
-    const who = [fd.get('name'), fd.get('company')].map(v => (v || '').trim()).filter(Boolean).join(' · ');
-    if (who && lines.length) lines.push('', who);
-    const text = lines.join('\n');
-    out.textContent = text || L.empty;
-    out.classList.toggle('filled', !!text);
-    const company = (fd.get('company') || '').trim();
-    send.href = 'mailto:' + L.email + '?subject=' + encodeURIComponent(L.subject + (company ? ' · ' + company : '')) + '&body=' + encodeURIComponent(text);
-  }
-  form.addEventListener('input', build);
-  form.addEventListener('change', build);
-  form.addEventListener('submit', ev => { ev.preventDefault(); location.href = send.href; });
-  copy.addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText(out.textContent); copy.textContent = L.copied; setTimeout(() => copy.textContent = L.copy, 1500); } catch (err) {}
-  });
-  build();
-})();
-</script>
+<script src="/assets/quote.js" defer></script>

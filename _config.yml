@@ -6,6 +6,10 @@ email: oriol@opotek.es
 phone: "+34 646 617 993"
 phone_link: "+34646617993"
 
+# Quote form backend. FormSubmit needs a one-time activation: the first submission
+# sends a confirmation email to the address below; click the link in it once.
+form_endpoint: https://formsubmit.co/ajax/oriol@opotek.es
+
 # "Last updated" date shown on service pages and used in sitemap.xml
 updated: "2026-10-20"
 

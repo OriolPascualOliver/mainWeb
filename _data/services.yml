@@ -40,10 +40,10 @@
   group: design
   en:
     name: Motor control
-    short: "Induction motor drivers and inverters: power stage and control."
+    short: "BLDC/PMSM motor control with FOC, and drives for industrial induction motors."
   es:
     name: Control de motores
-    short: "Drivers e inversores para motores de inducción: potencia y control."
+    short: "Control de motores BLDC/PMSM con FOC y accionamientos para motores de inducción."
 - slug: industrial-automation
   group: design
   en:
@@ -56,10 +56,10 @@
   group: design
   en:
     name: "EMC & CE marking"
-    short: EMC-aware design and CE self-certification on your behalf.
+    short: "EMC-aware design, plus the CE technical file and Declaration of Conformity prepared for your signature."
   es:
     name: EMC y marcado CE
-    short: Diseño orientado a EMC y autocertificación CE en tu nombre.
+    short: "Diseño orientado a EMC, con el expediente CE y la Declaración de Conformidad preparados para tu firma."
 - slug: rapid-prototyping
   group: build
   footer: true

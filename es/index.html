@@ -13,6 +13,7 @@ lang: es
   <link rel="alternate" hreflang="es" href="https://www.opotek.es/es/" />
   <link rel="alternate" hreflang="x-default" href="https://www.opotek.es/" />
   <meta name="theme-color" content="#0a0a0a" />
+  {% include icons.html %}
 
   <!-- Open Graph -->
   <meta property="og:title" content="Opotek | Desarrollo de electrónica y producto hardware en España" />
@@ -434,7 +435,13 @@ lang: es
       text-transform: none;
       white-space: nowrap;
     }
-    .proj-desc{
+    .testimonials{ display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .testimonial{ margin: 0; padding: 22px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius2); }
+    .testimonial blockquote{ margin: 0 0 12px; font-size: 15px; line-height: 1.6; }
+    .testimonial figcaption{ font-size: 13px; color: var(--muted); }
+\1 list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+    .proj-specs li{ font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 8px; background: rgba(255,255,255,.08); color: var(--txt); }
+\1
       margin: 0;
       color: var(--muted);
       font-size: 13px;
@@ -774,7 +781,7 @@ lang: es
     <section class="intro" id="about">
       <p class="section-label">Nosotros</p>
       <p class="sub">
-        Opotek es un estudio de ingeniería con base en Barcelona. El ingeniero consultor <a href="/es/about/">Oriol Pascual</a> dirige cada proyecto y suma un equipo de confianza de ingenieros altamente cualificados según lo que necesite cada producto.<br>Nos encargamos del producto completo: electrónica, firmware, software y diseño mecánico, y nos aseguramos de que todo funcione en hardware real, no solo sobre el papel. Recibes archivos probados y validados, listos para producción.
+        Opotek es un estudio de ingeniería con base en Barcelona. El ingeniero consultor <a href="/es/about/">Oriol Pascual</a> dirige y desarrolla cada proyecto, y trabaja con colaboradores especializados (diseño mecánico, mecanizado, laboratorios de certificación) cuando el proyecto lo requiere.<br>Nos encargamos del producto completo: electrónica, firmware, software y diseño mecánico, y nos aseguramos de que todo funcione en hardware real, no solo sobre el papel. Recibes archivos probados y validados, listos para producción.
       </p>
 
     </section>
@@ -782,20 +789,17 @@ lang: es
     <section class="intro" id="services">
       <p class="section-label">Lo que mejor hacemos</p>
       <p class="sub">
-        Integridad de diseño. Seguridad de fabricación. <br>Construimos sistemas hardware embebidos completos: esquemáticos, diseño de PCB, CAD de envolventes, prototipado e integración de sistemas. Recibes entregables listos para producción (archivos de fabricación, documentación de pruebas, soporte de BOM y especificaciones que funcionan en planta) y, si lo necesitas, también el producto físico: prototipos funcionales o unidades fabricadas.
+        Construimos sistemas hardware embebidos completos: esquemáticos, diseño de PCB, CAD de envolventes, prototipado e integración de sistemas. Recibes entregables listos para producción (archivos de fabricación, documentación de pruebas y una BOM con proveedores) y, si lo necesitas, también el producto físico: prototipos funcionales o unidades fabricadas.
       </p>
        <ul class="service-bullets" aria-label="Servicios">
         <li><strong>Del concepto al prototipo funcional.</strong> Diseño completo del sistema: electrónica, firmware y envolvente integrados desde el primer día para tu MVP.</li>
         <li><strong>Construcciones de validación.</strong> Builds EVT, puesta en marcha, iteración y validación.</li>
-        <li><strong>Soporte a producción.</strong> Fixtures de test, utillajes de programación y análisis DFM/DFT para escalar sin fricción.</li>
+        <li><strong>Soporte a producción.</strong> Utillajes de test y de programación, y revisión DFM/DFT antes de la primera serie de producción.</li>
         <li><strong>Sistemas embebidos.</strong> Firmware MCU/RTOS, drivers y conectividad inalámbrica para IoT (BLE, Wi‑Fi, LoRa, GNSS, LTE-M/NB-IoT).</li>
-        <li><strong>IA y machine learning.</strong> Inferencia en el dispositivo (edge AI), fusión sensorial y procesado de señal, además de modelos de IA que convierten los datos de tu producto en resultados útiles.</li>
+        <li><strong>IA y machine learning.</strong> Inferencia en el dispositivo (edge AI), fusión sensorial y procesado de señal, además de modelos de IA basados en los datos de tu producto, como detección de anomalías y clasificación.</li>
         <li><strong>Automatización industrial.</strong> Programación de PLC, controladores a medida, accionamientos de motor, sensórica y mandos de operador para máquinas y procesos industriales.</li>
         <li><strong>Entrega llave en mano.</strong> Mecánica, electrónica, firmware y software coordinados en un único producto integrado.</li>
       </ul>
-      <p class="micro">
-        Entregables orientados a resultados: archivos de producción, notas de test, soporte BOM y documentación que resiste la fabricación.
-      </p>
       <p class="tiles-label">Conoce cada servicio · <a href="/es/services/">Todos los servicios →</a></p>
       <nav class="service-grid" aria-label="Conoce cada servicio">
 {%- for s in site.data.services %}
@@ -834,8 +838,11 @@ lang: es
             <div><span class="k">{{ t.client_label }}</span> {{ c.client }}</div>
             <div><span class="k">{{ t.industry_label }}</span> {{ c.industry }}</div>
           </div>
+          {%- if c.specs %}
+          <ul class="proj-specs">{% for sp in c.specs %}<li>{{ sp }}</li>{% endfor %}</ul>
+          {%- endif %}
           <div class="proj-tags" aria-label="{{ t.tags_label }}">
-            {%- for tg in pr.tags %}
+            {%- for tg in c.tags %}
             <span class="tag">{{ tg }}</span>
             {%- endfor %}
           </div>
@@ -871,6 +878,20 @@ lang: es
       </div>
     
     </section>
+
+{%- if site.data.testimonials.size > 0 %}
+    <section id="testimonials">
+      <p class="section-label">{% if page.lang == 'es' %}Lo que dicen nuestros clientes{% else %}What clients say{% endif %}</p>
+      <div class="testimonials">
+        {%- for q in site.data.testimonials %}
+        <figure class="testimonial">
+          <blockquote>“{{ q[page.lang] | default: q.en }}”</blockquote>
+          <figcaption><strong>{{ q.name }}</strong>{% if q.role %}, {{ q.role }}{% endif %}{% if q.company %} · {{ q.company }}{% endif %}</figcaption>
+        </figure>
+        {%- endfor %}
+      </div>
+    </section>
+{%- endif %}
 
     <section id="contact">
       <div class="cta-block">

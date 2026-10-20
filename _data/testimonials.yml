@@ -1,0 +1,8 @@
+# Client testimonials shown on the home page (the section stays hidden while this list is empty).
+# Only publish real feedback, with the client's consent. Example:
+# - name: Jane Doe
+#   role: CTO
+#   company: Example Ltd.
+#   en: "What they said, in English."
+#   es: "Lo que dijeron, en español."
+[]

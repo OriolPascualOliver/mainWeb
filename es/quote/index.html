@@ -6,7 +6,7 @@ description: "Pide un presupuesto a medida para tu proyecto de electrónica o ha
 eyebrow: Pedir presupuesto
 crumb: Pedir presupuesto
 h1: Pide presupuesto para tu proyecto hardware
-lead: "No hay dos proyectos iguales, así que no publicamos una lista de precios que pueda darte una idea equivocada. Cuéntanos qué necesitas, haremos una breve reunión para entenderlo bien y te enviaremos un presupuesto a medida."
+lead: "No publicamos precios cerrados, porque no hay dos proyectos iguales. Para que te hagas una idea tienes <a href=\"/es/faq/\">un proyecto de referencia en nuestras preguntas frecuentes</a>, pero no lo extrapoles a tu proyecto. Cuéntanos qué necesitas, haremos una reunión gratuita de 30 minutos para entenderlo bien y te enviaremos un presupuesto a medida."
 facts: true
 aside: quote
 how: Cómo funciona
@@ -23,7 +23,7 @@ talk: ¿Prefieres hablar?
 talk_text: Escríbenos o llámanos directamente.
 ---
 
-<form id="quote" class="qform" novalidate>
+<form id="quote" class="qform" novalidate data-endpoint="{{ site.form_endpoint }}" data-labels='{"need": "Qué necesitas", "stage": "En qué punto está el proyecto", "qty": "Cuántas unidades", "time": "Para cuándo lo necesitas", "desc": "Sobre el producto", "meeting": "Me gustaría agendar una reunión gratuita de 30 minutos para comentarlo.", "empty": "Selecciona algunas opciones y tu resumen aparecerá aquí.", "subject": "Solicitud de presupuesto", "copied": "Copiado", "copy": "Copiar resumen", "email": "oriol@opotek.es", "needInfo": "Cuéntanos un poco sobre el proyecto: marca qué necesitas o describe el producto.", "needEmail": "Añade tu email para que podamos responderte.", "sending": "Enviando…", "sent": "¡Gracias! Tu solicitud se ha enviado. Te contactaremos en breve para agendar la reunión.", "failed": "No se ha podido enviar el formulario. Usa «Ábrelo en tu aplicación de correo» o copia el resumen y envíalo a <a href=\"mailto:oriol@opotek.es\">oriol@opotek.es</a>."}'>
 
 <fieldset><legend><span>01</span>¿Qué necesitas?</legend>
 <div class="pills">
@@ -73,14 +73,18 @@ talk_text: Escríbenos o llámanos directamente.
 <fieldset><legend><span>05</span>Háblanos del producto</legend>
 <textarea name="desc" rows="5" placeholder="Qué hace, para quién es, restricciones (tamaño, consumo, coste objetivo, certificación)…" aria-label="Háblanos del producto"></textarea>
 <div class="row2"><input name="name" placeholder="Nombre" aria-label="Nombre" autocomplete="name"><input name="company" placeholder="Empresa" aria-label="Empresa" autocomplete="organization"></div>
-<label class="check"><input type="checkbox" name="meeting" checked><span>Me gustaría una breve reunión para comentarlo</span></label>
+<div class="row2"><input type="email" name="email" required placeholder="Email (para poder responderte)" aria-label="Email (para poder responderte)" autocomplete="email"><input type="tel" name="phone" placeholder="Teléfono (opcional)" aria-label="Teléfono (opcional)" autocomplete="tel"></div>
+<input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<label class="check"><input type="checkbox" name="meeting" checked><span>Me gustaría una reunión gratuita de 30 minutos para comentarlo</span></label>
 </fieldset>
 
 <div class="brief">
 <div class="brief-head"><strong>Tu resumen</strong><button type="button" class="btn ghost small" id="copyBrief">Copiar resumen</button></div>
 <pre id="briefText">Selecciona algunas opciones y tu resumen aparecerá aquí.</pre>
-<a class="btn" id="sendBrief" href="mailto:oriol@opotek.es?subject=Solicitud%20de%20presupuesto">Enviar solicitud →</a>
-<p class="note">Abre tu aplicación de correo con el resumen ya escrito. No se envía nada hasta que pulses enviar.</p>
+<button type="submit" class="btn" id="sendBrief">Enviar solicitud →</button>
+<p class="status" id="formStatus" role="status" aria-live="polite"></p>
+<p class="note">Tus datos se envían a oriol@opotek.es mediante el servicio FormSubmit y solo se usan para responder a tu solicitud (<a href="/policy.html?lang=es#privacy">política de privacidad</a>).</p>
+<p class="note">¿Problemas al enviar? <a id="mailFallback" href="mailto:oriol@opotek.es">Ábrelo en tu aplicación de correo</a> o copia el resumen.</p>
 </div>
 </form>
 
@@ -94,37 +98,4 @@ talk_text: Escríbenos o llámanos directamente.
 </ul>
 <p>Estos factores cambian mucho el esfuerzo de un proyecto a otro; por eso presupuestamos cada proyecto de forma individual en lugar de publicar precios cerrados.</p>
 
-<!-- Builds the brief and the mailto link from the selected options. -->
-<script>
-(() => {
-  const L = {"need": "Qué necesitas", "stage": "En qué punto está el proyecto", "qty": "Cuántas unidades", "time": "Para cuándo lo necesitas", "desc": "Háblanos del producto", "meeting": "Me gustaría agendar una breve reunión para comentarlo.", "empty": "Selecciona algunas opciones y tu resumen aparecerá aquí.", "subject": "Solicitud de presupuesto", "copied": "Copiado", "copy": "Copiar resumen", "email": "oriol@opotek.es"};
-  const form = document.getElementById('quote');
-  const out = document.getElementById('briefText');
-  const send = document.getElementById('sendBrief');
-  const copy = document.getElementById('copyBrief');
-  function build() {
-    const fd = new FormData(form);
-    const lines = [];
-    const needs = fd.getAll('need');
-    if (needs.length) lines.push(L.need + ': ' + needs.join(', '));
-    ['stage', 'qty', 'time'].forEach(k => { if (fd.get(k)) lines.push(L[k] + ': ' + fd.get(k)); });
-    const desc = (fd.get('desc') || '').trim();
-    if (desc) lines.push('', L.desc + ':', desc);
-    if (lines.length && fd.get('meeting')) lines.push('', L.meeting);
-    const who = [fd.get('name'), fd.get('company')].map(v => (v || '').trim()).filter(Boolean).join(' · ');
-    if (who && lines.length) lines.push('', who);
-    const text = lines.join('\n');
-    out.textContent = text || L.empty;
-    out.classList.toggle('filled', !!text);
-    const company = (fd.get('company') || '').trim();
-    send.href = 'mailto:' + L.email + '?subject=' + encodeURIComponent(L.subject + (company ? ' · ' + company : '')) + '&body=' + encodeURIComponent(text);
-  }
-  form.addEventListener('input', build);
-  form.addEventListener('change', build);
-  form.addEventListener('submit', ev => { ev.preventDefault(); location.href = send.href; });
-  copy.addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText(out.textContent); copy.textContent = L.copied; setTimeout(() => copy.textContent = L.copy, 1500); } catch (err) {}
-  });
-  build();
-})();
-</script>
+<script src="/assets/quote.js" defer></script>

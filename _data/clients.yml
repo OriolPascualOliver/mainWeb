@@ -11,8 +11,6 @@
   logo: la-salle-url.png
 - name: Between
   logo: between.png
-- name: HP
-  logo: hp.png
 - name: CosmoCaixa Barcelona
   logo: cosmocaixa.png          # white version for the dark strip (black original: cosmocaixa-black.svg)
 - name: artnode

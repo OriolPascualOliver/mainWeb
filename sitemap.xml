@@ -15,8 +15,4 @@ layout: null
   </url>
 {%- endfor %}
 {%- endif %}{% endfor %}
-  <url>
-    <loc>{{ site.url }}/hayraManual/</loc>
-    <lastmod>{{ site.updated }}</lastmod>
-  </url>
 </urlset>

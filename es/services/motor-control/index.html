@@ -5,23 +5,30 @@ service: motor-control
 parent: services
 active: services
 title: "Control de motores en Barcelona | Opotek"
-description: "Drivers e inversores para motores industriales diseñados en Barcelona: electrónica de potencia, firmware de control y protecciones, del esquema al hardware."
-h1: Diseño de drivers e inversores para motores industriales
-lead: "Opotek diseña drivers de motor e inversores para aplicaciones industriales, incluyendo electrónica de potencia, firmware de control y funciones de seguridad. Nuestro diseño de referencia es un driver de grado industrial para motores de inducción, desarrollado de principio a fin, hardware y firmware."
+description: "Control de motores BLDC y PMSM con control vectorial (FOC) y accionamientos para motores de inducción: etapa de potencia, firmware y protecciones. Barcelona."
+h1: "Control de motores y drivers FOC para motores BLDC, PMSM y de inducción"
+lead: "Opotek diseña drivers de motor y el firmware que los controla: control vectorial (FOC) para motores BLDC y PMSM, y accionamientos para motores de inducción industriales. Incluye la etapa de potencia, la medida de corriente, los lazos de control y las protecciones, desarrollado de principio a fin. Los proyectos van desde un driver industrial para motor de inducción hasta un mando háptico BLDC con respuesta táctil."
 facts: true
 aside: contact
-related: [electronics-design, edge-ai, embedded-firmware]
-projects: [motor, haptic-knob, edgeml]
+related: [electronics-design, industrial-automation, embedded-firmware]
+projects: [haptic-knob, motor, edgeml]
 faq:
-- q: ¿Con qué motores trabajáis?
-  a: "Nuestra referencia principal son los motores de inducción industriales. Para otros casos, contáctanos con los requisitos de motor y potencia."
+- q: "¿Con qué motores trabajáis?"
+  a: "Motores BLDC y PMSM, normalmente con control vectorial (FOC), y motores de inducción industriales. Indícanos los requisitos de motor y potencia."
+- q: "¿Implementáis control vectorial (FOC)?"
+  a: "Sí. Desarrollamos firmware FOC para motores BLDC y PMSM, con lazos de corriente, velocidad y posición. Nuestro mando háptico BLDC lo utiliza para generar la respuesta táctil."
 ---
 
 <h2>¿Qué incluye el diseño de control de motores?</h2>
 <ul class="checks">
+  <li>Control vectorial (FOC) para motores BLDC y PMSM: lazos de corriente, velocidad y posición.</li>
+  <li>Accionamientos para motores de inducción industriales.</li>
   <li>Etapa de potencia: topología del inversor, driver de puerta, medida de corriente y tensión.</li>
-  <li>Firmware de control para motores de inducción y otros tipos.</li>
-  <li>Funciones de protección y seguridad.</li>
+  <li>Aplicaciones hápticas y de posicionamiento preciso, como mandos con respuesta táctil programable.</li>
+  <li>Protecciones: sobrecorriente, sobretensión, sobretemperatura y gestión de fallos.</li>
   <li>Diseño térmico y layout para electrónica de potencia.</li>
   <li>Monitorización de estado opcional con <a href="/es/services/edge-ai/">edge AI</a>.</li>
 </ul>
+
+<h2>¿Qué es el control vectorial (FOC)?</h2>
+<p class="callout">El FOC controla un motor regulando por separado la corriente que genera par y la que genera flujo magnético, en un sistema de referencia que gira con el rotor. Frente a la conmutación simple en seis pasos ofrece un par más suave, mayor eficiencia y control preciso a baja velocidad, que es lo que necesitan la respuesta háptica y las aplicaciones tipo servo.</p>

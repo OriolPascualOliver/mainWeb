@@ -4,7 +4,7 @@ layout: null
 # Opotek
 > Electronics, firmware and mechanical engineering services for hardware
 > product development, from concept to production. Based in Barcelona, Spain.
-> Led by consulting engineer Oriol Pascual with a team of highly capable engineers.
+> Run by consulting engineer Oriol Pascual, with specialist partners when a project needs them.
 > Every project is quoted individually after a short discovery call.
 
 ## Services
