@@ -3,7 +3,7 @@
 # A project with no images shows as a text-only card.
 - id: micro
   images:
-  - file: p11.png
+  - file: p11.jpg
     en: Custom PCB for microfluidics temperature and flow control
     es: PCB a medida para control de temperatura y caudal en microfluídica
   tags: [IoT, Medical Devices, Microfluidics]
@@ -21,13 +21,13 @@
     desc: "Desarrollo integral de hardware, firmware y software para un sistema de control de microfluídica utilizado en investigación médica. Integración de arrays de sensores, control preciso de fluidos y temperatura, y adquisición de datos en tiempo real con conectividad inalámbrica."
 - id: massage
   images:
-  - file: p21.png
+  - file: p21.jpg
     en: Therapeutic massage device MVP prototype
     es: Prototipo MVP de dispositivo de masaje terapéutico
   - file: p22.jpg
     en: Therapeutic massage device electronics board
     es: Placa electrónica del dispositivo de masaje terapéutico
-  - file: p23.png
+  - file: p23.jpg
     en: Therapeutic massage device enclosure and assembly
     es: Envolvente y montaje del dispositivo de masaje terapéutico
   tags: [Power Electronics, Therapeutic Devices, Consumer Electronics]
@@ -102,7 +102,7 @@
     desc: Driver de motor de inducción de grado industrial con control de precisión y características de seguridad. Desarrollo completo de hardware y firmware para aplicaciones industriales exigentes.
 - id: math
   images:
-  - file: p61.png
+  - file: p61.jpg
     en: Interactive smart dice math learning device
     es: Dado inteligente interactivo para aprendizaje matemático
   tags: [EdTech, Embedded Systems, Hardware]
@@ -138,7 +138,7 @@
     desc: "Sistema automatizado de dosificación de alimento para competiciones ecuestres. Desarrollo integral: sourcing, diseño mecánico (mecanismo de liberación temporizada), electrónica, firmware y conectividad IoT para alimentación precisa y programada."
 - id: mmwave
   images:
-  - file: p81.png
+  - file: p81.jpg
     en: mmWave human presence detector for fitting rooms
     es: Detector de presencia humana mmWave para probadores
   tags: [IoT, Embedded Systems, Hardware]

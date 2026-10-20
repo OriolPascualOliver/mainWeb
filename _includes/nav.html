@@ -3,7 +3,6 @@
 <a href="{{ p }}/#projects">{{ t.projects | downcase }}</a>
 <a href="{{ p }}/about/"{% if page.active == 'about' %} aria-current="page"{% endif %}>{{ t.about | downcase }}</a>
 <a href="{{ p }}/faq/"{% if page.active == 'faq' %} aria-current="page"{% endif %}>faq</a>
-<a href="/hayraManual">{{ t.hayra }}</a>
 <a class="contact-btn" href="{{ p }}/quote/">{{ t.quote | downcase }}</a>
 <a class="lang" href="{{ other_url }}" hreflang="{{ other }}" lang="{{ other }}" title="{{ t.lang_other_name }}">{{ t.lang_other }}</a>
 {%- endcapture -%}

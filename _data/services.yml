@@ -48,10 +48,10 @@
   group: design
   en:
     name: Industrial automation
-    short: "Controllers, motor drives, sensing and operator controls for machines and processes."
+    short: "PLC programming, controllers, motor drives, sensing and operator controls for machines and processes."
   es:
     name: Automatización industrial
-    short: "Controladores, accionamientos, sensórica y mandos para máquinas y procesos."
+    short: "Programación de PLC, controladores, accionamientos, sensórica y mandos para máquinas y procesos."
 - slug: emc-pre-compliance
   group: design
   en:

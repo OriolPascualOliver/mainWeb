@@ -14,6 +14,6 @@
 - name: HP
   logo: hp.png
 - name: CosmoCaixa Barcelona
-  logo:          # add img/clients/cosmocaixa.png and write cosmocaixa.png here
-- name: NodeArt
-  logo:          # add img/clients/nodeart.png and write nodeart.png here
+  logo: cosmocaixa.png          # white version for the dark strip (black original: cosmocaixa-black.svg)
+- name: artnode
+  logo: artnode.png

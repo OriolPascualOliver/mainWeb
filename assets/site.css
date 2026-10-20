@@ -80,7 +80,7 @@ a{ color:inherit; }
 .page-hero{ position:relative; overflow:hidden; border-bottom:1px solid var(--line); }
 .page-hero::before{
   content:""; position:absolute; inset:0;
-  background:url("/img/Banner.png") center/cover no-repeat;
+  background:url("/img/Banner.jpg") center/cover no-repeat;
   opacity:.28;
 }
 .page-hero::after{
