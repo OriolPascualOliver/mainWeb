@@ -1,0 +1,19 @@
+{%- comment -%}
+  Language helpers shared by every template.
+  t = interface text for this page's language (_data/i18n.yml)
+  p = URL prefix ("" for English, "/es" for Spanish)
+  key = language-neutral path, used for the hreflang links and the EN/ES switch
+{%- endcomment -%}
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- if page.lang == 'es' -%}
+  {%- assign p = '/es' -%}
+  {%- assign other = 'en' -%}
+  {%- assign key = page.url | remove_first: '/es' -%}
+  {%- assign other_url = key -%}
+{%- else -%}
+  {%- assign p = '' -%}
+  {%- assign other = 'es' -%}
+  {%- assign key = page.url -%}
+  {%- assign other_url = '/es' | append: key -%}
+{%- endif -%}
+{%- if page.lang_switch -%}{%- assign other_url = page.lang_switch -%}{%- endif -%}

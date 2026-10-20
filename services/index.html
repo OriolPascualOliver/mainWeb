@@ -1,0 +1,35 @@
+---
+layout: inner
+lang: en
+active: services
+title: "Engineering Services in Barcelona, Spain | Opotek"
+description: "Electronics, firmware, mechanical design, prototyping and small-batch production services from Opotek, an engineering studio in Barcelona, Spain."
+eyebrow: Services
+crumb: Services
+h1: "Hardware Engineering Services in Barcelona, Spain"
+lead: "From the first schematic to small production runs: twelve services that can be combined into one integrated product development project, or booked individually."
+facts: true
+---
+
+{% include vars.html %}
+<p class="group-title">{{ t.group_design }}</p>
+<div class="grid">
+{%- for s in site.data.services %}{% if s.group == 'design' %}
+<a class="svc-card" href="{{ p }}/services/{{ s.slug }}/"><h3>{{ s[page.lang].name }}</h3><p>{{ s[page.lang].short }}</p><span class="more">{{ t.view }} →</span></a>
+{%- endif %}{% endfor %}
+</div>
+
+<p class="group-title">{{ t.group_build }}</p>
+<div class="grid">
+{%- for s in site.data.services %}{% if s.group == 'build' %}
+<a class="svc-card" href="{{ p }}/services/{{ s.slug }}/"><h3>{{ s[page.lang].name }}</h3><p>{{ s[page.lang].short }}</p><span class="more">{{ t.view }} →</span></a>
+{%- endif %}{% endfor %}
+</div>
+
+<div class="cta-band"><div><h2>{{ t.cta_title }}</h2><p>{{ t.cta_text }}</p></div><a class="btn" href="{{ p }}/quote/">{{ t.quote }}</a></div>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[
+{%- for s in site.data.services -%}
+{"@type":"ListItem","position":{{ forloop.index }},"url":"{{ site.url }}{{ p }}/services/{{ s.slug }}/","name":{{ s[page.lang].name | jsonify }} }{% unless forloop.last %},{% endunless %}
+{%- endfor -%}
+]}</script>

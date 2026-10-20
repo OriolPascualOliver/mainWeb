@@ -1,0 +1,19 @@
+# Client logos on the home page, in this order. Files live in /img/clients/.
+# The name is shown under each logo (and used in the alt text) so search engines and AI tools can read it.
+# Leave logo empty to show the name as text until a logo file is added.
+- name: Disgrega
+  logo: disgrega.png
+- name: microPaP
+  logo: micropap.png
+- name: Droplet Scientific
+  logo: droplet-scientific.jpg
+- name: La Salle, Universitat Ramon Llull
+  logo: la-salle-url.png
+- name: Between
+  logo: between.png
+- name: HP
+  logo: hp.png
+- name: CosmoCaixa Barcelona
+  logo:          # add img/clients/cosmocaixa.png and write cosmocaixa.png here
+- name: NodeArt
+  logo:          # add img/clients/nodeart.png and write nodeart.png here

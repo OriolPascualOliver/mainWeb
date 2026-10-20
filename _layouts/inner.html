@@ -1,0 +1,118 @@
+{%- comment -%}
+  Layout for every inner page (services, about, quote, FAQ, 404).
+
+  Front matter used:
+    lang          en | es (required)
+    title, description, h1, lead      head + hero text (lead may contain links)
+    eyebrow       small label above the H1 (service pages use the default "Service · Barcelona")
+    crumb         breadcrumb name of this page (service pages take it from _data/services.yml)
+    parent        "services" to add the Services crumb
+    service       slug in _data/services.yml -> marks a service page (buttons, schema, "last updated")
+    facts         true to show the small tags under the hero
+    aside         contact | quote  (side column); leave out for a single wide column
+    related       list of service slugs for the "Related services" box
+    projects      list of keys in _data/projects.yml for "Example projects"
+    faq           list of {q, a}: shown on the page and output as FAQPage schema
+    active        nav item to highlight (services | about | faq)
+    schema        extra JSON-LD object(s), comma-separated
+{%- endcomment -%}
+{%- include vars.html -%}
+{%- if page.service -%}
+  {%- for s in site.data.services -%}{%- if s.slug == page.service -%}{%- assign crumb = s[page.lang].name -%}{%- endif -%}{%- endfor -%}
+{%- else -%}
+  {%- assign crumb = page.crumb -%}
+{%- endif -%}
+<!doctype html>
+<html lang="{{ page.lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title | escape }}</title>
+<meta name="description" content="{{ page.description | escape }}">
+<meta name="theme-color" content="#0a0a0a">
+{%- if page.noindex %}
+<meta name="robots" content="noindex">
+{%- else %}
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<link rel="alternate" hreflang="en" href="{{ site.url }}{{ key }}">
+<link rel="alternate" hreflang="es" href="{{ site.url }}/es{{ key }}">
+<link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ key }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+{%- endif %}
+<meta property="og:title" content="{{ page.title | escape }}">
+<meta property="og:description" content="{{ page.description | escape }}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="{% if page.lang == 'es' %}es_ES{% else %}en_GB{% endif %}">
+<meta property="og:image" content="{{ site.url }}/img/Banner.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/img/LOGO_PNG_INV.png">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{% include schema.html %}</script>
+</head>
+<body>
+<a class="skip" href="#main">{{ t.skip }}</a>
+{% include nav.html %}
+<main id="main">
+<section class="page-hero"><div class="hero-inner">
+<ol class="crumbs"><li><a href="{{ p }}/">{{ t.home }}</a></li>{% if page.parent == 'services' %}<li><a href="{{ p }}/services/">{{ t.services }}</a></li>{% endif %}<li aria-current="page">{{ crumb }}</li></ol>
+<p class="eyebrow">{% if page.service %}{{ t.eyebrow }}{% else %}{{ page.eyebrow }}{% endif %}</p>
+<h1>{{ page.h1 | escape }}</h1>
+<p class="lead">{{ page.lead }}</p>
+{%- if page.service %}
+<div class="actions"><a class="btn" href="{{ p }}/quote/">{{ t.quote }}</a><a class="btn ghost" href="mailto:{{ site.email }}?subject={{ t.subject }}">{{ t.contact_btn }}</a></div>
+{%- endif %}
+{%- if page.facts %}
+<ul class="facts">{% for f in t.facts %}<li>{{ f }}</li>{% endfor %}</ul>
+{%- endif %}
+</div></section>
+{%- if page.aside %}
+<div class="container layout">
+<article class="prose">
+{{ content }}
+{%- if page.projects %}
+<h2>{{ t.examples }}</h2>
+<div class="proj-grid">
+{%- for k in page.projects %}{% for pr in site.data.projects %}{% if pr.id == k %}
+<a class="proj-card{% if pr.images.size == 0 %} no-img{% endif %}" href="{{ p }}/#project-{{ pr.id }}">
+  {%- if pr.images.size > 0 %}<img src="/img/proj/{{ pr.images[0].file }}" alt="{{ pr.images[0][page.lang] | escape }}" loading="lazy" width="400" height="250">{% endif -%}
+  <span>{{ pr[page.lang].short }}<small>{{ pr[page.lang].client }}</small></span></a>
+{%- endif %}{% endfor %}{% endfor %}
+</div>
+{%- endif %}
+{%- if page.faq %}
+{% if page.service %}<h2>{{ t.faq_title }}</h2>{% endif %}
+{% include faq.html %}
+{%- endif %}
+{%- if page.service %}
+<p class="updated">{{ t.updated }}: {{ site.updated }}</p>
+{%- endif %}
+</article>
+<aside class="aside"><div class="sticky">
+{%- if page.aside == 'quote' %}
+<div class="card"><h2>{{ page.how }}</h2><ol class="steps compact">{% for s in page.steps %}<li><strong>{{ s.title }}</strong>{{ s.text }}</li>{% endfor %}</ol></div>
+<div class="card"><h2>{{ page.talk }}</h2><p>{{ page.talk_text }}</p><div class="contact-lines big"><a href="mailto:{{ site.email }}">{{ site.email }}</a><a href="tel:{{ site.phone_link }}">{{ site.phone }}</a></div></div>
+{%- else %}
+<div class="card"><h2>{{ t.start }}</h2><p>{{ t.start_text }}</p><a class="btn" href="{{ p }}/quote/">{{ t.quote }}</a>
+<div class="contact-lines"><a href="mailto:{{ site.email }}">{{ site.email }}</a><a href="tel:{{ site.phone_link }}">{{ site.phone }}</a></div></div>
+{%- if page.related %}
+<div class="card"><h2>{{ t.related }}</h2><ul class="link-list">
+{%- for r in page.related %}{% for s in site.data.services %}{% if s.slug == r %}
+<li><a href="{{ p }}/services/{{ s.slug }}/">{{ s[page.lang].name }}</a></li>
+{%- endif %}{% endfor %}{% endfor %}
+</ul></div>
+{%- endif %}
+{%- endif %}
+</div></aside>
+</div>
+{%- else %}
+<div class="container single">
+{{ content }}
+{%- if page.faq %}
+{% include faq.html %}
+{%- endif %}
+</div>
+{%- endif %}
+</main>
+{% include footer.html %}
+</body>
+</html>

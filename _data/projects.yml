@@ -1,0 +1,186 @@
+# Projects shown on the home page (in this order) and as "Example projects" on service pages.
+# To add photos: put them in /img/proj/ and list them under images (first one is the card thumbnail).
+# A project with no images shows as a text-only card.
+- id: micro
+  images:
+  - file: p11.png
+    en: Custom PCB for microfluidics temperature and flow control
+    es: PCB a medida para control de temperatura y caudal en microfluídica
+  tags: [IoT, Medical Devices, Microfluidics]
+  en:
+    title: Microfluidics Control System
+    short: Microfluidics control system
+    client: Droplet Scientific Ltd.
+    industry: Medical Research / Laboratory Equipment
+    desc: "End-to-end hardware, firmware, and software development for a microfluidics control system used in medical research. Integrated sensor arrays, precision fluid and temperature control, and real-time data acquisition with wireless connectivity."
+  es:
+    title: Sistema de control microfluídico
+    short: Sistema de control microfluídico
+    client: Droplet Scientific Ltd.
+    industry: Investigación Médica / Equipamiento de Laboratorio
+    desc: "Desarrollo integral de hardware, firmware y software para un sistema de control de microfluídica utilizado en investigación médica. Integración de arrays de sensores, control preciso de fluidos y temperatura, y adquisición de datos en tiempo real con conectividad inalámbrica."
+- id: massage
+  images:
+  - file: p21.png
+    en: Therapeutic massage device MVP prototype
+    es: Prototipo MVP de dispositivo de masaje terapéutico
+  - file: p22.jpg
+    en: Therapeutic massage device electronics board
+    es: Placa electrónica del dispositivo de masaje terapéutico
+  - file: p23.png
+    en: Therapeutic massage device enclosure and assembly
+    es: Envolvente y montaje del dispositivo de masaje terapéutico
+  tags: [Power Electronics, Therapeutic Devices, Consumer Electronics]
+  en:
+    title: Therapeutic Massage Device MVP
+    short: Therapeutic massage device MVP
+    client: Confidential
+    industry: Wellness / Consumer Health
+    desc: Complete product development for a therapeutic massage device using targeted light therapy and controlled heating. Delivered electronics design and firmware for a manufacturable MVP.
+  es:
+    title: MVP de Dispositivo de Masaje Terapéutico
+    short: MVP de dispositivo de masaje terapéutico
+    client: Confidencial
+    industry: Bienestar / Salud del Consumidor
+    desc: Desarrollo completo de producto para un dispositivo de masaje terapéutico mediante fototerapia dirigida y calentamiento controlado. Entrega de diseño electrónico y firmware para un MVP manufacturable.
+- id: edgeml
+  images:
+  - file: p31.jpg
+    en: Edge ML predictive maintenance sensor hardware for induction motors
+    es: Hardware de sensores para mantenimiento predictivo con ML en motores de inducción
+  tags: [Edge ML, IoT, Predictive Maintenance]
+  en:
+    title: Edge ML Predictive Maintenance for Induction Motors
+    short: Edge ML predictive maintenance for induction motors
+    client: Confidential
+    industry: Industrial / Predictive Maintenance
+    desc: "Edge ML system for real-time fault detection and predictive maintenance of industrial induction motors. Developed sensor integration, on-device inference pipeline, and anomaly detection algorithms for early failure prediction."
+  es:
+    title: Mantenimiento Predictivo con ML en el Edge para Motores de Inducción
+    short: Mantenimiento predictivo con ML en el edge
+    client: Confidencial
+    industry: Industrial / Mantenimiento Predictivo
+    desc: "Sistema de ML en el edge para detección de fallos en tiempo real y mantenimiento predictivo de motores de inducción industriales. Desarrollo de integración de sensores, pipeline de inferencia en dispositivo y algoritmos de detección de anomalías para predicción temprana de fallos."
+- id: cetac
+  images:
+  - file: p41.jpg
+    en: CETAC to banana adapter for industrial multifunction testers
+    es: Adaptador CETAC a banana para testers multifunción industriales
+  - file: p42.jpg
+    en: "CETAC to banana adapter, second view"
+    es: "Adaptador CETAC a banana, segunda vista"
+  tags: ["Test & Measurement", Industrial Electronics]
+  en:
+    title: CETAC to Banana Adapter for Industrial Multifunction Testers
+    short: CETAC to banana adapter
+    client: Internal
+    industry: Industrial Testing Equipment
+    desc: Custom CETAC to banana adapter for multifunctional industrial testers. Designed ruggedized interface hardware for reliable electrical testing in harsh manufacturing environments.
+  es:
+    title: Adaptador CETAC a Banana para Testers Multifunción Industriales
+    short: Adaptador CETAC a banana
+    client: Interno
+    industry: Equipamiento de Pruebas Industriales
+    desc: Adaptador personalizado CETAC a banana para testers multifunción industriales. Diseño de hardware de interfaz reforzado para pruebas eléctricas fiables en entornos de fabricación exigentes.
+- id: motor
+  images:
+  - file: p51.png
+    en: Industrial induction motor driver board
+    es: Placa del driver industrial para motor de inducción
+  tags: [Motor Control, Power Electronics]
+  en:
+    title: Industrial Induction Motor Driver
+    short: Industrial induction motor driver
+    client: Confidential
+    industry: Industrial Automation
+    desc: Industrial grade induction motor driver with precision control and safety features. Full hardware and firmware development for demanding industrial applications.
+  es:
+    title: Driver Industrial para Motor de Inducción
+    short: Driver industrial para motor de inducción
+    client: Confidencial
+    industry: Automatización Industrial
+    desc: Driver de motor de inducción de grado industrial con control de precisión y características de seguridad. Desarrollo completo de hardware y firmware para aplicaciones industriales exigentes.
+- id: math
+  images:
+  - file: p61.png
+    en: Interactive smart dice math learning device
+    es: Dado inteligente interactivo para aprendizaje matemático
+  tags: [EdTech, Embedded Systems, Hardware]
+  en:
+    title: Interactive Math Learning Device
+    short: Interactive math learning device
+    client: Internal
+    industry: Education Technology
+    desc: "Interactive educational device for teaching mathematics through hands-on learning. Embedded system generates adaptive math problems using statistical analysis, creating a physical “smart dice” learning tool."
+  es:
+    title: Dispositivo Interactivo de Aprendizaje Matemático
+    short: Dispositivo interactivo de aprendizaje matemático
+    client: Interno
+    industry: Tecnología Educativa
+    desc: "Dispositivo educativo interactivo para la enseñanza de matemáticas mediante aprendizaje práctico. Sistema embebido que genera problemas matemáticos adaptativos usando análisis estadístico, creando una herramienta de aprendizaje física tipo \"dado inteligente\"."
+- id: equestrian
+  images:
+  - file: p71.jpg
+    en: Automated feed dispensing system for equestrian competitions
+    es: Sistema automatizado de dosificación para competiciones ecuestres
+  tags: [Precision Dispensing, Competition Equipment]
+  en:
+    title: Automated Dispensing System for Equestrian competitions
+    short: Automated dispensing system for equestrian competitions
+    client: Confidential
+    industry: Equestrian / Sports Equipment
+    desc: "Automated feed dispensing system for equestrian competitions. End-to-end development: sourcing, mechanical design (timed-release latch mechanism), electronics, firmware, and IoT connectivity for precise, scheduled feeding."
+  es:
+    title: Sistema Automatizado de Dosificación para Competiciones Ecuestres
+    short: Dosificador automático para competiciones ecuestres
+    client: Confidencial
+    industry: Ecuestre / Equipamiento Deportivo
+    desc: "Sistema automatizado de dosificación de alimento para competiciones ecuestres. Desarrollo integral: sourcing, diseño mecánico (mecanismo de liberación temporizada), electrónica, firmware y conectividad IoT para alimentación precisa y programada."
+- id: mmwave
+  images:
+  - file: p81.png
+    en: mmWave human presence detector for fitting rooms
+    es: Detector de presencia humana mmWave para probadores
+  tags: [IoT, Embedded Systems, Hardware]
+  en:
+    title: Human presence detector with mmWave for clothes fitting rooms
+    short: mmWave presence detector for fitting rooms
+    client: Internal
+    industry: IoT / Retail / Smart Furniture
+    desc: "Human presence detection system using mmWave radar sensors for smart fitting rooms. End-to-end development: hardware design, firmware, and integration with IoT platforms to allow real-time occupancy monitoring."
+  es:
+    title: Detector de Presencia Humana con mmWave para Probadores de Ropa
+    short: Detector de presencia mmWave para probadores
+    client: Interno
+    industry: IoT / Retail / Mobiliario Inteligente
+    desc: "Sistema de detección de presencia humana mediante sensores de radar mmWave para probadores inteligentes. Desarrollo integral: diseño de hardware, firmware e integración con plataformas IoT para permitir monitorización de ocupación en tiempo real."
+- id: hv-supply
+  images: []   # add photos here, e.g.  - {file: cosmocaixa-hv-1.jpg, en: "alt text", es: "texto alternativo"}
+  tags: [Power Electronics, High Voltage, Fiber Optics]
+  en:
+    title: 85 kV High-Voltage Power Supply with Fiber-Optic Control
+    short: 85 kV fiber-optic controlled power supply
+    client: CosmoCaixa Barcelona
+    industry: Science Museum / Interactive Exhibits
+    desc: "Current-controlled 85 kV high-voltage power supply for a CosmoCaixa exhibit. Controlled over a fiber-optic link for full galvanic isolation, with support for live visualization of the experiment."
+  es:
+    title: Fuente de alimentación de 85 kV controlada por fibra óptica
+    short: Fuente de 85 kV controlada por fibra óptica
+    client: CosmoCaixa Barcelona
+    industry: Museo de ciencia / Exposiciones interactivas
+    desc: "Fuente de alimentación de alta tensión de 85 kV controlada en corriente para una exposición de CosmoCaixa. Se controla mediante un enlace de fibra óptica para un aislamiento galvánico total, con soporte para la visualización del experimento en directo."
+- id: haptic-knob
+  images: []   # add photos here, e.g.  - {file: cosmocaixa-hv-1.jpg, en: "alt text", es: "texto alternativo"}
+  tags: [Motor Control, Haptics, Embedded Systems]
+  en:
+    title: Haptic BLDC Control Knob for Industrial Stroboscopes
+    short: Haptic BLDC knob for stroboscopes
+    client: CosmoCaixa Barcelona
+    industry: Science Museum / Interactive Exhibits
+    desc: BLDC motor-based control knob with tactile feedback that lets visitors control industrial stroboscopes in a particle-movement simulation exhibit at CosmoCaixa.
+  es:
+    title: Mando háptico BLDC para estroboscopios industriales
+    short: Mando háptico BLDC para estroboscopios
+    client: CosmoCaixa Barcelona
+    industry: Museo de ciencia / Exposiciones interactivas
+    desc: Mando de control basado en un motor BLDC con respuesta táctil que permite a los visitantes controlar estroboscopios industriales en una exposición de CosmoCaixa que simula el movimiento de partículas.

@@ -1,21 +1,29 @@
+---
+lang: en
+---
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projects | Opotek — Electronics Engineering Services</title>
-  <meta name="description" content="Opotek projects portfolio for production-ready electronics and mechanical engineering. From prototype to production-ready delivery." />
+  <title>Opotek | Electronics & Hardware Product Development in Spain</title>
+  <meta name="description" content="Electronics, firmware and mechanical design studio in Barcelona, Spain, led by Oriol Pascual. From concept to production-ready hardware for startups and industry." />
+  <link rel="canonical" href="https://www.opotek.es/" />
+  <link rel="alternate" hreflang="en" href="https://www.opotek.es/" />
+  <link rel="alternate" hreflang="es" href="https://www.opotek.es/es/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.opotek.es/" />
   <meta name="theme-color" content="#0a0a0a" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Projects | Opotek — Electronics and Mechanical Engineering Services for MVPs and production" />
-  <meta property="og:description" content="Smart hardware for real products. Electronics engineering and mechanical design, fully delivered." />
+  <meta property="og:title" content="Opotek | Electronics & Hardware Product Development in Spain" />
+  <meta property="og:description" content="Electronics, firmware and mechanical design studio in Barcelona, Spain, led by Oriol Pascual. From concept to production-ready hardware for startups and industry." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://opotek.es/projects" />
-  <meta property="og:image" content="https://opotek.es/img/og-projects.jpg" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:url" content="https://www.opotek.es/" />
+  <meta property="og:image" content="https://www.opotek.es/img/Banner.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <link rel="preload" as="image" href="Banner.png" />
+  <link rel="preload" as="image" href="/img/Banner.png" />
 
   <style>
     :root{
@@ -205,8 +213,8 @@
       position: absolute;
       inset: 0;
       background-image: image-set(
-        url("img/Banner.png") 1x,
-        url("img/Banner.png") 2x
+        url("/img/Banner.png") 1x,
+        url("/img/Banner.png") 2x
       );
       background-size: cover;
       background-position: center;
@@ -222,7 +230,7 @@
     .hero-content{
       position: relative;
       z-index: 2;
-      max-width: 680px;
+      max-width: 1040px;
       padding: 0 18px;
       margin: 0 auto;
       text-align: center;
@@ -246,6 +254,8 @@
       font-size: clamp(22px, 2.6vw, 34px);
       letter-spacing: .2px;
     }
+    .hero h1{ margin-bottom: 22px; }
+    .hero .sub{ max-width: 680px; margin: 0 auto 24px; }
     .sub{
       margin: 0 0 10px;
       color: rgba(247,247,247,.88);
@@ -500,6 +510,11 @@
       transition: opacity 160ms ease;
     }
     .carousel-item a:hover img{ opacity: 1; }
+    .client{ margin: 0; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .client-logo{ height: 56px; width: 100%; display: flex; align-items: center; justify-content: center; }
+    .client-logo img{ max-height: 56px; max-width: 100%; object-fit: contain; }
+    .client-wordmark{ font-weight: 700; font-size: 18px; letter-spacing: .3px; text-align: center; line-height: 1.2; }
+    .client figcaption{ font-size: 12px; letter-spacing: .5px; color: var(--muted); text-align: center; }
     .carousel-btn{
       width: 22px;
       height: 22px;
@@ -575,6 +590,14 @@
       color: var(--muted);
       text-decoration:none;
     }
+    .micro a, .intro a, .muted a{ color: inherit; text-decoration: underline; }
+    .tiles-label{ margin: 34px 0 0; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+    .tiles-label a{ color: var(--txt); text-decoration: none; }
+    .tiles-label a:hover{ text-decoration: underline; }
+    .service-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:10px; margin:26px 0 8px; }
+    .service-grid a{ display:flex; justify-content:space-between; align-items:center; gap:8px; padding:12px 14px; border:1px solid var(--line); border-radius:12px; background:var(--card); text-decoration:none; font-size:14px; color:var(--txt); transition:border-color .15s, background .15s; }
+    .service-grid a:hover{ border-color:rgba(255,255,255,.35); background:#1b1b1b; }
+    .service-grid i{ font-style:normal; color:var(--muted); }
     .small-links a:hover{ color: var(--txt); text-decoration: underline; }
 
     @media (max-width: 960px){
@@ -635,59 +658,114 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Opotek",
-    "url": "https://opotek.es",
-    "description": "Electronics engineering and mechanical design services delivering production-ready hardware.",
-    "areaServed": "Worldwide",
-    "sameAs": []
+    "@graph": [
+      {
+        "@type": [
+          "Organization",
+          "ProfessionalService"
+        ],
+        "@id": "https://www.opotek.es/#org",
+        "name": "Opotek",
+        "legalName": "Oriol Pascual Oliver",
+        "url": "https://www.opotek.es",
+        "logo": "https://www.opotek.es/img/LOGO_PNG_INV.png",
+        "email": "oriol@opotek.es",
+        "telephone": "+34646617993",
+        "foundingDate": "2018",
+        "founder": {
+          "@id": "https://www.opotek.es/about#oriol"
+        },
+        "description": "Electronics, firmware and mechanical engineering services for hardware product development, from concept to production.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Barcelona",
+          "addressRegion": "Barcelona",
+          "addressCountry": "ES"
+        },
+        "areaServed": [
+          {
+            "@type": "Country",
+            "name": "Spain"
+          },
+          {
+            "@type": "Place",
+            "name": "European Union"
+          }
+        ],
+        "knowsAbout": [
+          "PCB design",
+          "Electronics design",
+          "Embedded firmware",
+          "RTOS",
+          "Power electronics",
+          "Motor control",
+          "Edge AI",
+          "Artificial intelligence",
+          "Machine learning",
+          "Industrial automation",
+          "TinyML",
+          "IoT",
+          "BLE",
+          "LoRa",
+          "DFM",
+          "DFT",
+          "Hardware prototyping",
+          "Rapid prototyping",
+          "MVP development",
+          "EMC design",
+          "EMC pre-compliance testing",
+          "CE marking support",
+          "Mechanical design",
+          "Enclosure design",
+          "Additive manufacturing",
+          "3D printing",
+          "CNC machining",
+          "Injection molding",
+          "PCB assembly",
+          "Small batch production",
+          "Test fixtures",
+          "Product development"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Engineering services",
+          "itemListElement": [
+{%- for s in site.data.services %}
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": {{ s.en.name | jsonify }}, "url": "https://www.opotek.es/services/{{ s.slug }}/"}}{% unless forloop.last %},{% endunless %}
+{%- endfor %}
+          ]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.opotek.es/#website",
+        "url": "https://www.opotek.es",
+        "name": "Opotek",
+        "inLanguage": [
+          "en",
+          "es"
+        ],
+        "publisher": {
+          "@id": "https://www.opotek.es/#org"
+        }
+      }
+    ]
   }
   </script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <header class="nav">
-    <div class="nav-inner">
-    <a class="brand" href="/" aria-label="Opotek home">
-      <img class="brand-logo" src="img/LOGO_PNG_INV.png" alt="Opotek logo" />
-    </a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#about">about</a>
-        <a href="#services">services</a>
-        <a href="#projects">projects</a>
-        <a href="/hayraManual">hayra manual</a>
-        <a href="#contact" class="contact-btn">contact</a>
-        <button class="lang-toggle" type="button" id="languageToggle" aria-label="Switch language">ES</button>
-      </nav>
-      <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">menu</button>
-    </div>
-  </header>
-
-  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="top">
-      <span class="brand">Opotek</span>
-      <button class="menu-toggle" type="button" aria-label="Close menu">close</button>
-    </div>
-    <div class="links">
-      <a href="#about">about</a>
-      <a href="#services">services</a>
-      <a href="#projects">projects</a>
-      <a href="/hayraManual">hayra manual</a>
-      <a href="#contact" class="contact-btn">contact</a>
-      <button class="lang-toggle" type="button" id="languageToggleMobile" aria-label="Switch language">ES</button>
-    </div>
-  </div>
+{% include home-nav.html %}
 
   <section class="hero" id="top">
     <div class="hero-content">
     
-      <h1>Hardware products:  <span class="slashed0">0</span> to mass production</h1>
+      <h1>Electronics &amp; hardware product development in Barcelona<br>from <span class="slashed0">0</span> to production</h1>
       <p class="sub">
-      End-to-end product development: electronics, software, and mechanical design
-      <br>From idea to manufacturable product. Fast iterations, built robust for production.</p>
-      <p class="micro">Fast iterations. Built robust for manufacturing.</p>
+      End-to-end product development: electronics, firmware and mechanical design.<br>From idea to manufacturable product.</p>
       <div class="cta-row">
         <a class="btn primary" href="#services">see services</a>
+        <a class="btn secondary" href="/quote/">request a quote</a>
       </div>
     </div>
   </section>
@@ -696,10 +774,10 @@
     <section class="intro" id="about">
       <p class="section-label">About</p>
       <p class="sub">
-        Opotek is the engineering team you call when you’re building a real product.
-        <br>We design the full stack: Electronics, firmware, software, and mechanical design. 
-        And make sure it all works together in the real world, not just on paper. 
-        You get tested, validated files ready for production.
+        Opotek is a Barcelona-based engineering studio. Consulting engineer <a href="/about/">Oriol Pascual</a> leads every project, bringing in a trusted team of highly capable engineers as each product requires.
+        <br>We take care of the whole product: electronics, firmware, software and mechanical design,
+        and we make sure it all works together on real hardware, not just on paper.
+        You receive tested, validated files that are ready for production.
       </p>
 
     </section>
@@ -709,294 +787,67 @@
       <p class="sub">
         Design integrity. Manufacturing certainty. <br>
         We build complete embedded hardware systems: schematics, PCB design, enclosure CAD, prototyping, and system integration.
-        You get production-ready deliverables: manufacturing files, test documentation, BOM support, and specs that work on the factory floor.
+        You get production-ready deliverables (manufacturing files, test documentation, BOM support and specs that work on the factory floor)
+        and, if you need them, the physical product too: working prototypes or manufactured units.
       </p>
        <ul class="service-bullets" aria-label="Services">
-        <li><strong>Concept to working prototype</strong> — Complete system design: electronics, firmware, and enclosure integrated from day one for your MVP.</li>
-        <li><strong>Validation builds</strong> — EVT builds, bring-up, iteration, and validation.</li>
-        <li><strong>Production support</strong> — Test fixtures, programming jigs, and DFM/DFT analysis for smooth scaling.</li>
-        <li><strong>Embedded systems</strong> — MCU/RTOS firmware, drivers, and wireless connectivity for IoT(BLE, Wi-Fi, LoRa, GNS, GSM)..</li>
-        <li><strong>Edge AI / ML</strong> — Sensor fusion, signal processing, and on-device inference for intelligent products.</li>
-        <li><strong>Turnkey delivery</strong> — Coordinated mechanical, electrical, firmware, and software—one integrated product.</li>
+        <li><strong>Concept to working prototype.</strong> Complete system design: electronics, firmware, and enclosure integrated from day one for your MVP.</li>
+        <li><strong>Validation builds.</strong> EVT builds, bring-up, iteration, and validation.</li>
+        <li><strong>Production support.</strong> Test fixtures, programming jigs, and DFM/DFT analysis for smooth scaling.</li>
+        <li><strong>Embedded systems.</strong> MCU/RTOS firmware, drivers, and wireless connectivity for IoT (BLE, Wi-Fi, LoRa, GNSS, LTE-M/NB-IoT).</li>
+        <li><strong>AI and machine learning.</strong> On-device inference (edge AI), sensor fusion and signal processing, plus AI models that turn your product’s data into useful results.</li>
+        <li><strong>Industrial automation.</strong> Custom controllers, motor drives, sensing and operator controls for machines and industrial processes.</li>
+        <li><strong>Turnkey delivery.</strong> Coordinated mechanical, electrical, firmware and software in one integrated product.</li>
       </ul>
       <p class="micro">
         Outcome-focused deliverables: production files, test notes, BOM support, and documentation that survives manufacturing.
       </p>
+      <p class="tiles-label">Explore each service · <a href="/services/">All services →</a></p>
+      <nav class="service-grid" aria-label="Explore each service">
+{%- for s in site.data.services %}
+        <a href="{{ p }}/services/{{ s.slug }}/"><span>{{ s[page.lang].name }}</span><i aria-hidden="true">→</i></a>
+{%- endfor %}
+      </nav>
     </section>
 
     <section id="projects" class="projects-block">
       <p class="section-label">Projects</p>
     
-      <p class="muted">Case studies available upon request. <br> Some clients prefer confidentiality, we'll share relevant examples matching your industry and technical requirements.</p>
+      <p class="muted">Selected projects. No two projects are alike, so each one is scoped as its own case, and detailed documentation is shared under NDA when a client requires it.</p>
 
 
 
       <div class="projects" id="project-grid">
-
-        <article class="proj" data-tags="electronics,hardware,firmware,integration">
-          <div class="logo-strip logo-carousel" data-carousel="paged" style="--per-page: 1" aria-label="Gallery">
-            <button class="carousel-btn prev" type="button" aria-label="Previous">‹</button>
-
+{%- comment %} Cards come from _data/projects.yml {% endcomment %}
+{%- include vars.html %}
+{%- for pr in site.data.projects %}{% assign c = pr[page.lang] %}
+        <article class="proj" id="project-{{ pr.id }}">
+          {%- if pr.images.size > 0 %}
+          <div class="logo-strip logo-carousel" data-carousel="paged" style="--per-page: 1" aria-label="{{ t.gallery }}">
+            <button class="carousel-btn prev" type="button" aria-label="{{ t.previous }}">‹</button>
             <div class="carousel-viewport">
               <ul class="carousel-track">
-                <li class="carousel-item"><img src="img/proj/p11.png" alt="Image 1" loading="lazy"></li>
+                {%- for im in pr.images %}
+                <li class="carousel-item"><img src="/img/proj/{{ im.file }}" alt="{{ im[page.lang] | escape }}" loading="lazy"></li>
+                {%- endfor %}
               </ul>
             </div>
-            <button class="carousel-btn next" type="button" aria-label="Next">›</button>
+            <button class="carousel-btn next" type="button" aria-label="{{ t.next }}">›</button>
           </div>
-
-          <div class="proj-title">Microfluidics Control System</div>
-
+          {%- endif %}
+          <div class="proj-title">{{ c.title }}</div>
           <div class="proj-kv">
-            <div><span class="k">Client:</span> Droplet Scientific Ltd.</div>
-            <div><span class="k">Industry:</span> Medical Research / Laboratory Equipment</div>
+            <div><span class="k">{{ t.client_label }}</span> {{ c.client }}</div>
+            <div><span class="k">{{ t.industry_label }}</span> {{ c.industry }}</div>
           </div>
-
-          <div class="proj-tags" aria-label="Tags">
-            <span class="tag">IoT</span>
-            <span class="tag">Medical Devices</span>
-            <span class="tag">Microfluidics</span>
+          <div class="proj-tags" aria-label="{{ t.tags_label }}">
+            {%- for tg in pr.tags %}
+            <span class="tag">{{ tg }}</span>
+            {%- endfor %}
           </div>
-
-          <p class="proj-desc">
-            End-to-end hardware, firmware, and software development for a microfluidics control system used in medical research.
-            Integrated sensor arrays, precision fluid and temperature control, and real-time data acquisition with wireless connectivity.
-          </p>
+          <p class="proj-desc">{{ c.desc }}</p>
         </article>
-
-        <article class="proj" data-tags="electronics,hardware,firmware,integration">
-          <div class="logo-strip logo-carousel" data-carousel="paged" style="--per-page: 1" aria-label="Gallery">
-            <button class="carousel-btn prev" type="button" aria-label="Previous">‹</button>
-
-            <div class="carousel-viewport">
-              <ul class="carousel-track">
-                <li class="carousel-item"><img src="img/proj/p21.png" alt="Image 1" loading="lazy"></li>
-                <li class="carousel-item"><img src="img/proj/p22.JPG" alt="Image 2" loading="lazy"></li>
-                <li class="carousel-item"><img src="img/proj/p23.png" alt="Image 3" loading="lazy"></li>
-              </ul>
-            </div>
-            <button class="carousel-btn next" type="button" aria-label="Next">›</button>
-          </div>
-
-          <div class="proj-title">Therapeutic Massage Device MVP</div>
-
-          <div class="proj-kv">
-            <div><span class="k">Client:</span> Confidential</div>
-            <div><span class="k">Industry:</span> Wellness / Consumer Health</div>
-          </div>
-
-          <div class="proj-tags" aria-label="Tags">
-            <span class="tag">Power Electronics</span>
-            <span class="tag">Therapeutic Devices</span>
-            <span class="tag">Consumer Electronics</span>
-          </div>
-
-          <p class="proj-desc">
-            Complete product development for a therapeutic massage device using targeted light therapy and controlled heating.
-            Delivered electronics design and firmware for a manufacturable MVP.
-          </p>
-        </article>
-
-            <article class="proj" data-tags="electronics,firmware,integration">
-          <div class="logo-strip logo-carousel" data-carousel="paged" style="--per-page: 1" aria-label="Gallery">
-            <button class="carousel-btn prev" type="button" aria-label="Previous">‹</button>
-
-            <div class="carousel-viewport">
-              <ul class="carousel-track">
-                <li class="carousel-item"><img src="img/proj/p31.jpg" alt="Image 1" loading="lazy"></li>
-              </ul>
-            </div>
-            <button class="carousel-btn next" type="button" aria-label="Next">›</button>
-          </div>
-
-        <div class="proj-title">Edge ML Predictive Maintenance for Induction Motors</div>
-
-        <div class="proj-kv">
-          <div><span class="k">Client:</span> Confidential</div>
-          <div><span class="k">Industry:</span> Industrial / Predictive Maintenance</div>
-        </div>
-
-        <div class="proj-tags" aria-label="Tags">
-          <span class="tag">Edge ML</span>
-          <span class="tag">IoT</span>
-          <span class="tag">Predictive Maintenance</span>
-        </div>
-
-        <p class="proj-desc">
-          Edge ML system for real-time fault detection and predictive maintenance of industrial induction motors.
-          Developed sensor integration, on-device inference pipeline, and anomaly detection algorithms for early failure prediction.
-        </p>
-      </article>
-
-      <article class="proj" data-tags="electronics,hardware,integration">
-          <div class="logo-strip logo-carousel" data-carousel="paged" style="--per-page: 1" aria-label="Gallery">
-            <button class="carousel-btn prev" type="button" aria-label="Previous">‹</button>
-
-            <div class="carousel-viewport">
-              <ul class="carousel-track">
-                <li class="carousel-item"><img src="img/proj/p41.jpg" alt="Image 1" loading="lazy"></li>
-                <li class="carousel-item"><img src="img/proj/p42.jpg" alt="Image 2" loading="lazy"></li>
-              </ul>
-            </div>
-            <button class="carousel-btn next" type="button" aria-label="Next">›</button>
-          </div>
-
-
-        <div class="proj-title">CETAC to Banana Adapter for Industrial Multifunction Testers</div>
-
-        <div class="proj-kv">
-          <div><span class="k">Client:</span> Internal</div>
-          <div><span class="k">Industry:</span> Industrial Testing Equipment</div>
-        </div>
-
-        <div class="proj-tags" aria-label="Tags">
-          <span class="tag">Test &amp; Measurement</span>
-          <span class="tag">Industrial Electronics</span>
-        </div>
-
-        <p class="proj-desc">
-          Custom CETAC to banana adapter for multifunctional industrial testers.
-          Designed ruggedized interface hardware for reliable electrical testing in harsh manufacturing environments.
-        </p>
-      </article>
-
-      <article class="proj" data-tags="electronics,hardware,firmware">
-          <div class="logo-strip logo-carousel" data-carousel="paged" style="--per-page: 1" aria-label="Gallery">
-            <button class="carousel-btn prev" type="button" aria-label="Previous">‹</button>
-
-            <div class="carousel-viewport">
-              <ul class="carousel-track">
-                <li class="carousel-item"><img src="img/proj/p51.png" alt="Image 1" loading="lazy"></li>
-              </ul>
-            </div>
-            <button class="carousel-btn next" type="button" aria-label="Next">›</button>
-          </div>
-
-
-        <div class="proj-title">Industrial Induction Motor Driver</div>
-
-        <div class="proj-kv">
-          <div><span class="k">Client:</span> Confidential</div>
-          <div><span class="k">Industry:</span> Industrial Automation</div>
-        </div>
-
-        <div class="proj-tags" aria-label="Tags">
-          <span class="tag">Motor Control</span>
-          <span class="tag">Power Electronics</span>
-        </div>
-
-        <p class="proj-desc">
-          Industrial grade induction motor driver with precision control and safety features.
-          Full hardware and firmware development for demanding industrial applications.
-        </p>
-      </article>
-
-      <article class="proj" data-tags="electronics,hardware,firmware">
-          <div class="logo-strip logo-carousel" data-carousel="paged" style="--per-page: 1" aria-label="Gallery">
-            <button class="carousel-btn prev" type="button" aria-label="Previous">‹</button>
-
-            <div class="carousel-viewport">
-              <ul class="carousel-track">
-                <li class="carousel-item"><img src="img/proj/p61.png" alt="Image 1" loading="lazy"></li>
-              </ul>
-            </div>
-            <button class="carousel-btn next" type="button" aria-label="Next">›</button>
-          </div>
-
-
-        <div class="proj-title">Interactive Math Learning Device</div>
-
-        <div class="proj-kv">
-          <div><span class="k">Client:</span> Internal</div>
-          <div><span class="k">Industry:</span> Education Technology</div>
-        </div>
-
-        <div class="proj-tags" aria-label="Tags">
-          <span class="tag">EdTech</span>
-          <span class="tag">Embedded Systems</span>
-          <span class="tag">Hardware</span>
-        </div>
-
-        <p class="proj-desc">
-          Interactive educational device for teaching mathematics through hands-on learning.
-          Embedded system generates adaptive math problems using statistical analysis, creating a physical “smart dice” learning tool.
-        </p>
-      </article>
-
-      <article class="proj" data-tags="electronics,firmware,integration">
-          <div class="logo-strip logo-carousel" data-carousel="paged" style="--per-page: 1" aria-label="Gallery">
-            <button class="carousel-btn prev" type="button" aria-label="Previous">‹</button>
-
-            <div class="carousel-viewport">
-              <ul class="carousel-track">
-                <li class="carousel-item"><img src="img/proj/p71.jpg" alt="Image 1" loading="lazy"></li>
-              </ul>
-            </div>
-            <button class="carousel-btn next" type="button" aria-label="Next">›</button>
-          </div>
-
-
-        <div class="proj-title">Automated Dispensing System for Equestrian competitions</div>
-
-        <div class="proj-kv">
-          <div><span class="k">Client:</span> Confidential</div>
-          <div><span class="k">Industry:</span> Equestrian / Sports Equipment</div>
-        </div>
-
-        <div class="proj-tags" aria-label="Tags">
-          <span class="tag">Precision Dispensing</span>
-          <span class="tag">Competition Equipment</span>
-        </div>
-
-        <p class="proj-desc">
-        Automated feed dispensing system for equestrian competitions. 
-        End-to-end development: sourcing, mechanical design (timed-release latch mechanism), electronics, firmware, and IoT connectivity for precise, scheduled feeding.        </p>
-      </article>
-
-    
-      <article class="proj" data-tags="electronics,hardware,firmware">
-          <div class="logo-strip logo-carousel" data-carousel="paged" style="--per-page: 1" aria-label="Gallery">
-            <button class="carousel-btn prev" type="button" aria-label="Previous">‹</button>
-
-            <div class="carousel-viewport">
-              <ul class="carousel-track">
-                <li class="carousel-item"><img src="img/proj/p81.png" alt="Image 1" loading="lazy"></li>
-              </ul>
-            </div>
-            <button class="carousel-btn next" type="button" aria-label="Next">›</button>
-          </div>
-
-
-        <div class="proj-title">Human presence detector with mmWave for clothes fitting rooms</div>
-
-        <div class="proj-kv">
-          <div><span class="k">Client:</span> Internal</div>
-          <div><span class="k">Industry:</span> IoT / Retail / Smart Furniture</div>
-        </div>
-
-        <div class="proj-tags" aria-label="Tags">
-          <span class="tag">IoT</span>
-          <span class="tag">Embedded Systems</span>
-          <span class="tag">Hardware</span>
-        </div>
-
-        <p class="proj-desc">
-          Human presence detection system using hmmd mmWave sensors for smart fitting rooms.
-          End-to-end development: hardware design, firmware, and integration with IoT platforms to allow real-time occupancy monitoring.
-        </p>
-      </article>
-    
-        <div class="empty-state" id="emptyState" style="display:none;">
-          <h3>No projects match this filter</h3>
-          <p class="muted">Try another filter, or contact us for references relevant to your industry and constraints.</p>
-          <div class="cta-row">
-            <a class="btn primary" href="#contact">contact</a>
-          </div>
-        </div>
-
-      </div>
-
-
+{%- endfor %}
       </div>
     </section>
 
@@ -1010,36 +861,15 @@
 
         <div class="carousel-viewport">
           <ul class="carousel-track">
+{%- comment %} Logos come from _data/clients.yml {% endcomment %}
+{%- for cl in site.data.clients %}
             <li class="carousel-item">
-              <a href="#" aria-label="Client 1">
-                <img src="img/Client1.png" alt="Client 1" loading="lazy" />
-              </a>
+              <figure class="client">
+                <div class="client-logo">{% if cl.logo %}<img src="/img/clients/{{ cl.logo }}" alt="{{ t.logo_of }} {{ cl.name | escape }}" loading="lazy" />{% else %}<span class="client-wordmark">{{ cl.name }}</span>{% endif %}</div>
+                <figcaption>{{ cl.name }}</figcaption>
+              </figure>
             </li>
-            <li class="carousel-item">
-              <a href="#" aria-label="Client 2">
-                <img src="img/Client2.png" alt="Client 2" loading="lazy" />
-              </a>
-            </li>
-            <li class="carousel-item">
-              <a href="#" aria-label="Client 3">
-                <img src="img/client3.jpg" alt="Client 3" loading="lazy" />
-              </a>
-            </li>
-            <li class="carousel-item">
-              <a href="#" aria-label="Client 4">
-                <img src="img/Client4.png" alt="Client 4" loading="lazy" />
-              </a>
-            </li>
-            <li class="carousel-item">
-              <a href="#" aria-label="Client 5">
-                <img src="img/Client5.png" alt="Client 5" loading="lazy" />
-              </a>
-            </li>
-            <li class="carousel-item">
-              <a href="#" aria-label="Client 6">
-                <img src="img/Client6.png" alt="Client 6" loading="lazy" />
-              </a>
-            </li>
+{%- endfor %}
           </ul>
         </div>
 
@@ -1052,8 +882,11 @@
       <div class="cta-block">
         <h2>Building a hardware product?</h2>
         
-        <p class="muted">Tell us about your project and timeline. We'll outline the technical path forward. [Opotek@protonmail.com. (+34) 646617993]</p>
-        <a class="btn primary" href="mailto:opotek@protonmail.com?subject=Opotek%20project%20inquiry">contact Opotek</a>
+        <p class="muted">Tell us what you’re building. After a short call to understand it properly, we send you a tailored quote. [oriol@opotek.es · +34 646 617 993]</p>
+        <div class="cta-row" style="justify-content:flex-start">
+          <a class="btn primary" href="/quote/">request a quote</a>
+          <a class="btn secondary" href="mailto:oriol@opotek.es?subject=Opotek%20project%20inquiry">email us</a>
+        </div>
 
       </div>
     </section>
@@ -1061,273 +894,17 @@
 
 
     <footer>
-      <div>© 2026 Opotek. All rights reserved.</div>
+      <div>© 2026 Opotek (Oriol Pascual Oliver) · Barcelona, Spain. All rights reserved.</div>
       <div>Designed and developed with <3 by Opotek.</div>
       <div class="small-links">
-        <a href="policy.html?lang=en#privacy">Privacy Policy</a>
-        <a href="policy.html?lang=en#cookies">Cookies Policy</a>
-        <a href="legal.html">Disclaimer</a>
+        <a href="/policy.html?lang=en#privacy">Privacy Policy</a>
+        <a href="/policy.html?lang=en#cookies">Cookies Policy</a>
+        <a href="/legal.html">Disclaimer</a>
       </div>
     </footer>
   </main>
 
   <script>
-    const translations = {
-      en: {
-        langCode: 'ES',
-        htmlLang: 'en',
-        pageTitle: 'Projects | Opotek — Electronics Engineering Services',
-        skip: 'Skip to content',
-        navAbout: 'about',
-        navServices: 'services',
-        navProjects: 'projects',
-        navManual: 'hayra manual',
-        navContact: 'contact',
-        menu: 'menu',
-        close: 'close',
-        heroTitle: 'Hardware products: <span class="slashed0">0</span> to mass production',
-        heroSub: 'End-to-end product development: electronics, software, and mechanical design<br>From idea to manufacturable product. Fast iterations, built robust for production.',
-        heroMicro: 'Fast iterations. Built robust for manufacturing.',
-        heroCta: 'see services',
-        aboutLabel: 'About',
-        aboutSub: 'Opotek is the engineering team you call when you’re building a real product.<br>We design the full stack: Electronics, firmware, software, and mechanical design. And make sure it all works together in the real world, not just on paper. You get tested, validated files ready for production.',
-        servicesLabel: 'What we do best',
-        servicesSub: 'Design integrity. Manufacturing certainty. <br>We build complete embedded hardware systems: schematics, PCB design, enclosure CAD, prototyping, and system integration. You get production-ready deliverables: manufacturing files, test documentation, BOM support, and specs that work on the factory floor.',
-        servicesBullets: [
-          '<strong>Concept to working prototype</strong> — Complete system design: electronics, firmware, and enclosure integrated from day one for your MVP.',
-          '<strong>Validation builds</strong> — EVT builds, bring-up, iteration, and validation.',
-          '<strong>Production support</strong> — Test fixtures, programming jigs, and DFM/DFT analysis for smooth scaling.',
-          '<strong>Embedded systems</strong> — MCU/RTOS firmware, drivers, and wireless connectivity for IoT(BLE, Wi-Fi, LoRa, GNS, GSM)..',
-          '<strong>Edge AI / ML</strong> — Sensor fusion, signal processing, and on-device inference for intelligent products.',
-          '<strong>Turnkey delivery</strong> — Coordinated mechanical, electrical, firmware, and software—one integrated product.'
-        ],
-        servicesMicro: 'Outcome-focused deliverables: production files, test notes, BOM support, and documentation that survives manufacturing.',
-        projectsLabel: 'Projects',
-        projectsSub: "Case studies available upon request. <br> Some clients prefer confidentiality, we'll share relevant examples matching your industry and technical requirements.",
-        clientLabel: 'Client:',
-        industryLabel: 'Industry:',
-        emptyTitle: 'No projects match this filter',
-        emptySub: 'Try another filter, or contact us for references relevant to your industry and constraints.',
-        clientsLabel: 'Clients',
-        clientsSub: "We've partnered with startups and established companies across various industries to bring their hardware visions to life.",
-        contactTitle: 'Building a hardware product?',
-        contactSub: "Tell us about your project and timeline. We'll outline the technical path forward. [Opotek@protonmail.com. (+34) 646617993]",
-        contactBtn: 'contact Opotek',
-        footer1: '© 2026 Opotek. All rights reserved.',
-        footer2: 'Designed and developed with <3 by Opotek.',
-        privacy: 'Privacy Policy',
-        cookies: 'Cookies Policy',
-        disclaimer: 'Disclaimer',
-        projectTitles: [
-          'Microfluidics Control System',
-          'Therapeutic Massage Device MVP',
-          'Edge ML Predictive Maintenance for Induction Motors',
-          'CETAC to Banana Adapter for Industrial Multifunction Testers',
-          'Industrial Brushless Motor Driver',
-          'Interactive Math Learning Device',
-          'Automated Dispensing System for Equestrian competitions',
-          'Human presence detector with mmWave for clothes fitting rooms'
-        ],
-        projectIndustries: [
-          'Medical Research / Laboratory Equipment',
-          'Wellness / Consumer Health',
-          'Industrial / Predictive Maintenance',
-          'Industrial Testing Equipment',
-          'Industrial Automation',
-          'Education Technology',
-          'Equestrian / Sports Equipment',
-          'IoT / Retail / Smart Furniture'
-        ],
-        projectDescriptions: [
-          'End-to-end hardware, firmware, and software development for a microfluidics control system used in medical research. Integrated sensor arrays, precision fluid and temperature control, and real-time data acquisition with wireless connectivity.',
-          'Complete product development for a therapeutic massage device using targeted light therapy and controlled heating. Delivered electronics design and firmware for a manufacturable MVP.',
-          'Edge ML system for real-time fault detection and predictive maintenance of industrial induction motors. Developed sensor integration, on-device inference pipeline, and anomaly detection algorithms for early failure prediction.',
-          'Custom CETAC to banana adapter for multifunctional industrial testers. Designed ruggedized interface hardware for reliable electrical testing in harsh manufacturing environments.',
-          'Industrial grade brushless motor driver with precision control and safety features. Full hardware and firmware development for demanding industrial applications.',
-          'Interactive educational device for teaching mathematics through hands-on learning. Embedded system generates adaptive math problems using statistical analysis, creating a physical “smart dice” learning tool.',
-          'Automated feed dispensing system for equestrian competitions. End-to-end development: sourcing, mechanical design (timed-release latch mechanism), electronics, firmware, and IoT connectivity for precise, scheduled feeding.',
-          'Human presence detection system using hmmd mmWave sensors for smart fitting rooms. End-to-end development: hardware design, firmware, and integration with IoT platforms to allow real-time occupancy monitoring.'
-        ]
-      },
-      es: {
-        langCode: 'EN',
-        htmlLang: 'es',
-        pageTitle: 'Proyectos | Opotek — Servicios de Ingeniería Electrónica',
-        skip: 'Saltar al contenido',
-        navAbout: 'nosotros',
-        navServices: 'servicios',
-        navProjects: 'proyectos',
-        navManual: 'manual hayra',
-        navContact: 'contacto',
-        menu: 'menú',
-        close: 'cerrar',
-        heroTitle: 'Productos físicos: de <span class="slashed0">0</span> a producción escalable',
-        heroSub: 'Desarrollo integral de producto: electrónica, software y diseño mecánico<br>De la idea a un producto fabricable. Iteraciones rápidas, construido de forma robusta para producción.',
-        heroMicro: 'Iteraciones rápidas. Robusto para fabricación.',
-        heroCta: 'ver servicios',
-        aboutLabel: 'Nosotros',
-        aboutSub: 'Opotek es el equipo de ingeniería al que llamas cuando estás construyendo un producto real.<br>Diseñamos el stack completo: electrónica, firmware, software y diseño mecánico. Y nos aseguramos de que todo funcione correctamente en el mundo real, no solo sobre el papel. Recibes archivos probados y validados, listos para producción.',
-        servicesLabel: 'Lo que mejor hacemos',
-        servicesSub: 'Integridad de diseño. Seguridad de fabricación. <br>Construimos sistemas hardware embebidos completos: esquemáticos, diseño de PCB, CAD de envolventes, prototipado e integración de sistemas. Recibes entregables listos para producción: archivos de fabricación, documentación de pruebas, soporte de BOM y especificaciones que funcionan en planta.',
-        servicesBullets: [
-          '<strong>Del concepto al prototipo funcional</strong> — Diseño completo del sistema: electrónica, firmware y envolvente integrados desde el primer día para tu MVP.',
-          '<strong>Construcciones de validación</strong> — Builds EVT, puesta en marcha, iteración y validación.',
-          '<strong>Soporte a producción</strong> — Fixtures de test, utillajes de programación y análisis DFM/DFT para escalar sin fricción.',
-          '<strong>Sistemas embebidos</strong> — Firmware MCU/RTOS, drivers y conectividad inalámbrica para IoT(BLE, Wi‑Fi, LoRa, GNS, GSM)..',
-          '<strong>Edge AI / ML</strong> — Fusión sensorial, procesado de señal e inferencia en dispositivo para productos inteligentes.',
-          '<strong>Entrega llave en mano</strong> — Mecánica, electrónica, firmware y software coordinados en un único producto integrado.'
-        ],
-        servicesMicro: 'Entregables orientados a resultados: archivos de producción, notas de test, soporte BOM y documentación que resiste la fabricación.',
-        projectsLabel: 'Proyectos',
-        projectsSub: 'Casos de estudio disponibles bajo solicitud. <br> Algunos clientes prefieren confidencialidad; compartiremos ejemplos relevantes según tu sector y requisitos técnicos.',
-        clientLabel: 'Cliente:',
-        industryLabel: 'Industria:',
-        emptyTitle: 'No hay proyectos para este filtro',
-        emptySub: 'Prueba otro filtro o contáctanos para referencias relevantes para tu sector y restricciones.',
-        clientsLabel: 'Clientes',
-        clientsSub: 'Hemos colaborado con startups y empresas consolidadas de varios sectores para hacer realidad sus productos hardware.',
-        contactTitle: '¿Construyendo un producto hardware?',
-        contactSub: 'Cuéntanos tu proyecto y tus plazos. Definiremos la ruta técnica a seguir. [Opotek@protonmail.com. (+34) 646617993]',
-        contactBtn: 'contactar con Opotek',
-        footer1: '© 2026 Opotek. Todos los derechos reservados.',
-        footer2: 'Diseñado y desarrollado con <3 por Opotek.',
-        privacy: 'Política de Privacidad',
-        cookies: 'Política de Cookies',
-        disclaimer: 'Aviso legal',
-        projectTitles: [
-          'Sistema de Control de Microfluídico',
-          'MVP de Dispositivo de Masaje Terapéutico',
-          'Mantenimiento Predictivo con ML en el Edge para Motores de Inducción',
-          'Adaptador CETAC a Banana para Testers Multifunción Industriales',
-          'Driver de Motor Brushless Industrial',
-          'Dispositivo Interactivo de Aprendizaje Matemático',
-          'Sistema Automatizado de Dosificación para Competiciones Ecuestres',
-          'Detector de Presencia Humana con mmWave para Probadores de Ropa'
-        ],
-        projectIndustries: [
-          'Investigación Médica / Equipamiento de Laboratorio',
-          'Bienestar / Salud del Consumidor',
-          'Industrial / Mantenimiento Predictivo',
-          'Equipamiento de Pruebas Industriales',
-          'Automatización Industrial',
-          'Tecnología Educativa',
-          'Ecuestre / Equipamiento Deportivo',
-          'IoT / Retail / Mobiliario Inteligente'
-        ],
-        projectDescriptions: [
-          'Desarrollo integral de hardware, firmware y software para un sistema de control de microfluídica utilizado en investigación médica. Integración de arrays de sensores, control preciso de fluidos y temperatura, y adquisición de datos en tiempo real con conectividad inalámbrica.',
-          'Desarrollo completo de producto para un dispositivo de masaje terapéutico mediante fototerapia dirigida y calentamiento controlado. Entrega de diseño electrónico y firmware para un MVP manufacturable.',
-          'Sistema de ML en el edge para detección de fallos en tiempo real y mantenimiento predictivo de motores de inducción industriales. Desarrollo de integración de sensores, pipeline de inferencia en dispositivo y algoritmos de detección de anomalías para predicción temprana de fallos.',
-          'Adaptador personalizado CETAC a banana para testers multifunción industriales. Diseño de hardware de interfaz reforzado para pruebas eléctricas fiables en entornos de fabricación exigentes.',
-          'Driver de motor brushless de grado industrial con control de precisión y características de seguridad. Desarrollo completo de hardware y firmware para aplicaciones industriales exigentes.',
-          'Dispositivo educativo interactivo para la enseñanza de matemáticas mediante aprendizaje práctico. Sistema embebido que genera problemas matemáticos adaptativos usando análisis estadístico, creando una herramienta de aprendizaje física tipo "dado inteligente".',
-          'Sistema automatizado de dosificación de alimento para competiciones ecuestres. Desarrollo integral: sourcing, diseño mecánico (mecanismo de liberación temporizada), electrónica, firmware y conectividad IoT para alimentación precisa y programada.',
-          'Sistema de detección de presencia humana mediante sensores mmWave para probadores inteligentes. Desarrollo integral: diseño de hardware, firmware e integración con plataformas IoT para permitir monitorización de ocupación en tiempo real.'
-        ]      
-      }
-    };
-
-    const projectCards = Array.from(document.querySelectorAll('.proj:not(.skeleton)'));
-    const languageToggle = document.getElementById('languageToggle');
-    const languageToggleMobile = document.getElementById('languageToggleMobile');
-
-    function applyLanguage(lang) {
-      const t = translations[lang] || translations.en;
-      document.documentElement.lang = t.htmlLang;
-      document.title = t.pageTitle;
-
-      document.querySelector('.skip').textContent = t.skip;
-      document.querySelectorAll('.nav-links a')[0].textContent = t.navAbout;
-      document.querySelectorAll('.nav-links a')[1].textContent = t.navServices;
-      document.querySelectorAll('.nav-links a')[2].textContent = t.navProjects;
-      document.querySelectorAll('.nav-links a')[3].textContent = t.navManual;
-      document.querySelectorAll('.nav-links a')[4].textContent = t.navContact;
-      document.querySelectorAll('.mobile-menu .links a')[0].textContent = t.navAbout;
-      document.querySelectorAll('.mobile-menu .links a')[1].textContent = t.navServices;
-      document.querySelectorAll('.mobile-menu .links a')[2].textContent = t.navProjects;
-      document.querySelectorAll('.mobile-menu .links a')[3].textContent = t.navManual;
-      document.querySelectorAll('.mobile-menu .links a')[4].textContent = t.navContact;
-      document.querySelector('.menu-toggle[aria-controls="mobileMenu"]').textContent = t.menu;
-      document.querySelector('#mobileMenu .top .menu-toggle').textContent = t.close;
-
-      languageToggle.textContent = t.langCode;
-      languageToggleMobile.textContent = t.langCode;
-
-      document.querySelector('.hero h1').innerHTML = t.heroTitle;
-      document.querySelector('.hero .sub').innerHTML = t.heroSub;
-      document.querySelector('.hero .micro').textContent = t.heroMicro;
-      document.querySelector('.hero .btn').textContent = t.heroCta;
-
-      const sectionLabels = document.querySelectorAll('.section-label');
-      sectionLabels[0].textContent = t.aboutLabel;
-      sectionLabels[1].textContent = t.servicesLabel;
-      sectionLabels[2].textContent = t.projectsLabel;
-      sectionLabels[3].textContent = t.clientsLabel;
-
-      document.querySelector('#about .sub').innerHTML = t.aboutSub;
-      document.querySelector('#services .sub').innerHTML = t.servicesSub;
-      document.querySelectorAll('#services .service-bullets li').forEach((item, i) => item.innerHTML = t.servicesBullets[i]);
-      document.querySelector('#services .micro').textContent = t.servicesMicro;
-      document.querySelector('#projects > .muted').innerHTML = t.projectsSub;
-
-      document.querySelectorAll('.proj-kv').forEach((kv, i) => {
-        const rows = kv.querySelectorAll('div');
-        rows[0].innerHTML = `<span class="k">${t.clientLabel}</span> ${rows[0].textContent.split(':').slice(1).join(':').trim()}`;
-        rows[1].innerHTML = `<span class="k">${t.industryLabel}</span> ${t.projectIndustries[i]}`;
-      });
-
-      projectCards.forEach((card, i) => {
-        card.querySelector('.proj-title').textContent = t.projectTitles[i];
-        card.querySelector('.proj-desc').textContent = t.projectDescriptions[i];
-      });
-
-      document.querySelector('#emptyState h3').textContent = t.emptyTitle;
-      document.querySelector('#emptyState p').textContent = t.emptySub;
-      document.querySelector('#clients .muted').textContent = t.clientsSub;
-      document.querySelector('#contact h2').textContent = t.contactTitle;
-      document.querySelector('#contact .muted').textContent = t.contactSub;
-      document.querySelector('#contact .btn').textContent = t.contactBtn;
-
-      const footerBlocks = document.querySelectorAll('footer > div');
-      footerBlocks[0].textContent = t.footer1;
-      footerBlocks[1].textContent = t.footer2;
-      const footerLinks = document.querySelectorAll('footer .small-links a');
-      footerLinks[0].textContent = t.privacy;
-      footerLinks[1].textContent = t.cookies;
-      footerLinks[2].textContent = t.disclaimer;
-      footerLinks[0].href = `policy.html?lang=${lang}#privacy`;
-      footerLinks[1].href = `policy.html?lang=${lang}#cookies`;
-
-      localStorage.setItem('opotekLang', lang);
-    }
-
-    function switchLanguage() {
-      const next = (localStorage.getItem('opotekLang') || 'en') === 'en' ? 'es' : 'en';
-      applyLanguage(next);
-    }
-
-    languageToggle.addEventListener('click', switchLanguage);
-    languageToggleMobile.addEventListener('click', switchLanguage);
-    applyLanguage(localStorage.getItem('opotekLang') || 'en');
-
-    const chips = Array.from(document.querySelectorAll('.chip'));
-    const cards = Array.from(document.querySelectorAll('.proj:not(.skeleton)'));
-    const emptyState = document.getElementById('emptyState');
-
-    function setFilter(tag){
-      chips.forEach(c => c.setAttribute('aria-pressed', String(c.dataset.filter === tag)));
-      let visibleCount = 0;
-      cards.forEach(card => {
-        const tags = (card.dataset.tags || '').split(',').map(s => s.trim()).filter(Boolean);
-        const show = (tag === 'all') || tags.includes(tag);
-        card.style.display = show ? '' : 'none';
-        if (show) visibleCount += 1;
-      });
-      if (emptyState && cards.length) {
-        emptyState.style.display = visibleCount ? 'none' : '';
-      }
-    }
-    chips.forEach(chip => chip.addEventListener('click', () => setFilter(chip.dataset.filter)));
 
     const menuButtons = Array.from(document.querySelectorAll('.menu-toggle'));
     const openBtn = menuButtons[0];
@@ -1399,10 +976,6 @@
 
 
   </script>
-  
-</body>
-</html>
-
   
 </body>
 </html>

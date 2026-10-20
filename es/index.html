@@ -1,0 +1,975 @@
+---
+lang: es
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Opotek | Desarrollo de electrónica y producto hardware en España</title>
+  <meta name="description" content="Estudio de electrónica, firmware y diseño mecánico en Barcelona, dirigido por Oriol Pascual. Del concepto al hardware listo para producción para startups e industria." />
+  <link rel="canonical" href="https://www.opotek.es/es/" />
+  <link rel="alternate" hreflang="en" href="https://www.opotek.es/" />
+  <link rel="alternate" hreflang="es" href="https://www.opotek.es/es/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.opotek.es/" />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Opotek | Desarrollo de electrónica y producto hardware en España" />
+  <meta property="og:description" content="Estudio de electrónica, firmware y diseño mecánico en Barcelona, dirigido por Oriol Pascual. Del concepto al hardware listo para producción para startups e industria." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:url" content="https://www.opotek.es/es/" />
+  <meta property="og:image" content="https://www.opotek.es/img/Banner.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preload" as="image" href="/img/Banner.png" />
+
+  <style>
+    :root{
+      --bg:#0a0a0a;
+      --bg-alt:#111111;
+      --card:#151515;
+      --txt:#f7f7f7;
+      --muted:#b4b4b4;
+      --line:rgba(255,255,255,.08);
+      --accent:#9ca3af;
+      --accent-strong:#ffffff;
+      --shadow: 0 20px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+      --radius2: 14px;
+    }
+    .slashed0{
+      font-variant-numeric: slashed-zero;
+      font-feature-settings: "zero" 1; /* fallback para algunos browsers */
+      font-family: "JetBrains Mono", "Fira Code", "IBM Plex Mono", monospace;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+      background: var(--bg);
+      color: var(--txt);
+      line-height: 1.6;
+    }
+
+    a{ color: inherit; }
+    .wrap{ max-width: 1120px; margin: 0 auto; padding: 0 18px 80px; }
+    .skip{
+      position: absolute;
+      left: -999px;
+      top: 12px;
+      background: #ffffff;
+      color: #0a0a0a;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      text-decoration: none;
+      z-index: 40;
+    }
+    .skip:focus{
+      left: 12px;
+    }
+
+    .nav{
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(10,10,10,.95);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner{
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 12px 18px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 1;
+      text-decoration:none;
+    }
+    .brand img{
+      height: 45px;
+      width: auto;
+      display: block;
+    }
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav-links a{
+      text-decoration:none;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: lowercase;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+    .nav-links a:hover{
+      color: var(--txt);
+      border-color: var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .nav-links .contact-btn{
+      background: var(--accent-strong);
+      color: #0a0a0a;
+      font-weight: 700;
+    }
+    .lang-toggle{
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      text-decoration:none;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 8px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .lang-toggle:hover{
+      color: var(--txt);
+      border-color: var(--line);
+      background: rgba(255,255,255,.03);
+    }
+
+    .menu-toggle{
+      display:none;
+      background: none;
+      border: 1px solid var(--line);
+      color: var(--txt);
+      border-radius: 12px;
+      padding: 8px 12px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .mobile-menu{
+      position: fixed;
+      inset: 0;
+      background: rgba(8,8,8,.98);
+      display: none;
+      flex-direction: column;
+      padding: 24px;
+      gap: 18px;
+      z-index: 30;
+    }
+    .mobile-menu.open{ display:flex; }
+    .mobile-menu .top{
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .mobile-menu .links{
+      display:flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .mobile-menu a{
+      text-decoration:none;
+      font-size: 20px;
+      letter-spacing: 1px;
+      text-transform: lowercase;
+    }
+    .mobile-menu .contact-btn{
+      background: var(--accent-strong);
+      color: #0a0a0a;
+      padding: 12px 16px;
+      border-radius: 999px;
+      text-align: center;
+      font-weight: 700;
+      max-width: 220px;
+    }
+    .mobile-menu .lang-toggle{
+      width: fit-content;
+      font-size: 14px;
+      padding: 10px 16px;
+    }
+
+    .hero{
+      position: relative;
+      min-height: 70vh;
+      display:flex;
+      align-items: center;
+      padding: 80px 0;
+    }
+    .hero::before{
+      content:"";
+      position: absolute;
+      inset: 0;
+      background-image: image-set(
+        url("/img/Banner.png") 1x,
+        url("/img/Banner.png") 2x
+      );
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    .hero::after{
+      content:"";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.58);
+      z-index: 1;
+    }
+    .hero-content{
+      position: relative;
+      z-index: 2;
+      max-width: 1040px;
+      padding: 0 18px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section-label{
+      color: var(--accent);
+      font-size: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin: 0 0 12px;
+    }
+    h1{
+      margin: 0 0 12px;
+      font-size: clamp(32px, 5vw, 64px);
+      line-height: 1.05;
+      letter-spacing: .4px;
+    }
+    h2{
+      margin: 0 0 10px;
+      font-size: clamp(22px, 2.6vw, 34px);
+      letter-spacing: .2px;
+    }
+    .hero h1{ margin-bottom: 22px; }
+    .hero .sub{ max-width: 680px; margin: 0 auto 24px; }
+    .sub{
+      margin: 0 0 10px;
+      color: rgba(247,247,247,.88);
+      font-size: 16px;
+    }
+    .micro{
+      margin: 0 0 20px;
+      color: rgba(247,247,247,.65);
+      font-size: 13px;
+    }
+
+    .service-bullets{
+      margin: 18px 0 0;
+      padding-left: 18px;
+      max-width: 72ch;
+      color: #dcdcdc;
+    }
+    .service-bullets li{
+      margin: 10px 0;
+      line-height: 1.45;
+    }
+    .service-bullets strong{
+      color: #f7f7f7;
+      font-weight: 600;
+    }
+    .cta-row{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items:center;
+      margin-top: 12px;
+      justify-content: center;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      text-decoration:none;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .btn.primary{ background: var(--accent-strong); color: #0a0a0a; }
+    .btn.secondary{
+      color: var(--txt);
+      border: 1px solid var(--line);
+      background: transparent;
+    }
+
+    :focus-visible{
+      outline: 2px solid rgba(255,255,255,.65);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    section{
+      padding: 70px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .intro{
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .muted{ color: var(--muted); }
+
+    .filters{
+      display:flex;
+      gap: 10px;
+      margin-top: 12px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scroll-snap-type: x mandatory;
+    }
+    .filters::-webkit-scrollbar{ height: 6px; }
+    .filters::-webkit-scrollbar-thumb{ background: rgba(255,255,255,.08); border-radius: 999px; }
+    .chip{
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: lowercase;
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      user-select: none;
+      scroll-snap-align: start;
+      white-space: nowrap;
+    }
+    .chip[aria-pressed="true"]{
+      border-color: var(--accent-strong);
+      color: var(--accent-strong);
+    }
+
+    .projects{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .projects-block{
+      text-align: center; /* keep */
+    }
+
+    .projects-block .section-label{
+      width: 100%;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .projects-block .filters{
+      justify-content: center;
+    }
+    .projects-block .projects{
+      justify-items: center;
+    }
+    .projects-block .empty-state{
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .proj{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius2);
+      min-height: 240px;
+      padding: 18px;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .proj .thumb{
+      height: 120px;
+      border-radius: 12px;
+      background: #0c0c0c;
+      border: 1px solid var(--line);
+    }
+    .proj{ text-align:left; }
+    .proj .thumb{ overflow:hidden; }
+    .proj .thumb img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display:block;
+      border-radius: 12px;
+    }
+    .proj-title{
+      margin: 2px 0 0;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+    .proj-kv{
+      display: grid;
+      gap: 4px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .proj-kv .k{
+      color: var(--txt);
+      font-weight: 600;
+    }
+    .proj-tags{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 2px;
+    }
+    .tag{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      text-transform: none;
+      white-space: nowrap;
+    }
+    .proj-desc{
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .proj.skeleton .thumb{ opacity: .6; }
+    .proj.skeleton .line{ height: 10px; background: #111111; border-radius: 999px; }
+
+    .empty-state{
+      grid-column: 1 / -1;
+      border: 1px solid var(--line);
+      border-radius: var(--radius2);
+      padding: 20px;
+      background: #0c0c0c;
+    }
+
+    .logo-strip{
+      border: 1px solid var(--line);
+      border-radius: var(--radius2);
+      padding: 18px;
+      background: #0c0c0c;
+    }
+
+    .logo-strip.logo-carousel{
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.06) 0%,
+        rgba(255,255,255,0.1) 60%,
+        rgba(0,0,0,0.00) 100%
+      );
+      border-color: rgba(255,255,255,0.14);
+    }
+    .logo-carousel{
+      --per-page: 3;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 10px;
+    }
+    .carousel-viewport{
+      overflow: hidden;
+      width: 100%;
+    }
+    .carousel-track{
+      display: flex;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      transition: transform 260ms ease;
+      will-change: transform;
+    }
+    .carousel-item{
+      flex: 0 0 calc(100% / var(--per-page));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+    .carousel-item a{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 56px; /* tweak if needed */
+      text-decoration: none;
+    }
+    .carousel-item img{
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      opacity: 0.9;
+      transition: opacity 160ms ease;
+    }
+    .carousel-item a:hover img{ opacity: 1; }
+    .client{ margin: 0; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .client-logo{ height: 56px; width: 100%; display: flex; align-items: center; justify-content: center; }
+    .client-logo img{ max-height: 56px; max-width: 100%; object-fit: contain; }
+    .client-wordmark{ font-weight: 700; font-size: 18px; letter-spacing: .3px; text-align: center; line-height: 1.2; }
+    .client figcaption{ font-size: 12px; letter-spacing: .5px; color: var(--muted); text-align: center; }
+    .carousel-btn{
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: inherit;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      user-select: none;
+      padding: 0;
+      line-height: 1;
+      font-size: 18px;
+    }
+    .carousel-btn:disabled{
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .cta-block{
+      background: var(--bg-alt);
+      padding: 40px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    form.newsletter{
+      display:grid;
+      gap: 10px;
+      max-width: 520px;
+    }
+    .input{
+      width: 100%;
+      background: #0c0c0c;
+      border: 1px solid var(--line);
+      color: var(--txt);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+    .consent{
+      display:flex;
+      gap: 8px;
+      align-items:flex-start;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .status{
+      font-size: 13px;
+      color: var(--muted);
+      min-height: 18px;
+    }
+
+    footer{
+      padding: 30px 0 60px;
+      color: var(--muted);
+      font-size: 13px;
+      display:flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .small-links{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .small-links a{
+      color: var(--muted);
+      text-decoration:none;
+    }
+    .micro a, .intro a, .muted a{ color: inherit; text-decoration: underline; }
+    .tiles-label{ margin: 34px 0 0; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+    .tiles-label a{ color: var(--txt); text-decoration: none; }
+    .tiles-label a:hover{ text-decoration: underline; }
+    .service-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:10px; margin:26px 0 8px; }
+    .service-grid a{ display:flex; justify-content:space-between; align-items:center; gap:8px; padding:12px 14px; border:1px solid var(--line); border-radius:12px; background:var(--card); text-decoration:none; font-size:14px; color:var(--txt); transition:border-color .15s, background .15s; }
+    .service-grid a:hover{ border-color:rgba(255,255,255,.35); background:#1b1b1b; }
+    .service-grid i{ font-style:normal; color:var(--muted); }
+    .small-links a:hover{ color: var(--txt); text-decoration: underline; }
+
+    @media (max-width: 960px){
+      .projects{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 720px){
+      .nav-links{ display:none; }
+      .menu-toggle{ display:inline-flex; }
+      .hero{ min-height: 60vh; padding: 70px 0; }
+      .projects{ grid-template-columns: 1fr; }
+      .cta-row .btn{ width: 100%; justify-content: center; }
+    }
+    @media (prefers-reduced-motion: reduce){
+      *{ scroll-behavior: auto !important; }
+    }
+  
+    /* Projects media: increase image size (thumbs + project carousel) */
+    :root{
+      --proj-media-h: clamp(180px, 22vw, 260px);
+    }
+
+    /* Static project thumbs are capped by height */
+    .proj .thumb{
+      height: var(--proj-media-h);
+    }
+
+    /* Project carousel (inside .proj): give it a real height and let images fill it */
+    .proj .logo-strip.logo-carousel{
+      padding: 10px; /* reduce inner padding vs default 18px */
+    }
+    .proj .logo-carousel .carousel-viewport{
+      height: var(--proj-media-h);
+      border-radius: 12px;
+    }
+    .proj .logo-carousel .carousel-track{
+      height: 100%;
+    }
+    .proj .logo-carousel .carousel-item{
+      height: 100%;
+      padding: 0;            /* remove logo padding */
+      align-items: stretch;
+    }
+    .proj .logo-carousel .carousel-item img{
+      width: 100%;
+      height: 100%;
+      max-height: none;      /* overrides .carousel-item img max-height:100% */
+      object-fit: cover;     /* fill the viewport */
+      display: block;
+      border-radius: 12px;
+      opacity: 1;
+    }
+
+    /* Optional: make cards use full grid column width (remove "shrink-to-content") */
+    .projects-block .proj{ width: 100%; }
+
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": [
+          "Organization",
+          "ProfessionalService"
+        ],
+        "@id": "https://www.opotek.es/#org",
+        "name": "Opotek",
+        "legalName": "Oriol Pascual Oliver",
+        "url": "https://www.opotek.es",
+        "logo": "https://www.opotek.es/img/LOGO_PNG_INV.png",
+        "email": "oriol@opotek.es",
+        "telephone": "+34646617993",
+        "foundingDate": "2018",
+        "founder": {
+          "@id": "https://www.opotek.es/about#oriol"
+        },
+        "description": "Electronics, firmware and mechanical engineering services for hardware product development, from concept to production.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Barcelona",
+          "addressRegion": "Barcelona",
+          "addressCountry": "ES"
+        },
+        "areaServed": [
+          {
+            "@type": "Country",
+            "name": "Spain"
+          },
+          {
+            "@type": "Place",
+            "name": "European Union"
+          }
+        ],
+        "knowsAbout": [
+          "PCB design",
+          "Electronics design",
+          "Embedded firmware",
+          "RTOS",
+          "Power electronics",
+          "Motor control",
+          "Edge AI",
+          "Artificial intelligence",
+          "Machine learning",
+          "Industrial automation",
+          "TinyML",
+          "IoT",
+          "BLE",
+          "LoRa",
+          "DFM",
+          "DFT",
+          "Hardware prototyping",
+          "Rapid prototyping",
+          "MVP development",
+          "EMC design",
+          "EMC pre-compliance testing",
+          "CE marking support",
+          "Mechanical design",
+          "Enclosure design",
+          "Additive manufacturing",
+          "3D printing",
+          "CNC machining",
+          "Injection molding",
+          "PCB assembly",
+          "Small batch production",
+          "Test fixtures",
+          "Product development"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Engineering services",
+          "itemListElement": [
+{%- for s in site.data.services %}
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": {{ s.en.name | jsonify }}, "url": "https://www.opotek.es/services/{{ s.slug }}/"}}{% unless forloop.last %},{% endunless %}
+{%- endfor %}
+          ]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.opotek.es/#website",
+        "url": "https://www.opotek.es",
+        "name": "Opotek",
+        "inLanguage": [
+          "en",
+          "es"
+        ],
+        "publisher": {
+          "@id": "https://www.opotek.es/#org"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Saltar al contenido</a>
+{% include home-nav.html %}
+
+  <section class="hero" id="top">
+    <div class="hero-content">
+    
+      <h1>Desarrollo de electrónica y producto hardware en Barcelona<br>de <span class="slashed0">0</span> a producción</h1>
+      <p class="sub">
+      Desarrollo integral de producto: electrónica, firmware y diseño mecánico.<br>De la idea a un producto fabricable.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#services">ver servicios</a>
+        <a class="btn secondary" href="/es/quote/">pedir presupuesto</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap" id="main">
+    <section class="intro" id="about">
+      <p class="section-label">Nosotros</p>
+      <p class="sub">
+        Opotek es un estudio de ingeniería con base en Barcelona. El ingeniero consultor <a href="/es/about/">Oriol Pascual</a> dirige cada proyecto y suma un equipo de confianza de ingenieros altamente cualificados según lo que necesite cada producto.<br>Nos encargamos del producto completo: electrónica, firmware, software y diseño mecánico, y nos aseguramos de que todo funcione en hardware real, no solo sobre el papel. Recibes archivos probados y validados, listos para producción.
+      </p>
+
+    </section>
+
+    <section class="intro" id="services">
+      <p class="section-label">Lo que mejor hacemos</p>
+      <p class="sub">
+        Integridad de diseño. Seguridad de fabricación. <br>Construimos sistemas hardware embebidos completos: esquemáticos, diseño de PCB, CAD de envolventes, prototipado e integración de sistemas. Recibes entregables listos para producción (archivos de fabricación, documentación de pruebas, soporte de BOM y especificaciones que funcionan en planta) y, si lo necesitas, también el producto físico: prototipos funcionales o unidades fabricadas.
+      </p>
+       <ul class="service-bullets" aria-label="Servicios">
+        <li><strong>Del concepto al prototipo funcional.</strong> Diseño completo del sistema: electrónica, firmware y envolvente integrados desde el primer día para tu MVP.</li>
+        <li><strong>Construcciones de validación.</strong> Builds EVT, puesta en marcha, iteración y validación.</li>
+        <li><strong>Soporte a producción.</strong> Fixtures de test, utillajes de programación y análisis DFM/DFT para escalar sin fricción.</li>
+        <li><strong>Sistemas embebidos.</strong> Firmware MCU/RTOS, drivers y conectividad inalámbrica para IoT (BLE, Wi‑Fi, LoRa, GNSS, LTE-M/NB-IoT).</li>
+        <li><strong>IA y machine learning.</strong> Inferencia en el dispositivo (edge AI), fusión sensorial y procesado de señal, además de modelos de IA que convierten los datos de tu producto en resultados útiles.</li>
+        <li><strong>Automatización industrial.</strong> Controladores a medida, accionamientos de motor, sensórica y mandos de operador para máquinas y procesos industriales.</li>
+        <li><strong>Entrega llave en mano.</strong> Mecánica, electrónica, firmware y software coordinados en un único producto integrado.</li>
+      </ul>
+      <p class="micro">
+        Entregables orientados a resultados: archivos de producción, notas de test, soporte BOM y documentación que resiste la fabricación.
+      </p>
+      <p class="tiles-label">Conoce cada servicio · <a href="/es/services/">Todos los servicios →</a></p>
+      <nav class="service-grid" aria-label="Conoce cada servicio">
+{%- for s in site.data.services %}
+        <a href="{{ p }}/services/{{ s.slug }}/"><span>{{ s[page.lang].name }}</span><i aria-hidden="true">→</i></a>
+{%- endfor %}
+      </nav>
+    </section>
+
+    <section id="projects" class="projects-block">
+      <p class="section-label">Proyectos</p>
+    
+      <p class="muted">Proyectos seleccionados. No hay dos proyectos iguales, así que cada uno se plantea como un caso propio; la documentación detallada se comparte bajo NDA cuando el cliente lo requiere.</p>
+
+
+
+      <div class="projects" id="project-grid">
+{%- comment %} Cards come from _data/projects.yml {% endcomment %}
+{%- include vars.html %}
+{%- for pr in site.data.projects %}{% assign c = pr[page.lang] %}
+        <article class="proj" id="project-{{ pr.id }}">
+          {%- if pr.images.size > 0 %}
+          <div class="logo-strip logo-carousel" data-carousel="paged" style="--per-page: 1" aria-label="{{ t.gallery }}">
+            <button class="carousel-btn prev" type="button" aria-label="{{ t.previous }}">‹</button>
+            <div class="carousel-viewport">
+              <ul class="carousel-track">
+                {%- for im in pr.images %}
+                <li class="carousel-item"><img src="/img/proj/{{ im.file }}" alt="{{ im[page.lang] | escape }}" loading="lazy"></li>
+                {%- endfor %}
+              </ul>
+            </div>
+            <button class="carousel-btn next" type="button" aria-label="{{ t.next }}">›</button>
+          </div>
+          {%- endif %}
+          <div class="proj-title">{{ c.title }}</div>
+          <div class="proj-kv">
+            <div><span class="k">{{ t.client_label }}</span> {{ c.client }}</div>
+            <div><span class="k">{{ t.industry_label }}</span> {{ c.industry }}</div>
+          </div>
+          <div class="proj-tags" aria-label="{{ t.tags_label }}">
+            {%- for tg in pr.tags %}
+            <span class="tag">{{ tg }}</span>
+            {%- endfor %}
+          </div>
+          <p class="proj-desc">{{ c.desc }}</p>
+        </article>
+{%- endfor %}
+      </div>
+    </section>
+
+    <section id="clients">
+      <p class="section-label">Clientes</p>
+      <p class="muted">
+        Hemos colaborado con startups y empresas consolidadas de varios sectores para hacer realidad sus productos hardware.
+      </p>
+      <div class="logo-strip logo-carousel" data-carousel="paged" role="region" aria-label="Logos de clientes">
+        <button class="carousel-btn prev" type="button" aria-label="Clientes anteriores">‹</button>
+
+        <div class="carousel-viewport">
+          <ul class="carousel-track">
+{%- comment %} Logos come from _data/clients.yml {% endcomment %}
+{%- for cl in site.data.clients %}
+            <li class="carousel-item">
+              <figure class="client">
+                <div class="client-logo">{% if cl.logo %}<img src="/img/clients/{{ cl.logo }}" alt="{{ t.logo_of }} {{ cl.name | escape }}" loading="lazy" />{% else %}<span class="client-wordmark">{{ cl.name }}</span>{% endif %}</div>
+                <figcaption>{{ cl.name }}</figcaption>
+              </figure>
+            </li>
+{%- endfor %}
+          </ul>
+        </div>
+
+        <button class="carousel-btn next" type="button" aria-label="Clientes siguientes">›</button>
+      </div>
+    
+    </section>
+
+    <section id="contact">
+      <div class="cta-block">
+        <h2>¿Construyendo un producto hardware?</h2>
+        
+        <p class="muted">Cuéntanos qué estás construyendo. Tras una breve reunión para entenderlo bien, te enviamos un presupuesto a medida. [oriol@opotek.es · +34 646 617 993]</p>
+        <div class="cta-row" style="justify-content:flex-start">
+          <a class="btn primary" href="/es/quote/">pedir presupuesto</a>
+          <a class="btn secondary" href="mailto:oriol@opotek.es?subject=Consulta%20de%20proyecto%20Opotek">escríbenos</a>
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <footer>
+      <div>© 2026 Opotek (Oriol Pascual Oliver) · Barcelona, España. Todos los derechos reservados.</div>
+      <div>Diseñado y desarrollado con &lt;3 por Opotek.</div>
+      <div class="small-links">
+        <a href="/policy.html?lang=es#privacy">Política de Privacidad</a>
+        <a href="/policy.html?lang=es#cookies">Política de Cookies</a>
+        <a href="/legal.html">Aviso legal</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+
+    const menuButtons = Array.from(document.querySelectorAll('.menu-toggle'));
+    const openBtn = menuButtons[0];
+    const closeBtn = menuButtons[1];
+    const mobileMenu = document.getElementById('mobileMenu');
+    const toggleMenu = (open) => {
+      mobileMenu.classList.toggle('open', open);
+      mobileMenu.setAttribute('aria-hidden', String(!open));
+      openBtn.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+      if (open) {
+        closeBtn.focus();
+      } else {
+        openBtn.focus();
+      }
+    };
+    openBtn.addEventListener('click', () => toggleMenu(true));
+    closeBtn.addEventListener('click', () => toggleMenu(false));
+    mobileMenu.addEventListener('click', (event) => {
+      if (event.target.tagName === 'A') toggleMenu(false);
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        toggleMenu(false);
+      }
+    });
+
+
+  function initPagedCarousel(carousel) {
+    const track = carousel.querySelector('.carousel-track');
+    const items = Array.from(carousel.querySelectorAll('.carousel-item'));
+    const prevBtn = carousel.querySelector('.carousel-btn.prev');
+    const nextBtn = carousel.querySelector('.carousel-btn.next');
+
+    if (!track || !items.length || !prevBtn || !nextBtn) return;
+
+    let page = 0;
+
+    const perPage = () => {
+      const v = getComputedStyle(carousel).getPropertyValue('--per-page').trim();
+      const n = parseInt(v, 10);
+      return Number.isFinite(n) && n > 0 ? n : 3;
+    };
+
+    const maxPage = () => Math.max(0, Math.ceil(items.length / perPage()) - 1);
+
+    const render = () => {
+      const mp = maxPage();
+      page = Math.min(Math.max(page, 0), mp);
+
+      track.style.transform = `translateX(${-page * 100}%)`;
+      prevBtn.disabled = page === 0;
+      nextBtn.disabled = page === mp;
+    };
+
+    prevBtn.addEventListener('click', () => { page -= 1; render(); });
+    nextBtn.addEventListener('click', () => { page += 1; render(); });
+
+    carousel.querySelectorAll('a[href="#"]').forEach(a => {
+      a.addEventListener('click', (e) => e.preventDefault());
+    });
+
+    window.addEventListener('resize', render, { passive: true });
+    render();
+  }
+
+  document.querySelectorAll('[data-carousel="paged"]').forEach(initPagedCarousel);
+
+
+
+  </script>
+  
+</body>
+</html>

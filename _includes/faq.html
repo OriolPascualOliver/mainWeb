@@ -1,0 +1,6 @@
+{%- comment -%} A blank line inside an answer starts a new paragraph. {%- endcomment -%}
+<div class="faq">
+{%- for f in page.faq %}
+<details><summary>{{ f.q | escape }}</summary><p>{{ f.a | escape | newline_to_br | strip_newlines | replace: "<br /><br />", "</p><p>" }}</p></details>
+{%- endfor %}
+</div>

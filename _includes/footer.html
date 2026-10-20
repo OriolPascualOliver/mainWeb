@@ -1,0 +1,37 @@
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-brand">
+  <img src="/img/LOGO_PNG_INV.png" alt="Opotek" height="38" loading="lazy">
+  <p>{{ t.loc }}</p>
+  <p><a href="mailto:{{ site.email }}">{{ site.email }}</a><br><a href="tel:{{ site.phone_link }}">{{ site.phone }}</a></p>
+</div>
+<div>
+  <h2>{{ t.services }}</h2>
+  <ul>
+    {%- for s in site.data.services %}{% if s.footer %}
+    <li><a href="{{ p }}/services/{{ s.slug }}/">{{ s[page.lang].name }}</a></li>
+    {%- endif %}{% endfor %}
+    <li><a href="{{ p }}/services/">{{ t.all_services }} →</a></li>
+  </ul>
+</div>
+<div>
+  <h2>{{ t.company }}</h2>
+  <ul>
+    <li><a href="{{ p }}/about/">{{ t.about }}</a></li>
+    <li><a href="{{ p }}/#projects">{{ t.projects }}</a></li>
+    <li><a href="{{ p }}/quote/">{{ t.quote }}</a></li>
+    <li><a href="{{ p }}/faq/">{{ t.faq }}</a></li>
+    <li><a href="/hayraManual">Hayra manual</a></li>
+  </ul>
+</div>
+<div>
+  <h2>{{ t.legal }}</h2>
+  <ul>
+    <li><a href="/policy.html?lang={{ page.lang }}#privacy">{{ t.privacy }}</a></li>
+    <li><a href="/policy.html?lang={{ page.lang }}#cookies">{{ t.cookies }}</a></li>
+    <li><a href="/legal.html">{{ t.disclaimer }}</a></li>
+  </ul>
+</div>
+</div>
+<div class="footer-bottom"><span>© 2026 Opotek · {{ t.legal_name }}. {{ t.rights }}</span><span>Barcelona · ES</span></div>
+</footer>

@@ -1,0 +1,14 @@
+{%- capture links -%}
+<a href="{{ p }}/services/"{% if page.active == 'services' %} aria-current="page"{% endif %}>{{ t.services | downcase }}</a>
+<a href="{{ p }}/#projects">{{ t.projects | downcase }}</a>
+<a href="{{ p }}/about/"{% if page.active == 'about' %} aria-current="page"{% endif %}>{{ t.about | downcase }}</a>
+<a href="{{ p }}/faq/"{% if page.active == 'faq' %} aria-current="page"{% endif %}>faq</a>
+<a href="/hayraManual">{{ t.hayra }}</a>
+<a class="contact-btn" href="{{ p }}/quote/">{{ t.quote | downcase }}</a>
+<a class="lang" href="{{ other_url }}" hreflang="{{ other }}" lang="{{ other }}" title="{{ t.lang_other_name }}">{{ t.lang_other }}</a>
+{%- endcapture -%}
+<header class="nav"><div class="nav-inner">
+<a class="brand" href="{{ p }}/" aria-label="Opotek"><img src="/img/LOGO_PNG_INV.png" alt="Opotek logo" height="42"></a>
+<nav class="nav-links" aria-label="Primary">{{ links }}</nav>
+<details class="menu"><summary>{{ t.menu }}</summary><nav class="menu-panel" aria-label="Mobile">{{ links }}</nav></details>
+</div></header>

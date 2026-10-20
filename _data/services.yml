@@ -1,0 +1,113 @@
+# Service list: used by the services hub, related-service links, footer and llms.txt.
+# footer: true = listed in the site footer.
+# The page itself lives in services/<slug>/index.html (and es/services/<slug>/index.html).
+- slug: electronics-design
+  group: design
+  footer: true
+  en:
+    name: "Electronics & PCB design"
+    short: "Schematics, multilayer PCB layout, power electronics and DFM review."
+  es:
+    name: Diseño electrónico y PCB
+    short: "Esquemáticos, PCB multicapa, electrónica de potencia y revisión DFM."
+- slug: embedded-firmware
+  group: design
+  footer: true
+  en:
+    name: Embedded firmware
+    short: "MCU/RTOS firmware, drivers and wireless connectivity for IoT."
+  es:
+    name: Firmware embebido
+    short: "Firmware MCU/RTOS, drivers y conectividad inalámbrica para IoT."
+- slug: mechanical-design
+  group: design
+  footer: true
+  en:
+    name: Mechanical design
+    short: "Enclosure CAD, mechanisms, DFM/DFA and tolerancing."
+  es:
+    name: Diseño mecánico
+    short: "CAD de envolventes, mecanismos, DFM/DFA y tolerancias."
+- slug: edge-ai
+  group: design
+  en:
+    name: "AI & edge AI"
+    short: "On-device inference, sensor data analysis and AI models for your product."
+  es:
+    name: IA y edge AI
+    short: "Inferencia en el dispositivo, análisis de datos de sensores y modelos de IA para tu producto."
+- slug: motor-control
+  group: design
+  en:
+    name: Motor control
+    short: "Induction motor drivers and inverters: power stage and control."
+  es:
+    name: Control de motores
+    short: "Drivers e inversores para motores de inducción: potencia y control."
+- slug: industrial-automation
+  group: design
+  en:
+    name: Industrial automation
+    short: "Controllers, motor drives, sensing and operator controls for machines and processes."
+  es:
+    name: Automatización industrial
+    short: "Controladores, accionamientos, sensórica y mandos para máquinas y procesos."
+- slug: emc-pre-compliance
+  group: design
+  en:
+    name: "EMC & CE marking"
+    short: EMC-aware design and CE self-certification on your behalf.
+  es:
+    name: EMC y marcado CE
+    short: Diseño orientado a EMC y autocertificación CE en tu nombre.
+- slug: rapid-prototyping
+  group: build
+  footer: true
+  en:
+    name: Rapid prototyping
+    short: "Functional prototypes: electronics, firmware and enclosure."
+  es:
+    name: Prototipado rápido
+    short: "Prototipos funcionales: electrónica, firmware y envolvente."
+- slug: quick-mvp
+  group: build
+  footer: true
+  en:
+    name: Hardware MVP
+    short: A working MVP designed for manufacturing from day one.
+  es:
+    name: MVP de hardware
+    short: Un MVP funcional diseñado para fabricar desde el primer día.
+- slug: prototype-to-production
+  group: build
+  en:
+    name: Prototype to production
+    short: "EVT builds, test jigs, DFM/DFT and BOM support."
+  es:
+    name: Del prototipo a producción
+    short: "Builds EVT, utillajes de test, DFM/DFT y soporte de BOM."
+- slug: additive-manufacturing
+  group: build
+  en:
+    name: 3D printing
+    short: "Prototypes, enclosures, jigs and low-volume printed parts."
+  es:
+    name: Impresión 3D
+    short: "Prototipos, envolventes, utillajes y piezas en series cortas."
+- slug: manufacturing
+  group: build
+  en:
+    name: Manufacturing support
+    short: "CNC, sheet metal, injection molding and PCBA sourcing."
+  es:
+    name: Soporte a fabricación
+    short: "CNC, chapa, inyección y compra de PCBA."
+- slug: small-batch-production
+  group: build
+  footer: true
+  en:
+    name: Small batch production
+    short: "Low-volume runs: PCBA, enclosure, programming and test."
+  es:
+    name: Producción en series cortas
+    short: "Series cortas: PCBA, envolvente, programación y test."

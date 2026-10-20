@@ -1,0 +1,93 @@
+# Interface text shared by all pages (menu, footer, buttons), per language.
+en:
+  home: Home
+  services: Services
+  about: About
+  faq: FAQ
+  projects: Projects
+  menu: menu
+  hayra: hayra manual
+  lang_other: ES
+  lang_other_name: Español
+  eyebrow: "Service · Barcelona, Spain"
+  related: Related services
+  examples: Example projects
+  faq_title: Frequently asked questions
+  updated: Last updated
+  start: Tell us about your product
+  start_text: "Share what you’re building. We’ll set up a short call to understand it properly, then send you a tailored quote."
+  contact_btn: Email us
+  quote: Request a quote
+  all_services: All services
+  facts:
+  - Based in Barcelona
+  - NDA by default
+  - "IP ownership: your choice"
+  loc: "Opotek · Barcelona, Spain"
+  legal_name: "Oriol Pascual Oliver, trading as Opotek"
+  company: Company
+  legal: Legal
+  privacy: Privacy Policy
+  cookies: Cookies Policy
+  disclaimer: Disclaimer
+  rights: All rights reserved.
+  skip: Skip to content
+  view: View
+  subject: "Opotek%20project%20inquiry"
+  group_design: "Design & engineering"
+  group_build: "Prototype, build & scale"
+  cta_title: Building a hardware product?
+  cta_text: Tell us what you need. After a short call we send you a tailored quote.
+  gallery: Gallery
+  previous: Previous
+  next: Next
+  client_label: "Client:"
+  industry_label: "Industry:"
+  tags_label: Tags
+  logo_of: Logo of
+es:
+  home: Inicio
+  services: Servicios
+  about: Nosotros
+  faq: Preguntas frecuentes
+  projects: Proyectos
+  menu: menú
+  hayra: manual hayra
+  lang_other: EN
+  lang_other_name: English
+  eyebrow: "Servicio · Barcelona, España"
+  related: Servicios relacionados
+  examples: Proyectos de ejemplo
+  faq_title: Preguntas frecuentes
+  updated: Última actualización
+  start: Cuéntanos tu producto
+  start_text: Explícanos qué estás construyendo. Haremos una breve reunión para entenderlo bien y te enviaremos un presupuesto a medida.
+  contact_btn: Escríbenos
+  quote: Pedir presupuesto
+  all_services: Todos los servicios
+  facts:
+  - Con base en Barcelona
+  - NDA por defecto
+  - "Propiedad intelectual: tú decides"
+  loc: "Opotek · Barcelona, España"
+  legal_name: "Oriol Pascual Oliver, con nombre comercial Opotek"
+  company: Empresa
+  legal: Legal
+  privacy: Política de privacidad
+  cookies: Política de cookies
+  disclaimer: Aviso legal
+  rights: Todos los derechos reservados.
+  skip: Saltar al contenido
+  view: Ver
+  subject: "Consulta%20de%20proyecto%20Opotek"
+  group_design: Diseño e ingeniería
+  group_build: "Prototipado, fabricación y escalado"
+  cta_title: ¿Construyendo un producto hardware?
+  cta_text: Cuéntanos qué necesitas. Tras una breve reunión te enviamos un presupuesto a medida.
+  gallery: Galería
+  previous: Anterior
+  next: Siguiente
+  client_label: "Cliente:"
+  industry_label: "Industria:"
+  tags_label: Etiquetas
+  logo_of: Logo de

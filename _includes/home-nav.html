@@ -1,0 +1,32 @@
+{%- comment -%} Menu for the two home pages (index.html, es/index.html). Inner pages use nav.html. {%- endcomment -%}
+{%- include vars.html -%}
+{%- capture links -%}
+<a href="#services">{{ t.services | downcase }}</a>
+        <a href="#projects">{{ t.projects | downcase }}</a>
+        <a href="{{ p }}/about/">{{ t.about | downcase }}</a>
+        <a href="{{ p }}/faq/">faq</a>
+        <a href="/hayraManual">{{ t.hayra }}</a>
+        <a href="{{ p }}/quote/" class="contact-btn">{{ t.quote | downcase }}</a>
+        <a class="lang-toggle" href="{{ other_url }}" hreflang="{{ other }}" lang="{{ other }}" title="{{ t.lang_other_name }}">{{ t.lang_other }}</a>
+{%- endcapture -%}
+  <header class="nav">
+    <div class="nav-inner">
+    <a class="brand" href="{{ p }}/" aria-label="Opotek home">
+      <img class="brand-logo" src="/img/LOGO_PNG_INV.png" alt="Opotek logo" />
+    </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        {{ links }}
+      </nav>
+      <button class="menu-toggle" type="button" aria-label="{% if page.lang == 'es' %}Abrir menú{% else %}Open menu{% endif %}" aria-controls="mobileMenu" aria-expanded="false">{{ t.menu }}</button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="top">
+      <span class="brand">Opotek</span>
+      <button class="menu-toggle" type="button" aria-label="{% if page.lang == 'es' %}Cerrar menú{% else %}Close menu{% endif %}">{% if page.lang == 'es' %}cerrar{% else %}close{% endif %}</button>
+    </div>
+    <div class="links">
+        {{ links }}
+    </div>
+  </div>

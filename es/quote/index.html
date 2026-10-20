@@ -1,0 +1,130 @@
+---
+layout: inner
+lang: es
+title: "Pedir presupuesto | Opotek, ingeniería hardware en Barcelona"
+description: "Pide un presupuesto a medida para tu proyecto de electrónica o hardware. Cuéntanos qué necesitas y, tras una breve reunión, Opotek te envía la propuesta."
+eyebrow: Pedir presupuesto
+crumb: Pedir presupuesto
+h1: Pide presupuesto para tu proyecto hardware
+lead: "No hay dos proyectos iguales, así que no publicamos una lista de precios que pueda darte una idea equivocada. Cuéntanos qué necesitas, haremos una breve reunión para entenderlo bien y te enviaremos un presupuesto a medida."
+facts: true
+aside: quote
+how: Cómo funciona
+steps:
+- title: Envía tu resumen
+  text: Con el formulario o simplemente por email.
+- title: Reunión gratuita de 30 min
+  text: "Una reunión técnica para entender bien lo que quieres. Nos ayuda a ofrecerte el mejor servicio posible."
+- title: Presupuesto a medida
+  text: "Alcance, fases, plazos y precio, específicos para tu proyecto."
+- title: Arranque
+  text: "NDA primero si lo necesitas, y empezamos a diseñar."
+talk: ¿Prefieres hablar?
+talk_text: Escríbenos o llámanos directamente.
+---
+
+<form id="quote" class="qform" novalidate>
+
+<fieldset><legend><span>01</span>¿Qué necesitas?</legend>
+<div class="pills">
+  <label class="pill"><input type="checkbox" name="need" value="Electrónica y PCB"><span>Electrónica y PCB</span></label>
+  <label class="pill"><input type="checkbox" name="need" value="Firmware"><span>Firmware</span></label>
+  <label class="pill"><input type="checkbox" name="need" value="Mecánica / envolvente"><span>Mecánica / envolvente</span></label>
+  <label class="pill"><input type="checkbox" name="need" value="IA / machine learning"><span>IA / machine learning</span></label>
+  <label class="pill"><input type="checkbox" name="need" value="Automatización industrial"><span>Automatización industrial</span></label>
+  <label class="pill"><input type="checkbox" name="need" value="Control de motores"><span>Control de motores</span></label>
+  <label class="pill"><input type="checkbox" name="need" value="EMC y marcado CE"><span>EMC y marcado CE</span></label>
+  <label class="pill"><input type="checkbox" name="need" value="Prototipo"><span>Prototipo</span></label>
+  <label class="pill"><input type="checkbox" name="need" value="MVP"><span>MVP</span></label>
+  <label class="pill"><input type="checkbox" name="need" value="Producción / series cortas"><span>Producción / series cortas</span></label>
+  <label class="pill"><input type="checkbox" name="need" value="Aún no lo sé"><span>Aún no lo sé</span></label>
+</div>
+</fieldset>
+
+<fieldset><legend><span>02</span>¿En qué punto está el proyecto?</legend>
+<div class="pills">
+  <label class="pill"><input type="radio" name="stage" value="Solo una idea"><span>Solo una idea</span></label>
+  <label class="pill"><input type="radio" name="stage" value="Especificaciones o bocetos"><span>Especificaciones o bocetos</span></label>
+  <label class="pill"><input type="radio" name="stage" value="Prototipo con placa de desarrollo"><span>Prototipo con placa de desarrollo</span></label>
+  <label class="pill"><input type="radio" name="stage" value="Prototipo a medida"><span>Prototipo a medida</span></label>
+  <label class="pill"><input type="radio" name="stage" value="Producto a mejorar"><span>Producto a mejorar</span></label>
+</div>
+</fieldset>
+
+<fieldset><legend><span>03</span>¿Cuántas unidades?</legend>
+<div class="pills">
+  <label class="pill"><input type="radio" name="qty" value="1–5 prototipos"><span>1–5 prototipos</span></label>
+  <label class="pill"><input type="radio" name="qty" value="10–100 unidades"><span>10–100 unidades</span></label>
+  <label class="pill"><input type="radio" name="qty" value="100–1.000 unidades"><span>100–1.000 unidades</span></label>
+  <label class="pill"><input type="radio" name="qty" value="Más de 1.000"><span>Más de 1.000</span></label>
+  <label class="pill"><input type="radio" name="qty" value="No lo sé"><span>No lo sé</span></label>
+</div>
+</fieldset>
+
+<fieldset><legend><span>04</span>¿Para cuándo lo necesitas?</legend>
+<div class="pills">
+  <label class="pill"><input type="radio" name="time" value="Lo antes posible"><span>Lo antes posible</span></label>
+  <label class="pill"><input type="radio" name="time" value="1–3 meses"><span>1–3 meses</span></label>
+  <label class="pill"><input type="radio" name="time" value="3–6 meses"><span>3–6 meses</span></label>
+  <label class="pill"><input type="radio" name="time" value="Flexible"><span>Flexible</span></label>
+</div>
+</fieldset>
+
+<fieldset><legend><span>05</span>Háblanos del producto</legend>
+<textarea name="desc" rows="5" placeholder="Qué hace, para quién es, restricciones (tamaño, consumo, coste objetivo, certificación)…" aria-label="Háblanos del producto"></textarea>
+<div class="row2"><input name="name" placeholder="Nombre" aria-label="Nombre" autocomplete="name"><input name="company" placeholder="Empresa" aria-label="Empresa" autocomplete="organization"></div>
+<label class="check"><input type="checkbox" name="meeting" checked><span>Me gustaría una breve reunión para comentarlo</span></label>
+</fieldset>
+
+<div class="brief">
+<div class="brief-head"><strong>Tu resumen</strong><button type="button" class="btn ghost small" id="copyBrief">Copiar resumen</button></div>
+<pre id="briefText">Selecciona algunas opciones y tu resumen aparecerá aquí.</pre>
+<a class="btn" id="sendBrief" href="mailto:oriol@opotek.es?subject=Solicitud%20de%20presupuesto">Enviar solicitud →</a>
+<p class="note">Abre tu aplicación de correo con el resumen ya escrito. No se envía nada hasta que pulses enviar.</p>
+</div>
+</form>
+
+<h2>¿Qué determina el precio de un proyecto?</h2>
+<ul class="checks">
+  <li>Alcance: una sola disciplina o electrónica, firmware y mecánica juntas.</li>
+  <li>Complejidad de la PCB: número de capas, potencia, RF y conectividad.</li>
+  <li>Requisitos de certificación y EMC.</li>
+  <li>Diseño de la envolvente y proceso de fabricación.</li>
+  <li>Número de prototipos y de unidades de producción.</li>
+</ul>
+<p>Estos factores cambian mucho el esfuerzo de un proyecto a otro; por eso presupuestamos cada proyecto de forma individual en lugar de publicar precios cerrados.</p>
+
+<!-- Builds the brief and the mailto link from the selected options. -->
+<script>
+(() => {
+  const L = {"need": "Qué necesitas", "stage": "En qué punto está el proyecto", "qty": "Cuántas unidades", "time": "Para cuándo lo necesitas", "desc": "Háblanos del producto", "meeting": "Me gustaría agendar una breve reunión para comentarlo.", "empty": "Selecciona algunas opciones y tu resumen aparecerá aquí.", "subject": "Solicitud de presupuesto", "copied": "Copiado", "copy": "Copiar resumen", "email": "oriol@opotek.es"};
+  const form = document.getElementById('quote');
+  const out = document.getElementById('briefText');
+  const send = document.getElementById('sendBrief');
+  const copy = document.getElementById('copyBrief');
+  function build() {
+    const fd = new FormData(form);
+    const lines = [];
+    const needs = fd.getAll('need');
+    if (needs.length) lines.push(L.need + ': ' + needs.join(', '));
+    ['stage', 'qty', 'time'].forEach(k => { if (fd.get(k)) lines.push(L[k] + ': ' + fd.get(k)); });
+    const desc = (fd.get('desc') || '').trim();
+    if (desc) lines.push('', L.desc + ':', desc);
+    if (lines.length && fd.get('meeting')) lines.push('', L.meeting);
+    const who = [fd.get('name'), fd.get('company')].map(v => (v || '').trim()).filter(Boolean).join(' · ');
+    if (who && lines.length) lines.push('', who);
+    const text = lines.join('\n');
+    out.textContent = text || L.empty;
+    out.classList.toggle('filled', !!text);
+    const company = (fd.get('company') || '').trim();
+    send.href = 'mailto:' + L.email + '?subject=' + encodeURIComponent(L.subject + (company ? ' · ' + company : '')) + '&body=' + encodeURIComponent(text);
+  }
+  form.addEventListener('input', build);
+  form.addEventListener('change', build);
+  form.addEventListener('submit', ev => { ev.preventDefault(); location.href = send.href; });
+  copy.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(out.textContent); copy.textContent = L.copied; setTimeout(() => copy.textContent = L.copy, 1500); } catch (err) {}
+  });
+  build();
+})();
+</script>

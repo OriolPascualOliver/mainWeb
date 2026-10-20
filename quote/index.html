@@ -1,0 +1,130 @@
+---
+layout: inner
+lang: en
+title: "Request a Quote | Opotek Hardware Engineering, Barcelona"
+description: "Request a tailored quote for your electronics or hardware project. Tell us what you need; after a short call, Opotek sends a quote per project phase."
+eyebrow: Request a quote
+crumb: Request a quote
+h1: Request a quote for your hardware project
+lead: "No two projects are alike, so we don’t publish a price list that could give you the wrong idea. Tell us what you need, we’ll set up a short call to understand it properly, and then send you a tailored quote."
+facts: true
+aside: quote
+how: How it works
+steps:
+- title: Send your brief
+  text: Use the form or simply email us.
+- title: Free 30-min call
+  text: "A technical scoping call to fully understand what you want. It helps us give you the best service possible."
+- title: Tailored quote
+  text: "Scope, phases, timeline and price, specific to your project."
+- title: Kick-off
+  text: "NDA first if you need it, then design starts."
+talk: Prefer to talk?
+talk_text: Email or call us directly.
+---
+
+<form id="quote" class="qform" novalidate>
+
+<fieldset><legend><span>01</span>What do you need?</legend>
+<div class="pills">
+  <label class="pill"><input type="checkbox" name="need" value="Electronics &amp; PCB"><span>Electronics &amp; PCB</span></label>
+  <label class="pill"><input type="checkbox" name="need" value="Firmware"><span>Firmware</span></label>
+  <label class="pill"><input type="checkbox" name="need" value="Mechanical / enclosure"><span>Mechanical / enclosure</span></label>
+  <label class="pill"><input type="checkbox" name="need" value="AI / machine learning"><span>AI / machine learning</span></label>
+  <label class="pill"><input type="checkbox" name="need" value="Industrial automation"><span>Industrial automation</span></label>
+  <label class="pill"><input type="checkbox" name="need" value="Motor control"><span>Motor control</span></label>
+  <label class="pill"><input type="checkbox" name="need" value="EMC &amp; CE marking"><span>EMC &amp; CE marking</span></label>
+  <label class="pill"><input type="checkbox" name="need" value="Prototype"><span>Prototype</span></label>
+  <label class="pill"><input type="checkbox" name="need" value="MVP"><span>MVP</span></label>
+  <label class="pill"><input type="checkbox" name="need" value="Production / small batch"><span>Production / small batch</span></label>
+  <label class="pill"><input type="checkbox" name="need" value="Not sure yet"><span>Not sure yet</span></label>
+</div>
+</fieldset>
+
+<fieldset><legend><span>02</span>Where is the project now?</legend>
+<div class="pills">
+  <label class="pill"><input type="radio" name="stage" value="Just an idea"><span>Just an idea</span></label>
+  <label class="pill"><input type="radio" name="stage" value="Specs or sketches"><span>Specs or sketches</span></label>
+  <label class="pill"><input type="radio" name="stage" value="Dev-kit prototype"><span>Dev-kit prototype</span></label>
+  <label class="pill"><input type="radio" name="stage" value="Custom prototype"><span>Custom prototype</span></label>
+  <label class="pill"><input type="radio" name="stage" value="Product to improve"><span>Product to improve</span></label>
+</div>
+</fieldset>
+
+<fieldset><legend><span>03</span>How many units?</legend>
+<div class="pills">
+  <label class="pill"><input type="radio" name="qty" value="1–5 prototypes"><span>1–5 prototypes</span></label>
+  <label class="pill"><input type="radio" name="qty" value="10–100 units"><span>10–100 units</span></label>
+  <label class="pill"><input type="radio" name="qty" value="100–1,000 units"><span>100–1,000 units</span></label>
+  <label class="pill"><input type="radio" name="qty" value="1,000+ units"><span>1,000+ units</span></label>
+  <label class="pill"><input type="radio" name="qty" value="Not sure"><span>Not sure</span></label>
+</div>
+</fieldset>
+
+<fieldset><legend><span>04</span>When do you need it?</legend>
+<div class="pills">
+  <label class="pill"><input type="radio" name="time" value="As soon as possible"><span>As soon as possible</span></label>
+  <label class="pill"><input type="radio" name="time" value="1–3 months"><span>1–3 months</span></label>
+  <label class="pill"><input type="radio" name="time" value="3–6 months"><span>3–6 months</span></label>
+  <label class="pill"><input type="radio" name="time" value="Flexible"><span>Flexible</span></label>
+</div>
+</fieldset>
+
+<fieldset><legend><span>05</span>Tell us about the product</legend>
+<textarea name="desc" rows="5" placeholder="What does it do, who is it for, any constraints (size, power, cost target, certification)…" aria-label="Tell us about the product"></textarea>
+<div class="row2"><input name="name" placeholder="Name" aria-label="Name" autocomplete="name"><input name="company" placeholder="Company" aria-label="Company" autocomplete="organization"></div>
+<label class="check"><input type="checkbox" name="meeting" checked><span>I’d like a short call to discuss it</span></label>
+</fieldset>
+
+<div class="brief">
+<div class="brief-head"><strong>Your brief</strong><button type="button" class="btn ghost small" id="copyBrief">Copy brief</button></div>
+<pre id="briefText">Select a few options above and your brief will appear here.</pre>
+<a class="btn" id="sendBrief" href="mailto:oriol@opotek.es?subject=Quote%20request">Send request →</a>
+<p class="note">Opens your email app with the brief filled in. Nothing is sent until you press send.</p>
+</div>
+</form>
+
+<h2>What determines the price of a project?</h2>
+<ul class="checks">
+  <li>Scope: one discipline or electronics, firmware and mechanics together.</li>
+  <li>PCB complexity: layer count, power level, RF and connectivity.</li>
+  <li>Certification and EMC requirements.</li>
+  <li>Enclosure design and manufacturing process.</li>
+  <li>Number of prototypes and production units.</li>
+</ul>
+<p>These factors change the effort a lot from one project to another, which is why we quote each project individually instead of publishing fixed prices.</p>
+
+<!-- Builds the brief and the mailto link from the selected options. -->
+<script>
+(() => {
+  const L = {"need": "What do you need", "stage": "Where is the project now", "qty": "How many units", "time": "When do you need it", "desc": "Tell us about the product", "meeting": "I’d like to schedule a short call to discuss it.", "empty": "Select a few options above and your brief will appear here.", "subject": "Quote request", "copied": "Copied", "copy": "Copy brief", "email": "oriol@opotek.es"};
+  const form = document.getElementById('quote');
+  const out = document.getElementById('briefText');
+  const send = document.getElementById('sendBrief');
+  const copy = document.getElementById('copyBrief');
+  function build() {
+    const fd = new FormData(form);
+    const lines = [];
+    const needs = fd.getAll('need');
+    if (needs.length) lines.push(L.need + ': ' + needs.join(', '));
+    ['stage', 'qty', 'time'].forEach(k => { if (fd.get(k)) lines.push(L[k] + ': ' + fd.get(k)); });
+    const desc = (fd.get('desc') || '').trim();
+    if (desc) lines.push('', L.desc + ':', desc);
+    if (lines.length && fd.get('meeting')) lines.push('', L.meeting);
+    const who = [fd.get('name'), fd.get('company')].map(v => (v || '').trim()).filter(Boolean).join(' · ');
+    if (who && lines.length) lines.push('', who);
+    const text = lines.join('\n');
+    out.textContent = text || L.empty;
+    out.classList.toggle('filled', !!text);
+    const company = (fd.get('company') || '').trim();
+    send.href = 'mailto:' + L.email + '?subject=' + encodeURIComponent(L.subject + (company ? ' · ' + company : '')) + '&body=' + encodeURIComponent(text);
+  }
+  form.addEventListener('input', build);
+  form.addEventListener('change', build);
+  form.addEventListener('submit', ev => { ev.preventDefault(); location.href = send.href; });
+  copy.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(out.textContent); copy.textContent = L.copied; setTimeout(() => copy.textContent = L.copy, 1500); } catch (err) {}
+  });
+  build();
+})();
+</script>

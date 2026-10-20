@@ -1,0 +1,22 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{%- comment %} Every English page with a Spanish twin under /es/ is listed in both languages. {% endcomment -%}
+{%- for pg in site.pages %}{% if pg.lang == 'en' and pg.noindex != true %}
+{%- for n in (1..2) %}
+  <url>
+    <loc>{{ site.url }}{% if n == 2 %}/es{% endif %}{{ pg.url }}</loc>
+    <lastmod>{{ site.updated }}</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="{{ site.url }}{{ pg.url }}"/>
+    <xhtml:link rel="alternate" hreflang="es" href="{{ site.url }}/es{{ pg.url }}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ pg.url }}"/>
+  </url>
+{%- endfor %}
+{%- endif %}{% endfor %}
+  <url>
+    <loc>{{ site.url }}/hayraManual/</loc>
+    <lastmod>{{ site.updated }}</lastmod>
+  </url>
+</urlset>
