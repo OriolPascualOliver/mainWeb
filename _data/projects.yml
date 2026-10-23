@@ -199,3 +199,39 @@
     desc: Mando de control basado en un motor BLDC con respuesta táctil que permite a los visitantes controlar estroboscopios industriales en una exposición de CosmoCaixa que simula el movimiento de partículas.
     tags: [Control de motores, Háptica, Sistemas embebidos]
     specs: [Motor BLDC con FOC, Respuesta táctil programable]
+- id: door-test-bench
+  images: []   # add photos here, e.g.  - {file: between-door-bench-1.jpg, en: "alt text", es: "texto alternativo"}
+  en:
+    title: Door Life-Cycle Test Bench for an Industrial Large-Format Printer
+    short: BLDC door life-cycle test bench
+    client: Between Technology
+    industry: Industrial Printing / Test Equipment
+    desc: "Automated test bench that opens and closes the door of an industrial large-format printer again and again with a BLDC motor, to verify the door's lifetime before the printer goes into production."
+    tags: [Test Equipment, Motor Control, Reliability Testing]
+    specs: [BLDC motor drive, Automated open/close cycling]
+  es:
+    title: Banco de ensayo de vida útil para la puerta de una impresora industrial de gran formato
+    short: Banco de ciclos de vida con motor BLDC
+    client: Between Technology
+    industry: Impresión industrial / Equipos de test
+    desc: "Banco de ensayo automatizado que abre y cierra una y otra vez la puerta de una impresora industrial de gran formato mediante un motor BLDC, para verificar la vida útil de la puerta antes de que la impresora entre en producción."
+    tags: [Equipos de test, Control de motores, Ensayos de fiabilidad]
+    specs: [Accionamiento con motor BLDC, Ciclos automáticos de apertura y cierre]
+- id: esd-jigs
+  images: []   # add photos here, e.g.  - {file: esd-jig-1.jpg, en: "alt text", es: "texto alternativo"}
+  en:
+    title: ESD-Safe 3D-Printed Test Jigs and Bed-of-Nails Fixtures
+    short: ESD 3D-printed jigs and bed-of-nails fixtures
+    client: Opotek (internal tools)
+    industry: Production Test / Manufacturing
+    desc: "Programming jigs and bed-of-nails test fixtures built from ESD-safe 3D-printed parts. Printing them in-house cuts fixture cost and lead time, so boards reach production testing sooner."
+    tags: [Test Fixtures, 3D Printing, ESD, Production Test]
+    specs: [ESD-safe printed parts, Pogo-pin bed of nails]
+  es:
+    title: Utillajes de test y camas de pinchos con piezas impresas en 3D antiestáticas (ESD)
+    short: Utillajes y camas de pinchos impresos en 3D (ESD)
+    client: Opotek (herramientas internas)
+    industry: Test de producción / Fabricación
+    desc: "Utillajes de programación y camas de pinchos para test construidos con piezas impresas en 3D antiestáticas (ESD). Imprimirlos internamente reduce el coste y el plazo de los utillajes, de modo que las placas llegan antes al test de producción."
+    tags: [Utillajes de test, Impresión 3D, ESD, Test de producción]
+    specs: [Piezas impresas ESD, Cama de pinchos con pogo pins]
