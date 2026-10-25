@@ -6,9 +6,9 @@ email: oriol@opotek.es
 phone: "+34 646 617 993"
 phone_link: "+34646617993"
 
-# Quote form backend. FormSubmit needs a one-time activation: the first submission
-# sends a confirmation email to the address below; click the link in it once.
-form_endpoint: https://formsubmit.co/ajax/oriol@opotek.es
+# Quote form backend: URL of the Google Apps Script web app in _form/apps-script.gs
+# (free, emails each request to oriol@opotek.es). Setup steps are at the top of that file.
+form_endpoint: https://script.google.com/macros/s/AKfycby9sW6CNh9LANtOXCRXLaRbVFRB_6IccZuR7hgSItcimEWc7pe9HzZHxB24vW423UKB/exec
 
 # "Last updated" date shown on service pages and used in sitemap.xml
 updated: "2026-10-20"

@@ -1,6 +1,7 @@
 // Quote form: builds a readable brief from the selected options and sends it to the
-// form backend set in data-endpoint (FormSubmit). If sending fails, the visitor can
-// copy the brief or open it in their own email app instead.
+// form backend set in data-endpoint (form_endpoint in _config.yml: the Google Apps Script
+// in _form/apps-script.gs). If sending fails, the visitor can copy the brief or open it
+// in their own email app instead.
 (() => {
   const form = document.getElementById('quote');
   if (!form) return;
@@ -52,9 +53,11 @@
     submit.disabled = true;
     setStatus(L.sending);
     try {
+      // Google Apps Script only accepts "simple" requests (no CORS preflight), so the JSON goes as text/plain there.
+      const isAppsScript = form.dataset.endpoint.includes('script.google.com');
       const res = await fetch(form.dataset.endpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        headers: isAppsScript ? { 'Content-Type': 'text/plain;charset=utf-8' } : { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
           _subject: subject(fd), _replyto: val(fd, 'email'), _template: 'table',
           name: val(fd, 'name'), company: val(fd, 'company'), email: val(fd, 'email'), phone: val(fd, 'phone'),
@@ -62,7 +65,7 @@
         })
       });
       const data = await res.json().catch(() => ({}));
-      if (!res.ok || String(data.success) === 'false') throw new Error(data.message || res.status);
+      if (!res.ok || data.ok === false || String(data.success) === 'false') throw new Error(data.error || data.message || res.status);
       form.classList.add('sent');
       setStatus(L.sent, 'ok');
     } catch (err) {
