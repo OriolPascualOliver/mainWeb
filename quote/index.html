@@ -23,7 +23,7 @@ talk: Prefer to talk?
 talk_text: Email or call us directly.
 ---
 
-<form id="quote" class="qform" novalidate data-endpoint="{{ site.form_endpoint }}" data-labels='{"need": "What do you need", "stage": "Where is the project now", "qty": "How many units", "time": "When do you need it", "desc": "About the product", "meeting": "I’d like to schedule a free 30-min call to discuss it.", "empty": "Select a few options above and your brief will appear here.", "subject": "Quote request", "copied": "Copied", "copy": "Copy brief", "email": "oriol@opotek.es", "needInfo": "Tell us a little about the project first: tick what you need or describe the product.", "needEmail": "Please add your email so we can reply.", "sending": "Sending…", "sent": "Thanks! Your request has been sent. We’ll get back to you shortly to set up the call.", "failed": "The form couldn’t be sent. Please use “Open it in your email app” below, or copy the brief and email it to <a href=\"mailto:oriol@opotek.es\">oriol@opotek.es</a>."}'>
+<form id="quote" class="qform" novalidate data-endpoint="{{ site.form_endpoint }}" data-labels='{"need": "What do you need", "stage": "Where is the project now", "qty": "How many units", "time": "When do you need it", "desc": "About the product", "client": "Contacting as", "types": {"B2B": "Company / professional", "B2C": "Private individual"}, "needType": "Tell us whether you’re contacting us as a company or as a private individual.", "meeting": "I’d like to schedule a free 30-min call to discuss it.", "empty": "Select a few options above and your brief will appear here.", "subject": "Quote request", "copied": "Copied", "copy": "Copy brief", "email": "oriol@opotek.es", "needInfo": "Tell us a little about the project first: tick what you need or describe the product.", "needEmail": "Please add your email so we can reply.", "sending": "Sending…", "sent": "Thanks! Your request has been sent. We’ll get back to you shortly to set up the call.", "failed": "The form couldn’t be sent. Please use “Open it in your email app” below, or copy the brief and email it to <a href=\"mailto:oriol@opotek.es\">oriol@opotek.es</a>."}'>
 
 <fieldset><legend><span>01</span>What do you need?</legend>
 <div class="pills">
@@ -72,6 +72,10 @@ talk_text: Email or call us directly.
 
 <fieldset><legend><span>05</span>Tell us about the product</legend>
 <textarea name="desc" rows="5" placeholder="What does it do, who is it for, any constraints (size, power, cost target, certification)…" aria-label="Tell us about the product"></textarea>
+<div class="who" role="radiogroup" aria-label="Contacting as"><span>Contacting as</span>
+  <label class="pill"><input type="radio" name="client_type" value="B2B"><span>Company / professional</span></label>
+  <label class="pill"><input type="radio" name="client_type" value="B2C"><span>Private individual</span></label>
+</div>
 <div class="row2"><input name="name" placeholder="Name" aria-label="Name" autocomplete="name"><input name="company" placeholder="Company" aria-label="Company" autocomplete="organization"></div>
 <div class="row2"><input type="email" name="email" required placeholder="Email (so we can reply)" aria-label="Email (so we can reply)" autocomplete="email"><input type="tel" name="phone" placeholder="Phone (optional)" aria-label="Phone (optional)" autocomplete="tel"></div>
 <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">

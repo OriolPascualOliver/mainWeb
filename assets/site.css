@@ -287,6 +287,8 @@ h1{
 .qform textarea:focus, .qform input:not([type]):focus, .qform input[type=email]:focus, .qform input[type=tel]:focus{ outline:none; border-color:rgba(255,255,255,.5); }
 .row2{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px; }
 @media (max-width:560px){ .row2{ grid-template-columns:1fr; } }
+.who{ display:flex; flex-wrap:wrap; align-items:center; gap:8px 10px; margin-top:14px; }
+.who > span{ font-size:14px; color:var(--soft); margin-right:4px; }
 .check{ display:flex; align-items:center; gap:10px; margin-top:14px; font-size:14px; color:var(--soft); cursor:pointer; }
 .check input{ width:18px; height:18px; accent-color:#fff; }
 .brief{

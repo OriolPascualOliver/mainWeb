@@ -8,7 +8,7 @@ phone_link: "+34646617993"
 
 # Quote form backend: URL of the Google Apps Script web app in _form/apps-script.gs
 # (free, emails each request to oriol@opotek.es). Setup steps are at the top of that file.
-form_endpoint: https://script.google.com/macros/s/AKfycby9sW6CNh9LANtOXCRXLaRbVFRB_6IccZuR7hgSItcimEWc7pe9HzZHxB24vW423UKB/exec
+form_endpoint: https://script.google.com/macros/s/AKfycbytn6b3IhdlzJuMr6WoZnQRF7DPA-iHmKkuK89H-2lgmyGrgc7RjVt6ExsmkBxVQrQu/exec
 
 # "Last updated" date shown on service pages and used in sitemap.xml
 updated: "2026-10-20"
