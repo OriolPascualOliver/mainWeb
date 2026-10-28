@@ -21,7 +21,7 @@ en:
   all_services: All services
   facts:
   - Based in Barcelona
-  - NDA by default
+  - 'NDA on request (see <a href="/terms/">terms</a>)'
   - "IP ownership: your choice"
   loc: "Opotek · Barcelona, Spain"
   legal_name: "Oriol Pascual Oliver, trading as Opotek"
@@ -29,6 +29,7 @@ en:
   legal: Legal
   privacy: Privacy Policy
   cookies: Cookies Policy
+  terms: Terms & conditions
   disclaimer: Disclaimer
   rights: All rights reserved.
   skip: Skip to content
@@ -67,7 +68,7 @@ es:
   all_services: Todos los servicios
   facts:
   - Con base en Barcelona
-  - NDA por defecto
+  - 'NDA bajo petición (ver <a href="/es/terms/">condiciones</a>)'
   - "Propiedad intelectual: tú decides"
   loc: "Opotek · Barcelona, España"
   legal_name: "Oriol Pascual Oliver, con nombre comercial Opotek"
@@ -75,6 +76,7 @@ es:
   legal: Legal
   privacy: Política de privacidad
   cookies: Política de cookies
+  terms: Términos y condiciones
   disclaimer: Aviso legal
   rights: Todos los derechos reservados.
   skip: Saltar al contenido

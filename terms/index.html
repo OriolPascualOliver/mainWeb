@@ -1,0 +1,65 @@
+---
+layout: inner
+lang: en
+title: "Quote Request Terms & Conditions | Opotek"
+description: "Terms that apply when you request a quote from Opotek: confidentiality before and after an NDA, patents and the optional patent check, quotes, consumer rights and the business details required in Spain."
+eyebrow: Legal
+crumb: Terms & conditions
+h1: Quote request terms and conditions
+lead: "These terms apply when you send us a request through the quote form, by email or by phone, and to the conversations before a project is contracted. Once you accept a quote, the project is governed by that quote and, if signed, the NDA and contract."
+---
+
+<p><small>Last updated: {{ site.terms_updated }}</small></p>
+
+<h2>1. Who we are</h2>
+<p>In compliance with Article 10 of Spanish Law 34/2002 (LSSI-CE), these are the details of the service provider:</p>
+<ul>
+  <li><strong>Owner:</strong> {{ site.legal_owner }}, self-employed engineer trading as Opotek</li>
+  {%- if site.nif != "" %}
+  <li><strong>NIF:</strong> {{ site.nif }}</li>
+  {%- endif %}
+  {%- if site.address != "" %}
+  <li><strong>Address:</strong> {{ site.address }}</li>
+  {%- endif %}
+  <li><strong>Email:</strong> <a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+  <li><strong>Phone:</strong> <a href="tel:{{ site.phone_link }}">{{ site.phone }}</a></li>
+  <li><strong>Activity:</strong> electronics and hardware engineering services</li>
+</ul>
+
+<h2>2. Confidentiality: before and after an NDA</h2>
+<ul>
+  <li><strong>Before an NDA is signed,</strong> nothing you send us (through the form, by email, by phone or in the first call) is covered by any NDA or confidentiality agreement. We use it only to understand and quote your request, but please don’t share anything you consider confidential at this stage. A general description of the product is enough for us to scope it.</li>
+  <li><strong>After an NDA is signed,</strong> the information you share from then on is protected under the terms of that NDA. We are happy to sign one before you share the details: just ask.</li>
+  <li>An NDA does not cover information shared before it was signed, unless the NDA itself says so.</li>
+</ul>
+
+<h2>3. Patents and third-party rights</h2>
+<p>You are responsible for making sure the product you ask us to develop does not infringe patents or other intellectual property rights of third parties. When you send a request you must choose one of these options:</p>
+<ul>
+  <li><strong>You have checked it yourself:</strong> you confirm that you have reviewed existing patents and, to the best of your knowledge, your product does not infringe any of them.</li>
+  <li><strong>You order our patent check:</strong> a preliminary search of public patent databases (such as Espacenet, Google Patents and the Spanish Patent Office, OEPM) for patents close to your idea, delivered as a short written report. Price: {{ site.patent_check_price }} + IVA, depending on the scope. We confirm the exact price, including IVA, before you pay, and start once it is paid.</li>
+</ul>
+<p>The patent check is a technical search, not a legal opinion. It cannot guarantee that no relevant patent exists and does not replace a freedom-to-operate analysis by a registered patent attorney (in Spain, an <em>agente de la propiedad industrial</em>). Opotek is not liable for infringements of third-party rights by the product.</p>
+
+<h2>4. Quotes</h2>
+<ul>
+  <li>Requesting a quote and the first 30-minute call are free and don’t commit you to anything.</li>
+  <li>A quote becomes binding only when you accept it in writing. Scope, phases, price, timeline and intellectual property ownership are set in each quote.</li>
+  <li>Prices for businesses are quoted before IVA. Prices for consumers are given with IVA included.</li>
+</ul>
+
+<h2>5. If you are a consumer</h2>
+<p>If you contract as a private individual (not for a business or profession), Spanish consumer law (Real Decreto Legislativo 1/2007) applies:</p>
+<ul>
+  <li>For services contracted at a distance, you have 14 calendar days from the contract to withdraw without giving a reason, by telling us at <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</li>
+  <li>If you ask us to start within those 14 days and then withdraw, you pay only for the part of the service already provided.</li>
+  <li>Once a service such as the patent check has been fully delivered with your prior express consent, and your acknowledgement that you lose the right of withdrawal, it can no longer be withdrawn.</li>
+  <li>Official complaint forms (<em>hojas de reclamación</em>) are available on request.</li>
+</ul>
+
+<h2>6. Personal data</h2>
+<p>The details you send are used only to answer your request. See our <a href="/policy.html?lang=en#privacy">privacy policy</a> for how we process them and how to exercise your rights.</p>
+
+<h2>7. Applicable law</h2>
+<p>These terms are governed by Spanish law. Consumers may go to the courts of their place of residence. For businesses, the parties submit to the courts of Barcelona.</p>
+<p>The <a href="/legal.html">legal notice</a> covers the general use of this website.</p>

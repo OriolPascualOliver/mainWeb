@@ -10,6 +10,15 @@ phone_link: "+34646617993"
 # (free, emails each request to oriol@opotek.es). Setup steps are at the top of that file.
 form_endpoint: https://script.google.com/macros/s/AKfycbytn6b3IhdlzJuMr6WoZnQRF7DPA-iHmKkuK89H-2lgmyGrgc7RjVt6ExsmkBxVQrQu/exec
 
+# Legal details required in Spain (LSSI-CE art. 10), shown on /terms/ and /es/terms/.
+# NIF and postal address are mandatory for a business website in Spain: fill them in.
+legal_owner: "Oriol Pascual Oliver"
+nif: "49223059T"
+address: "Carrer orenetes 37, 08232 Barcelona, Spain"
+terms_updated: "2026-10-28"
+# Price of the optional preliminary patent search offered in the quote form (before IVA)
+patent_check_price: "25 €"
+
 # "Last updated" date shown on service pages and used in sitemap.xml
 updated: "2026-10-20"
 

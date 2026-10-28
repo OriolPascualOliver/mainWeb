@@ -23,7 +23,7 @@ talk: ¿Prefieres hablar?
 talk_text: Escríbenos o llámanos directamente.
 ---
 
-<form id="quote" class="qform" novalidate data-endpoint="{{ site.form_endpoint }}" data-labels='{"need": "Qué necesitas", "stage": "En qué punto está el proyecto", "qty": "Cuántas unidades", "time": "Para cuándo lo necesitas", "desc": "Sobre el producto", "client": "Contacto como", "types": {"B2B": "Empresa / profesional", "B2C": "Particular"}, "needType": "Indícanos si nos contactas como empresa o como particular.", "meeting": "Me gustaría agendar una reunión gratuita de 30 minutos para comentarlo.", "empty": "Selecciona algunas opciones y tu resumen aparecerá aquí.", "subject": "Solicitud de presupuesto", "copied": "Copiado", "copy": "Copiar resumen", "email": "oriol@opotek.es", "needInfo": "Cuéntanos un poco sobre el proyecto: marca qué necesitas o describe el producto.", "needEmail": "Añade tu email para que podamos responderte.", "sending": "Enviando…", "sent": "¡Gracias! Tu solicitud se ha enviado. Te contactaremos en breve para agendar la reunión.", "failed": "No se ha podido enviar el formulario. Usa «Ábrelo en tu aplicación de correo» o copia el resumen y envíalo a <a href=\"mailto:oriol@opotek.es\">oriol@opotek.es</a>."}'>
+<form id="quote" class="qform" novalidate data-endpoint="{{ site.form_endpoint }}" data-labels='{"need": "Qué necesitas", "stage": "En qué punto está el proyecto", "qty": "Cuántas unidades", "time": "Para cuándo lo necesitas", "desc": "Sobre el producto", "client": "Contacto como", "types": {"B2B": "Empresa / profesional", "B2C": "Particular"}, "patent": "Patentes", "patents": {"self": "He revisado yo las patentes existentes", "check": "Encargo la búsqueda de patentes ({{ site.patent_check_price }} + IVA)"}, "terms": "Acepto las condiciones de solicitud de presupuesto", "needPatent": "Indícanos si has revisado las patentes o si quieres que hagamos la búsqueda de patentes.", "needTerms": "Acepta los términos y condiciones para enviar tu solicitud.", "needType": "Indícanos si nos contactas como empresa o como particular.", "meeting": "Me gustaría agendar una reunión gratuita de 30 minutos para comentarlo.", "empty": "Selecciona algunas opciones y tu resumen aparecerá aquí.", "subject": "Solicitud de presupuesto", "copied": "Copiado", "copy": "Copiar resumen", "email": "oriol@opotek.es", "needInfo": "Cuéntanos un poco sobre el proyecto: marca qué necesitas o describe el producto.", "needEmail": "Añade tu email para que podamos responderte.", "sending": "Enviando…", "sent": "¡Gracias! Tu solicitud se ha enviado. Te contactaremos en breve para agendar la reunión.", "failed": "No se ha podido enviar el formulario. Usa «Ábrelo en tu aplicación de correo» o copia el resumen y envíalo a <a href=\"mailto:oriol@opotek.es\">oriol@opotek.es</a>."}'>
 
 <fieldset><legend><span>01</span>¿Qué necesitas?</legend>
 <div class="pills">
@@ -80,6 +80,15 @@ talk_text: Escríbenos o llámanos directamente.
 <div class="row2"><input type="email" name="email" required placeholder="Email (para poder responderte)" aria-label="Email (para poder responderte)" autocomplete="email"><input type="tel" name="phone" placeholder="Teléfono (opcional)" aria-label="Teléfono (opcional)" autocomplete="tel"></div>
 <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 <label class="check"><input type="checkbox" name="meeting" checked><span>Me gustaría una reunión gratuita de 30 minutos para comentarlo</span></label>
+</fieldset>
+
+<fieldset><legend><span>06</span>Antes de enviar</legend>
+<p class="hint">Eres responsable de asegurarte de que tu producto no infringe patentes de terceros. Elige una opción:</p>
+<div class="pills" role="radiogroup" aria-label="Patentes">
+  <label class="pill"><input type="radio" name="patent" value="self"><span>He revisado las patentes existentes y mi idea no infringe ninguna</span></label>
+  <label class="pill"><input type="radio" name="patent" value="check"><span>Haced la búsqueda de patentes por mí ({{ site.patent_check_price }} + IVA)</span></label>
+</div>
+<label class="check"><input type="checkbox" name="terms" required><span>He leído y acepto los <a href="/es/terms/" target="_blank">términos y condiciones</a>.</span></label>
 </fieldset>
 
 <div class="brief">

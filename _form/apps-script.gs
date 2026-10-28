@@ -1,7 +1,9 @@
 /**
  * Opotek quote form backend (Google Apps Script). Free, runs on your Google account.
  * Receives the website's quote form and emails it to TO, with the visitor as reply-to.
- * Subjects start with [LEAD][B2B] or [LEAD][B2C] so they can be filtered in the inbox.
+ * Subjects start with [LEAD][B2B] or [LEAD][B2C] so they can be filtered in the inbox,
+ * followed by [PATENT-CHECK] when the visitor orders the paid patent check.
+ * Requests must accept the terms (/terms/ on the website) and choose a patent option.
  *
  * Setup (once):
  *  1. Go to https://script.google.com -> New project. Paste this whole file, replacing what is there.
@@ -23,6 +25,7 @@ const TO = 'oriol@opotek.es';
 const MAX_PER_HOUR = 20;          // protects the daily email quota from floods
 const LIMITS = { name: 200, company: 200, email: 254, phone: 50, subject: 200, message: 5000 };
 const CLIENT_TYPES = ['B2B', 'B2C'];
+const PATENT = { self: 'Client says they checked existing patents', check: 'Client ORDERS the paid patent check' };
 const POW_MAX_NUMBER = 50000;     // puzzle difficulty: the browser tries up to this many hashes
 const POW_TTL_MS = 15 * 60 * 1000;
 
@@ -35,7 +38,9 @@ function doPost(e) {
     const email = field('email', LIMITS.email);
     const message = field('message', LIMITS.message);
     const type = String(d.client_type || '');
-    if (!message || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || CLIENT_TYPES.indexOf(type) < 0) {
+    const patent = String(d.patent || '');
+    if (!message || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || CLIENT_TYPES.indexOf(type) < 0
+        || !PATENT.hasOwnProperty(patent) || d.terms !== true) {
       return reply({ ok: false, error: 'invalid' });
     }
 
@@ -48,6 +53,8 @@ function doPost(e) {
       'Company: ' + field('company', LIMITS.company),
       'Email: ' + email,
       'Phone: ' + field('phone', LIMITS.phone),
+      'Patents: ' + PATENT[patent],
+      'Terms accepted: yes, ' + new Date().toISOString(),
       '',
       message,
       '',
@@ -57,7 +64,8 @@ function doPost(e) {
     MailApp.sendEmail({
       to: TO,
       replyTo: email,
-      subject: '[LEAD][' + type + '] ' + (field('_subject', LIMITS.subject) || 'Quote request'),
+      subject: '[LEAD][' + type + ']' + (patent === 'check' ? '[PATENT-CHECK]' : '') + ' '
+        + (field('_subject', LIMITS.subject) || 'Quote request'),
       body: body,
       name: 'Opotek website'
     });

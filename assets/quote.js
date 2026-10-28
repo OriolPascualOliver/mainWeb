@@ -2,7 +2,8 @@
 // form backend set in data-endpoint (form_endpoint in _config.yml: the Google Apps Script
 // in _form/apps-script.gs). If sending fails, the visitor can copy the brief or open it
 // in their own email app instead. The backend needs a solved bot-check puzzle and the
-// client type (B2B/B2C), which it puts in the email subject as [LEAD][B2B] / [LEAD][B2C].
+// client type (B2B/B2C), which it puts in the email subject as [LEAD][B2B] / [LEAD][B2C],
+// plus the patent choice ([PATENT-CHECK] when ordered) and acceptance of the terms (/terms/).
 (() => {
   const form = document.getElementById('quote');
   if (!form) return;
@@ -24,6 +25,8 @@
     ['stage', 'qty', 'time'].forEach(k => { if (fd.get(k)) lines.push(L[k] + ': ' + fd.get(k)); });
     if (val(fd, 'desc')) lines.push('', L.desc + ':', val(fd, 'desc'));
     if (lines.length && fd.get('meeting')) lines.push('', L.meeting);
+    if (lines.length && fd.get('patent')) lines.push(L.patent + ': ' + L.patents[fd.get('patent')]);
+    if (lines.length && fd.get('terms')) lines.push(L.terms);
     const who = [val(fd, 'name'), val(fd, 'company'), val(fd, 'email'), val(fd, 'phone')].filter(Boolean).join(' · ');
     if (who && lines.length) lines.push('', who);
     return lines.join('\n');
@@ -34,7 +37,8 @@
     const text = brief(fd);
     out.textContent = text || L.empty;
     out.classList.toggle('filled', !!text);
-    const tag = '[LEAD]' + (fd.get('client_type') ? '[' + fd.get('client_type') + ']' : '') + ' ';  // the backend adds the same tag
+    const tag = '[LEAD]' + (fd.get('client_type') ? '[' + fd.get('client_type') + ']' : '')
+      + (fd.get('patent') === 'check' ? '[PATENT-CHECK]' : '') + ' ';  // the backend adds the same tags
     mail.href = 'mailto:' + L.email + '?subject=' + encodeURIComponent(tag + subject(fd)) + '&body=' + encodeURIComponent(text);
   }
 
@@ -70,6 +74,8 @@
     if (!fd.getAll('need').length && !val(fd, 'desc')) { setStatus(L.needInfo, 'err'); return; }
     if (!fd.get('client_type')) { setStatus(L.needType, 'err'); form.elements.client_type[0].focus(); return; }
     if (!form.elements.email.checkValidity()) { setStatus(L.needEmail, 'err'); form.elements.email.focus(); return; }
+    if (!fd.get('patent')) { setStatus(L.needPatent, 'err'); form.elements.patent[0].focus(); return; }
+    if (!fd.get('terms')) { setStatus(L.needTerms, 'err'); form.elements.terms.focus(); return; }
 
     submit.disabled = true;
     setStatus(L.sending);
@@ -80,7 +86,7 @@
         method: 'POST',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({
-          _subject: subject(fd), client_type: fd.get('client_type'), pow,
+          _subject: subject(fd), client_type: fd.get('client_type'), patent: fd.get('patent'), terms: !!fd.get('terms'), pow,
           name: val(fd, 'name'), company: val(fd, 'company'), email: val(fd, 'email'), phone: val(fd, 'phone'),
           message: brief(fd)
         })
