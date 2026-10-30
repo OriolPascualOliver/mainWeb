@@ -25,7 +25,11 @@ const TO = 'oriol@opotek.es';
 const MAX_PER_HOUR = 20;          // protects the daily email quota from floods
 const LIMITS = { name: 200, company: 200, email: 254, phone: 50, subject: 200, message: 5000 };
 const CLIENT_TYPES = ['B2B', 'B2C'];
-const PATENT = { self: 'Client says they checked existing patents', check: 'Client ORDERS the paid patent check' };
+const PATENT = {
+  self: 'Client says they checked existing patents',
+  check: 'Client ORDERS the paid patent check',
+  waive: 'Client proceeds WITHOUT a patent check and takes full responsibility'
+};
 const POW_MAX_NUMBER = 50000;     // puzzle difficulty: the browser tries up to this many hashes
 const POW_TTL_MS = 15 * 60 * 1000;
 

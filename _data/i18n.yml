@@ -28,7 +28,7 @@ en:
   company: Company
   legal: Legal
   privacy: Privacy Policy
-  cookies: Cookies Policy
+  cookies: "No cookies 🍪 we'd rather eat them"
   terms: Terms & conditions
   disclaimer: Disclaimer
   rights: All rights reserved.
@@ -75,7 +75,7 @@ es:
   company: Empresa
   legal: Legal
   privacy: Política de privacidad
-  cookies: Política de cookies
+  cookies: "Sin cookies 🍪 preferimos comérnoslas"
   terms: Términos y condiciones
   disclaimer: Aviso legal
   rights: Todos los derechos reservados.
